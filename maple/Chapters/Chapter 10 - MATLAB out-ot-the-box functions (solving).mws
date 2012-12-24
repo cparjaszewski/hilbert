@@ -1,0 +1,143 @@
+{VERSION 6 0 "IBM INTEL NT" "6.0" }
+{USTYLETAB {CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 0 
+0 1 }{CSTYLE "2D Comment" 2 18 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 }
+{CSTYLE "" -1 256 "" 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 
+257 "" 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 258 "" 0 1 0 0 
+0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 259 "" 0 1 0 0 0 0 1 0 0 0 0 0 
+0 0 0 0 }{CSTYLE "" -1 260 "" 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 }
+{CSTYLE "" -1 261 "" 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 
+262 "" 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 263 "" 0 1 0 0 
+0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 264 "" 0 1 0 0 0 0 1 0 0 0 0 0 
+0 0 0 0 }{CSTYLE "" -1 265 "" 1 10 0 0 0 0 2 0 0 0 0 0 0 0 0 0 }
+{CSTYLE "" -1 266 "" 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 
+267 "" 1 10 0 0 0 0 2 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 268 "" 0 1 0 0 
+0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 269 "" 0 1 0 0 0 0 1 0 0 0 0 0 
+0 0 0 0 }{CSTYLE "" -1 270 "" 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "Helvetica" 1 10 0 0 0 1 2 2 
+2 2 2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Heading 2" -1 
+4 1 {CSTYLE "" -1 -1 "Helvetica" 1 14 0 0 0 1 2 1 2 2 2 2 1 1 1 1 }1 
+1 0 0 8 2 1 0 1 0 2 2 0 1 }{PSTYLE "Heading 3" -1 5 1 {CSTYLE "" -1 
+-1 "Helvetica" 1 12 0 0 0 1 1 1 2 2 2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 
+2 2 0 1 }{PSTYLE "Heading 3" -1 256 1 {CSTYLE "" -1 -1 "Helvetica" 1 
+10 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }}
+{SECT 0 {SECT 1 {PARA 4 "" 0 "" {TEXT -1 47 "10. MATLAB \256 out-of-th
+e-box functions (solving)" }}{SECT 1 {PARA 5 "" 0 "" {TEXT -1 48 "10.1
+ Overview of the MATLAB \256 interior functions" }}{EXCHG {PARA 0 "" 
+0 "" {TEXT -1 233 "Why not take into consideration the already built-i
+n numerical methods from MATLAB. We compare the results obtained with:
+\n- quadgk() - adaptive Gauss-Kronrod quadrature;\n- hilbert() - fast \+
+Hilbert transform based on both FFT and IFFT" }}}{SECT 1 {PARA 256 "" 
+0 "" {TEXT 261 42 "Adaptive Gauss-Kronrod quadrature - theory" }{TEXT 
+-1 1 ":" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 822 "The source code of the
+ adaptive Gauss-Kronrod quadrature has been published in the popular F
+ortran 77 numerical integration QUADPACK library and has been also tra
+nslated into the MATLAB core language. It is also based on the \"quadv
+a\" routine decribed by Lawrence F. Shampine in [37]. The foundamental
+ idea of this numerical integration algorithm is the nested quadrature
+ rule - the more accurate quatradure approximation is calculated from \+
+the less accurate one. The algorithm is adaptive and the error estimat
+ion is based on the (G-K7,15) pair of the quadrature rules - less and \+
+more accurate - the 7-point Gauss rule and the 15-point Kronrod rule w
+ith a share nodes. For more information about the theory beneath this \+
+algorithm - please read D. Calvetti et al [37] or the 5.5 chapter from
+ the book by David Kahaner [38]." }}}{EXCHG {PARA 0 "" 0 "" {TEXT 264 
+54 "Short overview on the Gauss-Kronrod quadrature theory." }}}}{SECT 
+1 {PARA 256 "" 0 "" {TEXT 262 50 "Adaptive Gauss-Kronrod quadrature - \+
+short tutorial" }{TEXT -1 1 ":" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 457 
+"With the given theory the MATLAB implementation of the Gauss-Kronrod \+
+quadrature has been prepared to work as flexible as possible. The user
+ is able to cope with given parameters. Three of them are important fo
+r us:\nA. 'Waypoints' - the most important parameter when performing t
+he numerical integration with a singularity. As the Hilbert transform \+
+already has the singularity by definition, we will need to properly de
+fine the waypoint for each calculation;" }}{PARA 0 "" 0 "" {TEXT -1 
+241 "B. \"'AbsTol' and \"RelTol\" - the absolute and the relative erro
+r tolerance, to control the calculation time and its accuracy.\nThe sh
+ort tutorial MATLAB m-file with examples and more practical explanatio
+n has been presented in the Appendix B.1" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT 263 67 "The short tutorial overview on the MATLAB\256 quadgk() f
+unction usage." }}}}{SECT 1 {PARA 5 "" 0 "" {TEXT 265 40 "Fast Hilbert
+ transform routine - theory:" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 103 "T
+he discrete Hilbert transform (DHT) is given by definition after [39] \+
+- for a given n-length X vector:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 
+9 "(10.1.1) " }{XPPEDIT 18 0 "DHT(X[k]) = sum(X[s]*(1-(-1)^(k-s))*cot(
+Pi/n*(k-s)),s = 0 .. n-1)*1/n;" "6#/-%$DHTG6#&%\"XG6#%\"kG*(-%$sumG6$*
+(&F(6#%\"sG\"\"\",&F3F3),$F3!\"\",&F*F3F2F7F7F3-%$cotG6#*(%#PiGF3%\"nG
+F7,&F*F3F2F7F3F3/F2;\"\"!,&F>F3F3F7F3F3F3F>F7" }{TEXT -1 0 "" }}}
+{EXCHG {PARA 0 "" 0 "" {TEXT -1 50 "The other definition by [37] uses \+
+the convolution:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 10 "(10.1.2a) " }
+{XPPEDIT 18 0 "DHT(X[k]);" "6#-%$DHTG6#&%\"XG6#%\"kG" }{TEXT -1 15 " =
+ X[] * h[] = " }{XPPEDIT 18 0 "sum(h[k-s]*X[s],s = 0 .. n-1);" "6#-%$s
+umG6$*&&%\"hG6#,&%\"kG\"\"\"%\"sG!\"\"F,&%\"XG6#F-F,/F-;\"\"!,&%\"nGF,
+F,F." }{TEXT -1 11 "\n(10.1.2b) " }{XPPEDIT 18 0 "h[k] = (cot(pi*k/n)-
+cos(pi*k)/sin(pi*k/n))*1/n;" "6#/&%\"hG6#%\"kG*(,&-%$cotG6#*(%#piG\"\"
+\"F'F/%\"nG!\"\"F/*&-%$cosG6#*&F.F/F'F/F/-%$sinG6#*(F.F/F'F/F0F1F1F1F/
+F/F/F0F1" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 241 "The important issue \+
+is that the DHT is closely related to the discrete Fourier transform (
+DFT). For a given n-length X vector in order to evaluate the DHT(X) we
+ can hire the DFT routine. To start, we must remember that in the cont
+inous case:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 9 "(10.1.3) " }
+{XPPEDIT 18 0 "FOURIER(HILBERT(X[k])) = (-i*sgn(n/2-k)*sgn(k))*FOURIER
+(X[k]);" "6#/-%(FOURIERG6#-%(HILBERTG6#&%\"XG6#%\"kG*&,$*(%\"iG\"\"\"-
+%$sgnG6#,&*&%\"nGF2\"\"#!\"\"F2F-F:F2-F46#F-F2F:F2-F%6#&F+6#F-F2" }
+{TEXT -1 0 "" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 6 "where:" }}}{EXCHG 
+{PARA 0 "" 0 "" {TEXT -1 9 "(10.1.4) " }{XPPEDIT 18 0 "-i*sgn(n/2-k)*s
+gn(k) = FOURIER(1/pi/k);" "6#/,$*(%\"iG\"\"\"-%$sgnG6#,&*&%\"nGF'\"\"#
+!\"\"F'%\"kGF/F'-F)6#F0F'F/-%(FOURIERG6#*(F'F'%#piGF/F0F/" }{TEXT -1 
+0 "" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 97 "Therefore in the discrete \+
+case we find the similar equation to (10.1.3) relating the DHT and DFT
+:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 9 "(10.1.5) " }{XPPEDIT 18 0 "DF
+T(DHT(X[k])) = (-i)*sgn(n/2-k)*sgn(k)*DFT(X[k]);" "6#/-%$DFTG6#-%$DHTG
+6#&%\"XG6#%\"kG**,$%\"iG!\"\"\"\"\"-%$sgnG6#,&*&%\"nGF2\"\"#F1F2F-F1F2
+-F46#F-F2-F%6#&F+6#F-F2" }{TEXT -1 0 "" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 426 "From the equation (10.1.5) we can see, that it is quite \+
+easy to operate within the Fourier/frequency domain - because the quit
+e complicate convolution is transformed to a simple algebraic operatio
+ns. Also - if we have the quick algorithm to perform both the DFT and \+
+inverse-DFT - for example with the fast Fourier transform (FFT) and th
+e inverse fast Fourier transform (IFFT) - the DHT operation will be ca
+lculated as follows:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 9 "(10.1.6) \+
+" }{XPPEDIT 18 0 "DHT(X[k]) = IDFT((-i)*sgn(n/2-k)*sgn(k)*DFT(X[k]));
+" "6#/-%$DHTG6#&%\"XG6#%\"kG-%%IDFTG6#**,$%\"iG!\"\"\"\"\"-%$sgnG6#,&*
+&%\"nGF2\"\"#F1F2F*F1F2-F46#F*F2-%$DFTG6#&F(6#F*F2" }}}{EXCHG {PARA 0 
+"" 0 "" {TEXT 266 103 "The foundametals of the discrete Hilbert transf
+orm and its relation with the discrete Fourier transform" }}}}{SECT 1 
+{PARA 5 "" 0 "" {TEXT 267 48 "Fast Hilbert transform routine - short t
+utorial:" }{TEXT -1 0 "" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 120 "While \+
+the hired DFT and IDFT routines are evaluated in complex domain, for a
+ given input n-length X vector we have that:" }}}{EXCHG {PARA 0 "" 0 "
+" {TEXT -1 10 "(10.1.7)  " }{XPPEDIT 18 0 "hilbert(X);" "6#-%(hilbertG
+6#%\"XG" }{TEXT -1 4 " -> " }{XPPEDIT 18 0 "X+i*DHT(X);" "6#,&%\"XG\"
+\"\"*&%\"iGF%-%$DHTG6#F$F%F%" }{TEXT -1 0 "" }}}{EXCHG {PARA 0 "" 0 "
+" {TEXT -1 78 "In order to obtain the final result we need to take the
+ imaginary part of the " }{TEXT 269 18 "MATLAB\256 hilbert() " }{TEXT 
+-1 55 "function output. The other important issue is that the " }
+{TEXT 270 17 "MATLAB\256 hilbert()" }{TEXT -1 188 " function has one o
+ptional parameter called N - to computer the N-point Hilbert transform
+. If the input vector X is too short, it will be padded with zeros, ot
+herwise it will be truncated." }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 116 
+"The short tutorial MATLAB m-file with examples and more practical exp
+lanation has been presented in the Appendix B.2" }}}{EXCHG {PARA 0 "" 
+0 "" {TEXT 268 68 "The short tutorial overview on the MATLAB\256 hilbe
+rt() function usage." }}}}{EXCHG {PARA 0 "" 0 "" {TEXT 256 29 "Overvie
+w of the method using " }{TEXT -1 28 "MATLAB \256 interior functions.
+" }}}}{SECT 1 {PARA 5 "" 0 "" {TEXT -1 32 "10.2 MIF for simple linear \+
+model" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 25 "Text and graphs here.... \+
+" }}}{EXCHG {PARA 0 "" 0 "" {TEXT 257 106 "Example cases for solving t
+he Kramers-Kronig relations in linear model using MIF - with short con
+clusions." }}}}{SECT 1 {PARA 5 "" 0 "" {TEXT -1 35 "10.3 MIF for simpl
+e nonlinear model" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 25 "Text and grap
+hs here.... " }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 87 "Example cases for
+ solving the Kramers-Kronig relations in simple nonlinear model using \+
+" }{TEXT 258 3 "MIF" }{TEXT -1 26 " - with short conslusions." }}}}
+{SECT 1 {PARA 5 "" 0 "" {TEXT -1 46 "10.4 MIF for simple quantum-pertu
+rbative model" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 25 "Text and graphs h
+ere.... " }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 98 "Example cases for sol
+ving the Kramers-Kronig relations in simple quantum-perturbative model
+ using " }{TEXT 259 3 "MIF" }{TEXT -1 26 " - with short conslusions." 
+}}}}{SECT 1 {PARA 5 "" 0 "" {TEXT -1 25 "10.5 MIF for other models" }}
+{EXCHG {PARA 0 "" 0 "" {TEXT -1 25 "Text and graphs here.... " }}}
+{EXCHG {PARA 0 "" 0 "" {TEXT -1 78 "Example cases for solving the Kram
+ers-Kronig relations for other models using " }{TEXT 260 3 "MIF" }
+{TEXT -1 26 " - with short conslusions." }}}}}}{MARK "0" 0 }{VIEWOPTS 
+1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

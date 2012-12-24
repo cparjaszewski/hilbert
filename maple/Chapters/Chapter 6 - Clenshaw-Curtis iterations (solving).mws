@@ -1,0 +1,208 @@
+{VERSION 6 0 "IBM INTEL NT" "6.0" }
+{USTYLETAB {CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 0 
+0 1 }{CSTYLE "2D Comment" 2 18 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 }
+{CSTYLE "" -1 256 "" 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 
+257 "" 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 258 "" 0 1 0 0 
+0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 259 "" 0 1 0 0 0 0 1 0 0 0 0 0 
+0 0 0 0 }{CSTYLE "" -1 260 "" 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 }
+{CSTYLE "" -1 261 "Helvetica" 1 10 0 0 0 0 2 0 0 0 0 0 0 0 0 0 }
+{CSTYLE "" -1 262 "Helvetica" 0 12 0 0 0 0 2 0 0 0 0 0 0 0 0 0 }
+{CSTYLE "" -1 263 "Helvetica" 0 1 0 0 0 0 2 0 0 0 0 0 0 0 0 0 }
+{CSTYLE "" -1 264 "Helvetica" 0 1 0 0 0 0 2 0 0 0 0 0 0 0 0 0 }
+{CSTYLE "" -1 265 "" 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 
+266 "" 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 267 "" 0 1 0 0 
+0 0 0 1 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 268 "" 0 1 0 0 0 0 0 1 0 0 0 0 
+0 0 0 0 }{CSTYLE "" -1 269 "" 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }
+{CSTYLE "" -1 270 "" 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 
+271 "" 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 272 "" 0 1 0 0 
+0 0 0 1 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 273 "" 0 1 0 0 0 0 1 0 0 0 0 0 
+0 0 0 0 }{CSTYLE "" -1 274 "" 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "Helvetica" 1 10 0 0 0 1 2 2 
+2 2 2 2 1 1 1 1 }1 1 0 0 0 0 3 0 3 0 2 2 0 1 }{PSTYLE "Heading 1" -1 
+3 1 {CSTYLE "" -1 -1 "Times" 1 18 0 0 0 1 2 1 2 2 2 2 1 1 1 1 }1 1 0 
+0 8 4 1 0 1 0 2 2 0 1 }{PSTYLE "Heading 3" -1 5 1 {CSTYLE "" -1 -1 "Ti
+mes" 1 12 0 0 0 1 1 1 2 2 2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }
+{PSTYLE "Heading 4" -1 20 1 {CSTYLE "" -1 -1 "Times" 1 10 0 0 0 1 1 1 
+2 2 2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Normal" -1 256 
+1 {CSTYLE "" -1 -1 "Helvetica" 1 10 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }1 1 
+0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Heading 2" -1 257 1 {CSTYLE "" -1 
+-1 "Helvetica" 1 14 0 0 0 1 2 1 2 2 2 2 1 1 1 1 }1 1 0 0 8 2 1 0 1 0 
+2 2 0 1 }{PSTYLE "Heading 3" -1 258 1 {CSTYLE "" -1 -1 "Helvetica" 1 
+12 0 0 0 1 1 1 2 2 2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "
+Normal" -1 259 1 {CSTYLE "" -1 -1 "Helvetica" 1 10 0 0 0 1 1 2 2 2 2 
+2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }}
+{SECT 0 {SECT 0 {PARA 3 "" 0 "" {TEXT -1 0 "" }}{SECT 0 {PARA 257 "" 
+0 "" {TEXT -1 47 "6. Hilbert Clenshaw-Curtis iterations (solving)" }}
+{SECT 1 {PARA 258 "" 0 "" {TEXT -1 54 "6.1 Overview of the Hilbert Cle
+nshaw-Curtis iterations" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 118 "The ad
+aptive and iterative algorithm for obtaining the Hilbert transform of \+
+a given regime of abscissas is presented. " }}}{SECT 1 {PARA 5 "" 0 "
+" {TEXT 261 27 "Clenshaw Curtis quadrature:" }{TEXT 263 1 " " }}
+{EXCHG {PARA 256 "" 0 "" {TEXT -1 254 "The heart of the calculation is
+ based on the typical Clenshaw-Curtis quadrature of function that has \+
+been expanded into a form of Chebyshev polynomials. We define the quad
+rature problem as follows - for a given function f(x) find a value of \+
+the integral:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 14 "(6.1.1) CCI = " 
+}{XPPEDIT 18 0 "int(f(x),x = -1 .. 1);" "6#-%$intG6$-%\"fG6#%\"xG/F);,
+$\"\"\"!\"\"F-" }{TEXT -1 0 "" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 139 
+"The first step in solving this quadrature, after the idea of C.W. Cle
+nshaw and A.R. Curtis [25] is to do the following change of variables:
+" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 9 "(6.1.2a) " }{XPPEDIT 18 0 "x =
+ cos(theta);" "6#/%\"xG-%$cosG6#%&thetaG" }{TEXT -1 16 "\n(6.1.2b) CCI
+ = " }{XPPEDIT 18 0 "int(f(cos(theta))*sin(theta),theta = 0 .. Pi);" "
+6#-%$intG6$*&-%\"fG6#-%$cosG6#%&thetaG\"\"\"-%$sinG6#F-F./F-;\"\"!%#Pi
+G" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 110 "By using the Discrete Cosin
+e Transform of I-type, we can estimate the integral (6.1.2b) with foll
+owing series:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 9 "(6.1.3a) " }
+{XPPEDIT 18 0 "int(f(cos(theta))*sin(theta),theta = 0 .. Pi);" "6#-%$i
+ntG6$*&-%\"fG6#-%$cosG6#%&thetaG\"\"\"-%$sinG6#F-F./F-;\"\"!%#PiG" }
+{TEXT -1 4 " ~= " }{XPPEDIT 18 0 "a[0]+sum(2*a[2*k]/(1-(2*k)^2),k = 1 \+
+.. N/2-1)+a[N]/(1-N^2);" "6#,(&%\"aG6#\"\"!\"\"\"-%$sumG6$*(\"\"#F(&F%
+6#*&F-F(%\"kGF(F(,&F(F(*$*&F-F(F1F(F-!\"\"F5/F1;F(,&*&%\"NGF(F-F5F(F(F
+5F(*&&F%6#F:F(,&F(F(*$F:F-F5F5F(" }{TEXT -1 10 "\n(6.1.3b) " }
+{XPPEDIT 18 0 "a[k] = 2/pi*int(f*cos(theta)*cos(k*theta),theta = 0 .. \+
+pi);" "6#/&%\"aG6#%\"kG*(\"\"#\"\"\"%#piG!\"\"-%$intG6$*(%\"fGF*-%$cos
+G6#%&thetaGF*-F36#*&F'F*F5F*F*/F5;\"\"!F+F*" }}}{EXCHG {PARA 0 "" 0 "
+" {TEXT -1 57 "Now we perform the simple approximation of (6.1.3b) wit
+h:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 8 "(6.1.4) " }{XPPEDIT 18 0 "a[
+k];" "6#&%\"aG6#%\"kG" }{TEXT -1 4 " ~= " }{XPPEDIT 18 0 "2/N*(f(1)/2+
+f(-1)/2*(-1)^k+sum(f(cos(n*pi/N))*cos(n*pi/N*k),k = 1 .. N-1));" "6#*(
+\"\"#\"\"\"%\"NG!\"\",(*&-%\"fG6#F%F%F$F'F%*(-F+6#,$F%F'F%F$F'),$F%F'%
+\"kGF%F%-%$sumG6$*&-F+6#-%$cosG6#*(%\"nGF%%#piGF%F&F'F%-F;6#**F>F%F?F%
+F&F'F3F%F%/F3;F%,&F&F%F%F'F%F%" }{TEXT -1 1 " " }}}{EXCHG {PARA 0 "" 
+0 "" {TEXT -1 48 "And while in the (6.1.3a) equation we need only " }
+{XPPEDIT 18 0 "a[2*k];" "6#&%\"aG6#*&\"\"#\"\"\"%\"kGF(" }{TEXT -1 41 
+", the (6.1.4) equation can be simplified:" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 8 "(6.1.5) " }{XPPEDIT 18 0 "a[2*k];" "6#&%\"aG6#*&\"\"#\"\"
+\"%\"kGF(" }{TEXT -1 4 " ~= " }{XPPEDIT 18 0 "2/N*((f(1)-f(-1))/2+f(0)
+^(-k)+sum(f(cos(pi*n/N))+f(-cos(pi*n/N))*cos(n*k*pi/(N/2)),k = 1 .. N/
+2-1));" "6#*(\"\"#\"\"\"%\"NG!\"\",(*&,&-%\"fG6#F%F%-F,6#,$F%F'F'F%F$F
+'F%)-F,6#\"\"!,$%\"kGF'F%-%$sumG6$,&-F,6#-%$cosG6#*(%#piGF%%\"nGF%F&F'
+F%*&-F,6#,$-F>6#*(FAF%FBF%F&F'F'F%-F>6#**FBF%F6F%FAF%*&F&F%F$F'F'F%F%/
+F6;F%,&*&F&F%F$F'F%F%F'F%F%" }{TEXT -1 0 "" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 67 "We can now simplify the (6.1.5) equation using the matrix
+ notation:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 9 "(6.1.6a) " }
+{XPPEDIT 18 0 "y[n] = f(cos(pi*n/N)+f(-cos(n*pi/N)));" "6#/&%\"yG6#%\"
+nG-%\"fG6#,&-%$cosG6#*(%#piG\"\"\"F'F1%\"NG!\"\"F1-F)6#,$-F-6#*(F'F1F0
+F1F2F3F3F1" }{TEXT -1 10 "\n(6.1.6b) " }{XPPEDIT 18 0 "D[k,n] = 2/N*co
+s(n*k*pi/(N/2))*C[k];" "6#/&%\"DG6$%\"kG%\"nG**\"\"#\"\"\"%\"NG!\"\"-%
+$cosG6#**F(F+F'F+%#piGF+*&F,F+F*F-F-F+&%\"CG6#F'F+" }{TEXT -1 0 "" }}}
+{EXCHG {PARA 0 "" 0 "" {TEXT -1 7 "where:\n" }{XPPEDIT 18 0 "C[k] = 1/
+2;" "6#/&%\"CG6#%\"kG*&\"\"\"F)\"\"#!\"\"" }{TEXT -1 30 " for k = 0, N
+/2 and otherwise " }{XPPEDIT 18 0 "C[k] = 1;" "6#/&%\"CG6#%\"kG\"\"\"
+" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 195 "We can observe, that both (6
+.1.5) and (6.1.6a-b) describes the DCT-I transform. Now we use the sta
+tement, that DCT-I is equivalent to a DFT of 2N - 2 real numbers with \+
+even symmetry. So we state:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 9 "(6.
+1.7a) " }{XPPEDIT 18 0 "Y[m] = y[2*m] and Y[N-1-m] = x[2*m+1];" "6#3/&
+%\"YG6#%\"mG&%\"yG6#*&\"\"#\"\"\"F(F./&F&6#,(%\"NGF.F.!\"\"F(F4&%\"xG6
+#,&*&F-F.F(F.F.F.F." }{TEXT -1 70 " for (m=0,1,...,N/2-1)\n(6.1.7b) FY
+ = DFT(Y)\n(6.1.7c) [a] = DCT-I(y) = " }{XPPEDIT 18 0 "Re(exp(-j*n*pi/
+(2*N))*FY);" "6#-%#ReG6#*&-%$expG6#,$**%\"jG\"\"\"%\"nGF-%#piGF-*&\"\"
+#F-%\"NGF-!\"\"F3F-%#FYGF-" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 118 "No
+w as we got the vector of a coefficients (6.1.7c) we can perform the f
+inal calculation by multiplying with vector d:" }}}{EXCHG {PARA 0 "" 
+0 "" {TEXT -1 8 "(6.1.8) " }{XPPEDIT 18 0 "d[0];" "6#&%\"dG6#\"\"!" }
+{TEXT -1 6 " = 1, " }{XPPEDIT 18 0 "d[2*k] = 2/(1-(2*k)^2);" "6#/&%\"d
+G6#*&\"\"#\"\"\"%\"kGF)*&F(F),&F)F)*$*&F(F)F*F)F(!\"\"F/" }{TEXT -1 2 
+", " }{XPPEDIT 18 0 "d[N] = 1/(1-N^2);" "6#/&%\"dG6#%\"NG*&\"\"\"F),&F
+)F)*$F'\"\"#!\"\"F-" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 32 "And we get
+ the final conslusion:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 8 "(6.1.9) \+
+" }{XPPEDIT 18 0 "int(f(x),x = -1 .. 1) = d^T*[a];" "6#/-%$intG6$-%\"f
+G6#%\"xG/F*;,$\"\"\"!\"\"F.*&)%\"dG%\"TGF.7#%\"aGF." }}}}{SECT 1 
+{PARA 20 "" 0 "" {TEXT 262 55 "Hilbert transform using the Clenshaw-Cu
+rtis quadrature:" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 286 "While the Cle
+nshaw-Curtis quadrature is defined for finite range [-1,1], the Hilber
+t transform uses the definite and improper integral over the range [-i
+nfinity, infinity]. What must now be done is to change the range of in
+tegrations without changing the value of the Hilbert transform:" }}}
+{EXCHG {PARA 0 "" 0 "" {TEXT -1 14 "(6.1.10a) x = " }{XPPEDIT 18 0 "t/
+(1-t^2);" "6#*&%\"tG\"\"\",&F%F%*$F$\"\"#!\"\"F)" }{TEXT -1 11 "\n(6.1
+.10b) " }{TEXT 265 9 "Hil(f)(s)" }{TEXT -1 4 " =  " }{XPPEDIT 18 0 "1/
+Pi*int(f(x)/(x-s),x = -infinity .. infinity);" "6#*(\"\"\"F$%#PiG!\"\"
+-%$intG6$*&-%\"fG6#%\"xGF$,&F.F$%\"sGF&F&/F.;,$%)infinityGF&F4F$" }
+{TEXT -1 3 " = " }{XPPEDIT 18 0 "1/Pi*int(f(t/(1-t^2))*(1+t^2)/((t^2-1
+)*(t+s*t^2-s)),t = -1 .. 1);" "6#*(\"\"\"F$%#PiG!\"\"-%$intG6$*(-%\"fG
+6#*&%\"tGF$,&F$F$*$F/\"\"#F&F&F$,&F$F$*$F/F2F$F$*&,&*$F/F2F$F$F&F$,(F/
+F$*&%\"sGF$*$F/F2F$F$F:F&F$F&/F/;,$F$F&F$F$" }{TEXT -1 1 " " }}}
+{EXCHG {PARA 0 "" 0 "" {TEXT -1 99 "Our simple algorithm uses the impl
+ementation of Clenshaw-Curtis quadrature with the inner function:" }}}
+{EXCHG {PARA 0 "" 0 "" {TEXT -1 18 "(6.1.11) g(t,s) = " }{XPPEDIT 18 
+0 "f(t/(1-t^2))*(1+t^2)/((t^2-1)*(t+s*t^2-s))" "6#*(-%\"fG6#*&%\"tG\"
+\"\",&F)F)*$F(\"\"#!\"\"F-F),&F)F)*$F(F,F)F)*&,&*$F(F,F)F)F-F),(F(F)*&
+%\"sGF)*$F(F,F)F)F5F-F)F-" }{TEXT -1 0 "" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 295 "In our implementation is adaptive - we compare two resul
+ts for number of points N and 2*N - if the result is satisfactory, the
+ loop ends, if not - we continue with doubling the number of points in
+ the Clenshaw-Curtis quadrature implementation - so the step and toler
+ance must be selecter wisely." }}}}{SECT 1 {PARA 20 "" 0 "" {TEXT 264 
+61 "Our implementation of the Hilbert Clenshaw-Curtis iterations:" }}
+{EXCHG {PARA 0 "" 0 "" {TEXT -1 566 "So far we have presented the over
+view of procedures responsible for evaluation of the Clenshaw-Curtis q
+uadrature and the Hilbert transform using the Clenshaw-Curtis quadratu
+re in one point. But in the typical situation we have the whole vector
+ of function values for a given range of abscissas - so what is left -
+ we perform the single-point Hilbert transform based on the Clenshaw-C
+urtis quadrature for each given point. But to omit problems with singu
+larities, we will add some post- and precalculations - using the cubic
+ interpolation. The whole procedure is now:" }}}{EXCHG {PARA 0 "" 0 "
+" {TEXT 266 8 "INPUT: \n" }{TEXT -1 54 "X, Y - given N-length abscissa
+s and related ordinates\n" }{TEXT 267 18 "PRE-CALCULATIONS:\n" }{TEXT 
+-1 80 "From N points of Y we calculate the cubic interpolation having \+
+N-1 inner points:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 10 "(6.1.12a) " 
+}{XPPEDIT 18 0 "Yp[1] = (3*Y[1]+6*Y[2]-Y[3])/8;" "6#/&%#YpG6#\"\"\"*&,
+(*&\"\"$F'&%\"YG6#F'F'F'*&\"\"'F'&F-6#\"\"#F'F'&F-6#F+!\"\"F'\"\")F6" 
+}{TEXT -1 1 "\n" }}{PARA 0 "" 0 "" {TEXT -1 10 "(6.1.12b) " }{XPPEDIT 
+18 0 "Yp[k] = (-Y[k-1]+9*Y[k]+9*Y[k+1]-Y[k+2])/16;" "6#/&%#YpG6#%\"kG*
+&,*&%\"YG6#,&F'\"\"\"F.!\"\"F/*&\"\"*F.&F+6#F'F.F.*&F1F.&F+6#,&F'F.F.F
+.F.F.&F+6#,&F'F.\"\"#F.F/F.\"#;F/" }{TEXT -1 11 "\n(6.1.12c) " }
+{XPPEDIT 18 0 "Yp[N] = (-Y[N-2]+6*Y[N-1]+3*Y[N])/8;" "6#/&%#YpG6#%\"NG
+*&,(&%\"YG6#,&F'\"\"\"\"\"#!\"\"F0*&\"\"'F.&F+6#,&F'F.F.F0F.F.*&\"\"$F
+.&F+6#F'F.F.F.\"\")F0" }}}{EXCHG {PARA 0 "" 0 "" {TEXT 268 19 "MAIN CA
+LCULATIONS:\n" }{TEXT -1 79 "With desired tolerance we calculate the N
+-1 values for each on of inner points:" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 9 "(6.1.13) " }{XPPEDIT 18 0 "Hh[k];" "6#&%#HhG6#%\"kG" }
+{TEXT -1 4 " ~= " }{TEXT 269 7 "Hil(f)(" }{XPPEDIT 18 0 "Yp[k];" "6#&%
+#YpG6#%\"kG" }{TEXT 270 1 ")" }}}{EXCHG {PARA 0 "" 0 "" {TEXT 271 19 "
+POST-CALCULATIONS:\n" }{TEXT -1 81 "From N-1 points of Hh we calculate
+ N points using the reverse cubic interpolation" }}}{EXCHG {PARA 0 "" 
+0 "" {TEXT -1 10 "(6.1.14a) " }{XPPEDIT 18 0 "H[1] = (15*Hh[1]-10*Hh[2
+]+3*Hh[3])/8;" "6#/&%\"HG6#\"\"\"*&,(*&\"#:F'&%#HhG6#F'F'F'*&\"#5F'&F-
+6#\"\"#F'!\"\"*&\"\"$F'&F-6#F6F'F'F'\"\")F4" }{TEXT -1 11 "\n(6.1.14b)
+ " }{XPPEDIT 18 0 "H[2] = (3*Hh[1]+6*Hh[2]-Hh[3])/8;" "6#/&%\"HG6#\"\"
+#*&,(*&\"\"$\"\"\"&%#HhG6#F,F,F,*&\"\"'F,&F.6#F'F,F,&F.6#F+!\"\"F,\"\"
+)F6" }{TEXT -1 11 "\n(6.1.14c) " }{XPPEDIT 18 0 "H[k] = (-Hh[k-1]+9*Hh
+[k]+9*Hh[k+1]-Hh[k+2])/16;" "6#/&%\"HG6#%\"kG*&,*&%#HhG6#,&F'\"\"\"F.!
+\"\"F/*&\"\"*F.&F+6#F'F.F.*&F1F.&F+6#,&F'F.F.F.F.F.&F+6#,&F'F.\"\"#F.F
+/F.\"#;F/" }{TEXT -1 11 "\n(6.1.14d) " }{XPPEDIT 18 0 "H[N-1] = (-Hh[N
+-3]+6*Hh[2]-Hh[3])/8;" "6#/&%\"HG6#,&%\"NG\"\"\"F)!\"\"*&,(&%#HhG6#,&F
+(F)\"\"$F*F**&\"\"'F)&F.6#\"\"#F)F)&F.6#F1F*F)\"\")F*" }{TEXT -1 11 "
+\n(6.1.14e) " }{XPPEDIT 18 0 "H[N] = (3*Hh[N-3]-10*Hh[N-2]+15*Hh[N-1])
+/8;" "6#/&%\"HG6#%\"NG*&,(*&\"\"$\"\"\"&%#HhG6#,&F'F,F+!\"\"F,F,*&\"#5
+F,&F.6#,&F'F,\"\"#F1F,F1*&\"#:F,&F.6#,&F'F,F,F1F,F,F,\"\")F1" }{TEXT 
+-1 0 "" }}}{EXCHG {PARA 0 "" 0 "" {TEXT 272 7 "OUTPUT:" }}{PARA 0 "" 
+0 "" {TEXT -1 71 "H - N-length hilbert transform for given function va
+lues at X abscissas" }}}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 59 "The algor
+ithm source has been presented in the Appendix A.3" }}}{EXCHG {PARA 0 
+"" 0 "" {TEXT -1 1 "O" }{TEXT 273 15 "verview of the " }{TEXT -1 26 "C
+lenshaw-Curtis iterations" }{TEXT 274 8 " method." }}}}{SECT 1 {PARA 
+258 "" 0 "" {TEXT -1 32 "6.2 HCCI for simple linear model" }}{EXCHG 
+{PARA 256 "" 0 "" {TEXT -1 25 "Text and graphs here.... " }}}{EXCHG 
+{PARA 256 "" 0 "" {TEXT 256 77 "Example cases for solving the Kramers-
+Kronig relations in linear model using " }{TEXT -1 3 "CCI" }{TEXT 257 
+26 " - with short conclusions." }}}}{SECT 1 {PARA 258 "" 0 "" {TEXT 
+-1 35 "6.3 HCCI for simple nonlinear model" }}{EXCHG {PARA 256 "" 0 "
+" {TEXT -1 25 "Text and graphs here.... " }}}{EXCHG {PARA 256 "" 0 "" 
+{TEXT 258 116 "Example cases for solving the Kramers-Kronig relations \+
+in simple nonlinear model using CCI - with short conslusions." }}}}
+{SECT 1 {PARA 258 "" 0 "" {TEXT -1 46 "6.4 HCCI for simple quantum-per
+turbative model" }}{EXCHG {PARA 256 "" 0 "" {TEXT -1 25 "Text and grap
+hs here.... " }}}{EXCHG {PARA 256 "" 0 "" {TEXT 259 127 "Example cases
+ for solving the Kramers-Kronig relations in simple quantum-perturbati
+ve model using CCI - with short conslusions." }}}}{SECT 1 {PARA 258 "
+" 0 "" {TEXT -1 25 "6.5 HCCI for other models" }}{EXCHG {PARA 256 "" 
+0 "" {TEXT -1 25 "Text and graphs here.... " }}}{EXCHG {PARA 256 "" 0 
+"" {TEXT 260 107 "Example cases for solving the Kramers-Kronig relatio
+ns for other models using CCI - with short conslusions." }}}}}}}{MARK 
+"0 1 1" 0 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 
+1 }

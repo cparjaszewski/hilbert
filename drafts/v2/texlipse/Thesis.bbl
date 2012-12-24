@@ -1,0 +1,230 @@
+\begin{thebibliography}{10}
+
+\bibitem{bloembergen_nonlinear}
+N.~Bloembergen.
+\newblock {\em Nonlinear optics}.
+\newblock World Scientific, 1996.
+
+\bibitem{bluestein_linear}
+Leo~I. Bluestein.
+\newblock {A linear filtering approach to the computation of the discrete
+  Fourier transform}, 1968.
+
+\bibitem{boyd_nlo}
+Robert~W. Boyd.
+\newblock {\em {Nonlinear Optics, Third Edition}}.
+\newblock Academic Press, 3 edition, April 2008.
+
+\bibitem{boyd_chirality}
+Robert~W Boyd, John~E Sipe, and Peter~W Milonni.
+\newblock Chirality and polarization effects in nonlinear optics.
+\newblock {\em Journal of Optics A: Pure and Applied Optics}, 6(3):S14, 2004.
+
+\bibitem{bruun_ztransform}
+Georg Bruun.
+\newblock {Z-transform DFT filters and FFTs}.
+\newblock {\em IEEE Transactions on Acoustics, Speech, and Signal Processing},
+  26:56--63, 1978.
+\newblock URL: {\tt http://cr.yp.to/\allowbreak bib/\allowbreak
+  entries.html\#\allowbreak 1978/\allowbreak bruun}.
+
+\bibitem{calvetti_computation}
+Daniela Calvetti, Gene~H. Golub, William~B. Gragg, and Lothar Reichel.
+\newblock Computation of gauss-kronrod quadrature rules.
+\newblock {\em Math. Comput.}, 69(231):1035--1052, 2000.
+
+\bibitem{christodoulides_nonlinear}
+Demetrios~N. Christodoulides, Iam~Choon Khoo, Gregory~J. Salamo, George~I.
+  Stegeman, and Eric W.~Van Stryland.
+\newblock Nonlinear refraction and absorption: mechanisms and magnitudes.
+\newblock {\em Adv. Opt. Photon.}, 2(1):60--200, Mar 2010.
+
+\bibitem{chui_lf_correction}
+S.~T. {Chui}, H.-R. {Ma}, R.~V. {Kasowski}, and W.~Y. {Hsu}.
+\newblock Local-field correction for nonlinear optical coefficients.
+\newblock {\em Physical Review}, 47(11):6293--6298, March 1993.
+
+\bibitem{clenshaw_method}
+C~W Clenshaw and A~R Curtis.
+\newblock A method for numerical integration on an automatic computer.
+\newblock {\em Numerische Mathematik}, 2(1):197--205, 1960.
+
+\bibitem{Tukey_algorithm}
+James Cooley and John Tukey.
+\newblock An algorithm for the machine calculation of complex fourier series.
+\newblock {\em Mathematics of Computation}, 19(90):297--301, 1965.
+
+\bibitem{newport_application}
+Newport Corporation.
+\newblock Z-scan for the characterization of transparent optical materials.
+\newblock Application Note~34, Spectra-Physics divistion, Irvine, California,
+  Newport Corporation, Worldwide Headquarters, 1791 Deere Avenue, Irvine, CA
+  92606, July 2007.
+\newblock MM\#00000094 DS-04071.
+
+\bibitem{Good_interaction}
+Irving~J. Good.
+\newblock The interaction algorithm and practical fourier analysis: An
+  addendum.
+\newblock {\em Journal of the Royal Statistical Society. Series B
+  (Methodological)}, 22:372--375, 1960.
+
+\bibitem{hahn_hilbert}
+S.L. Hahn.
+\newblock {\em Hilbert transforms in signal processing}.
+\newblock Artech House signal processing library. Artech House, 1996.
+
+\bibitem{hutchings_kramers2}
+D~C Hutchings, M~Sheik-Bahae, D~J Hagan, and E~W Van~Stryland.
+\newblock Kramers-kronig relations in nonlinear optics.
+\newblock {\em Optical and Quantum Electronics}, 24(1):1--30, 1992.
+
+\bibitem{johansson_hilbert}
+Mathias Johansson.
+\newblock The hilbert transform.
+\newblock Master's thesis, {Vaxjo University}, March 1999.
+\newblock Mathematics, Applied Mathematics.
+
+\bibitem{kahaner_numerical}
+David Kahaner, Cleve Moler, and Stephen Nash.
+\newblock {\em Numerical methods and software}.
+\newblock Prentice-Hall, Inc., Upper Saddle River, NJ, USA, 1989.
+
+\bibitem{kak_multilayeredarray}
+Subhash~C. Kak.
+\newblock Multilayered array computing.
+\newblock In {\em Proc. 20th Annual Conference on Information Sciences and
+  Systems, Princeton}, pages 436--441, 1986.
+
+\bibitem{katznelson_introduction}
+Y.~Katznelson.
+\newblock {\em An introduction to harmonic analysis}.
+\newblock Cambridge mathematical library. Cambridge University Press, 2004.
+
+\bibitem{lamb_issues}
+M~Lamb and V~Rouillard.
+\newblock Some issues when using fourier analysis for the extraction of modal
+  parameters.
+\newblock {\em Journal of Physics: Conference Series}, 181(1):012007, 2009.
+
+\bibitem{Levenson_dispersion}
+M~Levenson and N~Bloembergen.
+\newblock Dispersion of the nonlinear optical susceptibility tensor in
+  centrosymmetric media.
+\newblock {\em Physical Review B}, 10(10):4447--4463, 1974.
+
+\bibitem{lucarini_kramers}
+V.~Lucarini.
+\newblock {\em Kramers-Kronig relations in optical materials research}.
+\newblock Springer series in optical sciences. Springer, 2005.
+
+\bibitem{samoc_nlo_absorption}
+B.~Luther-Davies M. G. Humphrey-M. P.~Cifuentes Marek~Samoc, A.~Samoc.
+\newblock Nonlinear absorption: materials and mechanisms.
+\newblock In Agnieszka Popiolek-Masajada, editor, {\em Proceedings of the
+  Symposium on Photonics Technologies for 7th Framework Program}, pages
+  230--233, Wroclaw, Poland, October 2006. Institute of Physics, Wroclaw
+  University of Technology, Centre for Advanced Materials and Nanotechnology,
+  Wroclaw University of Technology, Wrocław Centre for Technology Transfer,
+  Oficyna Wydawnicza Politechniki Wroclawskiej.
+
+\bibitem{kuzyk_nlo}
+Nathan J. Dawson Sheng-Ting Hung Wei Lu Shiva Ramini Jennifer L. Schei Shoresh
+  Shafei Julian H. Smith Afsoon Soudi Szymon Steplewski Xianjun~Ye Mark
+  G.~Kuzyk, Benjamin R.~Anderson.
+\newblock Nonlinear optics.
+\newblock http://www.nlosource.com/LectureNotesBook.pdf, August 2010.
+\newblock Course book.
+
+\bibitem{thesis_novak}
+A.~Novak.
+\newblock {\em Identification of Nonlinear Systems in Acoustics}.
+\newblock PhD thesis, Université du Maine, Le Mans, France AND Czech Technical
+  University, Prague, Czech Republic, 2009.
+
+\bibitem{muhoray_course}
+Palffy-Muhoray.
+\newblock Course materials for lc optics and photonics.
+\newblock http://mpalffy.lci.kent.edu/Optics/, Spring 2011.
+\newblock CPHY 6/74495.
+
+\bibitem{prasad_intro_nlo}
+David J.~Williams Paras N.~Prasad.
+\newblock {\em Introduction to Nonlinear Optical Effects in Molecules and
+  Polymers}, volume~1.
+\newblock Wiley-Interscience, New York, 01 1991.
+\newblock A Wiley-Interscience publication.
+
+\bibitem{prasad_nanophotonics}
+P.N. Prasad.
+\newblock {\em Nanophotonics}.
+\newblock Wiley-Interscience, 2004.
+
+\bibitem{rader_dicrete}
+Charles~M. Rader.
+\newblock Discrete fourier transforms when the number of data samples is prime.
+\newblock {\em Proceedings of the IEEE}, 56(6):1107--1108, 1968.
+
+\bibitem{samoc_nlo_opt_mat}
+Marek Samoć.
+\newblock Third-order nonlinear optical materials: practical issues and
+  theoretical challenges.
+\newblock 10.1007/s00894-010-0856-8, 2010.
+
+\bibitem{shampine_vectorized}
+L.~F. Shampine.
+\newblock Vectorized adaptive quadrature in matlab.
+\newblock {\em J. Comput. Appl. Math.}, 211:131--140, January 2008.
+
+\bibitem{bahae_sensitive}
+Mansoor Sheik-Bahae, A~A Said, T~H Wei, D~J Hagan, and E~W Van~Stryland.
+\newblock Sensitive measurement of optical nonlinearities using a single beam.
+\newblock {\em Quantum}, 26(4):760--769, April 1990.
+
+\bibitem{chang_computation}
+Sy-Been~Jaw Soo-Chang~Pei.
+\newblock Computation of discrete hilbert transform through fast hartley
+  transform.
+\newblock {\em IEEE Transactions on Circuits and Systems}, 36:1251--1252,
+  September 1989.
+
+\bibitem{titchmarsh_introduction}
+E.C. Titchmarsh.
+\newblock {\em Introduction to the theory of Fourier integrals}.
+\newblock The Clarendon Press, 1948.
+
+\bibitem{trager_springer}
+Frank Träger.
+\newblock {\em Springer handbook of lasers and optics}.
+\newblock Springer, 2007.
+
+\bibitem{fakiszscan}
+G.~Tsigaridas, M.~Fakis, I.~Polyzos, P.~Persephonis, and V.~Giannetas.
+\newblock Z-scan technique through beam radius measurements.
+\newblock {\em Applied Physics B: Lasers and Optics}, 76:83--86, 2003.
+\newblock 10.1007/s00340-002-1067-5.
+
+\bibitem{tuononen_using}
+H~Tuononen, E~Gornov, J~A Zeitler, J~Aaltonen, and K-E Peiponen.
+\newblock Using modified kramers-kronig relations to test transmission spectra
+  of porous media in thz-tds.
+\newblock {\em Optics Letters}, 35(5):631--633, 2010.
+
+\bibitem{ullmann_algorithm}
+Ronald~F. Ullmann.
+\newblock An algorithm for the fast hartley transform, June 1984.
+\newblock Stanford Exploration Project, 38.
+
+\bibitem{weinberg_hilbert}
+I.~J. Weinberg.
+\newblock Hilbert transform by numerical integration.
+\newblock In-House Report RADC-TR-79-3, Rome Air Development Center, United
+  States Air Force Hanscom AFB, Rome, January 1979.
+\newblock Mass. 01731.
+
+\bibitem{yum_pump}
+Honam Yum and Selim~M Shahriar.
+\newblock Pump-probe model for the kramers-kronig relations in a laser.
+\newblock Comments: 10 pages, 5 figures, Mar 2010.
+
+\end{thebibliography}

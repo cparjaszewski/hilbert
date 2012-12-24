@@ -1,0 +1,73 @@
+{VERSION 6 0 "IBM INTEL NT" "6.0" }
+{USTYLETAB {CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 0 
+0 1 }{CSTYLE "2D Comment" 2 18 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 }
+{CSTYLE "" -1 256 "" 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 
+257 "" 1 14 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }{PSTYLE "Normal" -1 0 1 
+{CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }1 1 0 0 0 
+0 1 0 1 0 2 2 0 1 }{PSTYLE "Heading 1" -1 3 1 {CSTYLE "" -1 -1 "Times
+" 1 18 0 0 0 1 2 1 2 2 2 2 1 1 1 1 }1 1 0 0 8 4 1 0 1 0 2 2 0 1 }}
+{SECT 0 {EXCHG {PARA 3 "" 0 "" {TEXT -1 141 "Numerical evaluation of t
+he Hilbert transform used to better understand and solve the Kramers-K
+ronig relations in nonlinear optics - summary." }}}{EXCHG {PARA 0 "" 
+0 "" {TEXT -1 0 "" }{TEXT 257 22 "Krzysztof Parjaszewski" }}}{EXCHG 
+{PARA 0 "" 0 "" {TEXT -1 597 "The motivation for this work comes from \+
+the real problem state by physicists and chemists building the valid t
+heoretical models to describe the interaction between light and matter
+ due to both non-intensive and intensive light radiation. The starting
+ point is the fundamental physical law - the causality principle - whi
+ch states that the effect cannot precede the cause. This simple assump
+tion leads us to the theorem stated by Edward Charles Titchmarsh in 19
+48 about the pairs of conjugated integrals - Hilbert transforms. Titch
+marsh has noted that for any casual and convergent response signal " }
+{XPPEDIT 18 0 "Phi(t);" "6#-%$PhiG6#%\"tG" }{TEXT -1 27 " belonging to
+ the Lebesgue " }{XPPEDIT 18 0 "L^2;" "6#*$%\"LG\"\"#" }{TEXT -1 83 " \+
+space over real line using the Fourier transform we can calculate the \+
+holomorphic " }{XPPEDIT 18 0 "chi(omega);" "6#-%$chiG6#%&omegaG" }
+{TEXT -1 37 " spectrum which belongs to the Hardy " }{XPPEDIT 18 0 "H^
+2;" "6#*$%\"HG\"\"#" }{TEXT -1 79 " space over upper half-plane with t
+he property that real and imaginary part of " }{XPPEDIT 18 0 "chi(omeg
+a);" "6#-%$chiG6#%&omegaG" }{TEXT -1 362 " are conjugated - we can cal
+culate one from each other using the Hilbert transforms. This observat
+ion - together with the signal response-theory allows us to investigat
+e the properties of the medium response to the periodic input signal -
+ both in time and frequency domain. The Kramers-Kronig relations for b
+oth real and imaginary part of optical susceptibility " }{XPPEDIT 18 
+0 "chi(omega);" "6#-%$chiG6#%&omegaG" }{TEXT -1 215 " come from the si
+mple assumption, that real part is even and imaginary part is an odd f
+unction. We can therefore modify the Hilbert transform equation to obt
+ain the most popular form of the Kramers-Kronig relations:" }}}{EXCHG 
+{PARA 0 "" 0 "" {XPPEDIT 18 0 "Re(chi(omega)) = 2/Pi*int(Omega*Im(chi(
+Omega))/(Omega^2-omega^2),Omega = -infinity .. infinity);" "6#/-%#ReG6
+#-%$chiG6#%&omegaG*(\"\"#\"\"\"%#PiG!\"\"-%$intG6$*(%&OmegaGF--%#ImG6#
+-F(6#F4F-,&*$F4F,F-*$F*F,F/F//F4;,$%)infinityGF/F@F-" }}}{EXCHG {PARA 
+0 "" 0 "" {XPPEDIT 18 0 "Im(chi(omega)) = 2*omega/Pi*int(Re(chi(Omega)
+)/(Omega^2-omega^2),Omega = -infinity .. infinity);" "6#/-%#ImG6#-%$ch
+iG6#%&omegaG**\"\"#\"\"\"F*F-%#PiG!\"\"-%$intG6$*&-%#ReG6#-F(6#%&Omega
+GF-,&*$F9F,F-*$F*F,F/F//F9;,$%)infinityGF/F@F-" }{TEXT -1 0 "" }}}
+{EXCHG {PARA 0 "" 0 "" {TEXT -1 1500 "In this thesis we handle two pro
+blems. First concerns the proper numerical evaluation of a singular an
+d improper integral defined in the Hilbert transform operator.The seco
+nd problem concerns the questions stated by physicists - how to proper
+ly use this mathematical tools in a typical experiment and model const
+ruction in optical research. We present the comparison of several impl
+ementations of numerical evaluations of the Hilbert transform:\n1. Eas
+y implementations - on the comparison needs:\n- Newton-Cotes qudrature
+ of an arbitrary degree - comparison,\n- HTRAN procedure - numerical t
+rapezoidal rule mixed with the Simpson's rule and the cubic interpolat
+ion, based on [1].\n2. Advanced implementations:\n- Generalized Clensh
+aw-Curtis quadrature,\n- Hilbert transform based on fast Hartley trans
+forms,\n- method based on approximation with the orthonormal Hermite p
+olynomials and Hermite functions,\n- method based on approximation wit
+h the Fourier series.\n3. Testing the out-of-the-box MATLAB-implemente
+d routines:\n- quadgk() - Gauss-Kronrod quadrature \n- hilbert() - fas
+t Hilbert transfom based on fast Fourier transform and inverse fast Fo
+urier transform\nThe given physical models for both linear and nonline
+ar optics are analysized and validated. We formulate good practises fo
+r scientists interested in subject of optical experiments. Finally we \+
+made the conclusions about the stability, accuracy, advantages and dis
+advantages of developed implementations in further research in nonline
+ar optics." }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 21 "[1] I. J. Weinberg,
+ \"" }{TEXT 256 42 "Hilbert Transform by Numerical Integration" }
+{TEXT -1 77 "\", ROME AIR DEVELOPMENT CENTER GRIFFISS AFB N Y, 1979, R
+eport Number:\011A480860" }}}}{MARK "0 0 0" 140 }{VIEWOPTS 1 1 0 1 1 
+1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

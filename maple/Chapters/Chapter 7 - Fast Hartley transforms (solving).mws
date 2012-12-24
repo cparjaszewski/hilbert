@@ -1,0 +1,262 @@
+{VERSION 6 0 "IBM INTEL NT" "6.0" }
+{USTYLETAB {CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 0 
+0 1 }{CSTYLE "2D Comment" 2 18 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 }
+{CSTYLE "" -1 257 "" 1 10 0 0 0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 
+258 "" 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 259 "" 1 10 0 0 
+0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 262 "Helvetica" 0 1 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 263 "Helvetica" 0 1 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 }{CSTYLE "" -1 264 "Helvetica" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }{CSTYLE "" -1 265 "Helvetica" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+{CSTYLE "" -1 266 "" 1 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 
+294 "Helvetica" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 296 "He
+lvetica" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 297 "" 1 10 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 298 "Helvetica" 1 10 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 299 "" 1 10 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }{CSTYLE "" -1 300 "" 1 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }{CSTYLE 
+"" -1 301 "" 1 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 302 "" 1 
+10 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 303 "" 1 10 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 }{CSTYLE "" -1 304 "" 1 10 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 }{CSTYLE "" -1 305 "" 1 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }{CSTYLE "" 
+-1 306 "" 1 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 308 "" 0 1 
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 309 "" 1 10 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 }{CSTYLE "" -1 313 "MaplePi" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }{CSTYLE "" -1 314 "MaplePi" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+{CSTYLE "" -1 315 "" 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 }{PSTYLE "Normal
+" -1 0 1 {CSTYLE "" -1 -1 "Helvetica" 1 10 0 0 0 1 2 2 2 2 2 2 1 1 1 
+1 }1 1 0 0 0 0 3 0 3 0 2 2 0 1 }{PSTYLE "Heading 1" -1 3 1 {CSTYLE "" 
+-1 -1 "Helvetica" 1 14 0 0 0 1 2 1 2 2 2 2 1 1 1 1 }1 1 0 0 8 4 3 0 3 
+0 2 2 0 1 }{PSTYLE "Heading 3" -1 5 1 {CSTYLE "" -1 -1 "Helvetica" 1 
+10 0 0 0 1 1 1 2 2 2 2 1 1 1 1 }1 1 0 0 0 0 3 0 3 0 2 2 0 1 }{PSTYLE "
+Normal" -1 257 1 {CSTYLE "" -1 -1 "Helvetica" 1 10 0 0 0 1 2 2 2 2 2 
+2 1 1 1 1 }1 1 0 0 0 0 3 0 3 0 2 2 0 1 }{PSTYLE "Normal" -1 258 1 
+{CSTYLE "" -1 -1 "Helvetica" 1 10 0 0 0 1 2 1 2 2 2 2 1 1 1 1 }1 1 0 
+0 0 0 3 0 3 0 2 2 0 1 }{PSTYLE "Normal" -1 259 1 {CSTYLE "" -1 -1 "Hel
+vetica" 1 10 0 0 0 1 2 1 2 2 2 2 1 1 1 1 }1 1 0 0 0 0 3 0 3 0 2 2 0 1 
+}{PSTYLE "Normal" -1 284 1 {CSTYLE "" -1 -1 "Helvetica" 1 10 0 0 0 1 
+2 2 2 2 2 2 1 1 1 1 }1 1 0 0 0 0 3 0 3 0 2 2 0 1 }{PSTYLE "Normal" -1 
+285 1 {CSTYLE "" -1 -1 "Helvetica" 1 10 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }
+1 1 0 0 0 0 3 0 3 0 2 2 0 1 }}
+{SECT 0 {SECT 0 {PARA 3 "" 0 "" {TEXT 294 44 "7. Fast Hartley transfor
+m approach (solving)" }{TEXT -1 0 "" }}{SECT 1 {PARA 5 "" 0 "" {TEXT 
+296 24 "7.1 Overview of the FTHA" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 1 
+"T" }{TEXT 297 153 "he Fast Hartley Transform approach for the Hilbert
+ transform is based on two efficient O (n log n) discrete Hartley tran
+sforms and was well described by " }{TEXT -1 272 "Soo-Chang Pei in [26
+]. This approach is faster than another discrete Hilbert transform bas
+ed on two Fourier transorms, because the whole computation are carried
+ using only real numbers, which is faster than Fourier computation car
+ried using time consuming complex numbers." }}}{SECT 1 {PARA 0 "" 0 "
+" {TEXT 298 26 "Discrete Hartley Transform" }}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 12 "For a given " }{TEXT 299 8 "N-lenght" }{TEXT -1 108 " vec
+tor X both the discrete Hartley transform and inverse discrete Hartley
+ transform are defined as follows:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT 
+-1 9 "(7.1.1a) " }{XPPEDIT 18 0 "DHT(X[k]) = sum(X[n]*(cos(2*pi*k*n/N)
++sin(2*Pi*k*n/N)),n = 0 .. N-1);" "6#/-%$DHTG6#&%\"XG6#%\"kG-%$sumG6$*
+&&F(6#%\"nG\"\"\",&-%$cosG6#*,\"\"#F2%#piGF2F*F2F1F2%\"NG!\"\"F2-%$sin
+G6#*,F8F2%#PiGF2F*F2F1F2F:F;F2F2/F1;\"\"!,&F:F2F2F;" }{TEXT -1 10 "\n(
+7.1.1b) " }{XPPEDIT 18 0 "IDHT(H[k]) = sum(H[n]*(cos(2*pi*k*n/N)+sin(2
+*Pi*k*n/N)),k = 0 .. N-1)/N;" "6#/-%%IDHTG6#&%\"HG6#%\"kG*&-%$sumG6$*&
+&F(6#%\"nG\"\"\",&-%$cosG6#*,\"\"#F3%#piGF3F*F3F2F3%\"NG!\"\"F3-%$sinG
+6#*,F9F3%#PiGF3F*F3F2F3F;F<F3F3/F*;\"\"!,&F;F3F3F<F3F;F<" }}}}{SECT 1 
+{PARA 259 "" 0 "" {TEXT 301 37 "Hartley transform convolution theorem
+" }{TEXT -1 0 "" }}{EXCHG {PARA 257 "" 0 "" {TEXT 304 136 "Now we will
+ introduce the Hartley transform convolution theorem. We define the N-
+lenght vector x as convolution of two N-length vectors " }{XPPEDIT 18 
+0 "x[1];" "6#&%\"xG6#\"\"\"" }{TEXT -1 2 ", " }{XPPEDIT 18 0 "x[2];" "
+6#&%\"xG6#\"\"#" }{TEXT -1 1 " " }{TEXT 305 11 "as follows:" }}}
+{EXCHG {PARA 0 "" 0 "" {TEXT -1 8 "(7.1.2) " }{XPPEDIT 18 0 "x[n] = x[
+1,n];" "6#/&%\"xG6#%\"nG&F%6$\"\"\"F'" }{TEXT -1 3 " * " }{XPPEDIT 18 
+0 "x[2,n];" "6#&%\"xG6$\"\"#%\"nG" }{TEXT -1 3 " = " }{XPPEDIT 18 0 "s
+um(x[1,k]*x[2,n-k],k = 0 .. N-1);" "6#-%$sumG6$*&&%\"xG6$\"\"\"%\"kGF*
+&F(6$\"\"#,&%\"nGF*F+!\"\"F*/F+;\"\"!,&%\"NGF*F*F1" }}}{EXCHG {PARA 0 
+"" 0 "" {TEXT -1 57 "For a given convolution, the following theorem is
+ stated:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 8 "(7.1.3) " }{XPPEDIT 
+18 0 "DHT(x[n]) = DHT(x[1,k])*even(DHT(x[2,k]))+DHT(x[1,-k])*odd(DHT(h
+[2,k]));" "6#/-%$DHTG6#&%\"xG6#%\"nG,&*&-F%6#&F(6$\"\"\"%\"kGF1-%%even
+G6#-F%6#&F(6$\"\"#F2F1F1*&-F%6#&F(6$F1,$F2!\"\"F1-%$oddG6#-F%6#&%\"hG6
+$F:F2F1F1" }{TEXT -1 0 "" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 7 "where:
+\n" }{XPPEDIT 18 0 "DHT(x[2,k]) = even(DHT(x[2,k]))+odd(DHT(x[2,k]));
+" "6#/-%$DHTG6#&%\"xG6$\"\"#%\"kG,&-%%evenG6#-F%6#&F(6$F*F+\"\"\"-%$od
+dG6#-F%6#&F(6$F*F+F4" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 17 "The proof
+ of the " }{TEXT 300 37 "Hartley transform convolution theorem" }
+{TEXT -1 23 " can be found in [26]. " }}}}{SECT 1 {PARA 0 "" 0 "" 
+{TEXT 302 64 "Relation between discrete Fourier and discrete Hilbert t
+ransform" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 87 "Now we will derive the
+ discrete Fourier transform of the Hilbert transform for a given " }
+{TEXT 303 18 "N-lenght vector x:" }{TEXT -1 0 "" }}}{EXCHG {PARA 0 "" 
+0 "" {TEXT -1 9 "(7.1.4a) " }{XPPEDIT 18 0 "DFT(DISCRETE_HILBERT(x[k])
+) = DFT(h(k))*DFT(x[k]);" "6#/-%$DFTG6#-%1DISCRETE_HILBERTG6#&%\"xG6#%
+\"kG*&-F%6#-%\"hG6#F-\"\"\"-F%6#&F+6#F-F4" }{TEXT -1 3 " = " }
+{XPPEDIT 18 0 "(-i)*sgn(k)*DFT(x[k]);" "6#*(,$%\"iG!\"\"\"\"\"-%$sgnG6
+#%\"kGF'-%$DFTG6#&%\"xG6#F+F'" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 17 "
+where: \n(7.1.5a) " }{XPPEDIT 18 0 "H(k) = DFT(h[k]);" "6#/-%\"HG6#%\"
+kG-%$DFTG6#&%\"hG6#F'" }{TEXT -1 10 "\n(7.1.5b) " }{XPPEDIT 18 0 "h[k]
+ = 1/pi/k;" "6#/&%\"hG6#%\"kG*(\"\"\"F)%#piG!\"\"F'F+" }{TEXT -1 24 " \+
+discrete Hilbert kernel" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 9 "and als
+o:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 23 "(7.1.6a) H(k) = i  for " }
+{XPPEDIT 18 0 "k = 1,2 .. N/2-1;" "6$/%\"kG\"\"\";\"\"#,&*&%\"NGF%F'!
+\"\"F%F%F+" }{TEXT -1 23 "\n(7.1.6b) H(k) = 0 for " }{XPPEDIT 18 0 "k \+
+= 0,N/2;" "6$/%\"kG\"\"!*&%\"NG\"\"\"\"\"#!\"\"" }{TEXT -1 24 "\n(7.1.
+6c) H(k) = -i for " }{XPPEDIT 18 0 "k = N/2+1,N/2+2 .. N-1;" "6$/%\"kG
+,&*&%\"NG\"\"\"\"\"#!\"\"F(F(F(;,&*&F'F(F)F*F(F)F(,&F'F(F(F*" }}}}
+{SECT 1 {PARA 5 "" 0 "" {TEXT -1 90 "Application of the discrete Hartl
+ey transform to calculate the discrete Hilbert transform:" }}{EXCHG 
+{PARA 0 "" 0 "" {TEXT -1 68 "Using the Hartley transform convolution t
+heorem (7.1.3) for a given " }{TEXT 306 21 "N-lenght vector x we " }
+{TEXT -1 7 "obtain:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 8 "(7.1.7) " }
+{XPPEDIT 18 0 "DHT(DISCRETE_HILBERT(x[k])) = DHT(x[k])*even(DHT(h[k]))
++DHT(x[-k])*odd(DHT(h[k]));" "6#/-%$DHTG6#-%1DISCRETE_HILBERTG6#&%\"xG
+6#%\"kG,&*&-F%6#&F+6#F-\"\"\"-%%evenG6#-F%6#&%\"hG6#F-F4F4*&-F%6#&F+6#
+,$F-!\"\"F4-%$oddG6#-F%6#&F;6#F-F4F4" }{TEXT -1 8 "\nwhere:\n" }
+{XPPEDIT 18 0 "x[-k] = x[`mod`(N-k,N)];" "6#/&%\"xG6#,$%\"kG!\"\"&F%6#
+-%$modG6$,&%\"NG\"\"\"F(F)F0" }{TEXT -1 16 " (time reversal)" }}}
+{EXCHG {PARA 0 "" 0 "" {TEXT -1 211 "Now we should notice, that the di
+screte Hilbert transform kernel defined in (7.1.5b) is an odd function
+, so its even part equals zero. So (7.1.7) simplifies now into a produ
+ct of two separate Hartley transforms:" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 8 "(7.1.8) " }{XPPEDIT 18 0 "DHT(DISCRETE_HILBERT(x[k])) = DH
+T(x[-k])*odd(DHT(h[k]));" "6#/-%$DHTG6#-%1DISCRETE_HILBERTG6#&%\"xG6#%
+\"kG*&-F%6#&F+6#,$F-!\"\"\"\"\"-%$oddG6#-F%6#&%\"hG6#F-F5" }{TEXT -1 
+3 " = " }{XPPEDIT 18 0 "DHT(x[-k])*DHT(h[k]);" "6#*&-%$DHTG6#&%\"xG6#,
+$%\"kG!\"\"\"\"\"-F%6#&%\"hG6#F+F-" }}}{EXCHG {PARA 0 "" 0 "" {TEXT 
+-1 40 "By [26] the second transform is defined:" }}}{EXCHG {PARA 0 "" 
+0 "" {TEXT -1 9 "(7.1.9a) " }{XPPEDIT 18 0 "DHT(h[k]) = 1;" "6#/-%$DHT
+G6#&%\"hG6#%\"kG\"\"\"" }{TEXT -1 5 " for " }{XPPEDIT 18 0 "k = 1,2 ..
+ N/2-1;" "6$/%\"kG\"\"\";\"\"#,&*&%\"NGF%F'!\"\"F%F%F+" }{TEXT -1 10 "
+\n(7.1.9a) " }{XPPEDIT 18 0 "DHT(h[k]) = 0;" "6#/-%$DHTG6#&%\"hG6#%\"k
+G\"\"!" }{TEXT -1 5 " for " }{XPPEDIT 18 0 "k = 0,N/2;" "6$/%\"kG\"\"!
+*&%\"NG\"\"\"\"\"#!\"\"" }{TEXT -1 10 "\n(7.1.9a) " }{XPPEDIT 18 0 "DH
+T(h[k]) = -1;" "6#/-%$DHTG6#&%\"hG6#%\"kG,$\"\"\"!\"\"" }{TEXT -1 5 " \+
+for " }{XPPEDIT 18 0 "k = N/2+1,N/2+2 .. N-1;" "6$/%\"kG,&*&%\"NG\"\"
+\"\"\"#!\"\"F(F(F(;,&*&F'F(F)F*F(F)F(,&F'F(F(F*" }}}{EXCHG {PARA 0 "" 
+0 "" {TEXT -1 45 "If order to calculate the Hilbert of a given " }
+{TEXT 309 131 "N-lenght vector x the last thing to do is apply the inv
+erse discrete Hartley transform on the very right side of (7.1.8) equa
+tion. " }}}}{SECT 1 {PARA 5 "" 0 "" {TEXT -1 33 "Fast Hartley Transfor
+m algorithm:" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 273 "Ronald F. Ullmann
+ has showed the fast algorithm for the discrete Hartley transform in [
+27]. The important assumption is that - as for the fast Fourier transf
+orm algorithm, the fast Hartley transform algorithm is defined for a K
+-length vector x, where K is the power-of-two:" }}}{EXCHG {PARA 0 "" 
+0 "" {TEXT -1 9 "(7.1.10) " }{TEXT 313 2 "$ " }{XPPEDIT 18 0 "`in`(p,N
+);" "6#-%#inG6$%\"pG%\"NG" }{TEXT 314 3 " : " }{TEXT -1 1 " " }
+{XPPEDIT 18 0 "K = 2^p;" "6#/%\"KG)\"\"#%\"pG" }}}{EXCHG {PARA 0 "" 0 
+"" {TEXT -1 228 "The (7.1.10) condition for the algorithm and the furt
+her possibilities to modify it are discussed further. We will start wi
+th the very same thing as in the fast Fourier algorithm - we split the
+ x vector into two smaller vectors:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT 
+-1 11 "(7.1.11a)  " }{XPPEDIT 18 0 "x[1,m/2] = x[m];" "6#/&%\"xG6$\"\"
+\"*&%\"mGF'\"\"#!\"\"&F%6#%\"mG" }{TEXT -1 9 "     for " }{XPPEDIT 18 
+0 "m = 0,2 .. N-1;" "6$/%\"mG\"\"!;\"\"#,&%\"NG\"\"\"F*!\"\"" }{TEXT 
+-1 12 "\n(7.1.11b)  " }{XPPEDIT 18 0 "x[2,(m-1)/2] = x[m];" "6#/&%\"xG
+6$\"\"#*&,&%\"mG\"\"\"F+!\"\"F+F'F,&F%6#%\"mG" }{TEXT -1 5 " for " }
+{XPPEDIT 18 0 "m = 1,3 .. N-2;" "6$/%\"mG\"\"\";\"\"$,&%\"NGF%\"\"#!\"
+\"" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 97 "Taking into account the ini
+tial definition of the discrete Hartley transform (7.1.1a), we obtain:
+" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 9 "(7.1.12) " }{XPPEDIT 18 0 "DHT
+(x[k]) = sum(x(2*n)*(cos(2*pi*k*2*n/N)+sin(2*pi*k*2*n/N)),n = 0 .. N/2
+-1)+sum(x(2*n+1)*(cos(2*pi*k*(2*n+1)/N)+sin(2*pi*k*(2*n+1)/N)),n = 0 .
+. N/2-1);" "6#/-%$DHTG6#&%\"xG6#%\"kG,&-%$sumG6$*&-%\"xG6#*&\"\"#\"\"
+\"%\"nGF5F5,&-%$cosG6#*.F4F5%#piGF5%\"kGF5F4F5%\"nGF5%\"NG!\"\"F5-%$si
+nG6#*.F4F5F<F5F=F5F4F5%\"nGF5F?F@F5F5/F6;\"\"!,&*&F?F5F4F@F5F5F@F5-F-6
+$*&-F16#,&*&F4F5F6F5F5F5F5F5,&-F96#*,F4F5F<F5F=F5,&*&F4F5%\"nGF5F5F5F5
+F5F?F@F5-FB6#*,F4F5F<F5F=F5,&*&F4F5%\"nGF5F5F5F5F5F?F@F5F5/F6;FH,&*&F?
+F5F4F@F5F5F@F5" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 81 "In [27] the fol
+lowing \"shift rule\" for the discrete Hartley transform is stated :" 
+}}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 9 "(7.1.13) " }{XPPEDIT 18 0 "DHT(x
+[k+c]) = DHT(x[k])*cos(c)+DHT(x[-k])*sin(c);" "6#/-%$DHTG6#&%\"xG6#,&%
+\"kG\"\"\"%\"cGF,,&*&-F%6#&F(6#F+F,-%$cosG6#F-F,F,*&-F%6#&F(6#,$F+!\"
+\"F,-%$sinG6#F-F,F," }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 91 "If we appl
+y the Hartley shift rule (7.1.13) to the splitted equation in (7.1.12)
+ we obtain:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 9 "(7.1.14) " }
+{XPPEDIT 18 0 "DHT(x[k]) = DHT(x[1,k])+cos(2*pi*k/N)*DHT(x[2,k])+sin(2
+*pi*k/N)*DHT(x[2,-k]);" "6#/-%$DHTG6#&%\"xG6#%\"kG,(-%$DHTG6#&%\"xG6$
+\"\"\"%\"kGF2*&-%$cosG6#**\"\"#F2%#piGF2F3F2%\"NG!\"\"F2-F-6#&F06$F9F3
+F2F2*&-%$sinG6#**F9F2F:F2F3F2F;F<F2-F-6#&F06$F9,$F3F<F2F2" }{TEXT -1 
+5 " for " }{XPPEDIT 18 0 "k = 0,1 .. N/2-1;" "6$/%\"kG\"\"!;\"\"\",&*&
+%\"NGF'\"\"#!\"\"F'F'F," }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 168 "The r
+ule (7.1.14) can be applied only for the half of the possible k values
+ (k < N/2). Now we will use the periodic properties of the discrete Ha
+rtley transform kernel:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 10 "(7.1.1
+5a) " }{XPPEDIT 18 0 "cos(2*pi*k*(n+N)/N)+sin(2*pi*k*2*(n+N)/N) = cos(
+2*pi*k*n/N)+sin(2*pi*k*2*n/N);" "6#,$/,&-%$cosG6#*,\"\"#\"\"\"%#piGF+%
+\"kGF+,&%\"nGF+%\"NGF+F+F0!\"\"F+-%$sinG6#*.F*F+F,F+F-F+F*F+,&F/F+F0F+
+F+F0F1F+,&-F'6#*,F*F+F,F+F-F+F/F+F0F1F+-F36#*.F*F+F,F+F-F+F*F+F/F+F0F1
+F+F+" }{TEXT -1 11 "\n(7.1.15b) " }{XPPEDIT 18 0 "cos(2*pi*k*(n+N/2)/N
+)+sin(2*pi*k*2*(n+N/2)/N) = -(cos(2*pi*k*n/N)+sin(2*pi*k*2*n/N));" "6#
+/,&-%$cosG6#*,\"\"#\"\"\"%#piGF*%\"kGF*,&%\"nGF**&%\"NGF*F)!\"\"F*F*%
+\"NGF1F*-%$sinG6#*.F)F*F+F*F,F*F)F*,&%\"nGF**&%\"NGF*F)F1F*F*F2F1F*,$,
+&-%$cosG6#*,F)F*%#piGF*%\"kGF*%\"nGF*%\"NGF1F*-%$sinG6#*.F)F*FAF*FBF*F
+)F*FCF*FDF1F*F1" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 100 "The rule (7.1
+.14) using the periodicity property from (7.1.15a-b) can be now used f
+or all k indices:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 10 "(7.1.16a) " 
+}{XPPEDIT 18 0 "DHT(x[k]) = DHT(x[1,k])+cos(2*pi*k/N)*DHT(x[2,k])+sin(
+2*pi*k/N)*DHT(x[2,-k])" "6#/-%$DHTG6#&%\"xG6#%\"kG,(-F%6#&F(6$\"\"\"F*
+F0*&-%$cosG6#**\"\"#F0%#piGF0F*F0%\"NG!\"\"F0-F%6#&F(6$F6F*F0F0*&-%$si
+nG6#**F6F0F7F0F*F0F8F9F0-F%6#&F(6$F6,$F*F9F0F0" }{TEXT -1 5 " for " }
+{XPPEDIT 18 0 "k = 0,1 .. N/2-1;" "6$/%\"kG\"\"!;\"\"\",&*&%\"NGF'\"\"
+#!\"\"F'F'F," }{TEXT -1 11 "\n(7.1.16b) " }{XPPEDIT 18 0 "DHT(x[k]) = \+
+DHT(x[1,k-N/2])-cos(2*pi*(k-N/2)/N)*DHT(x[2,k-N/2])-sin(2*pi*(k-N/2)/N
+)*DHT(x[2,-k+N/2]);" "6#/-%$DHTG6#&%\"xG6#%\"kG,(-%$DHTG6#&%\"xG6$\"\"
+\",&%\"kGF2*&%\"NGF2\"\"#!\"\"F8F2*&-%$cosG6#**F7F2%#piGF2,&F4F2*&F6F2
+F7F8F8F2F6F8F2-F-6#&F06$F7,&F4F2*&F6F2F7F8F8F2F8*&-%$sinG6#**F7F2F>F2,
+&F4F2*&F6F2F7F8F8F2F6F8F2-%$DHTG6#&%\"xG6$F7,&%\"kGF8*&%\"NGF2F7F8F2F2
+F8" }{TEXT -1 5 " for " }{XPPEDIT 18 0 "k = N/2,N/2+2 .. N-1;" "6$/%\"
+kG*&%\"NG\"\"\"\"\"#!\"\";,&*&F&F'F(F)F'F(F',&F&F'F'F)" }}}{EXCHG 
+{PARA 0 "" 0 "" {TEXT -1 70 "The remaining definition for the negative
+ index, need to be explained:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 9 "(
+7.1.17) " }{XPPEDIT 18 0 "DHT(v[-k]) = DHT(v[`mod`(N-k,N)]);" "6#/-%$D
+HTG6#&%\"vG6#,$%\"kG!\"\"-F%6#&F(6#-%$modG6$,&%\"NG\"\"\"F+F,F5" }
+{TEXT -1 0 "" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 90 "Of course this is
+ a typical divide&conquer approach, where the complexity is reduced fr
+om " }{XPPEDIT 18 0 "O(n^2);" "6#-%\"OG6#*$)%\"nG\"\"#\"\"\"" }{TEXT 
+-1 4 " to " }{XPPEDIT 18 0 "O(n*log(n));" "6#-%\"OG6#*&%\"nG\"\"\"-%$l
+ogG6#F'F(" }{TEXT -1 75 ", very similar to the approach used in the Co
+oley\226Tukey FFT algorithm [28]." }}}}{SECT 1 {PARA 5 "" 0 "" {TEXT 
+-1 21 "Non-power-of-two case" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 224 "T
+here are several approaches when calculating the fast Fourier transfor
+m for a non-power-of-two case length of the input x vector. One approa
+ch (PFA) is the Good\226Thomas / prime-factor algorithm for a vector l
+ength K defined:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 9 "(7.1.18) " }
+{XPPEDIT 18 0 "K = K[1]*K[2];" "6#/%\"KG*&&F$6#\"\"\"F(&F$6#\"\"#F(" }
+}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 6 "Where " }{XPPEDIT 18 0 "K[1];" "6
+#&%\"KG6#\"\"\"" }{TEXT -1 5 " and " }{XPPEDIT 18 0 "K[2];" "6#&%\"KG6
+#\"\"#" }{TEXT -1 1012 " are relatively prime numbers. Another approac
+h was presented by Leo Bluestein, called also the chirp z-transform al
+gorithm is presented in [30]. Another author, Georg Bruun, has invente
+d the the approach based on the recursive polynomial-factorization in \+
+[31]. Rader has prepared the special FFT algorithm expecially for vect
+ors of prime size in [32]. But we will use the simplest possible appro
+ach - called the zero-padding. So in case of input vector with the siz
+e of non-power-of-two, we add the suffix vector filled with vectors to
+ fit the next possible power-of-two size. In the worst case, there inp
+ut vector size will be doubled, which has no influence on the asymptot
+ic complexity, which remains O(n log n). While the discrete signal ana
+lysis is the domain of scientists, we will end with conclusion stated \+
+by M. Lamb in [33] that he is uncertain if zero padding has an influen
+ce on the spectral resolution, but in most cases it has a little influ
+ence on the results obtained in the discrete transforms." }}}}{EXCHG 
+{PARA 0 "" 0 "" {TEXT -1 157 "The source code of the discrete Hilbert \+
+transform using both the fast Hartley transform and inverse fast Hartl
+ey transform has beed presented in Appenxid A.4" }}}{EXCHG {PARA 0 "" 
+0 "" {TEXT 308 71 "Overview of the fast Hartley transorms, the algorit
+hm is in O(n log n)." }}}}{SECT 1 {PARA 5 "" 0 "" {TEXT 262 32 "7.2 FT
+HA for simple linear model" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 25 "Text
+ and graphs here.... " }}}{EXCHG {PARA 0 "" 0 "" {TEXT 257 107 "Exampl
+e cases for solving the Kramers-Kronig relations in linear model using
+  - FTH with short conclusions." }}}}{SECT 1 {PARA 5 "" 0 "" {TEXT 
+263 35 "7.3 FTHA for simple nonlinear model" }}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 25 "Text and graphs here.... " }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT 259 116 "Example cases for solving the Kramers-Kronig relations \+
+in simple nonlinear model using FTH - with short conslusions." }}}}
+{SECT 1 {PARA 5 "" 0 "" {TEXT 264 46 "7.4 FTHA for simple quantum-pert
+urbative model" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 25 "Text and graphs \+
+here.... " }}}{EXCHG {PARA 0 "" 0 "" {TEXT 258 127 "Example cases for \+
+solving the Kramers-Kronig relations in simple quantum-perturbative mo
+del using FTH - with short conslusions." }}}}{SECT 0 {PARA 5 "" 0 "" 
+{TEXT 265 25 "7.5 FTHA for other models" }}{EXCHG {PARA 0 "" 0 "" 
+{TEXT 266 42 "More texts and graphics comes shortly.... " }}}{EXCHG 
+{PARA 0 "" 0 "" {TEXT 315 108 "Example cases for solving the Kramers-K
+ronig relations for other models using FTHA - with short conslusions.
+" }}}}}}{MARK "0 5 2 0 0" 108 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }
+{PAGENUMBERS 0 1 2 33 1 1 }

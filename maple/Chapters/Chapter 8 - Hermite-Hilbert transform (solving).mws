@@ -1,0 +1,160 @@
+{VERSION 6 0 "IBM INTEL NT" "6.0" }
+{USTYLETAB {CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 0 
+0 1 }{CSTYLE "2D Comment" 2 18 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 }
+{CSTYLE "" -1 256 "" 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 
+257 "" 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 258 "" 0 1 0 0 
+0 0 1 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 259 "" 0 1 0 0 0 0 1 0 0 0 0 0 
+0 0 0 0 }{CSTYLE "" -1 260 "" 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 }
+{CSTYLE "" -1 261 "" 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 
+262 "" 0 1 0 0 0 0 2 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 263 "" 1 10 0 0 
+0 0 2 0 0 0 0 0 0 0 0 0 }{CSTYLE "" -1 264 "" 1 10 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 }{CSTYLE "" -1 265 "" 1 10 0 0 0 0 2 0 0 0 0 0 0 0 0 0 }
+{CSTYLE "" -1 266 "" 1 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }{PSTYLE "Normal
+" -1 0 1 {CSTYLE "" -1 -1 "Helvetica" 1 10 0 0 1 1 2 2 2 2 2 2 1 1 1 
+1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Heading 2" -1 4 1 {CSTYLE "" 
+-1 -1 "Helvetica" 1 12 0 0 1 1 2 1 2 2 2 2 1 1 1 1 }1 1 0 0 8 2 3 0 3 
+0 2 2 0 1 }{PSTYLE "Heading 3" -1 5 1 {CSTYLE "" -1 -1 "Helvetica" 1 
+12 0 0 1 1 1 1 2 2 2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "
+Normal" -1 256 1 {CSTYLE "" -1 -1 "Helvetica" 1 10 0 0 0 1 2 2 2 2 2 
+2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Normal" -1 257 1 
+{CSTYLE "" -1 -1 "Helvetica" 1 10 0 0 0 1 1 2 2 2 2 2 1 1 1 1 }1 1 0 
+0 0 0 1 0 1 0 2 2 0 1 }}
+{SECT 0 {SECT 0 {PARA 4 "" 0 "" {TEXT -1 38 "8. Hermite-Hilbert transf
+orm (solving)" }}{SECT 1 {PARA 5 "" 0 "" {TEXT -1 23 "8.1 Overview of \+
+the HHT" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 213 "Hermite-Hilbert transf
+orm approach is based on the precalcution of already-known Hermite pol
+ynomials and Hermite base of orthogonal functions. The algorithm is ba
+sed on the master thesis of Mathias Johansson [34]." }}}{SECT 1 {PARA 
+256 "" 0 "" {TEXT 261 42 "Hermite polynomials and Hermite functions:" 
+}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 66 "Hermite polynomial of an arbitra
+ry n degree is defined as follows:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT 
+-1 8 "(8.1.1) " }{XPPEDIT 18 0 "H[n](x) = (-1)^n*exp(x^2)*d^n/(dt^n)*e
+xp(-x^2);" "6#/-&%\"HG6#%\"nG6#%\"xG*,),$\"\"\"!\"\"F(F.-%$expG6#*$F*
+\"\"#F.)%\"dGF(F.)%#dtGF(F/-F16#,$*$F*F4F/F." }}}{EXCHG {PARA 0 "" 0 "
+" {TEXT -1 60 "There is also an recursive equation for Hermite polynom
+ials:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 9 "(8.1.2a) " }{XPPEDIT 18 
+0 "H[n](x) = 2*x*H[n-1](x)+2*(n-1)*H[n-2](x);" "6#/-&%\"HG6#%\"nG6#%\"
+xG,&*(\"\"#\"\"\"F*F.-&F&6#,&F(F.F.!\"\"6#F*F.F.*(F-F.,&F(F.F.F3F.-&F&
+6#,&F(F.F-F36#F*F.F." }{TEXT -1 10 "\n(8.1.2b) " }{XPPEDIT 18 0 "H[0](
+x) = 1;" "6#/-&%\"HG6#\"\"!6#%\"xG\"\"\"" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 88 "Using the Hermite polynomial we would like to derive a se
+t of orthogonal polynomials in " }{XPPEDIT 18 0 "L^2;" "6#*$%\"LG\"\"#
+" }{TEXT -1 67 ". Therefore we introduce the weight function and the n
+orm function:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 9 "(8.1.3a) " }
+{XPPEDIT 18 0 "w(x) = exp(-x^2/2);" "6#/-%\"wG6#%\"xG-%$expG6#,$*&F'\"
+\"#F-!\"\"F." }{TEXT -1 10 "\n(8.1.3b) " }{XPPEDIT 18 0 "N[n](x) = sqr
+t(2^n*n!*sqrt(Pi));" "6#/-&%\"NG6#%\"nG6#%\"xG-%%sqrtG6#*()\"\"#F(\"\"
+\"-%*factorialG6#F(F1-F,6#%#PiGF1" }{TEXT -1 0 "" }}}{EXCHG {PARA 0 "
+" 0 "" {TEXT -1 113 "If we multiply the n-th Hermite polynomial with t
+he weight function w(x) and divide it by the n-th norm function " }
+{XPPEDIT 18 0 "N[n];" "6#&%\"NG6#%\"nG" }{TEXT -1 46 " we obtain a n-t
+h orthogonal Hermite function:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 8 "
+(8.1.4) " }{XPPEDIT 18 0 "phi[n](x) = w(x)*H[n](x)/N[n](x);" "6#/-&%$p
+hiG6#%\"nG6#%\"xG*(-%\"wG6#F*\"\"\"-&%\"HG6#F(6#F*F/-&%\"NG6#F(6#F*!\"
+\"" }{TEXT -1 3 " = " }{XPPEDIT 18 0 "exp(-x^2/2)*H[n](x)/sqrt(2^n*n!*
+sqrt(Pi));" "6#*(-%$expG6#,$*&%\"xG\"\"#F*!\"\"F+\"\"\"-&%\"HG6#%\"nG6
+#F)F,-%%sqrtG6#*()F*F1F,-%*factorialG6#F1F,-F46#%#PiGF,F+" }}}{EXCHG 
+{PARA 0 "" 0 "" {TEXT -1 58 "Based on the recursive equation (8.1.2a-b
+) we also obtain:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 9 "(8.1.5a) " }
+{XPPEDIT 18 0 "phi[n](x) = sqrt(2/n*x*phi[n-1](x))-(n-1)*sqrt(phi[n-2]
+(x)/(n-1)/n);" "6#/-&%$phiG6#%\"nG6#%\"xG,&-%%sqrtG6#**\"\"#\"\"\"F(!
+\"\"F*F1-&F&6#,&F(F1F1F26#F*F1F1*&,&F(F1F1F2F1-F-6#*(-&F&6#,&F(F1F0F26
+#F*F1,&F(F1F1F2F2F(F2F1F2" }{TEXT -1 10 "\n(8.1.5b) " }{XPPEDIT 18 0 "
+phi[0](x) = exp(-x^2/2)/(pi^(1/4));" "6#/-&%$phiG6#\"\"!6#%\"xG*&-%$ex
+pG6#,$*&F*\"\"#F1!\"\"F2\"\"\")%#piG*&F3F3\"\"%F2F2" }{TEXT -1 0 "" }}
+}}{SECT 1 {PARA 5 "" 0 "" {TEXT -1 0 "" }{TEXT 262 0 "" }{TEXT 263 39 
+"Hilbert transform of Hermite functions:" }}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 86 "Johansson after polish mathematician Stefan L. Hahn [35] \+
+states that for any f(x) and " }{XPPEDIT 18 0 "HILBERT(f(x));" "6#-%(H
+ILBERTG6#-%\"fG6#%\"xG" }{TEXT -1 14 " belonging to " }{XPPEDIT 18 0 "
+L[1];" "6#&%\"LG6#\"\"\"" }{TEXT -1 9 " we have:" }}}{EXCHG {PARA 0 "
+" 0 "" {TEXT -1 8 "(8.1.6) " }{XPPEDIT 18 0 "HILBERT(x*f(x)) = x*HILBE
+RT(F(x))-1/Pi*int(f(tau),tau = -infinity .. infinity);" "6#/-%(HILBERT
+G6#*&%\"xG\"\"\"-%\"fG6#F(F),&*&%\"xGF)-%(HILBERTG6#-%\"FG6#F/F)F),$-%
+$intG6$-%\"fG6#%$tauG/F=;,$%)infinityG!\"\"FA*&F)F)%#PiGFBFB" }{TEXT 
+-1 0 "" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 52 "The proof of the Theore
+m stated in (8.1.6) is short:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 8 "(
+8.1.7) " }{XPPEDIT 18 0 "HILBERT(x*f(x))" "6#-%(HILBERTG6#*&%\"xG\"\"
+\"-%\"fG6#F'F(" }{TEXT -1 3 " = " }{XPPEDIT 18 0 "P/Pi*int(tau*f(tau)/
+(x-tau),tau = -infinity .. infinity);" "6#,$-%$intG6$*(%$tauG\"\"\"-%
+\"fG6#F(F),&%\"xGF)F(!\"\"F//F(;,$%)infinityGF/F3*&%\"PGF)%#PiGF/" }
+{TEXT -1 3 " = " }{XPPEDIT 18 0 "1/Pi*int((x-s)*f(x-s)/s,s = -infinity
+ .. infinity);" "6#,$-%$intG6$*(,&%\"xG\"\"\"%\"sG!\"\"F*-%\"fG6#,&F)F
+*F+F,F*F+F,/F+;,$%)infinityGF,F4*&F*F*%#PiGF," }{TEXT -1 12 " (where s
+ = " }{XPPEDIT 18 0 "x-tau;" "6#,&%\"xG\"\"\"%$tauG!\"\"" }{TEXT -1 4 
+") = " }{XPPEDIT 18 0 "P/Pi*int(x*f(x-s)/s,s = -infinity .. infinity)-
+1/Pi*int(f(x-s),s = -infinity .. infinity);" "6#,&,$-%$intG6$*(%\"xG\"
+\"\"-%\"fG6#,&F)F*%\"sG!\"\"F*F/F0/F/;,$%)infinityGF0F4*&%\"PGF*%#PiGF
+0F*,$-%$intG6$-%\"fG6#,&%\"xGF*%\"sGF0/FA;,$%)infinityGF0FE*&F*F*%#PiG
+F0F0" }{TEXT -1 3 " = " }{XPPEDIT 18 0 "x*HILBERT(f(x))-1/Pi*int(f(tau
+),tau = -infinity .. infinity);" "6#,&*&%\"xG\"\"\"-%(HILBERTG6#-%\"fG
+6#F%F&F&,$-%$intG6$-F+6#%$tauG/F3;,$%)infinityG!\"\"F7*&F&F&%#PiGF8F8
+" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 78 "From both equations (8.1.6) a
+nd (8.1.5a-b) we now obtain the important result:" }}}{EXCHG {PARA 0 "
+" 0 "" {TEXT -1 9 "(8.1.8a) " }{XPPEDIT 18 0 "HILBERT(phi[n](x)) = sqr
+t(2/n)*(x*phi[n-1](x)-1/Pi*int(phi[n-1](eta),eta = -infinity .. infini
+ty))-(n-1)*sqrt(1/n/(n-1))*phi[n-2](x);" "6#/-%(HILBERTG6#-&%$phiG6#%
+\"nG6#%\"xG,&*&-%%sqrtG6#*&\"\"#\"\"\"F+!\"\"F5,&*&F-F5-&F)6#,&F+F5F5F
+66#F-F5F5,$-%$intG6$-&F)6#,&F+F5F5F66#%$etaG/FG;,$%)infinityGF6FK*&F5F
+5%#PiGF6F6F5F5*&,&%\"nGF5F5F6F5*&-%%sqrtG6#*(F5F5FPF6,&FPF5F5F6F6F5-&%
+$phiG6#,&%\"nGF5F4F66#%\"xGF5F5F6" }{TEXT -1 10 "\n(8.1.8b) " }
+{XPPEDIT 18 0 "HILBERT(phi[0](x)) = 2*sqrt(2)*Pi^(1/4)*int(exp(-omega^
+2/2)*sin(omega*x),omega = 0 .. infinity);" "6#/-%(HILBERTG6#-&%$phiG6#
+\"\"!6#%\"xG*&*&*&\"\"#\"\"\"-%%sqrtG6#F1F2F2)%#PiG*&F2F2\"\"%!\"\"F2F
+2-%$intG6$*&-%$expG6#,$*&%&omegaGF1F1F:F:F2-%$sinG6#*&FDF2%\"xGF2F2/%&
+omegaG;F+%)infinityGF2" }{TEXT -1 0 "" }}}}{SECT 1 {PARA 5 "" 0 "" 
+{TEXT -1 0 "" }{TEXT 264 0 "" }{TEXT 265 49 "Hilbert transform based o
+n the Hermite functions:" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 117 "Now w
+e can derive the Hilbert transform of an arbitrary function. We start \+
+with expanding f = f(x) into a series sum:" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 9 "(8.1.9a) " }{XPPEDIT 18 0 "f(x) = sum(a[n]*phi[n](x),n = 0
+ .. infinity);" "6#/-%\"fG6#%\"xG-%$sumG6$*&&%\"aG6#%\"nG\"\"\"-&%$phi
+G6#F/6#F'F0/F/;\"\"!%)infinityG" }{TEXT -1 10 "\n(8.1.9b) " }{XPPEDIT 
+18 0 "a[n](x) = int(f(x)*phi[n](x),x = -infinity .. infinity);" "6#/-&
+%\"aG6#%\"nG6#%\"xG-%$intG6$*&-%\"fG6#%\"xG\"\"\"-&%$phiG6#%\"nG6#F2F3
+/F2;,$%)infinityG!\"\"F=" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 131 "For \+
+each function that has a limited series expansion at infinity we can p
+rovide an estimation used in further numerical algorithm:" }}}{EXCHG 
+{PARA 0 "" 0 "" {TEXT -1 18 "(8.1.10a) f(x) ~= " }{XPPEDIT 18 0 "sum(a
+[n]*phi[n](x),n = 0 .. N);" "6#-%$sumG6$*&&%\"aG6#%\"nG\"\"\"-&%$phiG6
+#F*6#%\"xGF+/F*;\"\"!%\"NG" }{TEXT -1 11 "\n(8.1.10b) " }{XPPEDIT 18 
+0 "HILBERT(f(x));" "6#-%(HILBERTG6#-%\"fG6#%\"xG" }{TEXT -1 4 " ~= " }
+{XPPEDIT 18 0 "sum(a[n]*HILBERT(phi[n](x)),n = 0 .. N);" "6#-%$sumG6$*
+&&%\"aG6#%\"nG\"\"\"-%(HILBERTG6#-&%$phiG6#F*6#%\"xGF+/%\"nG;\"\"!%\"N
+G" }{TEXT -1 0 "" }}}}{SECT 0 {PARA 5 "" 0 "" {TEXT -1 0 "" }{TEXT 
+266 45 "Short description of the numerical algorithm:" }}{EXCHG {PARA 
+0 "" 0 "" {TEXT -1 97 "Taking a look on the (8.1.10b) equation we can \+
+see, that the only difficulty is to calculate the " }{XPPEDIT 18 0 "a[
+n];" "6#&%\"aG6#%\"nG" }{TEXT -1 30 " coefficients, while both the " }
+{XPPEDIT 18 0 "phi[n](x);" "6#-&%$phiG6#%\"nG6#%\"xG" }{TEXT -1 5 " an
+d " }{XPPEDIT 18 0 "HILBERT(phi[n](x));" "6#-%(HILBERTG6#-&%$phiG6#%\"
+nG6#%\"xG" }{TEXT -1 181 " can be precalculated once. The integral in \+
+(8.1.9b) is nowe much easier because there is no singularity. The algo
+rithm is given in Appendix A.5 and it consists of three main parts:" }
+}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 118 "1. PRECALCULATION of Hermite fu
+nction coefficients - done once using Maple Toolbox\nMAIN LOOP with:\n
+  2. ESTIMATION OF " }{XPPEDIT 18 0 "a[n];" "6#&%\"aG6#%\"nG" }{TEXT 
+-1 71 " COEFFICIENTS\n  3. CALCULATION OF THE HILBERT TRANSFORM (using
+ 8.1.10b)" }}}}{EXCHG {PARA 257 "" 0 "" {TEXT 256 136 "Overview of the
+ Hermite-Hilbert transorms and overview of the precalculation of the H
+ermite polynomials in a possibly short time/memory." }}}}{SECT 1 
+{PARA 5 "" 0 "" {TEXT -1 31 "8.2 HHT for simple linear model" }}
+{EXCHG {PARA 256 "" 0 "" {TEXT -1 25 "Text and graphs here.... " }}}
+{EXCHG {PARA 0 "" 0 "" {TEXT 257 107 "Example cases for solving the Kr
+amers-Kronig relations in linear model using  - HHT with short conclus
+ions." }}}}{SECT 1 {PARA 5 "" 0 "" {TEXT -1 34 "8.3 HHT for simple non
+linear model" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 25 "Text and graphs he
+re.... " }}}{EXCHG {PARA 0 "" 0 "" {TEXT 259 116 "Example cases for so
+lving the Kramers-Kronig relations in simple nonlinear model using HHT
+ - with short conslusions." }}}}{SECT 1 {PARA 5 "" 0 "" {TEXT -1 45 "8
+.4 HHT for simple quantum-perturbative model" }}{EXCHG {PARA 0 "" 0 "
+" {TEXT -1 25 "Text and graphs here.... " }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT 258 127 "Example cases for solving the Kramers-Kronig relations \+
+in simple quantum-perturbative model using HHT - with short conslusion
+s." }}}}{SECT 1 {PARA 5 "" 0 "" {TEXT -1 24 "8.5 HHT for other models
+" }}{EXCHG {PARA 0 "" 0 "" {TEXT -1 25 "Text and graphs here.... " }}}
+{EXCHG {PARA 257 "" 0 "" {TEXT -1 78 "Example cases for solving the Kr
+amers-Kronig relations for other models using " }{TEXT 260 3 "HHT" }
+{TEXT -1 26 " - with short conslusions." }}}}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 0 "" }}}}{MARK "0 1 0 0" 21 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 
+1 }{PAGENUMBERS 0 1 2 33 1 1 }
