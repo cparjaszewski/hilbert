@@ -1,0 +1,901 @@
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.8.26)  27 AUG 2011 07:42
+entering extended mode
+**thesis*-*draft*v3.tex
+("C:\doc\Szko³a\MSc\tex\thesis - draft v3.tex"
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
+vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
+an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
+romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
+sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
+senglishmax, welsh, loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size12.clo"
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\preprint\fullpage.sty"
+Package: fullpage 1999/02/23 1.1 (PWD)
+\FP@margin=\skip43
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2010/09/14 v0.05b Graphics/color for pdfTeX
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\maple2e\maple2e.sty"
+Package: maple2e 1998/09/21 v1.15
+Package: maple2e 1998/09/21 maple2eMaple Latex Style Package -- 1998/09/21 mapl
+e2e
+("C:\Program Files\MiKTeX 2.9\tex\latex\maple2e\mapleenv.sty"
+Package: mapleenv 1998/09/19 -- Maple Environments -- mapleenv.sty 
+
+Defining Standard Maple Environemnts
+("C:\Program Files\MiKTeX 2.9\tex\latex\maple2e\mapleutil.sty"
+Package: mapleutil 1998/09/19 -- Maple Style Utilities
+
+Defining Maple Utility Macros
+\@MapleTabSize=\dimen105
+\MapleListCorrection=\toks15
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\maple2e\mapleenv.def"
+\AboveMapleSkip=\skip44
+\BelowMapleSkip=\skip45
+\LeftMapleSkip=\dimen106
+\AboveMaplePlot=\skip46
+\BelowMaplePlot=\skip47
+\MaplePlotHeight=\dimen107
+\MaplePlotWidth=\dimen108
+\MaplePlotHeight@Fudge=\dimen109
+\MaplePlotWidth@Fudge=\dimen110
+\MapleSepLineWidth=\dimen111
+\MapleTab=\count88
+\MaplePromptString=\toks16
+\MaplePromptSecondary=\toks17
+\MapleSepLineHeight=\dimen112
+)
+\newleftskip=\skip48
+\mapleinputbox=\box26
+\maplebox=\box27
+\Tab=\dimen113
+\@inlinebox=\box28
+\cellwidth=\dimen114
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\maple2e\mapletab.sty"
+Package: mapletab 1998/09/19 -- Maple Spreadsheets
+
+Defining Maple Spreadsheet Environemnts
+Maple Spreadsheet and Table Support
+\multilinesep=\dimen115
+\@linebuffer=\box29
+\@currentline=\box30
+\@linebufferwidth=\dimen116
+\EndMultiLine=\toks18
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\maple2e\mapleplots.sty"
+Package: mapleplots 1998/09/19 -- Maple Plotting Macros
+
+Defining Maple Plot Environemnts
+ ...Defaults to "dvips" Driver 
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+\epsfxsize=\dimen117
+\epsfysize=\dimen118
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\maple2e\maplestyle.sty"
+Package: maplestyle 1998/09/19 -- Maple Environments -- mapleenv.sty 
+
+Defining Automatic Style Generation Macros
+\maplettybox=\box31
+)) ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2008/07/06 v3.8l The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\polish.ldf"
+Language: polish 2005/03/31 v1.2l Polish support from the babel system
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2008/07/06 v3.8l Babel common definitions
+\babel@savecnt=\count89
+\U@D=\dimen119
+)
+Package babel Info: Making " an active character on input line 83.
+\pl@left=\dimen120
+\pl@down=\dimen121
+\pl@right=\dimen122
+\pl@temp=\dimen123
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\polski\polski.sty"
+Package: polski 2008/02/24 v1.3.3 Polish language package
+
+Document language package `polski' v1.3.3 <2008/02/24>
+\l@nohyphenation=\language70
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ot4enc.def"
+File: ot4enc.def 2005/09/27 v1.99g Standard LaTeX file
+)
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT4/cmr/bx/n on input line 310.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT4/cmss/m/n on input line 310.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT4/cmr/m/it on input line 310.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT4/cmtt/m/n on input line 310.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT4/cmss/bx/n on input line 310.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT4/cmr/bx/it on input line 310.
+LaTeX Font Info:    Encoding `OT1' has changed to `OT4' for symbol font
+(Font)              `operators' in the math version `normal' on input line 310.
+
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT4/cmr/m/n on input line 310.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/plm/m/it on input line 310.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/plsy/m/n on input line 310.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/plex/m/n on input line 310.
+LaTeX Font Info:    Encoding `OT1' has changed to `OT4' for symbol font
+(Font)              `operators' in the math version `bold' on input line 310.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT4/cmr/bx/n on input line 310.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/plm/b/it on input line 310.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/plsy/b/n on input line 310.
+
+   Switching to Polish text encoding and Polish maths fonts.
+LaTeX Font Info:    Try loading font information for OT4+cmr on input line 346.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\polski\ot4cmr.fd"
+File: ot4cmr.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
+)
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT4/cmr/bx/n --> OT4/cmr/bx/n on input line 346.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT4/cmss/m/n --> OT4/cmss/m/n on input line 346.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT4/cmr/m/it --> OT4/cmr/m/it on input line 346.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT4/cmtt/m/n --> OT4/cmtt/m/n on input line 346.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT4/cmss/bx/n --> OT4/cmss/bx/n on input line 346.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT4/cmr/bx/it --> OT4/cmr/bx/it on input line 346.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT4/cmr/m/n --> OT4/cmr/m/n on input line 346.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/plm/m/it --> OML/plm/m/it on input line 346.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/plsy/m/n --> OMS/plsy/m/n on input line 346.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/plex/m/n --> OMX/plex/m/n on input line 346.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT4/cmr/bx/n --> OT4/cmr/bx/n on input line 346.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/plm/b/it --> OML/plm/b/it on input line 346.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/plsy/b/n --> OMS/plsy/b/n on input line 346.
+LaTeX Font Info:    Redeclaring math symbol \xleq on input line 346.
+LaTeX Font Info:    Redeclaring math symbol \xgeq on input line 346.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks19
+\inpenc@posthook=\toks20
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\cp1250.def"
+File: cp1250.def 2008/03/30 v1.1d Input encoding file
+))
+("C:\doc\Szko³a\MSc\tex\thesis - draft v3.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count90
+\scratchdimen=\dimen124
+\scratchbox=\box32
+\nofMPsegments=\count91
+\nofMParguments=\count92
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count93
+\MPscratchDim=\dimen125
+\MPnumerator=\count94
+\makeMPintoPDFobject=\count95
+\everyMPtoPDFconversion=\toks22
+)
+LaTeX Font Info:    Try loading font information for OML+plm on input line 32.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\polski\omlplm.fd"
+File: omlplm.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
+)
+LaTeX Font Info:    Try loading font information for OMS+plsy on input line 32.
+
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\polski\omsplsy.fd"
+File: omsplsy.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
+)
+LaTeX Font Info:    Try loading font information for OMX+plex on input line 32.
+
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\polski\omxplex.fd"
+File: omxplex.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
+)
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <14.4> on input line 32.
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <10> on input line 32.
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <7> on input line 32.
+
+<img/title.png, id=1, 229.60782pt x 223.58531pt>
+File: img/title.png Graphic file (type png)
+ <use img/title.png>
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <12> on input line 55.
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <8> on input line 55.
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <6> on input line 55.
+ [1
+
+{C:/Users/Krzysztof/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/doc/
+Szko³a/MSc/tex/img/title.png>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 74.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
+[2] [3]
+Underfull \vbox (badness 2980) has occurred while \output is active []
+
+ [4]
+[5] <img/nlo.png, id=31, 371.88937pt x 368.87813pt>
+File: img/nlo.png Graphic file (type png)
+ <use img/nlo.png>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6]
+[7 <C:/doc/Szko³a/MSc/tex/img/nlo.png>]
+<img/opt_phenom.png, id=41, 432.86719pt x 220.57407pt>
+File: img/opt_phenom.png Graphic file (type png)
+
+<use img/opt_phenom.png>
+LaTeX Font Info:    Try loading font information for OT4+cmtt on input line 351
+.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\polski\ot4cmtt.fd"
+File: ot4cmtt.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
+) [8 <C:/doc/Szko³a/MSc/tex/img/opt_phenom.png>] [9] [10] [11] [12]
+
+LaTeX Font Warning: Font shape `OT4/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `OT4/cmtt/m/n' tried instead on input line 724.
+
+[13] [14]
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 843.
+ [15]
+LaTeX Font Info:    Try loading font information for OT4+cmss on input line 112
+4.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\polski\ot4cmss.fd"
+File: ot4cmss.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
+)
+LaTeX Font Info:    Font shape `OT4/cmss/bx/it' in size <12> not available
+(Font)              Font shape `OT4/cmss/bx/sl' tried instead on input line 112
+4.
+
+
+LaTeX Font Warning: Font shape `OT4/cmtt/bx/it' in size <12> not available
+(Font)              Font shape `OT4/cmtt/m/it' tried instead on input line 1126
+.
+
+[16] [17] [18] <img/pnp.png, id=84, 341.77687pt x 207.77625pt>
+File: img/pnp.png Graphic file (type png)
+
+<use img/pnp.png> [19] [20 <C:/doc/Szko³a/MSc/tex/img/pnp.png>]
+<img/pnp_abs.png, id=95, 278.54062pt x 318.43968pt>
+File: img/pnp_abs.png Graphic file (type png)
+ <use img/pnp_abs.png>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [21]
+<img/pnp_2d.png, id=99, 781.41937pt x 313.17pt>
+File: img/pnp_2d.png Graphic file (type png)
+ <use img/pnp_2d.png>
+Overfull \hbox (30.72894pt too wide) in paragraph at lines 1579--1583
+[] 
+ []
+
+
+Underfull \vbox (badness 3209) has occurred while \output is active []
+
+ [22 <C:/doc/Szko³a/MSc/tex/img/pnp_abs.png>]
+<img/pnp_3d.png, id=104, 717.43031pt x 296.60812pt>
+File: img/pnp_3d.png Graphic file (type png)
+ <use img/pnp_3d.png>
+Overfull \hbox (30.72894pt too wide) in paragraph at lines 1588--1592
+[] 
+ []
+
+[23 <C:/doc/Szko³a/MSc/tex/img/pnp_2d.png> <C:/doc/Szko³a/MSc/tex/img/pnp_3d.pn
+g>] <img/fmix_sch.png, id=110, 395.22656pt x 154.32657pt>
+File: img/fmix_sch.png Graphic file (type png)
+
+<use img/fmix_sch.png> [24 <C:/doc/Szko³a/MSc/tex/img/fmix_sch.png>]
+<img/fmix_2d.png, id=115, 685.05937pt x 292.84406pt>
+File: img/fmix_2d.png Graphic file (type png)
+ <use img/fmix_2d.png>
+Overfull \hbox (30.72894pt too wide) in paragraph at lines 1854--1855
+[]  
+ []
+
+[25] <img/fmix_3d.png, id=120, 676.02562pt x 297.36093pt>
+File: img/fmix_3d.png Graphic file (type png)
+
+<use img/fmix_3d.png>
+Overfull \hbox (30.72894pt too wide) in paragraph at lines 1864--1865
+[]  
+ []
+
+[26 <C:/doc/Szko³a/MSc/tex/img/fmix_2d.png> <C:/doc/Szko³a/MSc/tex/img/fmix_3d.
+png>]
+Overfull \hbox (143.68346pt too wide) in paragraph at lines 1908--1920
+[]  
+ []
+
+
+Overfull \hbox (283.1529pt too wide) in paragraph at lines 1946--1965
+[]  
+ []
+
+[27]
+Overfull \hbox (26.98843pt too wide) in paragraph at lines 1990--2005
+[]  
+ []
+
+
+Overfull \hbox (143.78595pt too wide) in paragraph at lines 2018--2040
+[]  
+ []
+
+
+Overfull \hbox (143.78595pt too wide) in paragraph at lines 2043--2065
+[]  
+ []
+
+
+Overfull \hbox (25.95573pt too wide) in paragraph at lines 2080--2095
+[]  
+ []
+
+
+Overfull \hbox (25.95573pt too wide) in paragraph at lines 2098--2113
+[]  
+ []
+
+[28]
+Overfull \hbox (94.91843pt too wide) in paragraph at lines 2147--2161
+[]  
+ []
+
+
+Overfull \hbox (193.03262pt too wide) in paragraph at lines 2172--2189
+[]  
+ []
+
+
+Overfull \hbox (195.47385pt too wide) in paragraph at lines 2192--2209
+[]  
+ []
+
+[29] [30] [31]
+Overfull \hbox (243.03914pt too wide) in paragraph at lines 2561--2633
+[]  
+ []
+
+
+Overfull \hbox (834.94933pt too wide) in paragraph at lines 2649--2790
+[] 
+ []
+
+
+Overfull \hbox (1515.8038pt too wide) in paragraph at lines 2649--2790
+[]  
+ []
+
+[32] <img/qp_plot.png, id=145, 889.07156pt x 304.88907pt>
+File: img/qp_plot.png Graphic file (type png)
+
+<use img/qp_plot.png>
+Overfull \hbox (30.72894pt too wide) in paragraph at lines 2839--2844
+[] 
+ []
+
+<img/qp_3da.png, id=146, 569.12625pt x 262.73157pt>
+File: img/qp_3da.png Graphic file (type png)
+ <use img/qp_3da.png>
+<img/qp_3db.png, id=147, 456.95718pt x 280.04625pt>
+File: img/qp_3db.png Graphic file (type png)
+ <use img/qp_3db.png>
+Overfull \hbox (30.72894pt too wide) in paragraph at lines 2849--2851
+[] 
+ []
+
+
+Overfull \hbox (30.72894pt too wide) in paragraph at lines 2849--2851
+[]  
+ []
+
+[33 <C:/doc/Szko³a/MSc/tex/img/qp_plot.png>]
+Overfull \hbox (28.4933pt too wide) in paragraph at lines 2869--2869
+[]\OT4/cmr/bx/n/14.4 Derivation of the Kramers-Kronig re-la-tions for sim-ple q
+uantum-
+ []
+
+[34 <C:/doc/Szko³a/MSc/tex/img/qp_3da.png> <C:/doc/Szko³a/MSc/tex/img/qp_3db.pn
+g>]
+Overfull \hbox (10.39545pt too wide) in paragraph at lines 2935--2969
+[] 
+ []
+
+
+Overfull \hbox (10.39545pt too wide) in paragraph at lines 2935--2969
+[]  
+ []
+
+[35] [36] <img/zscan_sch.png, id=164, 386.94562pt x 199.49532pt>
+File: img/zscan_sch.png Graphic file (type png)
+
+<use img/zscan_sch.png> <img/zscan_diag.png, id=165, 373.395pt x 202.50656pt>
+File: img/zscan_diag.png Graphic file (type png)
+
+<use img/zscan_diag.png>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [37]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [38 <C:/doc/Szko³a/MSc/tex/img/zscan_sch.png> <C:/doc/Szko³a/MSc/tex/img/zscan
+_diag.png>] <img/oa_plot.png, id=175, 315.42844pt x 203.25937pt>
+File: img/oa_plot.png Graphic file (type png)
+ <use img/oa_plot.png>
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <10.95> on input line 3289.
+
+<img/ca_plot.png, id=176, 415.5525pt x 266.49562pt>
+File: img/ca_plot.png Graphic file (type png)
+ <use img/ca_plot.png>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [39 <C:/doc/Szko³a/MSc/tex/img/oa_plot.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [40 <C:/doc/Szko³a/MSc/tex/img/ca_plot.png>] [41]
+<img/zscan_both.png, id=189, 398.23781pt x 257.46187pt>
+File: img/zscan_both.png Graphic file (type png)
+
+<use img/zscan_both.png> [42]
+Overfull \hbox (3.51834pt too wide) in paragraph at lines 3529--3529
+[][] \OT4/cmtt/m/n/12 1. Is it not to short? Need to ask Prof. Samoc. Maybe we 
+should also 
+ []
+
+
+Overfull \hbox (7.15982pt too wide) in paragraph at lines 3543--3543
+[]\OT4/cmr/bx/n/17.28 Simpson and tra-pe-zo-idal qu-adra-ture com-bi-ned with
+ []
+
+[43 <C:/doc/Szko³a/MSc/tex/img/zscan_both.png>] [44] [45] [46]
+<img/lin_plot.png, id=207, 490.83376pt x 307.1475pt>
+File: img/lin_plot.png Graphic file (type png)
+ <use img/lin_plot.png>
+Overfull \hbox (37.86465pt too wide) in paragraph at lines 4116--4119
+[] 
+ []
+
+<img/htran_lin.png, id=208, 513.41812pt x 411.78844pt>
+File: img/htran_lin.png Graphic file (type png)
+ <use img/htran_lin.png>
+Overfull \hbox (60.44896pt too wide) in paragraph at lines 4154--4168
+[] 
+ []
+
+
+Underfull \vbox (badness 1596) has occurred while \output is active []
+
+ [47 <C:/doc/Szko³a/MSc/tex/img/lin_plot.png>] [48 <C:/doc/Szko³a/MSc/tex/img/h
+tran_lin.png>] <img/htran_pnp_2d.png, id=217, 536.75531pt x 292.84406pt>
+File: img/htran_pnp_2d.png Graphic file (type png)
+
+<use img/htran_pnp_2d.png>
+Overfull \hbox (83.78609pt too wide) in paragraph at lines 4241--4255
+[] 
+ []
+
+<img/htran_pnp_3derr.png, id=218, 338.76563pt x 268.75406pt>
+File: img/htran_pnp_3derr.png Graphic file (type png)
+
+<use img/htran_pnp_3derr.png> [49 <C:/doc/Szko³a/MSc/tex/img/htran_pnp_2d.png>]
+
+Overfull \hbox (268.997pt too wide) in paragraph at lines 4290--4308
+[]  
+ []
+
+<img/htran_fmix_2d.png, id=224, 609.02531pt x 357.58594pt>
+File: img/htran_fmix_2d.png Graphic file (type png)
+
+<use img/htran_fmix_2d.png>
+Overfull \hbox (30.72894pt too wide) in paragraph at lines 4320--4334
+[] 
+ []
+
+
+Underfull \vbox (badness 5008) has occurred while \output is active []
+
+ [50 <C:/doc/Szko³a/MSc/tex/img/htran_pnp_3derr.png>]
+<img/htran_fmix_3derr.png, id=229, 371.13657pt x 293.59688pt>
+File: img/htran_fmix_3derr.png Graphic file (type png)
+
+<use img/htran_fmix_3derr.png>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [51 <C:/doc/Szko³a/MSc/tex/img/htran_fmix_2d.png>]
+<img/htran_qp_2da.png, id=234, 446.41782pt x 431.36156pt>
+File: img/htran_qp_2da.png Graphic file (type png)
+
+<use img/htran_qp_2da.png>
+File: img/htran_qp_2da.png Graphic file (type png)
+ <use img/htran_qp_2da.png>
+Overfull \hbox (30.72894pt too wide) in paragraph at lines 4415--4440
+[] 
+ []
+
+
+Overfull \hbox (30.72894pt too wide) in paragraph at lines 4415--4440
+[] 
+ []
+
+[52 <C:/doc/Szko³a/MSc/tex/img/htran_fmix_3derr.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [53 <C:/doc/Szko³a/MSc/tex/img/htran_qp_2da.png>]
+Overfull \hbox (1064.08778pt too wide) in paragraph at lines 4445--4493
+[]  
+ []
+
+[54] <img/htran_qp_3d.png, id=246, 842.39719pt x 490.08093pt>
+File: img/htran_qp_3d.png Graphic file (type png)
+
+<use img/htran_qp_3d.png>
+Overfull \hbox (30.72894pt too wide) in paragraph at lines 4522--4539
+[] 
+ []
+
+
+Underfull \vbox (badness 2772) has occurred while \output is active []
+
+ [55 <C:/doc/Szko³a/MSc/tex/img/htran_qp_3d.png>] [56]
+<img/nc_lin1.png, id=255, 541.27219pt x 280.04625pt>
+File: img/nc_lin1.png Graphic file (type png)
+ <use img/nc_lin1.png>
+Overfull \hbox (88.30296pt too wide) in paragraph at lines 4734--4753
+[] 
+ []
+
+[57] <img/nc_lin2.png, id=259, 530.73282pt x 274.77657pt>
+File: img/nc_lin2.png Graphic file (type png)
+
+<use img/nc_lin2.png>
+Overfull \hbox (77.76363pt too wide) in paragraph at lines 4768--4776
+[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [58 <C:/doc/Szko³a/MSc/tex/img/nc_lin1.png>]
+<img/nc_lin3.png, id=264, 504.38437pt x 268.75406pt>
+File: img/nc_lin3.png Graphic file (type png)
+ <use img/nc_lin3.png>
+Overfull \hbox (51.41524pt too wide) in paragraph at lines 4802--4821
+[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [59 <C:/doc/Szko³a/MSc/tex/img/nc_lin2.png>]
+<img/nc_lin4.png, id=269, 529.98pt x 277.035pt>
+File: img/nc_lin4.png Graphic file (type png)
+ <use img/nc_lin4.png>
+Overfull \hbox (77.01079pt too wide) in paragraph at lines 4836--4855
+[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [60 <C:/doc/Szko³a/MSc/tex/img/nc_lin3.png>]
+Underfull \vbox (badness 5245) has occurred while \output is active []
+
+ [61 <C:/doc/Szko³a/MSc/tex/img/nc_lin4.png>]
+<img/nc_fmix1.png, id=279, 528.47438pt x 274.77657pt>
+File: img/nc_fmix1.png Graphic file (type png)
+ <use img/nc_fmix1.png>
+Overfull \hbox (30.72894pt too wide) in paragraph at lines 4896--4909
+[] 
+ []
+
+
+Overfull \hbox (268.997pt too wide) in paragraph at lines 4941--4959
+[]  
+ []
+
+[62 <C:/doc/Szko³a/MSc/tex/img/nc_fmix1.png>]
+<img/nc_qp1.png, id=284, 832.61063pt x 291.33844pt>
+File: img/nc_qp1.png Graphic file (type png)
+ <use img/nc_qp1.png>
+Overfull \hbox (30.72894pt too wide) in paragraph at lines 5028--5040
+[] 
+ []
+
+[63 <C:/doc/Szko³a/MSc/tex/img/nc_qp1.png>]
+Overfull \hbox (1064.08778pt too wide) in paragraph at lines 5117--5165
+[]  
+ []
+
+[64] [65] [66] [67] [68] [69]
+Overfull \hbox (12.16295pt too wide) in paragraph at lines 5882--5893
+[] 
+ []
+
+[70]
+Overfull \hbox (105.47836pt too wide) in paragraph at lines 6020--6031
+[]  
+ []
+
+[71]
+Overfull \hbox (4.46768pt too wide) in paragraph at lines 6110--6133
+[] 
+ []
+
+[72] [73] [74] [75] [76] [77] [78]
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <17.28> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 6874.
+
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <17.28> on input line 6874.
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <14.4> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 6876.
+
+ [79]
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 6939.
+
+ [80] [81] [82] [83] [84] [85] [86]
+[87] [88] [89]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [90]
+[91]
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <5> on input line 7700.
+ [92] [93] [94]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 8168.
+
+ [95] [96]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [97]
+Overfull \hbox (68.32294pt too wide) in paragraph at lines 8527--10402
+\OT4/cmr/m/n/8 ^(1./2).*EXPX+654729075.*2.^(1./2)+960.*3.^(1./2).*5.^(3./4).*46
+189.^(1./4).*pi.^(3./8).*(43776.*1i.*pi.^(1./2).*t.^17.*2.^(1./2).*EXPX- 
+ []
+
+
+Underfull \vbox (badness 1558) has occurred while \output is active []
+
+ [98]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [99]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [100]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [101]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [102]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [103]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [104]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [105]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [106]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [107]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [108]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [109]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [110]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [111]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [112]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [113]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [114]
+Underfull \vbox (badness 7238) has occurred while \output is active []
+
+ [115]
+Underfull \vbox (badness 1558) has occurred while \output is active []
+
+ [116]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [117]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [118]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [119]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [120]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [121]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [122]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [123]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [124]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [125]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [126]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [127]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [128]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [129]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [130]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [131]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [132]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [133]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [134]
+[135] ("C:\doc\Szko³a\MSc\tex\thesis - draft v3.aux") ) 
+Here is how much of TeX's memory you used:
+ 2201 strings out of 494019
+ 30009 string characters out of 3146486
+ 164667 words of memory out of 3000000
+ 5408 multiletter control sequences out of 15000+200000
+ 26958 words of font info for 71 fonts, out of 3000000 for 9000
+ 714 hyphenation exceptions out of 8191
+ 35i,9n,30p,241b,234s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX
+ 2.9/fonts/enc/dvips/pl/pltt.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/p
+l/plrm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/pl/plmi.enc}{C:/Program
+ Files/MiKTeX 2.9/fonts/enc/dvips/pl/plit.enc}{C:/Program Files/MiKTeX 2.9/font
+s/enc/dvips/pl/plms.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/pl/plme.en
+c}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/pl/plbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/pl/plbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plbxt
+i10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plex10.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/pl/plmi10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/pl/plmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/pl/plmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plmi8.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plr10.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/pl/plr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/pl/plr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plr
+6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plr8.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/pl/plssbi10.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/pl/plsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/pl/plsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plsy8.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plti10.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/pl/plti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/pl/plti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plt
+i8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/pltt12.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/pl/pltt8.pfb>
+Output written on "thesis - draft v3.pdf" (135 pages, 1597343 bytes).
+PDF statistics:
+ 610 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
+

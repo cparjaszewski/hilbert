@@ -1,0 +1,22 @@
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdftex 2011.10.13)  13 OCT 2011 12:02
+entering extended mode
+**C:/doc/MSc/tex/biblio.bib
+(C:/doc/MSc/tex/biblio.bib
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.4 @BOOK{bloembergen_
+                      nonlinear,
+? 
+! Emergency stop.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.4 @BOOK{bloembergen_
+                      nonlinear,
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!
