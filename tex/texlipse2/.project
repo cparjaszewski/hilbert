@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Thesis</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>net.sourceforge.texlipse.builder.TexlipseBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>net.sourceforge.texlipse.builder.TexlipseNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>biblio.bib</name>
+			<type>1</type>
+			<location>c:/doc/MSc/tex/biblio.bib</location>
+		</link>
+		<link>
+			<name>img</name>
+			<type>2</type>
+			<location>C:/doc/Szkoła/MSc/tex/img</location>
+		</link>
+	</linkedResources>
+	<variableList>
+		<variable>
+			<name>IMG_LOC</name>
+			<value>file:/C:/doc/Szko%C5%82a/MSc/tex/img</value>
+		</variable>
+	</variableList>
+</projectDescription>

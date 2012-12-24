@@ -1,0 +1,13 @@
+#TeXlipse project settings
+#Wed Oct 19 13:31:43 CEST 2011
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=pytanie.tex
+outputFile=pytanie.pdf
+langSpell=en
+markDer=true
+srcDir=

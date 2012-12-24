@@ -1,0 +1,567 @@
+% This file was created with JabRef 2.7.
+% Encoding: UTF8
+
+@BOOK{bloembergen_nonlinear,
+  title = {Nonlinear optics},
+  publisher = {World Scientific},
+  year = {1996},
+  author = {Bloembergen, N.},
+  isbn = {9789810225995},
+  url = {http://books.google.com/books?id=VdwBT13l05EC}
+}
+
+@MISC{bluestein_linear,
+  author = {Leo I. Bluestein},
+  title = {{A linear filtering approach to the computation of the discrete Fourier
+	transform}},
+  year = {1968},
+  journal = {IEEE Northeast Electronics Research and Engineering Meeting},
+  pages = {218--219},
+  volume = {10}
+}
+
+@BOOK{boyd_nlo,
+  title = {{Nonlinear Optics, Third Edition}},
+  publisher = {Academic Press},
+  year = {2008},
+  author = {Robert W. Boyd},
+  edition = {3},
+  month = apr,
+  day = {11},
+  howpublished = {Hardcover},
+  isbn = {0123694701},
+  keywords = {nonlinear_optics},
+  posted-at = {2010-09-13 09:06:52},
+  priority = {2}
+}
+
+@ARTICLE{boyd_chirality,
+  author = {Robert W Boyd and John E Sipe and Peter W Milonni},
+  title = {Chirality and polarization effects in nonlinear optics},
+  journal = {Journal of Optics A: Pure and Applied Optics},
+  year = {2004},
+  volume = {6},
+  pages = {S14},
+  number = {3},
+  abstract = {Polarization effects play an even more important role in nonlinear
+	optics than in linear optics because of the richer set of phenomena
+	describable by higher-order tensor relations. The present contribution
+	surveys some recent research on polarization aspects of nonlinear
+	optical interactions, paying special attention to nonlinear optical
+	interactions in chiral isotropic optical materials. We especially
+	address the question of the existence of a linear electro-optic effect
+	in chiral isotropic materials and analyse some of the conflicting
+	statements that have recently been made in the scientific literature.},
+  url = {http://stacks.iop.org/1464-4258/6/i=3/a=002}
+}
+
+@ARTICLE{bruun_ztransform,
+  author = {Georg Bruun},
+  title = {{$z$-transform DFT filters and FFTs}},
+  journal = {IEEE Transactions on Acoustics, Speech, and Signal Processing},
+  year = {1978},
+  volume = {26},
+  pages = {56--63},
+  note = {URL: {\tt http://cr.yp.to/\allowbreak bib/\allowbreak entries.html\#\allowbreak
+	1978/\allowbreak bruun}},
+  issn = {0096--3518}
+}
+
+@ARTICLE{calvetti_computation,
+  author = {Daniela Calvetti and Gene H. Golub and William B. Gragg and Lothar
+	Reichel},
+  title = {Computation of Gauss-Kronrod quadrature rules},
+  journal = {Math. Comput.},
+  year = {2000},
+  volume = {69},
+  pages = {1035-1052},
+  number = {231},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://dx.doi.org/10.1090/S0025-5718-00-01174-1}
+}
+
+@ARTICLE{christodoulides_nonlinear,
+  author = {Demetrios N. Christodoulides and Iam Choon Khoo and Gregory J. Salamo
+	and George I. Stegeman and Eric W. Van Stryland},
+  title = {Nonlinear refraction and absorption: mechanisms and magnitudes},
+  journal = {Adv. Opt. Photon.},
+  year = {2010},
+  volume = {2},
+  pages = {60--200},
+  number = {1},
+  month = {Mar},
+  abstract = {We provide an in-depth treatment of the various mechanisms by which
+	an incident light beam can produce an intensity- or flux-dependent
+	change in the refractive index and absorption coefficient of different
+	materials. Whenever possible, the mechanisms are initially traced
+	to single-atom and -molecule effects in order to provide physical
+	understanding. Representative values are given for the various mechanisms.
+	Nine different mechanisms are discussed, starting with the Kerr effect
+	due to atoms and/or molecules with discrete states, including organic
+	materials such as molecules and conjugated polymers. Simplified two
+	and/or three-level models provide useful information, and these are
+	summarized. The nonlinear optics of semiconductors is reviewed for
+	both bulk and quantum-confined semiconductors, focusing on the most
+	common types II-VI and III-V. Also discussed in some detail are the
+	different nonlinear mechanisms that occur in liquid crystals and
+	photorefractive media. Additional nonlinear material systems and
+	mechanisms such as glasses, molecular reorientation of single molecules,
+	the electrostrictive effect, the nuclear effect (vibrational contributions),
+	cascading, and the ever-present thermal effects are quantified, and
+	representative tables of values are given.},
+  doi = {10.1364/AOP.2.000060},
+  keywords = {Nonlinear optical materials; Optical nonlinearities of condensed matter},
+  publisher = {OSA},
+  url = {http://aop.osa.org/abstract.cfm?URI=aop-2-1-60}
+}
+
+@ARTICLE{chui_lf_correction,
+  author = {{Chui}, S.~T. and {Ma}, H.-R. and {Kasowski}, R.~V. and {Hsu}, W.~Y.},
+  title = {Local-field correction for nonlinear optical coefficients},
+  journal = {Physical Review },
+  year = {1993},
+  volume = {47},
+  pages = {6293-6298},
+  number = {11},
+  month = {March},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System},
+  adsurl = {http://adsabs.harvard.edu/abs/1993PhRvB..47.6293C},
+  doi = {10.1103/PhysRevB.47.6293},
+  keywords = {Optical properties of bulk materials and thin films, Optical and dielectric
+	properties}
+}
+
+@ARTICLE{clenshaw_method,
+  author = {Clenshaw, C W and Curtis, A R},
+  title = {A method for numerical integration on an automatic computer},
+  journal = {Numerische Mathematik},
+  year = {1960},
+  volume = {2},
+  pages = {197--205},
+  number = {1},
+  url = {http://www.springerlink.com/index/10.1007/BF01386223}
+}
+
+@ARTICLE{Tukey_algorithm,
+  author = {James Cooley and John Tukey},
+  title = {An Algorithm for the Machine Calculation of Complex Fourier Series},
+  journal = {Mathematics of Computation},
+  year = {1965},
+  volume = {19},
+  pages = {297-301},
+  number = {90},
+  added-at = {2008-03-11T21:08:33.000+0100},
+  biburl = {http://www.bibsonomy.org/bibtex/2fff11135afc0f5d727d1b72fd8b3b199/voland},
+  doi = {10.2307/2003354},
+  interhash = {2187c52cd053e20d97b4552b1de66d01},
+  intrahash = {fff11135afc0f5d727d1b72fd8b3b199},
+  keywords = {Fourier algorithm fft transform},
+  timestamp = {2008-03-11T21:08:33.000+0100}
+}
+
+@TECHREPORT{newport_application,
+  author = {Newport Corporation},
+  title = {Z-Scan for the Characterization of Transparent Optical Materials},
+  institution = {Spectra-Physics divistion, Irvine, California},
+  year = {2007},
+  type = {Application Note},
+  number = {34},
+  address = {Newport Corporation, Worldwide Headquarters, 1791 Deere Avenue, Irvine,
+	CA 92606},
+  month = {July},
+  note = {MM\#00000094 DS-04071}
+}
+
+@ARTICLE{Good_interaction,
+  author = {Good, Irving J.},
+  title = {The Interaction Algorithm and Practical Fourier Analysis: An Addendum},
+  journal = {Journal of the Royal Statistical Society. Series B (Methodological)},
+  year = {1960},
+  volume = {22},
+  pages = {372-375},
+  abstract = {In the original paper it was misleadingly stated that the Yates algorithm
+	is effectively self-inverse. This statement is here elucidated, and
+	a numerical example is given. Attention is drawn to a discrete analogue
+	of Poisson's summation formula, which provides many additional relationships
+	between yields and interactions.},
+  doi = {10.2307/2984108},
+  keywords = {algorithms, dft, historical},
+  posted-at = {2009-04-28 17:39:36},
+  priority = {1},
+  url = {http://dx.doi.org/10.2307/2984108}
+}
+
+@BOOK{hahn_hilbert,
+  title = {Hilbert transforms in signal processing},
+  publisher = {Artech House},
+  year = {1996},
+  author = {Hahn, S.L.},
+  series = {Artech House signal processing library},
+  isbn = {9780890068861},
+  lccn = {96044248},
+  url = {http://books.google.com/books?id=b_RSAAAAMAAJ}
+}
+
+@ARTICLE{hutchings_kramers2,
+  author = {Hutchings, David Crichton and Sheik-Bahae, M and Hagan, D J and Van
+	Stryland, E W},
+  title = {Kramers-Kronig Relations in Nonlinear Optics},
+  journal = {Optical and Quantum Electronics},
+  year = {1992},
+  volume = {24},
+  pages = {1--30},
+  number = {1},
+  url = {{http://link.aip.org/link/APPLAB/v66/i22/p2938/s1}}
+}
+
+@MASTERSTHESIS{johansson_hilbert,
+  author = {Mathias Johansson},
+  title = {The Hilbert transform},
+  school = {Växjö University},
+  year = {1999},
+  month = {March},
+  note = {Mathematics/Applied Mathematics},
+  abstract = {The information about the Hilbert transform is often scattered in
+	books about signal processing. Their authors frequently use mathematical
+	formulas without explaining them thoroughly to the reader. The purpose
+	of this report is to make a more stringent presentation of the Hilbert
+	transform but still with the signal processing application in mind.}
+}
+
+@BOOK{kahaner_numerical,
+  title = {Numerical methods and software},
+  publisher = {Prentice-Hall, Inc.},
+  year = {1989},
+  author = {Kahaner, David and Moler, Cleve and Nash, Stephen},
+  address = {Upper Saddle River, NJ, USA},
+  isbn = {0-13-627258-4}
+}
+
+@INPROCEEDINGS{kak_multilayeredarray,
+  author = {Subhash C. Kak},
+  title = {Multilayered array computing},
+  booktitle = {Proc. 20th Annual Conference on Information Sciences and Systems,
+	Princeton},
+  year = {1986},
+  pages = {436--441}
+}
+
+@BOOK{katznelson_introduction,
+  title = {An introduction to harmonic analysis},
+  publisher = {Cambridge University Press},
+  year = {2004},
+  author = {Katznelson, Y.},
+  series = {Cambridge mathematical library},
+  isbn = {9780521543590},
+  lccn = {2003064046},
+  url = {http://books.google.com/books?id=gkpUE_m5vvsC}
+}
+
+@ARTICLE{lamb_issues,
+  author = {M Lamb and V Rouillard},
+  title = {Some issues when using Fourier analysis for the extraction of modal
+	parameters},
+  journal = {Journal of Physics: Conference Series},
+  year = {2009},
+  volume = {181},
+  pages = {012007},
+  number = {1},
+  abstract = {It is sometimes necessary to determine the manner in which structures
+	deteriorate with respect to time; for instance when quantifying a
+	material's ability to withstand sustained dynamic loads. In such
+	cases, it is well established that loss of structural integrity is
+	reflected by variations in modal characteristics such as stiffness.
+	This paper addresses some practical limitations of Fourier analysis
+	with respect to temporal resolution and the uncertainties associated
+	with extracting variations in modal parameters. The statistical analysis
+	of numerous numerical experiments shows how techniques, such as data
+	overlapping and zero-padding, can be used to improve the sensitivity
+	of modal parameter extraction.},
+  url = {http://stacks.iop.org/1742-6596/181/i=1/a=012007}
+}
+
+@ARTICLE{Levenson_dispersion,
+  author = {Levenson, M and Bloembergen, N},
+  title = {Dispersion of the nonlinear optical susceptibility tensor in centrosymmetric
+	media},
+  journal = {Physical Review B},
+  year = {1974},
+  volume = {10},
+  pages = {4447--4463},
+  number = {10},
+  publisher = {American Physical Society},
+  url = {http://link.aps.org/doi/10.1103/PhysRevB.10.4447}
+}
+
+@BOOK{lucarini_kramers,
+  title = {Kramers-Kronig relations in optical materials research},
+  publisher = {Springer},
+  year = {2005},
+  author = {Lucarini, V.},
+  series = {Springer series in optical sciences},
+  isbn = {9783540236733},
+  lccn = {2005921306},
+  url = {http://bks6.books.google.co.ug/books?id=JDmbi0VlORwC}
+}
+
+@CONFERENCE{samoc_nlo_absorption,
+  author = {{Marek Samoć, A. Samoć, B. Luther-Davies, M. G. Humphrey, M. P. Cifuentes}},
+  title = {Nonlinear absorption: materials and mechanisms},
+  booktitle = {Proceedings of the Symposium on Photonics Technologies for 7th Framework
+	Program},
+  year = {2006},
+  editor = {Agnieszka Popiołek-Masajada},
+  pages = {230-233},
+  address = {Wroclaw, Poland},
+  month = {October},
+  organization = {Institute of Physics, Wrocław University of Technology, Centre for
+	Advanced Materials and Nanotechnology, Wrocław University of Technology,
+	Wrocław Centre for Technology Transfer},
+  publisher = {Oficyna Wydawnicza Politechniki Wroclawskiej},
+  isbn = {83-7085-970-4}
+}
+
+@MISC{kuzyk_nlo,
+  author = {{Mark G. Kuzyk, Benjamin R. Anderson, Nathan J. Dawson, Sheng-Ting
+	Hung, Wei Lu, Shiva Ramini, Jennifer L. Schei, Shoresh Shafei, Julian
+	H. Smith, Afsoon Soudi, Szymon Steplewski, Xianjun Ye}},
+  title = {Nonlinear Optics},
+  howpublished = {http://www.nlosource.com/LectureNotesBook.pdf},
+  month = {August},
+  year = {2010},
+  note = {Course book},
+  address = {Pullman, WA}
+}
+
+@PHDTHESIS{thesis_novak,
+  author = {Novak, A.},
+  title = {Identification of Nonlinear Systems in Acoustics},
+  school = {Université du Maine, Le Mans, France AND Czech Technical University,
+	Prague, Czech Republic},
+  year = {2009}
+}
+
+@MISC{muhoray_course,
+  author = {Palffy-Muhoray},
+  title = {Course materials for LC Optics and Photonics},
+  howpublished = {http://mpalffy.lci.kent.edu/Optics/},
+  month = {Spring},
+  year = {2011},
+  note = {CPHY 6/74495}
+}
+
+@BOOK{prasad_intro_nlo,
+  title = {Introduction to Nonlinear Optical Effects in Molecules and Polymers},
+  publisher = {Wiley-Interscience},
+  year = {1991},
+  author = {Paras N. Prasad, David J. Williams},
+  volume = {1},
+  address = {New York},
+  month = {01},
+  note = {A Wiley-Interscience publication},
+  isbn = {978-0-471-51562-3}
+}
+
+@BOOK{prasad_nanophotonics,
+  title = {Nanophotonics},
+  publisher = {Wiley-Interscience},
+  year = {2004},
+  author = {Prasad, P.N.},
+  isbn = {9780471649885},
+  lccn = {40011860},
+  url = {http://books.google.com/books?id=wc7l8rBumg0C}
+}
+
+@ARTICLE{rader_dicrete,
+  author = {Rader, Charles M.},
+  title = {Discrete Fourier transforms when the number of data samples is prime},
+  journal = {Proceedings of the IEEE},
+  year = {1968},
+  volume = {56},
+  pages = {1107--1108},
+  number = {6},
+  abstract = {The discrete Fourier transform of a sequence of N points, where N
+	is a prime number, is shown to be essentially a circular correlation.
+	This can be recognized by rearranging the members of the sequence
+	and the transform according to a rule involving a primitive root
+	of N. This observation permits the discrete Fourier transform to
+	be computed by means of a fast Fourier transform algorithm, with
+	the associated increase in speed, even though N is prime.},
+  keywords = {algorithms, dft},
+  posted-at = {2009-04-28 18:04:11},
+  priority = {1},
+  url = {http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=1448407}
+}
+
+@UNPUBLISHED{samoc_nlo_opt_mat,
+  author = {Samoć, Marek},
+  title = {{Third-order nonlinear optical materials: practical issues and theoretical
+	challenges}},
+  note = {10.1007/s00894-010-0856-8},
+  year = {2010},
+  affiliation = {Institute of Physical and Theoretical Chemistry, Wroclaw University
+	of Technology, Wybrzeże Wyspiańskiego 27, 50-370 Wrocław, Poland},
+  issn = {1610-2940},
+  journal = {Journal of Molecular Modeling},
+  keyword = {Biomedical and Life Sciences},
+  pages = {1-7},
+  publisher = {Springer Berlin / Heidelberg},
+  url = {http://dx.doi.org/10.1007/s00894-010-0856-8}
+}
+
+@PHDTHESIS{seo_study_gainasp,
+  author = {Jae-Kuk Seo},
+  title = {Study of time-resolved measurement of intensity-dependent refractive index change in GaInAsP waveguides},
+  school = {Tokyo Institute of Technology, Department of Electrival and Electronic Engineering},
+  year = {2006},
+  type = {Doctoral Dissertation},
+  address = {2-12-1 Ookoyama, Meguro-Ku, Tokyo, 152-8552, JAPAN},
+  month = {February},
+  note = {Supervisor: Professor Tetsuya Mizumoto, Report number: 6444},
+  timestamp = {2011.10.08},
+  url = {http://tdl.libra.titech.ac.jp/cgi-bin/z3950/gakui_detail_disp.cgi?REG_NO=117172481}
+}
+
+@ARTICLE{shampine_vectorized,
+  author = {Shampine, L. F.},
+  title = {Vectorized adaptive quadrature in MATLAB},
+  journal = {J. Comput. Appl. Math.},
+  year = {2008},
+  volume = {211},
+  pages = {131--140},
+  month = {January},
+  acmid = {1314876},
+  address = {Amsterdam, The Netherlands, The Netherlands},
+  doi = {{10.1016/j.cam.2006.11.021}},
+  issn = {0377-0427},
+  issue = {2},
+  keywords = {65D30, End point singularity, Global adaptive quadrature, Infinite
+	interval, Piecewise-smooth integrand},
+  numpages = {10},
+  publisher = {Elsevier Science Publishers B. V.},
+  url = {http://dl.acm.org/citation.cfm?id=1314706.1314876}
+}
+
+@ARTICLE{bahae_sensitive,
+  author = {{Sheik-Bahae, Mansoor and Said, A A and Wei, T H and Hagan, D J and
+	Van Stryland, E W}},
+  title = {Sensitive measurement of optical nonlinearities using a single beam},
+  journal = {Quantum},
+  year = {1990},
+  volume = {26},
+  pages = {760--769},
+  number = {4},
+  month = {April}
+}
+
+@ARTICLE{chang_computation,
+  author = {Soo-Chang Pei, Sy-Been Jaw},
+  title = {Computation of Discrete Hilbert Transform through Fast Hartley Transform},
+  journal = {IEEE Transactions on Circuits and Systems},
+  year = {1989},
+  volume = {36},
+  pages = {1251--1252},
+  month = {September},
+  doi = {10.1109/31.34675},
+  issn = {0098-4094},
+  issue = {9}
+}
+
+@BOOK{titchmarsh_introduction,
+  title = {Introduction to the theory of Fourier integrals},
+  publisher = {The Clarendon Press},
+  year = {1948},
+  author = {Titchmarsh, E.C.},
+  url = {http://books.google.es/books?id=hKUNAQAAIAAJ}
+}
+
+@BOOK{trager_springer,
+  title = {Springer handbook of lasers and optics},
+  publisher = {Springer},
+  year = {2007},
+  author = {Träger, F.},
+  isbn = {9780387955797},
+  lccn = {2007920818},
+  url = {http://books.google.com/books?id=YOHJGz-9UNoC}
+}
+
+@ARTICLE{fakiszscan,
+  author = {Tsigaridas, G. and Fakis, M. and Polyzos, I. and Persephonis, P.
+	and Giannetas, V.},
+  title = {Z-scan technique through beam radius measurements},
+  journal = {Applied Physics B: Lasers and Optics},
+  year = {2003},
+  volume = {76},
+  pages = {83-86},
+  note = {10.1007/s00340-002-1067-5},
+  affiliation = {Department of Physics, University of Patras, Patras 26500, Greece
+	GR},
+  issn = {0946-2171},
+  issue = {1},
+  keyword = {Physics and Astronomy},
+  publisher = {Springer Berlin / Heidelberg},
+  url = {http://dx.doi.org/10.1007/s00340-002-1067-5}
+}
+
+@ARTICLE{tuononen_using,
+  author = {Tuononen, H and Gornov, E and Zeitler, J A and Aaltonen, J and Peiponen,
+	K-E},
+  title = {Using modified Kramers-Kronig relations to test transmission spectra
+	of porous media in THz-TDS.},
+  journal = {Optics Letters},
+  year = {2010},
+  volume = {35},
+  pages = {631--633},
+  number = {5},
+  doi = {10.1364/OL.35.000631},
+  url = {http://www.ncbi.nlm.nih.gov/pubmed/20195301}
+}
+
+@MISC{ullmann_algorithm,
+  author = {Ronald F. Ullmann},
+  title = {An algorithm for the Fast Hartley Transform},
+  month = {June},
+  year = {1984},
+  note = {Stanford Exploration Project, 38},
+  abstract = {The fast Fourier transform algorithm uses two properties of the discrete
+	Fourier transform to decrease the number of computations. The first
+	property is that the kernel for the Fourier transform is periodic.
+	The second property is the shift rule, The shift rule of the Fourier
+	transform states that shifting a function in the time domain corresponds
+	to multiplying the function in the frequency domain by a complex
+	exponential factor. The Hartley transform has similar properties
+	to the Fourier transform. The Hartley kernel is periodic, and shifting
+	a function in the time domain corresponds to the two multiplications
+	in the frequency domain. Due to the properties of the discrete Hartley
+	transform, a fast Hartley transform algorithm can be based on the
+	algorithm of the fast Fourier transform. Since the fast Hartley transform
+	can work with only real numbers, the transform requires half of the
+	multiplication of a similar FFT. The transform and other operations
+	in Hartley space take less computing time than corresponding operations
+	in Fourier space.},
+  institution = {University of Stanford},
+  url = {http://sepwww.stanford.edu/theses/sep38/38_29_abs.html}
+}
+
+@TECHREPORT{weinberg_hilbert,
+  author = {I. J. Weinberg},
+  title = {Hilbert transform by numerical integration},
+  institution = {Rome Air Development Center, United States Air Force Hanscom AFB},
+  year = {1979},
+  type = {In-House Report},
+  number = {RADC-TR-79-3},
+  address = {Rome},
+  month = {January},
+  note = {Mass. 01731}
+}
+
+@UNPUBLISHED{yum_pump,
+  author = {Yum, Honam and Shahriar, Selim M},
+  title = {Pump-probe model for the Kramers-Kronig relations in a laser},
+  note = {Comments: 10 pages, 5 figures},
+  month = {Mar},
+  year = {2010},
+  doi = {10.1088/2040-8978/12/10/104018},
+  number = {arXiv:1003.3686}
+}
+
