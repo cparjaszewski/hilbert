@@ -1,0 +1,95 @@
+%% Krzysztof Parjaszewski - the summary of prepared Master Thesis
+\documentclass[10pt,twoside,a4paper]{article}
+\usepackage{fullpage}
+\addtolength{\hoffset}{-1.0cm}
+\addtolength{\voffset}{-1.0cm}
+\addtolength{\textwidth}{2cm}
+\pagestyle{empty}
+\title{Numerical evaluation of the Hilbert transform used to better understand 
+and solve the Kramers-Kronig relations in nonlinear optics - summary}
+ \author{Krzysztof Parjaszewski}
+ \date{}
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+\begin{document}
+\maketitle
+\paragraph{}
+The motivation for this work comes from the real problem state by
+physicists and chemists building the valid theoretical models to
+describe the interaction between light and matter due to both
+non-intensive and intensive light radiation. The starting point is the
+fundamental physical law - the causality principle - which states that
+the effect cannot precede the cause. This simple assumption leads us
+to the theorem stated by Edward Charles Titchmarsh in 1948 about the
+pairs of conjugated integrals - Hilbert transforms. Titchmarsh has
+noted that for any casual and convergent response signal $\Phi (t)$ belonging to the Lebesgue 
+$L^{2}$ space over real line using the Fourier transform we can calculate
+the holomorphic $\chi (\omega )$ spectrum which belongs to the Hardy 
+$H^{2}$ space over upper half-plane with the property that real and
+imaginary part of $\chi (\omega )$ are conjugated - we can calculate one from each other using the
+Hilbert transforms. This observation - together with the signal
+response-theory allows us to investigate the properties of the medium
+response to the periodic input signal - both in time and frequency
+domain. The Kramers-Kronig relations for both real and imaginary part
+of optical susceptibility $\chi (\omega )$  come from the simple assumption, that real part is even and
+imaginary part is an odd function. We can therefore modify the Hilbert
+transform equation to obtain the most popular form of the
+Kramers-Kronig relations:
+$$\Re \{ \chi (\omega ) \}=\frac {2}{\pi} \,\dashint _{ - \infty }^{\infty }
+\frac {\omega^{\prime} \,\Im (\chi (\omega^{\prime} ))}{{\omega^{\prime}} ^{2} - \omega ^{2}}
+\,d \omega^{\prime}  $$
+
+
+$$\Im (\chi (\omega ))=\frac {2}{\pi}\,\omega \,\dashint _{ - \infty }^{
+\infty }\frac {\Re (\chi (\omega^{\prime} ))}{{\omega^{\prime}} ^{2} - \omega ^{2}}\,
+d\omega^{\prime}  $$
+
+In this thesis we handle two problems. First concerns the proper
+numerical evaluation of a singular and improper integral defined in
+the Hilbert transform operator.The second problem concerns the
+questions stated by physicists - how to properly use this mathematical
+tools in a typical experiment and model construction in optical
+research. We present the comparison of several implementations of
+numerical evaluations of the Hilbert transform:
+\begin{enumerate}
+ \item Easy implementations - on the comparison needs:
+  \begin{itemize}
+   \item Newton-Cotes qudrature of an arbitrary degree - comparison,
+   \item HTRAN procedure - numerical trapezoidal rule mixed with the
+Simpson's rule and the cubic interpolation, based on [1].
+  \end{itemize}
+ \item Advanced implementations:
+  \begin{itemize}
+   \item Generalized Clenshaw-Curtis quadrature,
+   \item Hilbert transform based on fast Hartley transforms,
+   \item method based on approximation with the orthonormal Hermite
+polynomials and Hermite functions,
+   \item method based on approximation with the Fourier series.
+  \end{itemize}
+ \item Testing the out-of-the-box MATLAB-implemented routines:
+  \begin{itemize}
+   \item quadgk() - Gauss-Kronrod quadrature,
+   \item hilbert() - fast Hilbert transfom based on fast Fourier transform
+and inverse fast Fourier transform.
+  \end{itemize}
+\end{enumerate}
+
+The given physical models for both linear and nonlinear optics are
+analysized and validated. We formulate good practises for scientists
+interested in subject of optical experiments. Finally we made the
+conclusions about the stability, accuracy, advantages and
+disadvantages of developed implementations in further research in
+nonlinear optics.
+\\ \\ 
+$[1]$ I. J. Weinberg, \textit{Hilbert Transform by Numerical
+Integration}", ROME AIR DEVELOPMENT CENTER GRIFFISS AFB N Y, 1979,
+Report Number:A480860
+\end{document}

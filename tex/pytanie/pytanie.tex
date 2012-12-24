@@ -1,0 +1,183 @@
+%%This is a very basic article template.
+%%There is just one section and two subsections.
+\documentclass[12pt,twoside,a4paper]{article} 
+\usepackage{fullpage}
+\usepackage[leqno,fleqn]{amsmath}
+\usepackage[polish]{babel} 
+\usepackage[plmath,MeX]{polski}
+\usepackage[utf8]{inputenc} 
+
+
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=} 
+\def\dashint{\Xint-}
+
+\title{Pytanie - transformata Hilberta}
+\author{Krzysztof Parjaszewski}
+
+\begin{document}
+
+\maketitle
+
+\section*{}
+
+\subsection*{Szanowny Panie Doktorze,}
+
+Chciałbym się zapytać, czy i jaką metodą można policzyć analitycznie wartość całki:
+
+\begin{equation} \label{eq:hilbert_transform_2d_2d}
+	G_2(x_1, x_2) = c \cdot \dashint_{ - \infty }^{\infty } \frac{F_2(y, x_2)} {y^2 - x_1^2} \, dy ,
+\end{equation}
+
+Chciałem ją policzyć numerycznie, ale podane funkcje/modele $F_2$ mają bardzo ostre piki (wysoką pierwszą pochodną) i numerycznie
+to się rozjeżdża.
+
+Mam danych 7 modeli:
+
+\begin{subequations} \label{eq:models}
+	\begin{equation} \label{eq:model_h_tpa} % 1
+		F_2(x_1,\,x_2) = \frac{(x_1 + x_2 - 1)^\frac{3}{2}}{2^7 x_1 x_2^2} \left(\frac{1}{x_1^2} + \frac{1}{x_2^2} \right)^2
+	\end{equation}
+	\begin{equation} \label{eq:model_h_ram} % 2
+		F_2(x_1,\,x_2) = \frac{(x_1 - x_2 - 1)^\frac{3}{2}}{2^7 x_1 x_2^2} \left(\frac{1}{x_1^2} - \frac{1}{x_2^2} \right)^2   
+	\end{equation}
+	\begin{equation} \label{eq:model_h_lst} % 3
+		F_2(x_1,\,x_2) = - \frac{(x_1 - 1)^\frac{3}{2}}{2^6 x_1 x_2^2} \frac{1}{x_2^2} 
+	\end{equation}
+	\begin{equation} \label{eq:model_h_qst} % 4
+		F_2(x_1,\,x_2) = - \frac{1}{2^{10} x_1 x_2^2 (x_1 - 1)^\frac{1}{2}} \left( \frac{1}{x_1 - x_2} + \frac{1}{x_1 + x_2} \right) 
+	\end{equation}
+	\begin{equation} \label{eq:model_g_tpa} % 5
+		F_2(x_1,\,x_2) = \frac{(x_1 + x_2)^3}{x_1^3 x_2^4} \left(x_1 + x_2 - 1 \right)^\frac{3}{2} 
+	\end{equation}
+	\begin{equation} \label{eq:model_g_ram} % 6
+		F_2(x_1,\,x_2) = \frac{(x_1 - x_2)^3}{x_1^3 x_2^4} \left(x_1 - x_2 - 1 \right)^\frac{3}{2} 
+	\end{equation}
+	\begin{equation} \label{eq:model_g_sta} % 7
+		F_2(x_1,\,x_2) = -4 \frac{(x_1 - 1)^\frac{3}{2}}{x_1^2 (x_1 + x_2) (x_1 - x_2)} - 4 \frac{(x_1-1)^\frac{1}{2}}{x_1(x_1 +
+		x_2)(x_1- x_2)} - \frac{(x_1-1)^{-\frac{1}{2}}}{(x_1+x_2)(x_1 - x_2)}
+	\end{equation}
+	\begin{alignat*}{2} % 7 - continued
+		-2\frac{(x_1-1)^\frac{3}{2}}{x_2^4} - 6 \frac{(x_1-1)^\frac{3}{2}}{x_1^2 x_2^2} - 9 \frac{(x_1-1)^\frac{1}{2}}{x_1 x_2^2} -
+		\frac{3}{4}\frac{(x_1-1)^{-\frac{1}{2}}}{x_2^2}
+	\end{alignat*}
+\end{subequations}
+
+Ponieważ podanych przeze mnie modeli jest całkiem sporo, mam prośbę - czy mógłbym prosić o policzenie przykładowego, jednego
+równania plus wskazanie metody, jak robić to z pozostałymi lub o informację, że się nie da :) 
+
+Żeby było łatwiej (lub trudniej), do podanych modeli autorzy, na których polegam, zaproponowali od razu analityczne wyniki dla
+podanych przykładów:
+
+\begin{subequations} \label{eq:results}
+	\begin{equation} \label{eq:result_h_tpa} % 1
+		G_2(x) =  \frac{1}{(2x)^6} \left(-\frac{3}{8}x^2(1-x)^{-\frac{1}{2}} + 3x(1-x)^\frac{1}{2} - 2(1-x)^{\frac{3}{2}} + 2\Theta
+		(1-2x)(1-2x)^\frac{3}{2} \right) 
+	\end{equation}
+	\begin{equation} \label{eq:result_h_ram} % 2
+		G_2(x) =  \frac{1}{(2x)^6}\left(-\frac{3}{8}x^2(1+x)^{-\frac{1}{2}} - 3x(1+x)^\frac{1}{2} - 2(1+x)^\frac{3}{2} +
+		2\Theta(1+2x)^\frac{3}{2} \right)
+	\end{equation}
+	\begin{equation} \label{eq:result_h_lst} % 3
+		G_2(x) = \frac{1}{(2x)^6}\left(2 - (1-x)^\frac{3}{2} - (1+x)^\frac{3}{2} \right)
+	\end{equation}
+	\begin{equation} \label{eq:result_h_qst} % 4
+		G_2(x) =  \frac{1}{2^{10} x^5}\left((1-x)^{-\frac{1}{2}} - (1+x)^{-\frac{1}{2}} - \frac{1}{2}x(1-x)^\frac{3}{2} -
+		\frac{1}{2}x(1+x)^{-\frac{3}{2}}\right)
+	\end{equation}
+	\begin{equation} \label{eq:result_g_tpa} % 5
+		G_2(x_1,\,x_2) = T_2(x_1,\,x2)\,+\,T_2(-x_1,\,x_2)
+	\end{equation}
+	\begin{equation} \label{eq:result_g_ram} % 6
+		G_2(x_1,\,x_2) = T_2(x_1,\,-x2)\,+\,T_2(-x_1,\,-x_2)
+	\end{equation}
+	\begin{equation} \label{eq:result_g_sta} % 7
+		G_2(x_1,\,x_2) = S_2(x_1,\,x2)\,+\,S_2(-x_1,\,x_2)\,+\,S_2(x_1,\,-x2)\,+\,S_2(-x_1,\,-x_2),
+	\end{equation} 
+\end{subequations}
+
+gdzie:
+
+\begin{subequations}
+	\begin{equation*} % explanation - 1
+		T_2(x_1,\,x_2) = \frac{(x_1 + x_2)^3}{x_1^4 x_2^4}(1-x-y)^\frac{3}{2} - \left(\frac{1}{x_1^4 x_2} + \frac{3}{x_1^2
+		x_2^3}\right)(1-x_2)^\frac{3}{2}
+	\end{equation*}
+	\begin{alignat*}{1} % explanation - 1 continued
+		+ \frac{9}{2 x_1^2 x_2^2} (1-x_2)^\frac{1}{2} - \frac{3}{8 x_1^2 x_2} (1-x_2)^{-\frac{1}{2}}
+	\end{alignat*}
+	\begin{equation*} % explanation - 2
+		S_2(x_1,\,x_2) = - (\frac{1}{x_1 x_2^4} + \frac{3}{x_1^3 x_2^2})(1-x_1)^\frac{3}{2} + \frac{9}{2 x_1^2 x_2^2}(1-x)\frac{1}{2} -
+		\frac{3}{8 x_1 x_2^2} (1 - x_1)^{-1\frac{1}{2}} - \frac{4}{x_1^2 x_2^2} 
+	\end{equation*}
+	\begin{alignat*}{1} % explanation - 2 continued
+		+ \frac{1}{x_1^2 - x_2^2} ( \frac{2}{x_2^3}(1-x_2)^\frac{3}{2} - \frac{2}{x_2^3}(1-x_2)^{\frac{3}{2}} -
+		\frac{2}{x_2^2}(1-x_2)^\frac{1}{2} + \frac{2}{x_1^2}(1-x_1)^{\frac{1}{2}} 
+		\\ + \frac{1}{2 x_2} (1-x_2)^\frac{1}{2} - \frac{1}{2	x_2}(1-x_1)^\frac{1}{2} )
+	\end{alignat*}
+\end{subequations}
+
+Dla równań \ref{eq:model_h_tpa} - \ref{eq:model_h_qst} jeden z autorów podał wynik jednowymiarowy, używając wzoru:
+
+\begin{equation} \label{eq:hilbert_transform_2d_1d}
+	G_2(x) = c \cdot \dashint_{ - \infty }^{\infty } \frac{F_2(y, x)} {y^2 - x^2} \, dy ,
+\end{equation}
+
+dlatego poniżej zaproponowałem od razu swoje wzory dwuargumentowe:
+
+\begin{subequations} \label{eq:modifications_h}
+	\begin{equation} \label{eq:modifications_h_tpa} % 1
+		G_2(x_1,\,x_2) =  \frac{1}{2^6 (x_1^2 + x_2^2)^3} (-\frac{3}{8}(x_1^2 + x_2^2)(1-\sqrt{x_1^2 + x_2^2})^{-\frac{1}{2}} +
+		3\sqrt{x_1^2 + x_2^2}(1-\sqrt{x_1^2 + x_2^2})^\frac{1}{2}
+	\end{equation}	
+	\begin{alignat*}{1}
+		- 2(1-\sqrt{x_1^2 + x_2^2})^{\frac{3}{2}} + 2\Theta (1-2\sqrt{x_1^2 + x_2^2})(1-2\sqrt{x_1^2 + x_2^2})^\frac{3}{2} )
+	\end{alignat*}
+	\begin{equation} \label{eq:modifications_h_ram} % 2
+		G_2(x_1,\,x_2) =  \frac{1}{2^6 (x_1^2 + x_2^2)^3} (-\frac{3}{8}(x_1^2 + x_2^2)(1+\sqrt{x_1^2 + x_2^2})^{-\frac{1}{2}} -
+		3\sqrt{x_1^2 + x_2^2}(1+\sqrt{x_1^2 + x_2^2})^\frac{1}{2}
+	\end{equation}
+	\begin{alignat*}{1}
+		- 2(1+\left( x_1^2 + x_2^2 \right)^\frac{1}{2})^\frac{3}{2} + 2\Theta(1+2\sqrt{x_1^2 + x_2^2})^\frac{3}{2}) 
+	\end{alignat*}
+	\begin{equation} \label{eq:modifications_h_lst} % 3
+		G_2(x_1,\,x_2) = \frac{1}{2^6 (x_1^2 + x_2^2)^3}\left(2 - (1-\sqrt{x_1^2 + x_2^2}))^\frac{3}{2} - (1+\sqrt{x_1^2 + x_2^2}))^\frac{3}{2} \right)
+	\end{equation}
+	\begin{equation} \label{eq:modifications_h_qst} % 4
+		G_2(x_1,\,x_2) =  \frac{1}{2^{10} (x_1^2 + x_2^2)^5} ( (1-\sqrt{x_1^2 + x_2^2}))^{-\frac{1}{2}} -
+		(1+\sqrt{x_1^2 + x_2^2})^{-\frac{1}{2}} 
+	\end{equation} 
+	\begin{alignat*}{1}
+		- \frac{1}{2}\sqrt{x_1^2 + x_2^2}(1-\sqrt{x_1^2 + x_2^2})^\frac{3}{2} - \frac{1}{2} \sqrt{x_1^2 + x_2^2}(1+\sqrt{x_1^2 +
+		x_2^2})^{-\frac{3}{2}} )
+	\end{alignat*}
+\end{subequations}
+
+, przy zapropowanym przeze mnie podstawieniu:
+
+\begin{equation} \label{eq:substitution_2d_1d}
+	x \rightarrow \sqrt{x_1^2 + x_2^2}
+\end{equation}
+
+Moje pytanie wynika z obserwacji, że nie mogę stwierdzić, że zaproponowane przez autorów wyniki są poprawne, nie wynika
+to na pewno z moich wstępnych obliczeń numerycznych.
+
+Jest jeszcze jedna ważna uwaga - w powyższych obliczeniach pojawiają się liczby zespolone. Jeśli przy całkowaniu jest to problemem,
+dla uproszczenia myślę, że możnaby użyć tylko wartości rzeczywistych. W modelu fizycznym przyjmuje się z tego co wiem dodatkowe
+założenia, że koncowy model powstaje przez pomnożenie każdej z wyżej przedstawionych funkcji przez odpowiednie funkcje Heaviside'a,
+które z tego, co pokazały mode obliczenia - ``kasują'' wartości zespolone tam, gdzie one się zaczynają pojawiać. 
+
+\section*{}
+\subsection*{}
+
+Z góry uprzejmie dziękuję za pomoc, \\
+Krzysztof Parjaszewski
+
+
+\end{document}

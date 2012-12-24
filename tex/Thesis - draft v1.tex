@@ -1,0 +1,2463 @@
+%% Created by Maple 14.00 (IBM INTEL NT)
+%% Source Worksheet: Thesis.mws
+%% Generated: Mon Jul 04 12:07:26 2011
+\documentclass{article}
+\usepackage{maple2e}
+ \def\emptyline{\vspace{12pt}}
+\DefineParaStyle{Heading 1}
+\DefineParaStyle{Heading 2}
+\DefineParaStyle{Heading 2}
+\DefineParaStyle{Heading 3}
+\DefineParaStyle{Heading 4}
+\DefineParaStyle{Heading 4}
+\DefineParaStyle{Normal}
+\DefineParaStyle{Normal}
+\DefineCharStyle{2D Comment}
+\DefineCharStyle{2D Math}
+\DefineCharStyle{Plot Text}
+\begin{document}
+\pagestyle{empty}
+
+\section{Numerical calculation of the Hilbert transform applied for
+understanding and solving the Kramers-Kronig relations in nonlinear
+optics}
+
+\subsection{0. Abstract}
+
+\subsubsection{Dedication}
+
+\begin{maplegroup}
+\begin{flushleft}
+To my Family.
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{Summary}
+
+\begin{maplegroup}
+\begin{flushleft}
+The motivation for this work comes from the real problem state by
+physicists and chemists building the valid theoretical models to
+describe the interaction between light and matter due to both
+non-intensive and intensive light radiation. The starting point is the
+fundamental physical law - the causality principle - which states that
+the effect cannot precede the cause. This simple assumption leads us
+the Titchmarsh theorem about the Hilbert Transform - and together with
+advanced signal response-theory we can investigate the properties of
+the medium response to the periodic input signal - both in time and
+frequency domain. Modifications of the Hilbert Transform for the
+optical susceptibility 
+\mapleinline{inert}{2d}{chi(omega);}{%
+$\chi (\omega )$%
+} are known as the Kramers-Kronig relations - which are defined for
+both real and imaginary part of susceptibility in the frequency-domain
+ :
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\mapleinline{inert}{2d}{Re(chi(omega)) =
+2/Pi*int(Omega*Im(chi(Omega))/(Omega^2-omega^2),Omega = -infinity ..
+infinity);}{%
+$\Re (\chi (\omega ))=\frac {2\,\int _{ - \infty }^{\infty }
+\frac {\Omega \,\Im (\chi (\Omega ))}{\Omega ^{2} - \omega ^{2}}
+\,d\Omega }{\pi }$%
+}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\mapleinline{inert}{2d}{Im(chi(omega)) =
+2*omega/Pi*int(Re(chi(Omega))/(Omega^2-omega^2),Omega = -infinity ..
+infinity);}{%
+$\Im (\chi (\omega ))=\frac {2\,\omega \,\int _{ - \infty }^{
+\infty }\frac {\Re (\chi (\Omega ))}{\Omega ^{2} - \omega ^{2}}\,
+d\Omega }{\pi }$%
+}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+where the integration uses the Cauchy principal value method. In the
+thesis we handle two problems. First concerns numerical problems with
+calculation of such singular and improper integral. The second problem
+concerns the questions stated by physicists - how to properly use this
+mathematical tools in a typical experiment and model construction in
+optical research. We present the comparison of several implementations
+of numerical calculations of the Hilbert transform:
+- Numerical trapezoidal rule mixed with the Simpson's rule and the
+cubic interpolation
+- Newton-Cotes qudrature of sixth degree
+- Clenshaw-Curtis quadrature
+- Hilbert transform based on fast Hartley transforms
+- method based on approximation with the orthonormal Hermite
+polynomials and Hermite functions
+- method based on approximation with the Fourier series.
+We also test the out-of-the-box MATLAB-implemented routines:
+- quadgk()
+- hilbert() - based on FFT
+The given physical models for both linear and nonlinear optics are
+analysized and validated. We formulate good practises for scientists
+interested in subject of optical experiments. Finally we made the
+conclusions about the numerical stability, advantages and
+disadvantages of developed implementations in further research in
+nonlinear optics.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\emptyline
+\end{maplegroup}
+
+\subsubsection{Keywords}
+
+\begin{maplegroup}
+\begin{flushleft}
+numerical analysis, nonlinear optics, Hilbert transform,
+Kramers-Kronig relations, optical dispersion relations
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{Promotors}
+
+\subsubsection{Nonlinear optics:}
+
+\begin{maplegroup}
+\begin{flushleft}
+\textbf{Professor Marek Samoæ}
+\end{flushleft}
+
+\begin{flushleft}
+Institute of Physical and Theoretical Chemistry
+Wroclaw University of Technology, PL-50-370 Wroclaw
+Wybrzeze Wyspianskiego 27, Poland
++48-71-320-4466 | E-mail: Marek.Samoc@pwr.wroc.pl
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{Numerical analysis:}
+
+\begin{maplegroup}
+\begin{flushleft}
+\textbf{Pawe³ Keller PhD}
+\end{flushleft}
+
+\begin{flushleft}
+Group of Numerical Methods
+\end{flushleft}
+
+\begin{flushleft}
+Institute of Computer Science
+\end{flushleft}
+
+\begin{flushleft}
+University of Wroclaw, PL-50-383 Wroclaw
+\end{flushleft}
+
+\begin{flushleft}
+ul. Joliot-Curie 15, Poland
+\end{flushleft}
+
+\begin{flushleft}
++48-71-375-7813 | E-mail: Pawel.Keller@ii.uni.wroc.pl
+\end{flushleft}
+
+\end{maplegroup}
+\emptyline
+
+\subsubsection{Author}
+
+\begin{maplegroup}
+\begin{flushleft}
+\textbf{Krzysztof Parjaszewski}
+\end{flushleft}
+
+\begin{flushleft}
+Institute of Computer Science
+University of Wroc³aw, PL-50-383 Wroc³aw
+ul. Joliot-Curie 15, Poland
++48-660-070-043 | E-mail: Krzysztof.Parjaszewski@Gmail.Com
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{Reviewer}
+
+\begin{maplegroup}
+\begin{flushleft}
+Yet unknown
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsection{1. Introduction to the nonlinear optics (understanding)}
+
+\subsubsection{1.1 What is this thesis about?}
+
+\begin{maplegroup}
+\begin{flushleft}
+This thesis is a small step for better understanding the nature of
+light and its interaction with matter.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+The main motivation and subject of this thesis is the application of
+numerical methods for better modelling and understanding the physical
+models in nonlinear optics. The main experiment used during the work
+on this thesis has been conducted with the Z-Scan technique on a
+high-energy femtosecond laser system consisting of a Quantronix
+Integra-C amplifier operating at 800 nm and a Quantronix-Palitra-FS
+BIBO crystal-based optical parametric amplifier which allows us to
+modify the output wavelength in range of \symbol{126}650nm up to
+\symbol{126}2000nm. The laser pulses were of \symbol{126}130 fs length
+and 1kHz repetition rate. Experiments were performed at the Wroclaw
+University of Technology at the Institute of Physical and Theoretical
+Chemistry. Numerical calculations were performed on a simple personal
+laptop within MATLAB and Maple environment.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+The main numerical results concern the usage of the the Kramers-Kronig
+relations and the discussion about its application for nonlinear
+optics. Firstly the simple linear Kramers-Kronig relation has been
+derived and reviewed, then is has been developed into simple nonlinear
+case. Next the perturbative approach and other modifications in
+discussed model are reviewed. In each of these examples, an attention
+is paid to the numerical issues. The constructed numerical
+calculations are compared and discussed and further good practices for
+physicists and chemists are formulated.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+The subject of this thesis is not accidential - in last twenty years
+the global interest on light application in modern devices - including
+the construction of super-fast all-optical computers - increases. In
+Poland - the nanophotonics research is developing in several
+scientific centers and Wroclaw is one of the leading ones.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{To review both with Prof. MS and Dr PK.}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+
+\subsubsection{1.2 What is the nonlinear optics?}
+
+\begin{maplegroup}
+\begin{flushleft}
+In mathematics a linear function f satisfies both of the following
+properties:
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(1.2.1a) + additivity: : " 
+\mapleinline{inert}{2d}{x,y;}{%
+$x, \,y$%
+} : 
+\mapleinline{inert}{2d}{f(x+y) = f(x)+f(y);}{%
+$\mathrm{f}(x + y)=\mathrm{f}(x) + \mathrm{f}(y)$%
+},
+(1.2.1b) + homogeneity:" 
+\mapleinline{inert}{2d}{alpha;}{%
+$\alpha $%
+} : 
+\mapleinline{inert}{2d}{f(alpha*x) = alpha*f(x);}{%
+$\mathrm{f}(\alpha \,x)=\alpha \,\mathrm{f}(x)$%
+}.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Sometimes another name for a function is used: "system". The nonlinear
+system is so a function which does not satisfies both additivity and
+homogenity simultaneosly. Another definition says that nonlinear
+system does not follow the superposition rule. The main area of
+interest for nonlinear optics is the behaviour of optical wave in a
+nonlinear medium. In such a case the superposition principle no longer
+holds, and therefore the response of a system/function depends
+nonlinearly on the input signal. In practice the nonlinearity shows
+only with very high intensities of light, so this theory is only
+applied to high intensity devices - such as modern lasers or optical
+fibers. Nonlinear optics is strongly related to physics, biology and
+chemistry but also mathematics and computer science, because modelling
+the light behaviour is an open problem still being solved
+interdisciplinary - what has been showed on the Picture
+1.2.1:\textit{}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\end{flushleft}
+
+\begin{flushleft}
+\QTR{Plot Text}{Picture 1.2.1 - Nonlinear optics derives from many foundamentary
+disciplines: biology, chemistry, math, physics and computer science.}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+An comprehensive, well prepared introduction to the nonlinear optics
+can be found in the \textit{Nonlinear Optics} written by Robert Boyd
+[2].
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{1.3 What are the most important nonlinear optical
+properties and phenomena?}
+
+\begin{maplegroup}
+\begin{flushleft}
+Experiments, which investigates the nonlinear nature of light are
+similar to those in classical optics, but they differ in the intensity
+of source radiation. Under the influence of the powerful and ultrafast
+lasers all optical properties and phenomena such as refraction,
+diffraction, interference, dyspersion, scattering etc. tend to modify.
+With pulses lasting from 10 femtoseconds up to 10 picoseconds and
+energy per pulse between 1 mJ and 1000 mJ laser produces a single
+pulse with a power of giga-, tera- or even perawatts. Influenced by a
+such huge power of the light beam - matter shows its nonlinear
+properties. 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+We define the following classification of the linear and nonlinear
+optical phenomena:
+- linear phenomena
+- second order nonlinear phenomena
+\end{flushleft}
+
+\begin{flushleft}
+- third order nonlinear phenomena
+\end{flushleft}
+
+\begin{flushleft}
+- nonlinear phenomena of higher orders
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\end{flushleft}
+
+\begin{flushleft}
+\QTR{Plot Text}{Picture 1.3.1 - schematic diagram of nonlinear optical phenomena -
+the input wavelength differs from the output signal, which occurs only
+for strong optical signals.}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+The basis of such classification is the equation defined for the
+electric polarization by the classical electromagnetism. The
+polarization density vector 
+\mapleinline{inert}{2d}{[C/(m^2)];}{%
+$[\frac {C}{m^{2}}]$%
+} is approximated by Taylor series: 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(1.3.1) 
+\mapleinline{inert}{2d}{P[i]/epsilon[0] = P[i](0)/epsilon[0]+sum(chi[ij]^[1]*E[j],j = 1 ..
+3)+sum(sum(chi[ijk]^[2]*E[j]*E[k],j = 1 .. 3),k = 1 ..
+3)+sum(sum(sum(chi[ijkl]^[3]*E[j]*E[k]*E[l],j = 1 .. 3),k = 1 .. 3),l
+= 1 .. 3);}{%
+$\frac {{P_{i}}}{{\varepsilon _{0}}}=\frac {{P_{i}}(0)}{{
+\varepsilon _{0}}} + (\sum _{j=1}^{3}\,{\chi _{\mathit{ij}}}^{[1]
+}\,{E_{j}}) + (\sum _{k=1}^{3}\,(\sum _{j=1}^{3}\,{\chi _{
+\mathit{ijk}}}^{[2]}\,{E_{j}}\,{E_{k}})) +  \left(  \! \sum _{l=1
+}^{3}\,(\sum _{k=1}^{3}\,(\sum _{j=1}^{3}\,{\chi _{\mathit{ijkl}}
+}^{[3]}\,{E_{j}}\,{E_{k}}\,{E_{l}})) \!  \right) $%
+} + ...    for 
+\mapleinline{inert}{2d}{i = 1,2,3;}{%
+$i=1, \,2, \,3$%
+} with omission of 
+\mapleinline{inert}{2d}{1/n!;}{%
+$\frac {1}{n\mathrm{!}}$%
+} factors in the power expansion,
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+where:
+\end{flushleft}
+
+\begin{flushleft}
+\mapleinline{inert}{2d}{chi^[1];}{%
+$\chi ^{[1]}$%
+} : 
+\mapleinline{inert}{2d}{[m^2/(V^2)];}{%
+$[\frac {m^{2}}{V^{2}}]$%
+} - the linear susceptibility tensor;
+\end{flushleft}
+
+\begin{flushleft}
+\mapleinline{inert}{2d}{chi^[2];}{%
+$\chi ^{[2]}$%
+} : 
+\mapleinline{inert}{2d}{[m^2/(V^2)];}{%
+$[\frac {m^{2}}{V^{2}}]$%
+} - the second order nonlinear susceptibility tensor - responsible for
+phenomena such as electro-optic rectification (EOR), second-harmonic
+generation (SHG), generation of sum and differential frequencies (SFG
+and DFG) and Pockels electro-optic effect;
+\end{flushleft}
+
+\begin{flushleft}
+\mapleinline{inert}{2d}{chi^[3];}{%
+$\chi ^{[3]}$%
+} : 
+\mapleinline{inert}{2d}{[m^2/(V^2)];}{%
+$[\frac {m^{2}}{V^{2}}]$%
+} - the third order nonlinear susceptibility tensor - responsible for
+phehonema such as intensity dependent refractive index (IDRI), third
+harmonic generation (THG), stimulated brillouin scattering (SBS),
+stimulated raman scattering (SRS), degenerate four waves mixing (DFWM)
+and nonlinear absorption [3]. 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+The intensity dependent refractive index (IDRI) results from the
+resonant response of an atomic system and can be described by the
+equation:
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(1.3.2) 
+\mapleinline{inert}{2d}{n = n[0]+[n[2]]*`<,>`(E^2);}{%
+$n={n_{0}} + [{n_{2}}]\,\langle E^{2}\rangle $%
+},
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+where: 
+\end{flushleft}
+
+\begin{flushleft}
+\mapleinline{inert}{2d}{n[0];}{%
+${n_{0}}$%
+} - the weak-field refractive index;
+\end{flushleft}
+
+\begin{flushleft}
+\mapleinline{inert}{2d}{[n[2]];}{%
+$[{n_{2}}]$%
+} - the second order index of refraction;
+\end{flushleft}
+
+\begin{flushleft}
+\mapleinline{inert}{2d}{`<,>`(E^2);}{%
+$\langle E^{2}\rangle $%
+} - means the time average around E.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\mapleinline{inert}{2d}{[n[2]];}{%
+$[{n_{2}}]$%
+} is a new optical constant which describes the increasement of the
+refractive index in the relation to the intensity of optical signal. 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+The arisement of the refractive index is sometimes called the optical
+Kerr effect. It is a similar effect to the Kerr electro-optic effect,
+which is a modification of the refraction index under the influence of
+the strong electric field applied to the medium. In the optical case
+the change of refraction index comes only from the influence of very
+intensive light beam, typically from the laser system. The theory
+beneath this effect has its roots in some quantum mechanics effects
+(e.g. the dynamic Burstein-Moss effect) and as the nanophotonics is
+relatively new scientific domain, there are only more or less
+confirmed hypothesis being under investigation.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Several effects come as the result from the indensity dependent
+refractive index:
+a) self-focusing of light - focusing the light beam within the
+nonlinear medium
+\end{flushleft}
+
+\begin{flushleft}
+b) two beam coupling - is the energy transfer between two light beams
+interaction within the nonlinear medium
+\end{flushleft}
+
+\begin{flushleft}
+c) optical phase conjugation - is responsible for reversing the
+typical abberation effects 
+d) all-optical switching - is the very interesting effect which allows
+to control the flow of one beam by another. In other words it is a
+control of light by light.  
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+The nonlinear absorption may concerns the absorption of energy from
+two or more photons influencing matter in the very same moment of time
+or the absorption of light under the heavy light intensity. Both
+linear and nonlinear absorption process has the property of spatial
+selectivity, which means that the with different angle of light beam
+incidenting on matter we get different absorption coefficients - which
+is related to the tensor nature of the optical susceptibility. Also
+the polarization geometry of the light beam plays important role here
+[5].
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Description of determination the nonlinear optical properties
+and describing the NLO phenomena in several sentenses.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{1.4 Why is nonlinear optics so important?}
+
+\begin{maplegroup}
+\begin{flushleft}
+Nonlinear optics is the widely investigated area in nanophotonics,
+because a material with a high nonlinear refractive index will be a
+key to to build an all-optical-transistor and such device should work
+as an all-optical logic gate. That will lead us to create the
+ultra-fast optical devices, for instance the fotonic computer - where
+instead of electrons, fotons will be used to perform computations with
+a very high speed. Some scientists suggest that the taming of
+all-optical-switching phenomenom is the Holy Grail of modern photonics
+[3].
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+On the other hand - the nonlinear absorption, which is strongly
+related to the nonlinear refraction index - is an important obstacle
+to build such a fast all-optical-device. Despite ot that, nonlinear
+absorption still may be very useful in nanofabrication, biophotonics,
+microscopy, information storage and other technologies using short
+laser pulses[4]. 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+The interest in nonlinear optics comes from both the basic research
+and industry. The basic research and fundamental questions in material
+research concerns the nature of light, optical properties of
+molecules, the strength and properties of chemical bonds and theory to
+determine both linear and nonlinear optical properties insead of
+performing myriads of experiments. The industrial research interests
+in nonlinear optics are mostly focused in the area of developing new
+optical devices (detectors, engines, logic gates, fibers, lasers and
+more) and the usage of intensive light beams for various types of
+screening and determing the 3D information about the geometrical of
+the investigated material.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Description of} \textit{the most expected results of
+understanding the nonlinear optics.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{1.5 Why should we use Kramers Kronig relations here?}
+
+\begin{maplegroup}
+\begin{flushleft}
+Kramers Kronig relations are the fundamental tools in the exploration
+of the material optical properties and together with other classical
+physics and quantum mechanics predictions can be used to construct and
+validate theoretical models. They are originated from the most basic
+but also very important law in physics - the causality principle. From
+the philosophical perspective it states that each effect must be
+preceded by a cause. In computer science this principle is somehow
+paraphrased in a discussion of formal deterministic and
+nondeterministic automatas. We believe that only deterministic
+automatas really exist. 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(1.5.1a) 
+\mapleinline{inert}{2d}{Psi(t);}{%
+$\Psi (t)$%
+} = 
+\mapleinline{inert}{2d}{IFT(Psi(omega));}{%
+$\mathrm{IFT}(\Psi (\omega ))$%
+} 
+(1.5.1b) " t \TEXTsymbol{<} 0 : 
+\mapleinline{inert}{2d}{Psi(t) = 0;}{%
+$\Psi (t)=0$%
+} 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+The causability principle looks obvious, but in the field of nonlinear
+optics - combined together with the application of the inverse Fourier
+transform of any nonlinear quantity spectrum: 
+\mapleinline{inert}{2d}{Psi(omega);}{%
+$\Psi (\omega )$%
+}, \textbf{R} ' 
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+}  - it states that the time-domain signal 
+\mapleinline{inert}{2d}{Psi(t);}{%
+$\Psi (t)$%
+} calculated with (1.5.1a) from frequency-domain must equal zero for
+any negative time argument. This statement can be used in validation
+of any spectrum 
+\mapleinline{inert}{2d}{Psi(omega);}{%
+$\Psi (\omega )$%
+}, \textbf{R} ' 
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+} - what is important when we only measure the physical quantity in a
+specific range \$ 
+\mapleinline{inert}{2d}{a,b:;}{%
+$a, \,b$%
+} : 
+\mapleinline{inert}{2d}{a < omega;}{%
+$a < \omega $%
+} and 
+\mapleinline{inert}{2d}{omega < b;}{%
+$\omega  < b$%
+}. We simply cannot measure the whole real spectrum \textbf{R} ' 
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+} and in this case we need to perform the validation of approximated
+or assumed spectrum 
+\mapleinline{inert}{2d}{Psi(omega);}{%
+$\Psi (\omega )$%
+}.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Kramers Kronig relations - which will be derived in the following
+chapter - connects the real and imaginary part of the Fourier
+transform of valid response signal. It is said that one can derive the
+real part of the determined spectrum 
+\mapleinline{inert}{2d}{Psi(omega);}{%
+$\Psi (\omega )$%
+}. What is even more important - this relation is bidirectional - so
+with the Kramers Kronig relations one can derive the imaginary part
+from real. This hypothesis has been formulated in 1948 by Edward
+Charles Titchmarsh - with the tacit assumption, that both 
+\mapleinline{inert}{2d}{Psi(t);}{%
+$\Psi (t)$%
+} and 
+\mapleinline{inert}{2d}{Psi(omega);}{%
+$\Psi (\omega )$%
+} are the square-integrable functions and more - the 
+\mapleinline{inert}{2d}{Psi(omega);}{%
+$\Psi (\omega )$%
+} holomorphic in the upper-plane. This simple theorem - is widely
+investigated area in both the nonlinear and linear optics - to connect
+the refraction index togheter with absorption coefficient, which are
+th real and imaginary parts of the optical susceptibility
+respectively.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Just few words about the hopes of using K-K relations also in
+nonlinear optics.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{Notes}
+
+\begin{maplegroup}
+\begin{flushleft}
+1. "Znajomoœæ pe³nej funkcji dielektrycznej 
+\mapleinline{inert}{2d}{epsilon(omega) = epsilon[1](omega)+i*epsilon[2](omega);}{%
+$\varepsilon (\omega )={\varepsilon _{1}}(\omega ) + i\,{
+\varepsilon _{2}}(\omega )$%
+} daje nam klasycznie pe³ny opis zjawisk towarzysz¹cych rozchodzeniu
+siê fali elektromagnetycznej w materii."
+2. Teoriê fitowania lorentzianów opisuje regresja nieliniowa.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Some notes in both polish and english.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsection{2. Problem definition (understanding)}
+
+\subsubsection{2.1 Linear model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Basically in the linear optical model we assume, that the response of
+a medium depends linearly on the input. The similar presumption is
+made in many fields of physics - for instance in magnetostatics we
+linearly connect the current density \textbf{J} with the electric
+field \textbf{E} vector multiplied by a conductivity parameter 
+\mapleinline{inert}{2d}{sigma;}{%
+$\sigma $%
+} - which is called the Kirchhoff's reformulation of the Ohm's Law:
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(2.1.1) \textbf{J} = 
+\mapleinline{inert}{2d}{sigma;}{%
+$\sigma $%
+} \textbf{E}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+As it will be shown later, such relations hold for sufficiently small
+intensities - but the definition of 'sufficiently small' will not be
+further specified. In the time-domain it is stated that an external
+sinusoidal electromagnetic radiation of a light beam - \textbf{the
+input} - is defined by a field vector:
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(2.1.2) \textbf{E}(\textbf{r}, t) = 
+\mapleinline{inert}{2d}{1/r;}{%
+$\frac {1}{r}$%
+} 
+\mapleinline{inert}{2d}{E[0];}{%
+${E_{0}}$%
+}cos(\textbf{k r - 
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+}} t + 
+\mapleinline{inert}{2d}{phi;}{%
+$\phi $%
+}), 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+where:
+\textit{\textbf{{\small k - wave vector (radians per meter)
+r - position vector (meters) 
+t - time (seconds)}}}
+\end{flushleft}
+
+\begin{flushleft}
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+} - \textit{{\small angular frequency (radians per second)}}
+\end{flushleft}
+
+\begin{flushleft}
+\mapleinline{inert}{2d}{phi;}{%
+$\phi $%
+} - \textit{{\small phase shift (radians). }}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textbf{The output} - reponse in the form of polarization vector can
+be described using the linear response theory - which is the
+simplification of the Volterra series that takes only the leading
+order term can be described as the following convolution:
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(2.1.3) 
+\mapleinline{inert}{2d}{P[1,i];}{%
+${P_{1, \,i}}$%
+}(\textbf{r}, t) = 
+\mapleinline{inert}{2d}{epsilon[0]*sum(int(int(G[1,i,j](p-r,s-t)*E[1,j](p,s),p),s = -infinity
+.. infinity),j = 1 .. 3);}{%
+${\varepsilon _{0}}\, \left(  \! \sum _{j=1}^{3}\,\int _{ - 
+\infty }^{\infty }\int {G_{1, \,i, \,j}}(p - r, \,s - t)\,{E_{1, 
+\,j}}(p, \,s)\,dp\,ds \!  \right) $%
+}  with the inner integral made through the Euclidean space 
+\mapleinline{inert}{2d}{R^3;}{%
+$R^{3}$%
+}.[6]
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+where:
+1 - the '1' index states for linear property of any investigated value
+\mapleinline{inert}{2d}{P[1,i];}{%
+${P_{1, \,i}}$%
+} - 3x1 real linear polarization tensor (vector) in a
+spacetime-domain, i stays for chosen spatial coordinate (x, y or z) [
+\mapleinline{inert}{2d}{C/(m^2);}{%
+$\frac {C}{m^{2}}$%
+}]
+\mapleinline{inert}{2d}{G[1,i,j];}{%
+${G_{1, \,i, \,j}}$%
+} - 3x3 real susceptibility tensor (matrix) defined by a linear Green
+function in a spacetime-domain [1]
+\mapleinline{inert}{2d}{E[1,j];}{%
+${E_{1, \,j}}$%
+} - 3x1 real electric field tensor (vector) in a spacetime-domain [
+\mapleinline{inert}{2d}{V/m;}{%
+$\frac {V}{m}$%
+}]
+\end{flushleft}
+
+\begin{flushleft}
+\mapleinline{inert}{2d}{epsilon[0];}{%
+${\varepsilon _{0}}$%
+} - electric permittivity of free space  \symbol{126}8.854187817620 × 
+\mapleinline{inert}{2d}{10^(-12);}{%
+$10^{( - 12)}$%
+}  [
+\mapleinline{inert}{2d}{C/(V*m);}{%
+$\frac {C}{V\,m}$%
+}]
+\textit{\textbf{{\small r - position vector (meters) 
+t - time (seconds)}}}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Even such linear equation is only the simplification, because we do
+not assume the local field corrections [7]. It seems to be an
+reasonable assumption as long as we emphasize the macroscopic
+character of polarization. Only in case of constructing very small
+devices or synthesizing small particles - we shall take the local
+field interaction into account. Investigation of the properties of the
+susceptibility tensor both in time-domain and frequency-domain will be
+the main part of considerations in this thesis - it is also widely
+discussed topic in the literature [2,8,9,10,11]
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+The Fourier transform allows us to change the polarization equation
+(2.1.3) from time-domain to frequency-domain:
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(2.1.4) 
+\mapleinline{inert}{2d}{Phi;}{%
+$\Phi $%
+}\textbf{\{F}[
+\mapleinline{inert}{2d}{P[1,i];}{%
+${P_{1, \,i}}$%
+}(\textbf{r}, t)]\} = 
+\mapleinline{inert}{2d}{P[1,i];}{%
+${P_{1, \,i}}$%
+}(\textbf{k}, 
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+})
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+where:
+\mapleinline{inert}{2d}{Phi;}{%
+$\Phi $%
+} - Fourier transform operation in 3D space domain
+\textbf{F} - Fourier transform operation in time domain
+\mapleinline{inert}{2d}{P[1,i];}{%
+${P_{1, \,i}}$%
+}(\textbf{k}, 
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+})\textbf{ - }3x1 complex linear polarization tensor (vector) in a
+wavefrequency-domain, i stays for chosen spatial coordinate (x, y or
+z) [
+\mapleinline{inert}{2d}{C/(m^2);}{%
+$\frac {C}{m^{2}}$%
+}]\textbf{
+k} - 3x1 wave tensor (vector) of the electromagnetic field [
+\mapleinline{inert}{2d}{1/m;}{%
+$\frac {1}{m}$%
+}]
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+} - angular frequency of the electromagnetic field [
+\mapleinline{inert}{2d}{rad/s;}{%
+$\frac {\mathit{rad}}{s}$%
+}],
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Due the convolution theorem [12] the Fourier transform applied to the
+convolution of two given functions equals the simple multiplication of
+two Fourier transforms:
+(2.1.5) 
+\mapleinline{inert}{2d}{Phi;}{%
+$\Phi $%
+}\textbf{\{F}[
+\mapleinline{inert}{2d}{epsilon[0]*sum(int(int(G[1,i,j](p-r,s-t)*E[1,j](p,s),p),s = -infinity
+.. infinity),j = 1 .. 3);}{%
+${\varepsilon _{0}}\, \left(  \! \sum _{j=1}^{3}\,\int _{ - 
+\infty }^{\infty }\int {G_{1, \,i, \,j}}(p - r, \,s - t)\,{E_{1, 
+\,j}}(p, \,s)\,dp\,ds \!  \right) $%
+}]\} =
+\mapleinline{inert}{2d}{epsilon[0]*sum(chi[1,i,j](k,omega)*E[1,j](k,omega),j = 1 .. 3);}{%
+${\varepsilon _{0}}\,(\sum _{j=1}^{3}\,{\chi _{1, \,i, \,j}}(k, 
+\,\omega )\,{E_{1, \,j}}(k, \,\omega ))$%
+}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+where:
+\mapleinline{inert}{2d}{Phi;}{%
+$\Phi $%
+} - Fourier transform operation in 3D space domain
+\textbf{F} - Fourier transform operation in time domain
+\mapleinline{inert}{2d}{chi[1,i,j];}{%
+${\chi _{1, \,i, \,j}}$%
+}(\textbf{k}, 
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+}) - 3x3 complex susceptibility tensor (matrix) in a
+wavefrequency-domain [1] 
+\mapleinline{inert}{2d}{E[1,j];}{%
+${E_{1, \,j}}$%
+}(\textbf{k}, 
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+}) - 3x1 complex electric field tensor (vector) in a
+wavefrequency-domain [
+\mapleinline{inert}{2d}{V/m;}{%
+$\frac {V}{m}$%
+}]
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+From (2.1.4) and (2.1.5) we get:
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(2.1.6) 
+\mapleinline{inert}{2d}{P[1,i];}{%
+${P_{1, \,i}}$%
+}(\textbf{k}, 
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+}) = 
+\mapleinline{inert}{2d}{epsilon[0]*sum(chi[1,i,j](k,omega)*E[1,j](k,omega),j = 1 .. 3);}{%
+${\varepsilon _{0}}\,(\sum _{j=1}^{3}\,{\chi _{1, \,i, \,j}}(k, 
+\,\omega )\,{E_{1, \,j}}(k, \,\omega ))$%
+}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+which seems to be a simpler equation - so from now we will use the
+wavefrequency-domain. We will no be getting further into the physical
+details of the optical susceptibility theory. For our interests it is
+worth stressing, that the 
+\mapleinline{inert}{2d}{G[1,i,j];}{%
+${G_{1, \,i, \,j}}$%
+} - 3x3 real susceptibility tensor (matrix) defined by a linear Green
+function in a spacetime-domain follows the following rules:
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(2.1.7a) + the causality principle " 
+\mapleinline{inert}{2d}{t < 0;}{%
+$t < 0$%
+} : 
+\mapleinline{inert}{2d}{G[1,i,j];}{%
+${G_{1, \,i, \,j}}$%
+}(\textbf{r}, t) = 0
+(2.1.8a) + the convservation of energy law: " \textbf{r }:
+\mapleinline{inert}{2d}{int(G[1,i,j](r,t),t = -infinity .. infinity) < infinity;}{%
+$\int _{ - \infty }^{\infty }{G_{1, \,i, \,j}}(r, \,t)\,dt < 
+\infty $%
+}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+The Fourier transform is defined for integrable functions and after
+[13,14] we can assume the asymptotic behaviour of the susceptibility
+tensor in wavefrequency-domain:
+(2.1.9) F[
+\mapleinline{inert}{2d}{G[1,i,j];}{%
+${G_{1, \,i, \,j}}$%
+}(\textbf{r} ,t)] = 
+\mapleinline{inert}{2d}{chi[1,i,j];}{%
+${\chi _{1, \,i, \,j}}$%
+}(\textbf{k}, 
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+}) = 
+\mapleinline{inert}{2d}{-C/(omega^2);}{%
+$ - \frac {C}{\omega ^{2}}$%
+} + o(
+\mapleinline{inert}{2d}{omega^(-2);}{%
+$\omega ^{( - 2)}$%
+})
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+From the physical point of view such a vanishment is true - because
+for an input oscillation with a frequency much higher than any
+resonant frequency - the system will have not enough time to responde
+before the input signal has switched it direction, so for large 
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+} the susceptibility 
+\mapleinline{inert}{2d}{chi[1,i,j];}{%
+${\chi _{1, \,i, \,j}}$%
+}(\textbf{k}, 
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+}) vanishes.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+where:
+C - is a material specific constant, which does not depend on 
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+}.
+o(
+\mapleinline{inert}{2d}{omega^(-2);}{%
+$\omega ^{( - 2)}$%
+}) - indicates a term with asymptotic descrease stricly faster then 
+\mapleinline{inert}{2d}{1/(omega^2);}{%
+$\frac {1}{\omega ^{2}}$%
+}.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Also from the conservation of energy law we assume, that:
+(2.1.10) \$ \textbf{K \TEXTsymbol{<} 
+\mapleinline{inert}{2d}{infinity;}{%
+$\infty $%
+} : " } \textbf{d}, 
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+}: 
+\mapleinline{inert}{2d}{chi[1,i,j];}{%
+${\chi _{1, \,i, \,j}}$%
+}(\textbf{k}, 
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+}) \TEXTsymbol{<} \textbf{K}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Together with the knowledge of asymptotic behaviour from (2.1.9) we
+will concluded, that the susceptibility tensor is also square
+integrable
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(2.1.11) 
+\mapleinline{inert}{2d}{`in`(chi[1,i,j](k,omega),L) and 2.1.10 implies
+`in`(chi[1,i,j](k,omega),L^2);}{%
+${\chi _{1, \,i, \,j}}(k, \,\omega )\,\ \textbf{in}\ \,L
+\ \textbf{and}\ \mbox{2.1}\mathrm{\ .\ }10\ \textbf{implies}\ {
+\chi _{1, \,i, \,j}}(k, \,\omega )\,\ \textbf{in}\ \,L^{2}$%
+} 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Description of linear model of dispersion}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{2.2 Derivation of the Kramers-Kronig for linear model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Before we will focus on the final form of the Kramers-Kronig relations
+- we shall stress that they are the reformulation of the Titchmarsh
+theorem in area of Fourier analysis. This theorem relates real and
+imaginary parts of the functions from the upper half-plane of the
+Hardy space: 
+\mapleinline{inert}{2d}{H^p;}{%
+$H^{p}$%
+} with the Hilbert transform of a function from 
+\mapleinline{inert}{2d}{L^p;}{%
+$L^{p}$%
+}.  
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{Titchmarsh theorem:}
+
+\begin{maplegroup}
+\begin{flushleft}
+\textbf{Let:
+}(2.2.1) 
+\mapleinline{inert}{2d}{`in`(a(t),L^2);}{%
+$\mathrm{a}(t)\,\ \textbf{in}\ \,L^{2}$%
+}(\textbf{R}) and "  t \TEXTsymbol{<} 0 : a(t) = 0
+\textbf{Then: }
+\end{flushleft}
+
+\begin{Heading 4}
+(2.2.2)\textbf{ }b(
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+}) = F[a(t)] and 
+\mapleinline{inert}{2d}{`in`(b,H^2);}{%
+$b\,\ \textbf{in}\ \,H^{2}$%
+}(\textbf{U}) 
+\end{Heading 4}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+where: \textbf{
+\mapleinline{inert}{2d}{H^2;}{%
+$H^{2}$%
+}} - Hardy space of the holomorphic functions with a norm: sup
+\{y\TEXTsymbol{>}0\} \textbf{ 
+\mapleinline{inert}{2d}{[int(abs(f(x+i*y))^2,x)]^(1/2);}{%
+$[\int  \left|  \! \,\mathrm{f}(x + i\,y)\, \!  \right| ^{2}\,dx]
+^{(\frac {1}{2})}$%
+}}\TEXTsymbol{<}\textbf{ 
+\mapleinline{inert}{2d}{infinity;}{%
+$\infty $%
+}
+U} - the upper-half complex plane, 
+F - Fourier transform functional
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(2.2.3a) 
+\mapleinline{inert}{2d}{Re(b(omega)) = 1/pi*int(Im(b(Omega))/(Omega-omega),Omega = -infinity
+.. infinity);}{%
+$\Re (\mathrm{b}(\omega ))=\frac {1\,\int _{ - \infty }^{\infty }
+\frac {\Im (\mathrm{b}(\Omega ))}{\Omega  - \omega }\,d\Omega }{
+\pi }$%
+}
+(2.2.3.b) 
+\mapleinline{inert}{2d}{Im(b(omega)) = 1/(-pi)*int(Re(b(Omega))/(Omega-omega),Omega =
+-infinity .. infinity);}{%
+$\Im (\mathrm{b}(\omega ))=\frac {1\,\int _{ - \infty }^{\infty }
+\frac {\Re (\mathrm{b}(\Omega ))}{\Omega  - \omega }\,d\Omega }{
+ - \pi }$%
+}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+where:
+\mapleinline{inert}{2d}{Re(b(omega));}{%
+$\Re (\mathrm{b}(\omega ))$%
+} - real part of b(
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+})
+\end{flushleft}
+
+\begin{flushleft}
+\mapleinline{inert}{2d}{Im(b(omega));}{%
+$\Im (\mathrm{b}(\omega ))$%
+} - imaginary part of b(
+\mapleinline{inert}{2d}{omega;}{%
+$\omega $%
+})
+To omit the singularity - the integral values is calculated using the
+Cauchy principal value.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+What's more - the theorem states that (2.2.1), (2.2.2) and (2.2.3a-b)
+are mathematically equivalent. Proof with an exhausting review of both
+the Fourier and Hilbert transforms has been described by Edward
+Charles Titchmarsh in [15] - the theory is described through all book
+chapters, but the theorem and its proof has been stated in chapter 5
+about the conjugated integrals also called the Hilbert transforms.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+We have nearly state the Kramers-Kronig relations. If we take a closer
+look into equation (2.1.9) we will see that:
+\end{flushleft}
+
+\emptyline
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(2.2.4a) 
+\mapleinline{inert}{2d}{chi[1,i,j](k,-omega);}{%
+${\chi _{1, \,i, \,j}}(k, \, - \omega )$%
+} = F[
+\mapleinline{inert}{2d}{G[1,i,j];}{%
+${G_{1, \,i, \,j}}$%
+}(\textbf{r} ,-t)] = 
+\mapleinline{inert}{2d}{int(int(G[1,i,j](ksi,tau)*exp(i*omega*tau),tau = 0 ..
+infinity)*exp(-i*k*xi),xi = 0 .. infinity);}{%
+$\int _{0}^{\infty }\int _{0}^{\infty }{G_{1, \,i, \,j}}(\mathit{
+ksi}, \,\tau )\,e^{(i\,\omega \,\tau )}\,d\tau \,e^{( - i\,k\,\xi
+ )}\,d\xi $%
+} = [
+\mapleinline{inert}{2d}{chi[1,i,j](k,omega);}{%
+${\chi _{1, \,i, \,j}}(k, \,\omega )$%
+}]{\large *}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(2.2.4b) 
+\mapleinline{inert}{2d}{chi[1,i,j](k,-omega) = [chi[1,i,j](k,omega)];}{%
+${\chi _{1, \,i, \,j}}(k, \, - \omega )=[{\chi _{1, \,i, \,j}}(k
+, \,\omega )]$%
+}{\large *}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+where:
+* - the symbol denoting the complex conjugate.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+With such assumption we deduce that:
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(2.2.5a) Re \{ 
+\mapleinline{inert}{2d}{chi[1,i,j](k,omega);}{%
+${\chi _{1, \,i, \,j}}(k, \,\omega )$%
+} \} = Re \{
+\mapleinline{inert}{2d}{chi[1,i,j](k,-omega);}{%
+${\chi _{1, \,i, \,j}}(k, \, - \omega )$%
+}\}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(2.2.5b) Im \{ 
+\mapleinline{inert}{2d}{chi[1,i,j](k,omega);}{%
+${\chi _{1, \,i, \,j}}(k, \,\omega )$%
+} \} = -Im \{
+\mapleinline{inert}{2d}{chi[1,i,j](-k,omega);}{%
+${\chi _{1, \,i, \,j}}( - k, \,\omega )$%
+}\}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Now the previous equation (2.2.3.a-b) can be written in a new form:
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+(2.2.6a) 
+\mapleinline{inert}{2d}{Re(chi[1,i,j](k,omega)) =
+2/pi*int(Omega*Im(chi[1,i,j](k,Omega))/(Omega^2-omega^2),Omega = 0 ..
+infinity);}{%
+$\Re ({\chi _{1, \,i, \,j}}(k, \,\omega ))=\frac {2\,\int _{0}^{
+\infty }\frac {\Omega \,\Im ({\chi _{1, \,i, \,j}}(k, \,\Omega ))
+}{\Omega ^{2} - \omega ^{2}}\,d\Omega }{\pi }$%
+}
+(2.2.6b) 
+\mapleinline{inert}{2d}{Im(chi[1,i,j](k,omega)) =
+(-2*omega/(-pi))*int(Re(chi[1,i,j](k,Omega))/(Omega^2-omega^2),Omega =
+0 .. infinity);}{%
+$\Im ({\chi _{1, \,i, \,j}}(k, \,\omega ))=( - \frac {2\,\omega 
+}{ - \pi })\,\int _{0}^{\infty }\frac {\Re ({\chi _{1, \,i, \,j}}
+(k, \,\Omega ))}{\Omega ^{2} - \omega ^{2}}\,d\Omega $%
+}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+For the first look the relations (2.2.6a-b) may look not so
+impressive, but we must have in our mind that the real and imaginary
+part of susceptibility describes two completely different optical
+phenomena - the refraction of light and the absorption of light. If we
+like to measure them - in most cases - we will need to perform two
+different experiments. Kramers-Kronig relations allows us to imply -
+that for now we only need to properly measure one of this two values -
+and the other can be calculated on the basis of its results. This is
+of course the half-true. Taking into consideration many in
+uncertainities and experimental errors it is also an good idea to
+measure both values - and then check if the theoretical model in which
+we describe the optical properties of investigated material - is valid
+and therefore we can proof its self-consistency.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Derivation of the Kramers-Kronig relation for linear optics.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{2.3 Simple nonlinear model}
+
+\begin{maplegroup}
+\begin{flushleft}
+It is true that our knowledge about the linear interaction between the
+light and matter has been investigated in recent several decades quite
+well. We shall even say that this scientific area has been described
+almost completely. The really interesting and important from the
+scientific point of view is the area of nonlinear optics - when more
+than a one light wave interact with matter in a definite, extremely
+short period of time with a length of femto- or even attoseconds. When
+two or more photons 'shoot' an atom or a molecule - we may observe
+many new kinds of physical phenomena. From the quantum physics point
+of view - each photon transports some amount of energy depending on
+its frequency. More energy in a short time period - means a higher
+chance for the molecule to modify its spatial structure, electron
+energy or some other property. 
+\end{flushleft}
+
+\emptyline
+\end{maplegroup}
+
+\subsubsection{Pump-and-probe process}
+
+\begin{maplegroup}
+\begin{flushleft}
+In a typical pump-and-probe process we observe two laser beams. One of
+them is a strong signal - called the 'pump' - the second signal - the
+'probe' - is much less intensive. We try to synchronize this two laser
+beams in a following way - firstly a pump signal hits the sample with
+its strong intensity - causing modifications in the sample properties.
+Shortly after that - within a time period 
+\mapleinline{inert}{2d}{Delta;}{%
+$\Delta $%
+}t - a low-intesive probe signal hits the modified sample and runs
+through the detector. In a typical experiments the 
+\mapleinline{inert}{2d}{Delta;}{%
+$\Delta $%
+}t time period should be adjustable. There usually are much more
+detectors, but we are mostly interested in the polarization of the
+probe signal. An important assumption for both pump and probe beams is
+for them to be in the same polarization. The schematic diagram of a
+pump-and-probe process has been described on the Figure 2.3.1. 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+
+{\small 
+[Figure 2.3.1] - The pump-and-probe process}
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+The key assumption in the pump-and-probe process is that separated and
+independent probe signal does not influence the sample.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\emptyline
+\end{maplegroup}
+
+\subsubsection{Frequency Mixing Process:}
+
+\begin{maplegroup}
+\emptyline
+\end{maplegroup}
+\begin{maplegroup}
+\emptyline
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+For more ifno - please ask Profesor Samoc :)
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Description of simple modification in linear model to obtain
+the nonlinear model.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{2.4 Derivation of the Kramers-Kronig  relations for
+simple nonlinear model}
+
+\begin{maplegroup}
+\begin{flushleft}
+First we start from the upper Volterra-series expantion. But the we
+jump to [16] and see, that there must be something more, that just a
+simple K-K relations from the Titchmarsh theorem.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Mathematical derivation of the Kramers-Kronig relations for
+simple nonlinear model.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{2.5 Overview of the simple quantum-perturbative model}
+
+\begin{maplegroup}
+\begin{flushleft}
+What the heck is the perturbative approach in nonlinear optics? Here
+we would like to describe the models derived by the quantum physics.
+Not going into details, but to signalize how they mathematically look
+like.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+The theory of nonlinear optics is based mostly on a perturbative
+approach introduced by Bloembergen [17], which is essentially a
+semiclassical analogue of the Feynman graphs formalism [16] and which
+generally adopts dipolar approximation. In the perturbative approach,
+the nonlinear optical properties of a material are fully described by
+nonlinear susceptibilities, which are obtained
+by applying the Fourier transform to nonlinear Green functions, which
+describe the higher order dynamics of the system. The nonlinear Green
+function can be obtained using a generalization of Kubo’s linear
+response theory. Results obtained using the perturbative theory are
+generally in good agreement with the experimental data unless we
+consider the interaction of matter with ultra-intense lasers, such as
+those responsible for very high order harmonic-generation. A detailed
+presentation of the perturbative theory for nonlinear optics and of
+comparison with experimental data can be found in recent books by
+Butcher and Cotter [18] and Boyd [19].
+[126]. 
+16. R. P. Feynman, “Space-time approach to quantum electrodynamics,”
+Phys. Rev. 76, 769–789 (1949).
+17. N. Bloembergen, Nonlinear Optics (Benjamin, New York, 1965).
+18. P. N. Butcher and D. Cotter, Elements of Nonlinear Optics
+(Cambridge University Press, Cambridge, 1990).
+19. R. W. Boyd, Nonlinear Optics (Academic Press, New York, 1992).
+126. R. Kubo, “Statistical-mechanical theory of irreversible
+processes. I. General theory and simple applications to magnetic and
+conduction problems,” J. Phys. Soc. Jpn. 12, 570–586 (1957).
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\emptyline
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Brief overview of the perturbative model}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{2.6 Derivation of the Kramers-Kronig  relations for
+simple quantum-perturbative model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Here  
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Mathematical derivation of the Kramers-Kronig relations for
+simple perturbative model.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{2.7 Overview of the other models}
+
+\begin{maplegroup}
+\begin{flushleft}
+Here we would like to state  - only from the physical point of view -
+without formulating advanced mathematical models - that the theory of
+K-K relations - or to say it precisely - the conjugated pairs of
+Hilbert transforms - need to be structured and defined generaly for
+both the linear and nonlinear case - there must be on valid theory -
+it is not a good situation - when we start from one theory and then
+"modify" it for some extra case - because it leads to misunderstanding
+in general. As the title of this thesis contains the word -
+understanding - we should at least try to express a new, general
+theory of optical phenomena - because it is "only and even" - the
+interaction of a chemical molecules with incoming photons in short or
+long period of time.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Brief overview of the other model - 1. This subchapter may be
+divided into several chapters.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{2.8 Derivation of the Kramers-Kronig  relations for
+other models}
+
+\begin{maplegroup}
+\begin{flushleft}
+This chapter is only a proposal - that we should avoid the parity
+principle derived from the Titchmarsh theorem (that real/imag part
+must be even/odd) and we will come back to the hilbert transform - the
+integral from -infinity to +infinity. We also define the proposition
+of K-K relations for the limited integration range from [17]:
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\mapleinline{inert}{2d}{Im(f(omega)) = (-2*omega/Pi)*int(Re(f(Omega))/(Omega^2-omega^2),Omega
+= omega[a] .. omega[b]);}{%
+$\Im (\mathrm{f}(\omega ))=( - \frac {2\,\omega }{\pi })\,\int _{
+{\omega _{a}}}^{{\omega _{b}}}\frac {\Re (\mathrm{f}(\Omega ))}{
+\Omega ^{2} - \omega ^{2}}\,d\Omega $%
+} 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Mathematical derivation of the Kramers-Kronig relations for
+other models. This subchapter may be divided into several chapters.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsection{3. ZScan Measurments (understanding)}
+
+\subsubsection{3.1 Overview of the z-scan technique}
+
+\begin{maplegroup}
+\begin{flushleft}
+In Nonlinear optics a z-scan measurement is used to measure the
+non-linear index 
+\mapleinline{inert}{2d}{n[2];}{%
+${n_{2}}$%
+} Kerr nonlinearity and the non-linear absorption coefficient 
+\mapleinline{inert}{2d}{Delta(a)*a;}{%
+$\Delta (a)\,a$%
+} via the "open" and "closed" methods respectively. 
+\end{flushleft}
+
+\begin{flushleft}
+More text here... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Description of the z-scan technique, description of the z-scan
+experiment built in Wroclaw, since summer 2010.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{3.2 Overview of the derivation }
+
+\begin{maplegroup}
+\begin{flushleft}
+Text here... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Description how the gathered data is transformed into final
+chart. Some mathematical derivations.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{3.3 Defition of the main problems}
+
+\begin{maplegroup}
+\begin{flushleft}
+What effects we measure within the z-scan technique in general? 
+Howto model them, howto gather experimental data from the 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Discussion about the z-scan technique, its advantages and
+disadvantages for determination both real and imaginary part of }
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsection{4. Simpson and trapezoidal quadrature combined with cubic
+interpolation - HTRAN (solving)}
+
+\subsubsection{Overview of the HTRAN}
+
+\begin{maplegroup}
+\begin{flushleft}
+We shall start from the simplest possible numerical calculation of
+integral - so the simpson and trapezoidal quadrature. The algorithm is
+based on report by I. J. Weinberg [18] written for CDC 6600
+supercomputer.
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Overview of the Cauchy Principal Value method.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{HTRAN for simple linear model - results}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Example cases for solving the Kramers-Kronig relations in
+linear model using HTRAN - with short conclusions.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{HTRAN for simple nonlinear model - results}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Example cases for solving the Kramers-Kronig relations in simple
+nonlinear model using HTRAN - with short conslusions.
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{HTRAN for simple quantum-perturbative model - results}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Example cases for solving the Kramers-Kronig relations in simple
+\textit{quantum-}perturbative model using HTRAN - with short
+conslusions.
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{HTRAN for other models - results}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Example cases for solving the Kramers-Kronig relations for other
+models using HTRAN - with short conslusions.
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsection{5. Newton-Cotes quadrature (solving)}
+
+\subsubsection{Overview of the NC quadrature of arbitrary degree}
+
+\begin{maplegroup}
+\begin{flushleft}
+Newton-Cotes formulae for numerical integration is taken into
+consideration. We compare formulae for an arbitrary degree - having in
+our mind, that the choice between formulas of high and low degree must
+be undertaken with the awareness of numerical errors that may arise
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{The algorithm is ready, only its description must be expanded}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{NC for simple linear model - results}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Example cases for solving the Kramers-Kronig relations in
+linear model using HTRAN - with short conclusions.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{NC for simple nonlinear model - results}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Example cases for solving the Kramers-Kronig relations in simple
+nonlinear model using NC - with short conslusions.
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{NC for simple quantum-perturbative model - results}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Example cases for solving the Kramers-Kronig relations in simple
+\textit{quantum-}perturbative model using NC - with short conslusions.
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{NC for other models - results}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Example cases for solving the Kramers-Kronig relations for other
+models using NC - with short conslusions.
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsection{6. Clenshaw-Curtis quadrature - discussion (solving)}
+
+\subsubsection{Overview of the Clenshaw-Curtis iterations}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text here... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Overview of the }Clenshaw-Curtis iterations\textit{ method.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{CCI for simple linear model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Example cases for solving the Kramers-Kronig relations in
+linear model using }CCI\textit{ - with short conclusions.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{CCI for simple nonlinear model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Example cases for solving the Kramers-Kronig relations in
+simple nonlinear model using CCI - with short conslusions.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{CCI for simple quantum-perturbative model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Example cases for solving the Kramers-Kronig relations in
+simple quantum-perturbative model using CCI - with short conslusions.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{CCI for other models}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Example cases for solving the Kramers-Kronig relations for
+other models using CCI - with short conslusions.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsection{7. Fast Hartley transforms (solving)}
+
+\subsubsection{Overview of the FTH}
+
+\begin{maplegroup}
+\begin{flushleft}
+This method is faster than the fast Fourier transform because it works
+also in O(n log n) time, but it works only in the real domain
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Overview of the fast Hartley transorms, the algorithm in
+O(n\symbol{94}2) is ready, we need to enhance it to O(n log n)}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{FTH for simple linear model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Example cases for solving the Kramers-Kronig relations in
+linear model using  - FTH with short conclusions.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{FTH for simple nonlinear model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Example cases for solving the Kramers-Kronig relations in
+simple nonlinear model using FTH - with short conslusions.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{FTH for simple quantum-perturbative model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Example cases for solving the Kramers-Kronig relations in
+simple quantum-perturbative model using FTH - with short conslusions.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{FTH for other models}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Example cases for solving the Kramers-Kronig relations for other
+models using FTH - with short conslusions.
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsection{8. Hermite-Hilbert transform (solving)}
+
+\subsubsection{Overview of the HHT}
+
+\begin{maplegroup}
+\begin{flushleft}
+Hermite-Hilbert transform approach base on the precalcution of
+already-known Hermite polynomials and Hermite base of orthogonal
+functions
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Overview of the Hermite-Hilbert transorms and overview of the
+precalculation of the Hermite polynomials in a possibly short
+time/memory.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{HHT for simple linear model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Example cases for solving the Kramers-Kronig relations in
+linear model using  - HHT with short conclusions.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{HHT for simple nonlinear model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Example cases for solving the Kramers-Kronig relations in
+simple nonlinear model using HHT - with short conslusions.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{HHT for simple quantum-perturbative model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Example cases for solving the Kramers-Kronig relations in
+simple quantum-perturbative model using HHT - with short conslusions.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{HHT for other models}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Example cases for solving the Kramers-Kronig relations for other
+models using \textit{HHT} - with short conslusions.
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsection{9. Fourier-series (solving)}
+
+\subsubsection{Overview of the Fouries-series baser method}
+
+\begin{maplegroup}
+\begin{flushleft}
+Fourier series are similar to the Hermite-Hilbert transform. We derive
+their mathematical and numerical formulation
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{The algorithm is ready, results will be generated - results
+are quite well for finite signals/spectras}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{Fouries-series for simple linear model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Example cases for solving the Kramers-Kronig relations in
+linear model using Fourier-series - with short conclusions.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{Fouries-series for simple nonlinear model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Example cases for solving the Kramers-Kronig relations in
+simple nonlinear model using Fourier-series - with short conslusions.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{Fouries-series for simple quantum-perturbative model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Example cases for solving the Kramers-Kronig relations in
+simple quantum-perturbative model using Fourier-series - with short
+conslusions.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{Fouries-series for other models}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Example cases for solving the Kramers-Kronig relations for other
+models using \textit{Fourier-series} - with short conslusions.
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsection{10. MATLAB ® out-of-the-box functions (solving)}
+
+\subsubsection{Overview of the MATLAB ® interior functions}
+
+\begin{maplegroup}
+\begin{flushleft}
+Why not take into consideration the already built-in numerical methods
+from MATLAB. We compare the results obtained with:
+- quadgk() - Gauss-Kronrod Quadrature;
+- hilbert() - fast Hilbert transform based on both FFT and IFFT
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Overview of the method using }MATLAB ® interior functions.
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{MIF for simple linear model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Example cases for solving the Kramers-Kronig relations in
+linear model using MIF - with short conclusions.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{MIF for simple nonlinear model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Example cases for solving the Kramers-Kronig relations in simple
+nonlinear model using \textit{MIF} - with short conslusions.
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{MIF for simple quantum-perturbative model}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Example cases for solving the Kramers-Kronig relations in simple
+quantum-perturbative model using \textit{MIF} - with short
+conslusions.
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{MIF for other models}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text and graphs here.... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+Example cases for solving the Kramers-Kronig relations for other
+models using \textit{MIF} - with short conslusions.
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsection{11. General comparison of used numerical methods
+(understanding)}
+
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Nice charts of numerical comparisons here :)}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsection{12. Conclusion (understanding)}
+
+\subsubsection{Model conclusion}
+
+\begin{maplegroup}
+\begin{flushleft}
+We have presented both the linear and nonlinear model with comments
+that arise from the literature. The main question remains - what is
+the true and valid model for describing the interation of finite
+amount of photons with chemical molecules
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Final discussion about the used models}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{Numerical conclusion}
+
+\begin{maplegroup}
+\begin{flushleft}
+We have presented several methods and the comparison of their
+accuracy, convergency and speed. Which method is the best and why?
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Final discussion about the used numerical methods and their
+accuracy.}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsubsection{Z-scan technique conclusion}
+
+\begin{maplegroup}
+\begin{flushleft}
+The Z-scan experiment was the most important motivation for this
+thesis to be written. It is of course one of many experimental setups
+in nonlinear optics - but the questions are:
+- how both the experimental and numerical accuracy influence on the
+final results
+- how to avoid this problems in the z-scan experiment?
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Final discussion for the building better z-scan experiment
+(Z-scan 2.0 ? :))}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsection{13. Acknowledgements}
+
+\begin{maplegroup}
+\begin{flushleft}
+Text here... 
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+\textit{Final acknowledgements}
+\end{flushleft}
+
+\end{maplegroup}
+
+\subsection{14. References}
+
+\begin{maplegroup}
+\begin{flushleft}
+[1] G. Tsigaridas, M. Fakis, I. Polyzos, P. Persephonis and V.
+Giannetas, \textit{"Z-scan technique through beam radius
+measurements"}, Applied Physics B: Lasers and Optics
+Volume 76, Number 1, 83-86, DOI: 10.1007/s00340-002-1067-5
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+[2] Robert W. Boyd, \textit{"Nonlinear Optics, Third Edition"},
+Academic Press, Elsevier, March 2008, ISBN: 978-0-12-369470-6
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+[3] Marek Samoc, \textit{"Third-order nonlinear optical materials:
+practical issues and theoretical challenges"}, Journal of Molecular
+Modeling, DOI: 10.1007/s00894-010-0856-8
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+[4] Marek Samoc, A. Samoc, B. Luther-Davies, M. G. Humphrey, M. P.
+Cifuentes, \textit{"Nonlinear absorption: materials and mechanisms",
+}Proceedings of the Symposium on Photonics Technologies for 7th
+Framework Program Wroclaw\textit{ (2006),} Issue: October, Pages:
+12–14,  ISBN: 83-7085-970-4 
+[5] Robert W Boyd, John E Sipe, Peter W Milonni, \textit{"Chirality
+and polarization effects in nonlinear optics"}, 2004 J. Opt. A: Pure
+Appl. Opt. 6 S14 DOI: 10.1088/1464-4258/6/3/002
+[6] A. Novák - \textit{"Identification of Nonlinear Systems: Volterra
+Series Simplification"}, Acta Polytechnica Vol. 47 No. 4–5/2007
+[7] S. T. Chui and Hong-ru Ma - \textit{"Local-field correction for
+nonlinear optical coefficients"}, Phys. Rev. B 47, 6293–6298 (1993),
+DOI:10.1103/PhysRevB.47.6293
+[8] Paras N. Prasad, David J. Williams - \textit{"Introduction to
+Nonlinear Optical Effects in Molecules and Polymers"} ISBN:
+978-0-471-51562-3
+[9] M. D. Levenson* and N. Bloembergen  - \textit{"Dispersion of the
+nonlinear optical susceptibility tensor in centrosymmetric media"},
+Phys. Rev. B 10, 4447–4463 (1974) DOI:10.1103/PhysRevB.10.4447
+[10] Frank Träger, "Springer Handbook of Lasers and Optics", Springer
+2007, ISBN: 0387955798, partially available on Google Books service:
+http://www.google.com/books?id=YOHJGz-9UNoC
+[11] Nicolaas Bloembergen (Nobel Prize for Physics (1981)) -
+\textit{"Nonlinear optics - 4th Edition" }- Singapore, World
+Scientific, 1996, ISBN: 981-02-2599-7 (pbk), partially available on
+the Google Books service: http://www.google.com/books?id=VdwBT13l05EC
+[12] Yitzhak Katznelson - \textit{"An introduction to harmonic
+analysis - third edition" - }Cambridge Unviversity Press, 2004, ISBN:
+0-521-54359-2 (pbk), partially available on the Google Book servise:
+http://www.google.com/books?id=gkpUE\_m5vvsC
+[13] Palffy-Muhoray, Course materials for LC Optics and Photonics,
+CPHY 6/74495, Spring, 2011, website:
+http://mpalffy.lci.kent.edu/Optics/
+[14] Valerio Lucarini, Jarkko J. Saarinen, Kai-Erik Peiponen, and Erik
+M. Vartiainen (2005), \textit{"Kramers-Kronig relations in Optical
+Materials Research",} Heidelberg: Springer. ISBN 3-540-23673-2.
+\end{flushleft}
+
+\begin{flushleft}
+[15] Edward Charles Titchmarsh, "Introduction to the theory of Fourier
+integrals - second edition", Oxford at the Clarendon Press, 1948
+\end{flushleft}
+
+\begin{flushleft}
+[16] H. N. Yum, M. S. Shahriar, "\textit{Pump–probe model for the
+Kramers–Kronig relations in a laser}", J. Opt. 12 (2010) 104018 (6pp),
+DOI:10.1088/2040-8978/12/10/104018
+\end{flushleft}
+
+\begin{flushleft}
+[17] H. Tuononen, E. Gornov, J. A. Zeitler, J. Aaltonen, and K.-E.
+Peiponen, \textit{"Using modified Kramers-Kronig relations to test
+transmission spectra of porous media in THz-TDS"}, Optics Letters,
+Vol. 35, Issue 5, pp. 631-633 (2010), DOI:10.1364/OL.35.000631
+\end{flushleft}
+
+\begin{flushleft}
+[18] I. J. Weinberg, "\textit{Hilbert Transform by Numerical
+Integration}", ROME AIR DEVELOPMENT CENTER GRIFFISS AFB N Y, 1979,
+Report Number:A480860
+\end{flushleft}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{flushleft}
+[17-100] Nice positions here...
+\end{flushleft}
+
+\end{maplegroup}
+\emptyline
+\end{document}
+%% End of Maple 14.00 Output

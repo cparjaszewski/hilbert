@@ -1,0 +1,72 @@
+%% Krzysztof Parjaszewski - the summary of prepared Master Thesis
+\documentclass{article}
+\usepackage{fullpage}
+\title{Numerical calculation of the Hilbert transform applied for
+understanding and solving the Kramers-Kronig relations in nonlinear
+optics - summary}
+ \author{Krzysztof Parjaszewski}
+ \date{}
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+\begin{document}
+\maketitle
+\paragraph{}
+The motivation for this work comes from the real problem state by
+physicists and chemists building the valid theoretical models to
+describe the interaction between light and matter due to both
+non-intensive and intensive light radiation. The starting point is the
+fundamental physical law - the causality principle - which states that
+the effect cannot precede the cause. This simple assumption leads us
+to the Titchmarsh theorem about the Hilbert transform - and together with
+an advanced signal response-theory we can investigate the properties of
+the medium response to the periodic input signal - both in time and
+frequency domain. Modifications of the Hilbert transform for the
+optical susceptibility $\chi(\omega)$ are known as the Kramers-Kronig relations - which are defined for
+both real and imaginary part of susceptibility in the frequency-domain:
+
+$$\Re \{ \chi (\omega ) \}=\frac {2}{\pi} \,\dashint _{ - \infty }^{\infty }
+\frac {\omega^{\prime} \,\Im (\chi (\omega^{\prime} ))}{{\omega^{\prime}} ^{2} - \omega ^{2}}
+\,d \omega^{\prime}  $$
+
+
+$$\Im (\chi (\omega ))=\frac {2}{\pi}\,\omega \,\dashint _{ - \infty }^{
+\infty }\frac {\Re (\chi (\omega^{\prime} ))}{{\omega^{\prime}} ^{2} - \omega ^{2}}\,
+d\omega^{\prime}  $$
+
+The value is assigned to this integrals using the Cauchy principal value method. In this
+thesis we handle two problems. First concirns numerical problems with
+calculation of such singular and improper integral. The second problem
+concirns the questions stated by physicists - how to properly use this
+mathematical tools in a typical experiment (errors, few data) and to construct valid model in
+optical research. We present the comparison of several implementations
+of numerical calculations of the Hilbert transform:
+\begin{itemize}
+    \item Clenshaw-Curtis quadrature,
+    \item Hilbert transform based on fast Hartley transforms,
+    \item Newton-Cotes qudrature of an arbitrary degree,
+    \item Numerical trapezoidal rule mixed with the Simpson's rule and the
+cubic interpolation,
+    \item method based on function approximation with the orthonormal Hermite
+polynomials and Hermite functions,
+	\item method based on approximation with the Fourier series.
+\end{itemize}
+We also test the out-of-the-box MATLAB-implemented routines:
+\begin{itemize}
+	\item quadgk(),
+	\item hilbert() - based on FFT.
+\end{itemize}
+The given physical models for both linear and nonlinear optics are
+analysized and validated. We formulate good practises for scientists
+interested in subject of optical experiments. Finally we made the
+conclusions about the numerical stability, advantages and
+disadvantages of developed implementations in further research in
+nonlinear optics.
+\end{document}
