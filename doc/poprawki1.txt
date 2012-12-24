@@ -1,0 +1,20 @@
+Zasadniczym tematem pracy jest transformata Hilberta.
+Motywacj¹ naukow¹ s¹ ró¿ne modele fizyczne.
+
+Model fizyczny vs model matematyczny.
+
+1. Sk¹d wziê³a siê transformata Hilberta (model matematyczny), dok³adne wyprowadzenie.
+a.
+b.
+c.
+2. Mniej wiêcej sk¹d bior¹ siê modele fizyczne i dane.
+a. 
+b. 
+c. 
+..
+last. U¿yjemy transformaty do obliczeñ modeli fizycznych.
+3. Wyniki obliczeñ.
+a-h
+4. Wnioski
+
+KONIEC

@@ -1,0 +1,22 @@
+(1+x.*1i)./(x.^2+1)
+Przy herhtrans jest wa¿ne, ¿eby ustawiæ tak model, ¿eby w centrum by³a jego najwiêksza amplituda, wynika to z w³asnoœci wielomianów Hermita
+
+Metody w których by³o wiêcej obliczeñ matematycznych na pocz¹tku, nie maj¹ problemu praktycznie z ¿adnym modelem, metody, które licz¹
+tak ad-hoc, s¹ nara¿one na istotne b³êdy, chocia¿ dla "³adnych" wykresów zachowuj¹ siê poprawnie.
+
+
+
+x = linspace(525.14999999999998, 1019.85,1000);
+a1 = 3.2660257291173265;
+b1 = 754.61871727206972;
+c1 = 72.425848140664314;
+val = a1 .* exp(-((x-b1)./c1).^2);
+
+
+PODSUMOWANIE NUMERYCZNE:
+Ka¿da z zaproponowanych metod ma inne podstawy teoretyczne i zosta³a podjêta próba dopasowania ka¿dej z nich do problemu obliczania transformaty Hilberta. Czêœæ z metod dobrze poradzi³a sobie z t¹ prób¹, czêœæ metod ewidentnie nie nadaje siê do tego zastosowania, szczególnie metody, które poza du¿ymi b³êdami trwaj¹ d³ugo. Niemniej warto mieæ na uwadze wszystkie metody, gdy¿ prawdopodobnie do stworzenia metody bliskiej optymalnej 
+
+
+cok_majatek@allianz.pl
+
+T. Hasegawa and T. Torri - An Automatic Quadrature For Cauchy Principal Value Integrals

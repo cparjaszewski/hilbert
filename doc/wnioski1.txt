@@ -1,0 +1,52 @@
+The theory behind the conjugated pairs of the Hilbert transforms need to be structured and defined generally for both the linear
+and nonlinear case and there must be one general and valid theory for all cases. In most current approaches one starts from the simple
+and valid models and then ''modifies'' it for some extra case. Such an approach often leads to the general misunderstanding.
+
+Just as in the title of this thesis - we should try to express more general theory - for both linear and nonlinear cases. The good
+example of such attempt has been presented by David Crichton Hutchings et al. in \cite{hutchings_kramers2} and 
+\cite{seo_study_gainasp}. Authors have proposed the models for particular nonlinear absorption processes as following:
+
+==============================================================================
+
+W literaturze mo¿emy znaleŸæ wiêcej propozycji modeli opisuj¹cych bardziej zaawansowane zjawisk optyki nieliniowej. W tej pracy przede wszystkim jesteœmy zainteresowani mo¿liwoœci¹ oceny ich poprawnoœci zgodnie z teori¹ transformaty Kramersa-Kroniga czy ogólniej - transformaty Hilberta. Poni¿ej zosta³o przedstawionych siedem modeli zapropowanych w dwóch pracach - DCH i JKS. 
+
+Zdaniem autorów rzeczywistoœæ fizyczna i tak jest jeszcze bardziej skomplikowana, dlatego koñcowy wynik bêdzie z³o¿eniem wielu takich elementów sk³adowych. Chcemy w póŸniejszych rozdzia³ach spróbowaæ sprawdziæ poprawnoœæ ka¿dego z nich.
+
+Zaproponowane modele w pracy [1]-DCH zosta³y przedstawione poni¿ej:
+[l1,l2,l3,l4]
+Zaproponowane modele - jeszcze przed rozpoczêciem obliczeñ - nios¹ ze sob¹ kilka w¹tpliwoœci:
+1. Obserwujemy, ¿e wartoœci opisane przy pomocy powy¿szych modeli mog¹ byæ liczbami zespolonymi. Mo¿emy sobie z tym poradziæ wyci¹gaj¹c jedynie czêœæ rzeczywist¹.
+2. Problem numeryczne s¹ Ÿle uwarunkowane ze wzglêdu na wysok¹ wartoœæ pierwszej pochodnej. W porównaniu do poprzednich modeli pojawia siê jeszcze dodatkowe pytanie: Czy wartoœci fizyczne mog¹ mieæ - przy analizie spektralnej - charakter zbli¿ony do dyskretnego? Czy wartoœci fizyczna nie powinna mieæ charakteru bardziej "smuk³ego"?
+
+
+
+
+
+
+
+
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI |||
+||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI |||
+||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI ||| WNIOSKI |||
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+NUMERYKA:
+W prostszych przyk³adach uda³o siê zaobserwowaæ akceptowaln¹ dok³adnoœæ przy zastosowaniu domyœlnych parametrów dla ka¿dego z modeli. Jednak przy analizie trudniejszych modeli - pod k¹tem numerycznym zaobserwowaliœmy utratê poprawnoœci obliczeñ ze wzglêdu na z³e uwarunkowanie wynikaj¹ce z wysokiej wartoœci pierwszej pochodnej w analizowanych modelach. 
+
+W rozdzia³ach 2.7-2.8 pojawi³y siê modele Ÿle uwarunkowane numerycznie, przy ich sprawdzaniu lepsza by³yby obliczenia analityczne.
+
+Metody NC s¹ kiepskie, d³ugo trwaj¹, niemniej jeœli ktoœ ma du¿o czasu i cierpliwoœci na dobór parametrów mo¿e to byæ punkt wyjœcia.
+
+
+
+MATEMATYKA:
+Dla modeli dwuargumentowych nale¿a³oby zadaæ sobie pytanie odnoœnie metody obliczania transformaty Hilberta. Najtrudniejszym pod wzglêdem obliczeñ numerycznych modelem jest transformata Hilberta oparta o podwójn¹ lub wielokrotn¹ ca³kê - co jednak wydaje siê mieæ najwiêkszy sens pod k¹tem obliczeñ numerycznych - wartoœæ ca³ki powinna bowiem zale¿eæ od ca³ej przestrzeni, a nie tylko od jej wybranego wymiaru.
+
+
+FIZYKA:
+Mo¿emy przypuszczaæ, ¿e koñcowe wyniki bêd¹ sum¹ wielu sk³adowych, tym bardziej istotnych bêdzie posiadanie dobrze dobranych modeli sk³adowych - jak zosta³o to zaprezentowane w rozdzia³ach 2.7 i 2.8. Jednak te modele s¹ zdecydowanie najbardziej podatne na b³êdy, st¹d ich badanie ich poprawnoœci powinno byæ pierwsz¹ czynnoœci¹ przy konstruowaniu hipotez teoretycznych.
+
+Warto postawiæ pytanie odnoœnie modeli z rozdzia³ów 2.7 i 2.8 - czy funkcje o tak wysokich wartoœciach pierwszej pochodnej s¹ poprawne z punktu widzenia charakterystyki spektralnej, gdzie istotnie pojawiaj¹ siê czynniki - "wyg³adzaj¹ce" te charakterystyki.
