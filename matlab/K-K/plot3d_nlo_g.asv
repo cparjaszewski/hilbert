@@ -1,0 +1,33 @@
+% Prepare the 3d plot data for Cou
+function [x,y,z] = plot3d_nlo_g(spectrum, aArray, wArray, cArray)
+% getting the wavelengths:
+minwl = spectrum(1)/1.4; 
+maxwl= spectrum(2)*1.4;
+
+% prepare arguments for integration
+args = minwl:0.1E-08:maxwl;
+
+% prepare the mesh grid
+[XX,YY] = meshgrid(args,args);
+
+% prepare the gaussians
+gCount = size(cArray);
+
+sum =0;
+
+for i=1:gCount
+    sum = sum + @(x)(aArray(1)/(wArray(1).*sqrt(pi/2))).*exp(-2.*((x-(cArray(1)))/wArray(1)).^2);
+end;
+
+% declare the inner function
+innerfun = @(z,w)((sum(z).*z)./((z+w).*(z-w)));
+
+ref
+
+
+
+
+
+
+
+

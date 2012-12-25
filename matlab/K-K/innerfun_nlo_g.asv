@@ -1,0 +1,15 @@
+function values = innerfun_nlo_g( z, w, f)
+noArgs = size(z);
+
+if (abs(z-w)<10E-9)
+    values = 0;
+else
+    values = ((f.*z)./((z+w).*(z-w)));
+end;
+    
+for i=1:noArgs(2)
+  if (abs(z(i)-w)<10E-9)
+     values(i) = 0;
+  end;
+end;
+

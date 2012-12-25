@@ -1,0 +1,12 @@
+function value = innerfun_chi_g( refs, ws, w1)
+noArgs = size(refs);
+
+
+for i=1:noArgs(2)
+  if (ws(z(i)-w1)<1E-10)
+     value(i) = 0;
+  else
+     value(i) = ws .*refs ./ (t.^2-w1.^2)
+  end;
+end;
+

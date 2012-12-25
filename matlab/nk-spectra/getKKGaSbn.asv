@@ -1,0 +1,13 @@
+function nTheretical = getKKGaSbn(nm, k)
+    [sizexk sizeyk] = size(k);
+    l = max(sizexk,sizeyk);
+    a = min(k(1),k(l));
+    b = max(k(1),k(l));
+    nTheretical = onex(l);
+    step = nm(2)-nm(1);
+    for i=nm(1):step:nm(l)
+        nTheretical(i) = cpv(
+    end
+    
+    
+phi = @(x)getGaSbGaussFun(x,x0);

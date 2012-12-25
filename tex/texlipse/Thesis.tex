@@ -990,19 +990,25 @@ values based on the interpolation method.
 We assume that the input function R is defined for a discrete set of arguments:
  
 \begin{equation} \label{eq:htran_arguments}
-	F = \{ F_1, F_2, \ldots, F_N \} \, (F_i < F_j \, \text{ for } i < j) . 
+	F = \{ F_1, F_2, \ldots, F_N \} \quad (F_i < F_j \, \text{ for } i < j) . 
 \end{equation}
 
 We will calculate the Hilbert transform of $R$ for the same discrete set of arguments $F$. An example has been presented on
 the Figure (\ref{fig:htran_illustration}), where the blue plot represents the input function $R$ and the green plot represents the output
 function $HT$.
 
-We start from the modification of the main Hilbert transform equation from the basic representation (second term) into a limit of two
-integrals (third term):
+
+We start from reminding the definition of the Hilbert transform:
+
+\begin{equation} \label{eq:htran_basic_representation}
+ \mathrm{HT}(\omega )
+  = \frac{1}{\pi } {\dashint_{ - \infty }^{\infty }  \frac {\mathrm{R}(\Omega )}{\Omega - \omega }\,d\Omega }
+\end{equation}
+
+We transform the basic representation (\ref{eq:htran_basic_representation}) into a limit of two integrals:
 
 \begin{equation} \label{eq:htran_first_modification}
-  \mathrm{HT}(\omega )
-  = \frac{1}{\pi } {\dashint_{ - \infty }^{\infty }  \frac {\mathrm{R}(\Omega )}{\Omega - \omega }\,d\Omega }
+  \frac{1}{\pi } {\dashint_{ - \infty }^{\infty }  \frac {\mathrm{R}(\Omega )}{\Omega - \omega }\,d\Omega }
   = {\lim_{\varepsilon \rightarrow 0}} 
   	\left( \int_{ - \infty }^{\omega - \varepsilon } \frac {\mathrm{R}(\Omega )}{\Omega - \omega }\,d\Omega  
   	     + \int_{ \omega + \varepsilon }^{ \infty  } \frac {\mathrm{R}(\Omega )}{\Omega - \omega }\,d\Omega \right) .
@@ -1120,15 +1126,15 @@ numerically. For this reason we are preparing a new set of values, which are jus
   \widehat{F_{k}}=\frac {{F_{k}} + {F_{k + 1}}}{2} \,\mbox{ for } \, k = 1\,\ldots\,{N - 1}
 \end{equation} 
 
-We will also need to approximate the values of a new $\widehat{R}$ at $\widehat{F_j} \ (j = 1 \ldots N-1)$  points. We will do this by a
-simple cubic interpolation:
+We will also need to approximate the values of a new $\widehat{R}$ at $\widehat{F_j} \quad (j = 1 \ldots N-1)$  points.
+We will do this by a simple cubic interpolation. $R(\widehat{F_j}) = \widehat{R_j}$, so:
 
 \begin{subequations} \label{eq:htran_r3interp}
   \begin{equation}   \label{eq:hr3inp_first}
-    R(\widehat{F_1}) = \widehat{R_{1}} = \frac {3\,{R_{1}} + 6\,{R_{2}} - {R_{3}}}{8}
+    \widehat{R_{1}} = \frac {3\,{R_{1}} + 6\,{R_{2}} - {R_{3}}}{8}
   \end{equation}
   \begin{equation}   \label{eq:hr3inp_next}
-    \widehat{R_{k}} = \frac { - {R_{k - 1}} + 9\,{R_{k}} + 9\,{R_{k + 1}} - {R_{k + 2}}}{16} \ \mbox{ for } \, k = 2\,\ldots\,{N - 2}
+    \widehat{R_{k}} = \frac { - {R_{k - 1}} + 9\,{R_{k}} + 9\,{R_{k + 1}} - {R_{k + 2}}}{16} \quad \mbox{ for } \, k = 2\,\ldots\,{N - 2}
   \end{equation}
   \begin{equation}   \label{eq:hr3inp_last}
     \widehat{R_{N-1}} = \frac { - {R_{N - 2}} + 6\,{R_{N - 1}} + 3\,{R_{N}}}{8}
@@ -1188,11 +1194,11 @@ In the next step, we calculate the Hilbert transform at points $\widehat{F_j} \,
   \right] .
 \end{equation}
 
-Finally we need to undo the cubic interpolation. To do so, we perform the following calculations:
+Finally we need to undo the cubic interpolation. $ HT(F_i) = HT_{i} $, so: 
 
 \begin{subequations} \label{eq:htran_undointp}
   \begin{equation}   \label{eq:htundo_first}
-    HF(F_1) = HT_{1} = \frac {15\,\widehat{HT_{1}} - 10\,\widehat{HT_{2}} + 3\,\widehat{HT_{3}}}{8}
+    HT_{1} = \frac {15\,\widehat{HT_{1}} - 10\,\widehat{HT_{2}} + 3\,\widehat{HT_{3}}}{8}
   \end{equation}
   \begin{equation}   \label{eq:htundo_second}
     HT_{2} =\frac {3\,\widehat{HT_{1}} + 6\,\widehat{HT_{2}} - 1\,\widehat{HT_{3}}}{8}
@@ -1209,11 +1215,11 @@ Finally we need to undo the cubic interpolation. To do so, we perform the follow
   \end{equation}
 \end{subequations}
 
-In following chapters we will show the results obtained with this method.
+In the following chapters we will show the results obtained with this method.
 
 \subsection{HTRAN for simple linear model - results} \label{chap:htran_lin}
 
-We shall remind the model presented in Chapter (\ref{chap:physical_models}) in the equation \ref{eq:physical_frequency_linear}:
+We shall remind the model presented in Chapter (\ref{chap:physical_models}) in the equation (\ref{eq:physical_frequency_linear}):
 
 \begin{equation} \label{eq:htran_remind_linmod}
   \mathcal{F}[h_{\text{lin}}] = \chi_{\text{lin}}(\omega) \approx \frac{ -20}{(\omega \,i + 1 -20\,i)\,(\omega \,i + 1 + 20\,i)} .
@@ -1231,7 +1237,7 @@ values calculated analytically.
    a) The plot of the real part of $\chi (\omega )$ 
    b) absolute error plot (c-plot minus d-plot) 
    c) imaginary part of $\chi (\omega )$ obtained with the Hilbert transform of a-plot 
-   d) part of $\chi (\omega )$ imaginary calculated analytically. \label{eq:htran_lin}
+   d) imaginary part of $\chi (\omega )$ calculated analytically. \label{eq:htran_lin}
   }
 \end{figure}
 
@@ -1263,7 +1269,7 @@ The results for such set of arbitrary parameters are shown on the Figure \ref{fi
 
 \begin{figure}
   \includegraphics[width=150mm]{img/htran_pnp_2d.png}
-  \caption{The Figure presents the results of the HTRAN method applied for the pump-and-probe model. Results are lotted together
+  \caption{The Figure presents the results of the HTRAN method applied for the pump-and-probe model. Results are plotted together
     a) The plot of the real part of $\chi_{pp} (\omega )$ 
     b) absolute error plot (c-plot minus d-plot) 
     c) imaginary part of $\chi_{pp} (\omega )$

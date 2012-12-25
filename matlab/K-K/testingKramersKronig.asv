@@ -1,0 +1,34 @@
+function testingKramersKronig
+    x = linspace(-5,5,1000);
+    [rIn,iIn] = meshgrid(x,x);
+    zIn = rIn + 1i.*iIn;
+    zOut = test002(zIn);
+    rOut = real(zOut);
+    iOut = rOut.*0 + color('blue');
+    mesh(rIn,iIn,rOut,iOut);
+    C(:,:,1) = rand(25);
+    C(:,:,2) = rand(25);
+C(:,:,3) = rand(25);
+    axis vis3d
+    for i=1:36
+     camroll(10)
+     drawnow
+    end
+end
+
+function zOut = test001(zIn)
+    a = real(zIn);
+    b = imag(zIn);
+    reOut = (a+b) ./ (b.^2 + 1);
+    imOut = (a-b) ./ (a.^2 + 1);
+    zOut = complex(reOut,imOut);
+end
+
+
+function zOut = test002(zIn)
+    a = real(zIn);
+    b = imag(zIn);
+    reOut = (a+b) ./ (a.^2 + b.^2 + 1);
+    imOut = (a-b) ./ (a.^2 + b.^2 + 1);
+    zOut = complex(reOut,imOut);
+end
