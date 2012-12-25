@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.5.5)  25 DEC 2012 02:31
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.5.5)  25 DEC 2012 13:41
 entering extended mode
 **Thesis.tex
 (C:\doc\MSc\tex\texlipse\Thesis.tex
@@ -1251,7 +1251,7 @@ File: ./../img/htran_qp_3d.png Graphic file (type png)
 
 <use ./../img/htran_qp_3d.png> [32 <C:/doc/MSc/tex/img/htran_qp_3d.png>]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1411.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1414.
 
 
 [33] <./../img/nc_lin1.png, id=186, 541.27219pt x 280.04625pt>
@@ -1315,7 +1315,7 @@ File: ./../img/hcc_qp1.png Graphic file (type png)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [44 <C:/doc/MSc/tex/img/hcc_fmix.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 2002--2003
+Underfull \hbox (badness 10000) in paragraph at lines 2005--2006
 
  []
 
@@ -1327,7 +1327,7 @@ Underfull \vbox (badness 5548) has occurred while \output is active []
 
  [45 <C:/doc/MSc/tex/img/hcc_qp1.png>] [46 <C:/doc/MSc/tex/img/hcc_qp2.png>] [4
 7] [48]
-Underfull \hbox (badness 10000) in paragraph at lines 2241--2243
+Underfull \hbox (badness 10000) in paragraph at lines 2244--2246
 
  []
 
@@ -1405,16 +1405,16 @@ File: ./../img/four_qp2.png Graphic file (type png)
 
 <use ./../img/four_qp2.png> [63 <C:/doc/MSc/tex/img/four_qp1.png>]
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <17.28> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 2934.
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 2937.
 
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <17.28> on input line 2934.
+(Font)              <17.28> on input line 2937.
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <14.4> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 2936.
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 2939.
 
  [64 <C:/doc/MSc/tex/img/four_qp2.png>] [65]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3040.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3043.
 
 
 <./../img/quadgk_lin.png, id=347, 772.38562pt x 306.39468pt>
@@ -1486,25 +1486,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 175--179
  []
 
 [78])
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 3456
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 3459
 .
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <6> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3456.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3459.
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3461.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3464.
 
  [79]
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <6> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3571.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3574.
 
  [80]
 [81] [82] [83]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <6> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3857.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3860.
 
  <./../img/zscan_sch.png, id=428, 386.94562pt x 199.49532pt>
 File: ./../img/zscan_sch.png Graphic file (type png)
@@ -1571,7 +1571,7 @@ KTeX 2.9/fonts/type1/public/pl/plti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/public/pl/plti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plt
 i7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plti8.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/public/pl/pltt12.pfb>
-Output written on Thesis.pdf (88 pages, 6357661 bytes).
+Output written on Thesis.pdf (88 pages, 6358448 bytes).
 PDF statistics:
  648 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

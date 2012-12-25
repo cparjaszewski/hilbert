@@ -600,8 +600,8 @@ We can now easily deduce that also the pump-and-probe nonlinear susceptibility d
 
 In sense of the response theory this observation leads us to the conclusion, that the susceptibility of the nonlinear process depends not
 only on the input signal frequency (energy) - but also on the time delay between the moments, when two or more photons arrive at
-the molecule. Here we are talking about an important problem in nonlinear optics which is constructing a valid model for the pump-and-probe
-process - to allow us to use the Titchmarsh theorem here. 
+the molecule. We are talking about an important problem in nonlinear optics which is constructing a valid model for the pump-and-probe
+process - to allow us to use the Titchmarsh theorem. 
 
 In \cite{christodoulides_nonlinear} we can find results showing that the probe signal absorbance depends not only on the pump
 signal properties, but also on the time delay between the pump and probe - see the Figure (\ref{physical_fig:pnp_absorption}).
@@ -1225,15 +1225,16 @@ We shall remind the model presented in Chapter (\ref{chap:physical_models}) in t
   \mathcal{F}[h_{\text{lin}}] = \chi_{\text{lin}}(\omega) \approx \frac{ -20}{(\omega \,i + 1 -20\,i)\,(\omega \,i + 1 + 20\,i)} .
 \end{equation}
 
-The real part of $\chi_{\text{lin}}$ will be used as the input $R$ function in the equation (\ref{eq:htran_first_modification}). The
-output $HT$ function calculated with the HTRAN algorithm is compared to the imaginary part of the $\chi_{\text{lin}}$. We have presented the
-results in the Figure \ref{eq:htran_lin}. In this and in the following chapters we would like the error function
+The real part of $\chi_{\text{lin}}$ will be used as the input function $R$ in the equation (\ref{eq:htran_first_modification}). The
+output function $HT$ calculated with the HTRAN algorithm is compared to the imaginary part of the $\chi_{\text{lin}}$. We have presented
+the results in the Figure \ref{eq:htran_lin}. In this and in the following chapters we would like the error function
 represented with the yellow colour to be as close to zero as possible. We also would like the numerical results to be close to the
 values calculated analytically.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/htran_lin.png}
-  \caption{The Figure presents the results of the HTRAN method applied for the simple linear model. Results are plotted together 
+  \caption{The Figure presents the results of the HTRAN method applied for the simple linear model. We have used 500 points (N = 500).
+  Results are plotted together 
    a) The plot of the real part of $\chi (\omega )$ 
    b) absolute error plot (c-plot minus d-plot) 
    c) imaginary part of $\chi (\omega )$ obtained with the Hilbert transform of a-plot 
@@ -1265,11 +1266,12 @@ and we have assign the values for the constants:
   $\Omega_{1}$  & $=$ & $4.3$. \\
 \end{tabular}
 
-The results for such set of arbitrary parameters are shown on the Figure \ref{fig:htran_pnp_2d}.
+The results for such set of parameters are shown on the Figure (\ref{fig:htran_pnp_2d}).
 
 \begin{figure}
   \includegraphics[width=150mm]{img/htran_pnp_2d.png}
-  \caption{The Figure presents the results of the HTRAN method applied for the pump-and-probe model. Results are plotted together
+  \caption{The Figure presents the results of the HTRAN method applied for the pump-and-probe model. We have used 500 points (N =
+  500). Results are plotted together 
     a) The plot of the real part of $\chi_{pp} (\omega )$ 
     b) absolute error plot (c-plot minus d-plot) 
     c) imaginary part of $\chi_{pp} (\omega )$
@@ -1286,7 +1288,8 @@ error as presented in the Figure \ref{fig:htran_pnp_3derr}.
 \begin{figure}
   \includegraphics{img/htran_pnp_3derr.png}
   \caption{The Figure presents the combined relative error for the results of the HTRAN method applied for the two-dimensional
-  pump-and-probe model. The light-cyan colour shows the area of error below 100. \label{fig:htran_pnp_3derr}}
+  pump-and-probe model. The light-cyan colour shows the area of error below 100\%. 
+  \label{fig:htran_pnp_3derr}}
 \end{figure} % which is not very bad, but there are areas with error  more above 100
 
 Let's now perform the evaluation for the wave-mixing model as stated in the model described by \ref{eq:feff1_plus}. We expand this
@@ -3414,7 +3417,7 @@ Great honours should be also given for the members of the University of Wrocław
 
 
 \begin{tabular}{l l}
-    Rafał Keller, PhD              & for supervising me through the hard area \\
+    Paweł Keller, PhD              & for supervising me through the hard area \\
                                    & of quadratures with singularities \\ 
     Professor Stanisław Lewanowicz & for the review of this work, useful comments \\
     							   & and inspiration to think outside the cubicle \\
