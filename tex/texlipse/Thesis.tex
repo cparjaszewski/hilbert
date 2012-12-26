@@ -129,7 +129,7 @@ Joliot-Curie 15, Poland \\
 Institute of Computer Science \\
 University of Wrocław, PL-50-383 Wrocław \\
 Joliot-Curie 15, Poland \\
-+48-660-070-043 | E-mail: Krzysztof.Parjaszewski@gmail.com
++48-660-070-043 | E-mail: krzysztof.parjaszewski@gmail.com
 
 \section{Practical motivations} \label{chap:practical_motivations}
 Physics and chemistry are two scientific domains strictly connected with mathematics and the numerical analysis. Playing with the
@@ -302,7 +302,7 @@ literature, for instance in Trott~\cite{trott_mathematica}.
 We shall also define the Lebesgue and the Hardy spaces for the next calculations. The Lebesgue space is also called the $L^p$ and is a
 function space described in the functional analysis. We can now define a function $f : \mathbb{S} \to \mathbb{D}$. The function $f$ belongs
 to the $L^p$ space if it is measurable and if raised to the $p^{\text{th}}$ power it has a finite integral on $\mathbb{S}$ with the measure
-$ \mu $. The formal definition has been presented in the equation~\ref{eg:mathematical_lebesgue}:
+$ \mu $. The formal definition has been presented in the equation~(\ref{eg:mathematical_lebesgue}):
 
 \begin{equation} \label{eg:mathematical_lebesgue}
   \|f\|_p \equiv ( \int_{S} |f|^p \, d\mu) ^ {\frac{1}{p}} < \infty .
@@ -401,8 +401,8 @@ The Titchmarsh theorem states that the conditions from equations~(\ref{eq:mathem
 \ref{eq:mathematical_titchmarsh_imag}) are mathematically equivalent.
 
 Proof with an exhausting review of both the Fourier and Hilbert transforms was described by Edward Charles Titchmarsh in
-\cite{titchmarsh_introduction} - the theory is described through all book chapters, but the theorem and its proof has been stated in chapter
-\ref{chap:nc} about the conjugated integrals also Hilbert transforms.
+\cite{titchmarsh_introduction} - the theory is described through all book chapters, but the theorem and its proof has been stated in Chapter
+(\ref{chap:nc}) about the conjugated integrals also Hilbert transforms.
 
 
 \section{Physical models to be used} \label{chap:physical_models}
@@ -500,7 +500,7 @@ Volterra-kernel.
 
 Let imagine an input single pulse-like signal ``shots'' the matter. We expect the matter to response with a short, fading response signal.
 The $ \Theta (t) : \mathbb{R} \rightarrow \{0, \, 1 \} $ function will state the Heaviside function defined as in the equation
-\ref{eq:physical_heaviside}:
+(\ref{eq:physical_heaviside}):
 
 \begin{equation} \label{eq:physical_heaviside}
    \Theta(t)  =  
@@ -517,7 +517,7 @@ fading sinusoidal exponent:
   h_{\text{lin}} (t) = 1 - e^{( - t)}\,\mathrm{sin}(20\,t)\,\Theta (t) .
 \end{equation}
 
-The plot of the equation \ref{eq:physical_linear_response} is given on the Figure (\ref{fig:physical_linplot}).
+The plot of the equation (\ref{eq:physical_linear_response}) is given on the Figure (\ref{fig:physical_linplot}).
 
 \begin{figure}[H]
   \includegraphics[width=150mm]{img/lin_plot.png}
@@ -639,7 +639,7 @@ Therefore we obtain the three dimensional plots presented on the Figures (\ref{f
 \end{figure}
 
 
-\subsubsection*{Frequency Mixing Process}
+\subsubsection*{Frequency Mixing Process} \label{chap:physical_fm}
 
 The frequency mixing is a general class of processes where we have two or more input photons with their frequencies:
 ${\omega_{input, \,1}}, \,{\omega_{input, \,2}}, \,{\omega_{input, \,3}}, \ldots $ and we receive one or more output photons with
@@ -948,12 +948,12 @@ describing the coherence between states $a$ and $b$. The models have been descri
   \end{alignat*}
 \end{subequations}
 
-What is interesting, after expanding all the permutations in \ref{eq:susceptibility_sligh_modifications} we will get the 48 different
+What is interesting, after expanding all the permutations in (\ref{eq:susceptibility_sligh_modifications}) we will get the 48 different
 summands - which show how the quantum mechanical approach is hard to apply.
 
-In further calculations we will use both the \ref{eq:susceptibility_results} and \ref{eq:susceptibility_sligh_modifications}
+In further calculations we will use both the (\ref{eq:susceptibility_results}) and (\ref{eq:susceptibility_sligh_modifications})
 equations in simplified version - with just a few summands. the visualization of the results for a typical quantum-perturbative model
-obtained with equations \ref{eq:susceptibility_sligh_modifications} are shown in the figure \ref{fig:qp_plot}:
+obtained with equations (\ref{eq:susceptibility_sligh_modifications}) are shown in the Figure (\ref{fig:qp_plot}):
 
 \begin{figure}
 	\includegraphics[width=150mm]{img/qp_plot.png}
@@ -1100,7 +1100,7 @@ in equations (\ref{eq:htran_htres1}) and (\ref{eq:htran_htres2}) respectively:
   \end{multline}
 \end{subequations}
 
-And we can see that both the \ref{eq:htran_htresults} derivations lead to the same result:
+And we can see that both the (\ref{eq:htran_htresults}) derivations lead to the same result:
 
 \begin{equation} \label{eq:htran_sameresult}
   \mathrm{HT}(\omega ) = \frac {1}{\pi } 
@@ -1227,7 +1227,7 @@ We shall remind the model presented in Chapter (\ref{chap:physical_models}) in t
 
 The real part of $\chi_{\text{lin}}$ will be used as the input function $R$ in the equation (\ref{eq:htran_first_modification}). The
 output function $HT$ calculated with the HTRAN algorithm is compared to the imaginary part of the $\chi_{\text{lin}}$. We have presented
-the results in the Figure \ref{eq:htran_lin}. In this and in the following chapters we would like the error function
+the results in the Figure (\ref{eq:htran_lin}). In this and in the following chapters we would like the error function
 represented with the yellow colour to be as close to zero as possible. We also would like the numerical results to be close to the
 values calculated analytically.
 
@@ -1281,60 +1281,76 @@ The results for such set of parameters are shown on the Figure (\ref{fig:htran_p
 
 The resulted b-plot seems to be a not-so-bad introduction into the Hilbert transform evaluation, as we have only employed the
 simple Simpson's rule. We would also like to perform the three-dimensional analysis of the assumed pump-probe susceptibility, so we
-employ the (\ref{eq:dconclude_imag}) and (\ref{eq:dconclude_real}) equations for each frequency, which require performing two
-integrations (one, for each frequency-domain argument). Unfortunately, only the obtained three-dimensional shapes are similar to the original ones, but we have received a huge relative
-error as presented in the Figure \ref{fig:htran_pnp_3derr}.
+employ the (\ref{eq:dconclude_imag}) and (\ref{eq:dconclude_real}) equations for each frequency. The obtained three-dimensional shapes are
+similar to the original ones, but we have received a huge relative error as presented in the Figure (\ref{fig:htran_pnp_3derr}).
 
 \begin{figure}
-  \includegraphics{img/htran_pnp_3derr.png}
-  \caption{The Figure presents the combined relative error for the results of the HTRAN method applied for the two-dimensional
-  pump-and-probe model. The light-cyan colour shows the area of error below 100\%. 
-  \label{fig:htran_pnp_3derr}}
+  \begin{center}
+    \includegraphics{img/htran_pnp_3derr.png}
+    \caption{The Figure presents the combined relative error for the results of the HTRAN method applied for the two-dimensional
+    pump-and-probe model. The light-cyan colour shows the area of error below 100\%. 
+    \label{fig:htran_pnp_3derr}}
+  \end{center}
 \end{figure} % which is not very bad, but there are areas with error  more above 100
 
-Let's now perform the evaluation for the wave-mixing model as stated in the model described by \ref{eq:feff1_plus}. We expand this
-equation to resolve the complex conjugate of D function and the resulting function is:
+Let us remind and simplify the wave-mixing model stated in the Chapter (\ref{chap:physical_fm}):
+
+\begin{equation} \label{eq:htran_fm}
+	\chi_{mix} (\delta) =
+      \frac { \text{ const } ( - \delta - \Delta - \frac{i}{ { T_{2} } } ) \, ( \delta  + \frac{2 \, i} { { T_{2} } } ) }
+            { ( \Delta + \frac {i}{ { T_{2} } } ) \, ( \Delta  + \delta  + \frac {i}{ { T_{2} } } ) \, { \mathrm{D} } ^ {*} (\delta) },
+\end{equation}
+
+We perform the evaluation for the wave-mixing model as stated in the model described by (\ref{eq:feff3_plus}). We expand this
+equation to resolve the complex conjugate of the function D, and the resulting function is:
 
 \begin{equation} \label{eq:htran_feffexp}
-  {\chi_{mix}}(\delta ) = 
-    \frac{2\,N\,{w_{0}}\,{\mu_{ba}}^{4}}{3\,\varepsilon_0\,h^{3}}( - \delta - \Delta - \frac {i}{{T_{2}}})\,(\delta +
-    \frac{2\,i}{{T_{2}}})\,((\Delta + \frac {i}{{T_{2}}})\,\,(\Delta + \delta + \frac {i}{{T_{2}}})\,
-\end{equation}
-\begin{alignat*}{1}
-  (\delta ^{3} - \frac
-    {2\,i\,\delta ^{2}}{{T _{2}}} - \delta \,\Delta ^{2} - \frac {2\,i\,\delta }{{T_{1}}\,{T_{2}}} - \frac {\delta }{{T_{2}}^{2}} +
-    \frac {\delta ^{2}}{{T_{1 }}} - \frac {\Delta ^{2}}{{T_{1}}} - \frac {1}{{T_{1}}\,{T_{2}}^{2}} - {\Omega_{2}}\,\delta  + \frac
-    {{\Omega_{2}}\,i}{{T_{2}}}) )
-\end{alignat*}
+  \chi_{mix}( \delta ) = 
+    \frac{ \text{ const } 
+           ( - \delta - \Delta - \frac {i}{ T_{2} } ) 
+           ( \delta + \frac{2 \, i}{ T_{2} } ) 
+	       ( \Delta + \frac {i}{ T_{2} } ) ^ {-1} 
+	       ( \Delta + \delta + \frac {i}{ T_{2} } ) ^ {-1} } 
+	     { ( \delta^{3} 
+	       - \frac{2 \, i \, \delta^{2} } { T_{2} } 
+	       - \delta \,\Delta^{2} 
+	       - \frac {2\,i\,\delta } { T_{1}  \, T_{2} } 
+	       - \frac{ \delta }{ {T_{2} } ^ {2} } 
+	       + \frac { \delta^{2} } { T_{1} } 
+	       - \frac { \Delta^{2} } { T_{1} } 
+	       - \frac {1}{ { T_{1} } \, {T_{2}}^{2}} 
+	       - {\Omega_{2}}\,\delta  
+	       + \frac { \Omega_{2} \, i} { T_{2} } ) }
+\end{equation}	     
 
-With such a complex function we obtain the following two and three dimensional results on Figure \ref{fig:htran_mix_2d}.
+With such a complex function we obtain the two and three dimensional results presented on Figure (\ref{fig:htran_mix_2d}).
  
-\begin{center}
+\begin{figure}
   \includegraphics[width=150mm]{img/htran_fmix_2d.png}
-  \captionof{figure}[htran_mix_2d]{The Figure presents the combined relative error for the results of the HTRAN method applied for the
+  \caption{The Figure presents the combined relative error for the results of the HTRAN method applied for the
   two-dimensional wave-mixing model.
    a) The plot of the real part of ${\chi_{mix}}(\omega )$
    b) absolute error plot (c-plot minus d-plot)
    c) (red) imaginary part of  ${\chi_{mix}}(\omega )$
    d) (grey) imaginary part of ${\chi_{mix}}(\omega )$ calculated analytically.
-   \label{fig:htran_mix_2d} 
-   }
-\end{center}
+   \label{fig:htran_mix_2d} }
+\end{figure}
 
-As the obtained three-dimensional shape looks very similar to those obtained analytically, the relative error still remains huge for some
+While the obtained three-dimensional shape looks very similar to those obtained analytically, the relative error still remains huge for some
 areas (Figure \ref{fig:htran_fmix_3derr}):
 
-\begin{center}
-  \includegraphics{img/htran_fmix_3derr.png}
-  \captionof{figure}[htran_fmix_3derr]{The Figure presents the combined relative error for the real part of nonlinear susceptibility
-  ${\chi_{mix}}(\delta )$ describing the wave-mixing process. }
-  \label{fig:htran_fmix_3derr}
-\end{center}
+\begin{figure}
+  \begin{center}
+    \includegraphics{img/htran_fmix_3derr.png}
+    \caption{The Figure presents the combined relative error for the real part of nonlinear susceptibility
+    ${\chi_{mix}}(\delta )$ describing the wave-mixing process. \label{fig:htran_fmix_3derr}}
+  \end{center}    
+\end{figure}
 
 \subsection{HTRAN for simple quantum-perturbative model - results} \label{chap:htran_quantum}
 
-We will use the models already prepared for both linear and second-order nonlinear susceptibilities defined in the Chapter
-\ref{chap:problem_quantum}.
+We will use the models already prepared for both linear and second-order nonlinear susceptibilities defined in Chapter
+(\ref{chap:problem_quantum}).
 
 \begin{equation} \label{eq:htran_qpeq}
   \chi_{1, \,qp}(\omega ) = 
@@ -1344,16 +1360,23 @@ We will use the models already prepared for both linear and second-order nonline
 
 where we have used the following values of the constants: 
 
-\begin{multline*}
-  \mu = [[1, \,3], \,[ -1, \, -2]],\\
-  \Omega =[3, \,16], \\
-  \gamma =[1, \,2],\\
-  N=5, \\
-  \varepsilon_{0}=1, \\
-  h= - 1
-\end{multline*}
+\begin{align*}
+  \mu &= \begin{bmatrix} 
+          1  & 3 \\ 
+          -1 & -2
+        \end{bmatrix},  \\
+  \Omega &= \begin{bmatrix}
+           3 \\ 16
+           \end{bmatrix}, \\
+  \gamma &= \begin{bmatrix}
+           1 \\ 2
+           \end{bmatrix}, \\
+  N &= 5, \\
+  \varepsilon_0 &= 1, \\
+  h &= -1.
+\end{align*}
 
-Results are gathered on the Figure \ref{fig:htran_qp_2d}.
+Results are gathered on the Figure (\ref{fig:htran_qp_2d}).
 
 \begin{figure} 
   \includegraphics[width=70mm]{img/htran_qp_2da.png} 
@@ -1393,7 +1416,7 @@ Results are gathered on the Figure \ref{fig:htran_qp_2d}.
   ) .
 \end{multline} 
 
-In the \ref{eq:htran_qp_reminder} we are using the following constants' values:
+In the (\ref{eq:htran_qp_reminder}) we are using the following constants' values:
 $\mu=[[1,\,3],\,[-1,\,-2]],\,\Omega=[[3,\,16],\,[4,\,12]],\,\gamma=[[1,\,2],\,[-1,\,3]],\,N=5,\,\varepsilon_{0}=1,\,h=-1$.
 
 
@@ -1408,7 +1431,7 @@ $\mu=[[1,\,3],\,[-1,\,-2]],\,\Omega=[[3,\,16],\,[4,\,12]],\,\gamma=[[1,\,2],\,[-
      \label{fig:htran_qp_3d}}
 \end{figure}
 
-In the Figure \ref{fig:htran_qp_3d} we can see that there is a similarity in obtained plots, but both the relative and absolute
+In the Figure (\ref{fig:htran_qp_3d}) we can see that there is a similarity in obtained plots, but both the relative and absolute
 error do not satisfy us at all. Results obtained with 2-Dimensional model were more satisfying.
 
 We have implemented the HTRAN method in the MATLAB \textsuperscript{\textregistered} environment, and its source code is available in
@@ -1470,13 +1493,13 @@ Parameters such as $a$, $b$ and $cs$ are widely described the Appendix A.2 with 
 \subsection{NC for simple linear model - results} \label{chap:nc_lin}
 
 As the prepared numeric method depends on many input parameter arguments, we have tried to perform the evaluation in many different
-cases, some of those results are stated below. We have used the same model as in chapter \ref{chap:htran_lin}.
+cases, some of those results are stated below. We have used the same model as in Chapter (\ref{chap:htran_lin}).
 
 \begin{equation} \label{eq:nc_algoritm}
   \chi (\omega ) \approx \frac { - 20}{(\omega \,i + 1 - 20\,i)\,(\omega \,i + 1 + 20\,i)}
 \end{equation} 
 
-Some results has been presented on the Figures \ref{fig:nc_lin1}, \ref{fig:nc_lin2}, \ref{fig:nc_lin3} and \ref{fig:nc_lin4}
+Some results has been presented on the Figures (\ref{fig:nc_lin1}), (\ref{fig:nc_lin2}), (\ref{fig:nc_lin3}) and (\ref{fig:nc_lin4})
 
 \begin{figure}
   \includegraphics[width=150mm]{img/nc_lin1.png}
@@ -1548,7 +1571,7 @@ which may lead to better results in the particular cases.
 
 \subsection{NC for simple nonlinear model - results} \label{chap:nc_nlo}
 
-We have performed calculations for the same both nonlinear pump-probe and wave-mixing model as in the chapter \ref{chap:htran_lin}.
+We have performed calculations for the same both nonlinear pump-probe and wave-mixing model as in the Chapter (\ref{chap:htran_lin}).
 We have assigned some randomly picked values to the constants: 
  
   $G             = 1$, \,
@@ -1565,7 +1588,7 @@ We have assigned some randomly picked values to the constants:
   $T_1           = 1$, \,
   $\varepsilon_0 = 1$,
 
-and we will used them in the pump-and-probe (\ref{eq:nc_chipp}) and the frequency mixing \ref{eq:nc_chimix} model equations:
+and we will used them in the pump-and-probe (\ref{eq:nc_chipp}) and the frequency mixing (\ref{eq:nc_chimix}) model equations:
 
 \begin{multline} \label{eq:nc_chipp}
   \chi_{pp}(\delta ) = 
@@ -1589,8 +1612,8 @@ and we will used them in the pump-and-probe (\ref{eq:nc_chipp}) and the frequenc
   \nonumber
 \end{align}
 
-Results for pump-and-probe model has been presented in the Figure \ref{fig:nc_pnp}. Results for the frequency mixing model has been
-presented in the Figure \ref{fig:nc_fmix1}. 
+Results for pump-and-probe model has been presented in the Figure (\ref{fig:nc_pnp}). Results for the frequency mixing model has been
+presented in the Figure (\ref{fig:nc_fmix1}). 
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/nc_pnp.png}
@@ -1628,7 +1651,7 @@ presented in the Figure \ref{fig:nc_fmix1}.
 
 \subsubsection*{Linear model - results:}
 
-For the linear susceptibility we have used the model from the \ref{chap:problem_quantum}: 
+For the linear susceptibility we have used the model from the Chapter (\ref{chap:problem_quantum}): 
 
 \begin{equation} \label{eq:nclin_chipp}
   {\chi_{1, \,qp}}(\omega ) = \frac {N}{\varepsilon_0\,h} \sum_{n=1}^{2}\,(\frac {{\mu_{1, \,n}}\,{ \mu_{2, \,n}}}{{\Omega_{n}}
@@ -1643,7 +1666,7 @@ $N = 8$, \,
 $\varepsilon_{0} = 1.4$, \,
 $h = - 2.7$. 
 
-Evaluation time of two plots given in the \ref{fig:nc_qp1} was 615 seconds.
+Evaluation time of two plots given in Figure (\ref{fig:nc_qp1}) was 615 seconds.
 
 \begin{figure}
   \includegraphics[width=150mm]{img/nc_qp1.png}
@@ -1663,7 +1686,7 @@ Evaluation time of two plots given in the \ref{fig:nc_qp1} was 615 seconds.
 
 \subsubsection*{Second-order model - results:}
 
-For the second-order susceptibility we used the model from the \ref{chap:problem_quantum}:
+For the second-order susceptibility we used the model from Chapter (\ref{chap:problem_quantum}):
 
 \begin{multline} \label{eq:nclin_chipp2}
   \chi_{2, \,qp}({\omega_{1}}, \,{\omega_{2}})
@@ -1698,8 +1721,8 @@ $\mu = \left| \begin{array}{cc}
   1 & 2 \\ -1 & 3
   \end{array} \right|,\, N=5,\, {\varepsilon_{0}}=1,\,h= - 1.$
 
-Results are presented in the Figure \ref{fig:nc_quantum2}. We can see a very large relative error reaching up to the 100\%. We can also see
-that this model seems to be invalid. This will be checked with another methods in next chapters.
+Results are presented in the Figure (\ref{fig:nc_quantum2}). We can see a very large relative error reaching up to the 100\%. We can also
+see that this model seems to be invalid. This will be checked with another methods in next chapters.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/nc_quantum2.png}
@@ -1733,15 +1756,15 @@ the Cauchy principal value integral on the interval $[-1, 1]$:
 \end{equation}
 
 
-The first step suggested by the authors is to remove the singularity from the integral (Eq. \ref{eq:hcc_singularity}) :
+The first step suggested by the authors is to remove the singularity from the integral (equation \ref{eq:hcc_singularity}) :
 
 \begin{equation}   \label{eq:hcc_singularity}
   \dashint_{-1}^{1} \frac{f(x)}{(x-c)} d \, x = \dashint_{-1}^{1} \frac{f(x)-f(c)}{(x-c)} + f(c) \, log(\frac{1-c}{1+c})
 \end{equation}
 
-After some transformation authors finally obtain the iterative formula presented in the equations \ref{eq:hccformula_sum} and
-\ref{eq:hccformula_rec}. The formula \ref{eq:hccformula_sum} depends on the parameter N, which will be used in the adaptive
-algorithm. The recursive equation \ref{eq:hccformula_rec} should be solved with the starting values: $d_N = d_{N+1} = 0$
+After some transformation authors finally obtain the iterative formula presented in the equations (\ref{eq:hccformula_sum}) and
+(\ref{eq:hccformula_rec}). The formula (\ref{eq:hccformula_sum}) depends on the parameter N, which will be used in the adaptive
+algorithm. The recursive equation (\ref{eq:hccformula_rec}) should be solved with the starting values: $d_N = d_{N+1} = 0$
 
 \begin{subequations} \label{eq:hcc_formula}
   \begin{equation}   \label{eq:hccformula_sum}
@@ -1753,7 +1776,7 @@ algorithm. The recursive equation \ref{eq:hccformula_rec} should be solved with 
   \end{equation}
 \end{subequations}
 
-The remaining issue is to calculate the $a_k ^ N$ coefficients, which has been described in the equation \ref{eq:hcc_akn}. It is
+The remaining issue is to calculate the $a_k ^ N$ coefficients, which has been described in the equation (\ref{eq:hcc_akn}). It is
 also known as the discrete cosine transform of the first type (DCT-I):
 
 \begin{equation} \label{eq:hcc_akn}
@@ -1768,21 +1791,22 @@ While the Clenshaw-Curtis quadrature is defined for finite range $[-1,\,1]$, the
 integral over the range $[-\infty,\, \infty]$. Here we must remind the law of conservation of energy, from which we can easily
 deduce that the susceptibility - as the investigated physical quantity - for low frequencies and thus for low energies has low
 values. From this it follows that function $f = f(x)$ tends to zero when closing to infinities. Thereby the value of integrated
-function from equation \ref{eq:hcc_adapt} decreases rapidly and for relatively large values of x this integrand will be omitted.
+function from equation (\ref{eq:hcc_adapt}) decreases rapidly and for relatively large values of x this integrand will be omitted.
 
 \begin{equation} \label{eq:hcc_adapt}
   \frac{f(x)}{x-c} d \, x
 \end{equation}
 
 Therefore, we will not be changing the integration range from interval to real line. What must be taken into consideration right
-now - is that the well-chosen, finite interval for integration stated in \ref{eq:hcc_interval} or an integral with a period few times bigger.
+now - is that the well-chosen, finite interval for integration stated in (\ref{eq:hcc_interval}) or an integral with a period few times
+bigger.
 
 \begin{equation} \label{eq:hcc_interval}
   [A, B] = [a - 2|b-a|, b + 2|b-a|] 
 \end{equation}
 
 The specific choice of integration interval should be done during the numerical calculations. As default in our algorithm, we have
-set the integration interval to be based on the \ref{eq:hcc_interval}, but with period simply $5$ times longer. For all
+set the integration interval to be based on the (\ref{eq:hcc_interval}), but with period simply $5$ times longer. For all
 investigated models it gave us satisfactionary results.
 
 \subsubsection*{Our implementation of the Hilbert Clenshaw-Curtis iterations:}
@@ -1875,9 +1899,9 @@ The algorithm source has been presented in the Appendix A.3.
 
 \subsection{HCCI for simple linear model} \label{chap:hcc_lin}
 
-The Figures \ref{fig:cci_lin1} and \ref{fig:cci_lin2} presents the results obtained with the method for the model defined in
-model \ref{eq:physical_frequency_linear}. As we can see - the Hilbert Clenshaw-Curtis iterations gives us much better accuracy than HTRAN or
-Newton-Cotes quadrature. In next chapters we will check what happens for another models.
+The Figures (\ref{fig:cci_lin1}) and (\ref{fig:cci_lin2}) presents the results obtained with the method for the model defined in
+model (\ref{eq:physical_frequency_linear}). As we can see - the Hilbert Clenshaw-Curtis iterations gives us much better accuracy than HTRAN
+or Newton-Cotes quadrature. In next chapters we will check what happens for another models.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/hcc_lin1.png}
@@ -1903,8 +1927,8 @@ Newton-Cotes quadrature. In next chapters we will check what happens for another
 
 \subsection{HCCI for simple nonlinear model} \label{chap:hcc_nlo}
 
-For the pump-probe and frequency mixing models we have used the same parameters as in chapter \ref{chap:nc_nlo}. The results
-obtained with the Hilbert Clenshaw-Curtis iterations has been presented in Figures \ref{fig:hcci_pnp} and \ref{fig:hcci_fmix}
+For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results
+obtained with the Hilbert Clenshaw-Curtis iterations has been presented in Figures (\ref{fig:hcci_pnp}) and (\ref{fig:hcci_fmix})
 respectively.
 
 \begin{figure} 
@@ -1943,7 +1967,7 @@ As we can see here - once again the results come with quite well accuracy.
  
 \subsubsection*{Linear model - results:}
 
-As in the Chapter \ref{chap:nc_nlo}, we have used the same model to describe the simple linear quantum-perturbative model: 
+As in the Chapter (\ref{chap:nc_nlo}), we have used the same model to describe the simple linear quantum-perturbative model: 
 
 \begin{equation} \label{eq:hcc_qp}
   {\chi_{1, \,qp}}(\omega ) = \frac {N}{\varepsilon_0\,h} \sum_{n=1}^{2}\,(\frac {{\mu_{1, \,n}}\,{ \mu_{2, \,n}}}{{\Omega_{n}}
@@ -1958,7 +1982,7 @@ $N = 8$, \,
 $\varepsilon_{0} = 1.4,$, \, 
 $h = - 2.7$ .
 
-Results are presented in the Figure \ref{fig:hcc_qp1}. We can see a perfect match here!
+Results are presented in the Figure (\ref{fig:hcc_qp1}). We can see a perfect match here!
 
 \begin{figure}
   \includegraphics[width=150mm]{img/hcc_qp1.png}
@@ -1977,7 +2001,7 @@ Results are presented in the Figure \ref{fig:hcc_qp1}. We can see a perfect matc
 
 \subsubsection*{Second-order model - results:}
 
-We have also used the same model as in \ref{chap:nc_nlo} to describe the second-order susceptibility model:
+We have also used the same model as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility model:
 
 \begin{multline} \label{hcc_qp2}
   \chi_{2, \,qp}({\omega_{1}}, \,{\omega_{2}}) = 
@@ -2014,7 +2038,7 @@ $\mu = \left| \begin{array}{cc}
   1 & 2 \\ -1 & 3
   \end{array} \right|,\, N=5,\, {\varepsilon_{0}}=1,\,h= - 1$
 
-Results are presented in the Figure \ref{fig:hcc_qp2}. As for the Newton-Cotes calculations in Chapter \ref{chap:nc_quantum} we can
+Results are presented in the Figure (\ref{fig:hcc_qp2}). As for the Newton-Cotes calculations in Chapter (\ref{chap:nc_quantum}) we can
 see the model could be invalid because the arisen errors reach up to 100\%. 
 
 \begin{figure} 
@@ -2117,7 +2141,7 @@ We derive the discrete Fourier transform of the Hilbert transform for a given N-
 
 \subsubsection*{Application of the discrete Hartley transform to calculate the discrete Hilbert transform:}
 
-Using the Hartley transform convolution theorem \ref{eq:hartley_defh} for a given N-length vector x we obtain:
+Using the Hartley transform convolution theorem (\ref{eq:hartley_defh}) for a given N-length vector x we obtain:
 
 \begin{multline} \label{eq:hartley_fullconvolution}
          \mathrm{DHT}(\mathrm{DISCRETE\_HILBERT}(x_k))  
@@ -2127,8 +2151,8 @@ Using the Hartley transform convolution theorem \ref{eq:hartley_defh} for a give
 
 where we have use the time reversal notation: $ x_{ - k} = x_{(N - k) \, \mathrm{mod} \, N}$.
 
-Now we should notice, that the discrete Hilbert transform kernel defined in \ref{eq:hdfttps_smallh} is an odd function, so its even
-part equals zero. So \ref{eq:hartley_fullconvolution} simplifies now into a product of two separate Hartley transforms:
+Now we should notice, that the discrete Hilbert transform kernel defined in (\ref{eq:hdfttps_smallh}) is an odd function, so its even
+part equals zero. So (\ref{eq:hartley_fullconvolution}) simplifies now into a product of two separate Hartley transforms:
 
 \begin{equation} \label{eq:hartley_simpleconvolution}
   \mathrm{DHT}(\mathrm{DISCRETE\_HILBERT}(x_k))=\mathrm{DHT}(x_{ - k})\,\mathrm{odd}(\mathrm{DHT}(h_k)) =
@@ -2150,7 +2174,7 @@ By \cite{chang_computation} the second transform is defined:
 \end{subequations}
 
 In order to calculate the Hilbert of a given N-length vector x the last thing to do is to apply the inverse discrete Hartley
-transform on the very right side of \ref{eq:hartley_simpleconvolution} equation.
+transform on the very right side of (\ref{eq:hartley_simpleconvolution}) equation.
 
 \subsubsection*{Fast Hartley Transform algorithm}
 
@@ -2163,7 +2187,7 @@ vector x, where K is the power-of-two:
 \end{equation}
 
 
-The \ref{eq:ullmand_existp} condition for the algorithm and the further possibilities to modify it are discussed further. We will
+The (\ref{eq:ullmand_existp}) condition for the algorithm and the further possibilities to modify it are discussed further. We will
 start with the very same thing as in the fast Fourier algorithm - we split the x vector into two smaller vectors:
 
 \begin{subequations} \label{eq:hartley_smallervectors}
@@ -2175,7 +2199,7 @@ start with the very same thing as in the fast Fourier algorithm - we split the x
   \end{equation}
 \end{subequations}
 
-Taking into account the initial definition of the discrete Hartley transform \ref{eq:fhtadef_dht}, we obtain:
+Taking into account the initial definition of the discrete Hartley transform (\ref{eq:fhtadef_dht}), we obtain:
 
 \begin{multline}  \label{eq:hartley_longdht}
  \mathrm{DHT}(x_k) = \left( 
@@ -2195,7 +2219,7 @@ In \cite{ullmann_algorithm} the following ''shift rule'' for the discrete Hartle
  + \mathrm{DHT}(x_{ - k}) \, \mathrm{sin}(c)
 \end{equation}
 
-If we apply the Hartley shift rule  \ref{eq:hartley_shiftrule} to the split equation in \ref{eq:hartley_longdht} we obtain:
+If we apply the Hartley shift rule (\ref{eq:hartley_shiftrule}) to the split equation in (\ref{eq:hartley_longdht}) we obtain:
 
 \begin{multline} \label{eq:hartley_srapplied}
   \mathrm{DHT}(x_k) = \mathrm{DHT}(x_{1, \, k}) 
@@ -2204,7 +2228,7 @@ If we apply the Hartley shift rule  \ref{eq:hartley_shiftrule} to the split equa
   \mbox{ for } \, k=0, \, 1, \, 3, \, \ldots, \frac {N}{2} - 1
 \end{multline}
 
-The rule \ref{eq:hartley_srapplied} can be applied only for the half of the possible k values ($k < \frac{N}{2}$). Now we will use
+The rule (\ref{eq:hartley_srapplied}) can be applied only for the half of the possible k values ($k < \frac{N}{2}$). Now we will use
 the periodic properties of the discrete Hartley transform kernel:
 
 \begin{subequations} \label{eq:hartley_kernel}
@@ -2224,7 +2248,7 @@ the periodic properties of the discrete Hartley transform kernel:
 \end{subequations}
 
 
-The rule \ref{eq:hartley_srapplied} using the periodicity property from \ref{eq:hartley_kernel} can be now used for all k indices:
+The rule (\ref{eq:hartley_srapplied}) using the periodicity property from (\ref{eq:hartley_kernel}) can be now used for all k indices:
 
 \begin{subequations} \label{eq:hartley_periodicity}
   \begin{equation}   \label{eq:hperiod_fhalf}
@@ -2277,9 +2301,9 @@ presented in Appendix A.4.
 
 \subsection{FTHA for simple linear model} \label{chap:hartley_lin}
 
-In the Figure \ref{fig:fht_lin} we have presented the results obtained with the Fast Hartley Hilbert Transform for the simple
-linear model defined in model \ref{eq:physical_frequency_linear}. As we can see - the Fast Hartley Hilbert Transform gives us quite well accuracy,
-similar to HCCI and much better than HTRAN or Newton-Cotes quadrature. 
+In the Figure (\ref{fig:fht_lin}) we have presented the results obtained with the Fast Hartley Hilbert Transform for the simple
+linear model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Fast Hartley Hilbert Transform gives us quite well
+accuracy, similar to HCCI and much better than HTRAN or Newton-Cotes quadrature. 
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/fht_lin.png}
@@ -2298,8 +2322,8 @@ similar to HCCI and much better than HTRAN or Newton-Cotes quadrature.
 
 \subsection{FTHA for simple nonlinear model} \label{chap:hartley_nlo}
 
-For the pump-probe and frequency mixing models we have used the same parameters as in chapter \ref{chap:nc_nlo}. The results
-obtained with the Fast Hartley Hilbert Transform has been presented in Figures \ref{fig:fht_pnp} and \ref{fig:fht_fmix}
+For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results
+obtained with the Fast Hartley Hilbert Transform has been presented in Figures (\ref{fig:fht_pnp}) and (\ref{fig:fht_fmix})
 respectively.
 
 \begin{figure} 
@@ -2340,7 +2364,7 @@ Once again we can see a very good accuracy, better than for HTRAN or Newton-Cote
 
 \subsubsection*{Linear model - results:}
 
-As in the Chapter \ref{chap:nc_nlo}, we have used the same model to describe the simple linear quantum-perturbative model: 
+As in the Chapter (\ref{chap:nc_nlo}), we have used the same model to describe the simple linear quantum-perturbative model: 
 
 \begin{equation} \label{eq:fht_qp}
   {\chi_{1, \,qp}}(\omega ) = \frac {N}{\varepsilon_0\,h} \sum_{n=1}^{2}\,(\frac {{\mu_{1, \,n}}\,{ \mu_{2, \,n}}}{{\Omega_{n}}
@@ -2355,7 +2379,7 @@ $N=8$,
 ${\varepsilon_{0}}=1.4, 
 h= - 2.7$
 
-Results are presented in the Figure \ref{fig:fht_qp1}. We can see a perfect match here!
+Results are presented in the Figure (\ref{fig:fht_qp1}). We can see a perfect match here!
 
 \begin{figure}
   \includegraphics[width=150mm]{img/fht_qp1.png}
@@ -2374,7 +2398,7 @@ Results are presented in the Figure \ref{fig:fht_qp1}. We can see a perfect matc
 
 \subsubsection*{Second-order model - results:}
 
-We have also used the same model as in \ref{chap:nc_nlo} to describe the second-order susceptibility model:
+We have also used the same model as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility model:
 
 \begin{multline} \label{eq:fht_qp2}
   \chi_{2, \,qp}({\omega_{1}}, \,{\omega_{2}}) = 
@@ -2409,7 +2433,7 @@ $\mu = \left| \begin{array}{cc}
   1 & 2 \\ -1 & 3
   \end{array} \right|,\, N=5,\, {\varepsilon_{0}}=1,\,h= - 1$
 
-Results are presented in the Figure \ref{fig:fht_qp2}. As for the previous calculations, we can see the model could be invalid
+Results are presented in the Figure (\ref{fig:fht_qp2}). As for the previous calculations, we can see the model could be invalid
 because of the raised errors reach up to 100\%.
 
 \begin{figure} 
@@ -2473,7 +2497,7 @@ obtain a n-th orthogonal Hermite function:
   	= \frac {e^{( - \frac {x ^ 2}{2})} \, H_n (x)} {\sqrt{2^{n} \, n\mathrm{!} \, \sqrt {\pi }}}
 \end{equation}
 
-Based on the recursive equation in \ref{eq:hermite_recursive} we also obtain:
+Based on the recursive equation in (\ref{eq:hermite_recursive}) we also obtain:
 
 \begin{subequations} \label{eq:hermite_recresult}
   \begin{equation}   \label{eq:hrr_weight}
@@ -2494,7 +2518,7 @@ $\mathrm{HILBERT}(\mathrm{f}(x))$ belonging to $ L_1 $ we have:
     - \frac {1}{\pi } \, \int_{ - \infty } ^ {\infty}\mathrm{f}(\tau ) \, d\tau 
 \end{equation}
 
-The proof of the Theorem stated in \ref{eg:hermite_hproperty} is short:
+The proof of the Theorem stated in (\ref{eg:hermite_hproperty}) is short:
 
 \begin{equation} \label{eq:hermite_hpropproof}
   \mathrm{HILBERT}(x \, \mathrm{f}(x)) = 
@@ -2509,7 +2533,7 @@ The proof of the Theorem stated in \ref{eg:hermite_hproperty} is short:
   - \frac{1}{\pi } \, \dashint_{ - \infty }^{ \infty } \mathrm{f}(\tau ) \, d\tau 
 \end{alignat*}
 
-From both equations \ref{eg:hermite_hproperty} and \ref{eq:hermite_recresult} we now obtain the important result:
+From both equations (\ref{eg:hermite_hproperty}) and (\ref{eq:hermite_recresult}) we now obtain the important result:
 
 \begin{subequations} \label{eq:hermite_impresult}
   \begin{equation}   \label{eq:hir_phinext}
@@ -2549,9 +2573,9 @@ For each function that has a limited series expansion at infinity we can provide
 
 \subsubsection*{Short description of the numerical algorithm:}
 
-Taking a look on the \ref{eq:hermite_estimate} we can see that the only difficulty is to calculate the $a_n$ coefficients,
+Taking a look on the (\ref{eq:hermite_estimate}) we can see that the only difficulty is to calculate the $a_n$ coefficients,
 while both the $\phi_n (x)$ and $\mathrm{HILBERT}(\phi_n (x))$ can be precalculated once. The integral in
-\ref{eq:hermite_fexpand} is now much easier because there is no singularity. The algorithm is given in Appendix A.5 and it
+(\ref{eq:hermite_fexpand}) is now much easier because there is no singularity. The algorithm is given in Appendix A.5 and it
 consists of three main parts:
 
 \begin{tabular}{l l}
@@ -2564,9 +2588,9 @@ consists of three main parts:
 
 \subsection{HHT for simple linear model} \label{chap:hermite_lin}
 
-In the Figure \ref{fig:hht_lin} we have presented the results obtained with the Hermite-Hilbert transform for the simple
-linear model defined in model \ref{eq:physical_frequency_linear}. As we can see - the Hermite-Hilbert transform comes with poor accuracy, but we
-would like to put this method into examination with defined models.
+In the Figure (\ref{fig:hht_lin}) we have presented the results obtained with the Hermite-Hilbert transform for the simple
+linear model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Hermite-Hilbert transform comes with poor accuracy,
+but we would like to put this method into examination with defined models.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/hht_lin.png}
@@ -2585,8 +2609,8 @@ would like to put this method into examination with defined models.
 
 \subsection{HHT for simple nonlinear model} \label{chap:hermite_nlo}
 
-For the pump-probe and frequency mixing models we have used the same parameters as in chapter \ref{chap:nc_nlo}. The results
-obtained with the Hermite-Hilbert transform has been presented in Figures \ref{fig:hht_pnp} and \ref{fig:hht_fmix}
+For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results
+obtained with the Hermite-Hilbert transform has been presented in Figures (\ref{fig:hht_pnp}) and (\ref{fig:hht_fmix})
 respectively.
 
 \begin{figure} 
@@ -2629,7 +2653,7 @@ obtained with HCCI or FHT.
 
 \subsubsection*{Linear model - results:}
 
-As in the Chapter \ref{chap:nc_nlo}, we have used the same model to describe the simple linear quantum-perturbative model: 
+As in the Chapter (\ref{chap:nc_nlo}), we have used the same model to describe the simple linear quantum-perturbative model: 
 
 \begin{equation} \label{eq:hht_qp}
   {\chi_{1, \,qp}}(\omega ) = \frac {N}{\varepsilon_0\,h} \sum_{n=1}^{2}\,(\frac {{\mu_{1, \,n}}\,{ \mu_{2, \,n}}}{{\Omega_{n}}
@@ -2644,7 +2668,7 @@ $N=8$,
 ${\varepsilon_{0}}=1.4, 
 h= - 2.7$
 
-Results are presented in the Figure \ref{fig:hht_qp1}. 
+Results are presented in the Figure (\ref{fig:hht_qp1}). 
 
 \begin{figure}
   \includegraphics[width=150mm]{img/hht_qp1.png}
@@ -2663,7 +2687,7 @@ Results are presented in the Figure \ref{fig:hht_qp1}.
 
 \subsubsection*{Second-order model - results:}
 
-We have also used the same model as in \ref{chap:nc_nlo} to describe the second-order susceptibility model:
+We have also used the same model as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility model:
 
 \begin{multline} \label{eq:hht_qp2}
   \chi_{2, \,qp}({\omega_{1}}, \,{\omega_{2}}) 
@@ -2697,7 +2721,7 @@ $\mu = \left| \begin{array}{cc}
   1 & 2 \\ -1 & 3
   \end{array} \right|,\, N=5,\, {\varepsilon_{0}}=1,\,h= - 1$
 
-Results are presented in the Figure \ref{fig:hht_qp2}. As for the previous calculations, we can see the model could be invalid
+Results are presented in the Figure (\ref{fig:hht_qp2}). As for the previous calculations, we can see the model could be invalid
 because the occurring errors reach up to 100\%.
 
 \begin{figure} 
@@ -2758,7 +2782,7 @@ for a function $f\,\ \in \,{L_{2}}( - P, \,P)$ converges at almost every point t
 
 After Johansson \cite{johansson_hilbert} we state that for any given function $f\,\ \textbf{in}\ \,{L_{2}}( - P, \,P)$ we can
 calculate the Hilbert transform using the form of Fourier series for this function. All we need to do, is to make a swap in the
-\ref{eq:fourier_partialsums} equation - the ${a_{n}}$ coefficients should be swapped with ${b_{n}}$ coefficients.
+(\ref{eq:fourier_partialsums}) equation - the ${a_{n}}$ coefficients should be swapped with ${b_{n}}$ coefficients.
 
 \begin{multline} \label{eq:fourier_hilbert}
   HILBERT(f(x)) = \lim_{N\rightarrow \infty }\,\frac {{a_{f, \,0}}}{2} 
@@ -2780,8 +2804,8 @@ The full source code of this algorithm, has been presented in the appendix A.6.
 
 \subsection{Fourier-series for simple linear model} \label{chap:fourier_lin}
 
-In the Figure \ref{fig:four_lin} we have presented the results obtained with the Fourier-Hilbert transform for the simple
-linear model defined in model \ref{eq:physical_frequency_linear}. As we can see - the Fourier-Hilbert transform comes with poor accuracy,
+In the Figure (\ref{fig:four_lin}) we have presented the results obtained with the Fourier-Hilbert transform for the simple
+linear model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Fourier-Hilbert transform comes with poor accuracy,
 but we would like to put this method into examination with defined models.
 
 \begin{figure} 
@@ -2801,8 +2825,8 @@ but we would like to put this method into examination with defined models.
 
 \subsection{Fourier-series for simple nonlinear model} \label{chap:fourier_nlo}
 
-For the pump-probe and frequency mixing models we have used the same parameters as in chapter \ref{chap:nc_nlo}. The results
-obtained with the Fourier-Hilbert transform has been presented in Figures \ref{fig:four_pnp} and \ref{fig:four_fmix}
+For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results
+obtained with the Fourier-Hilbert transform has been presented in Figures (\ref{fig:four_pnp}) and (\ref{fig:four_fmix})
 respectively.
 
 \begin{figure} 
@@ -2845,7 +2869,7 @@ obtained with HCCI or FHT.
 
 \subsubsection*{Linear model - results:}
 
-As in the Chapter \ref{chap:nc_nlo}, we have used the same model to describe the simple linear quantum-perturbative model: 
+As in the Chapter (\ref{chap:nc_nlo}), we have used the same model to describe the simple linear quantum-perturbative model: 
 
 \begin{equation} \label{eq:four_qp}
   {\chi_{1, \,qp}}(\omega ) = \frac {N}{\varepsilon_0\,h} \sum_{n=1}^{2}\,(\frac {{\mu_{1, \,n}}\,{ \mu_{2, \,n}}}{{\Omega_{n}}
@@ -2860,7 +2884,7 @@ $N=8$,
 ${\varepsilon_{0}}=1.4$, 
 $h= - 2.7$.
 
-Results are presented in the Figure \ref{fig:four_qp1}. 
+Results are presented in the Figure (\ref{fig:four_qp1}). 
 
 \begin{figure}
   \includegraphics[width=150mm]{img/four_qp1.png}
@@ -2879,7 +2903,7 @@ Results are presented in the Figure \ref{fig:four_qp1}.
 
 \subsubsection*{Second-order model - results:}
 
-We have also used the same model as in \ref{chap:nc_nlo} to describe the second-order susceptibility model:
+We have also used the same model as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility model:
 
 \begin{multline} \label{eq:four_qp2}
   \chi_{2, \,qp}({\omega_{1}}, \,{\omega_{2}}) = 
@@ -2913,8 +2937,8 @@ $\mu = \left| \begin{array}{cc}
   1 & 2 \\ -1 & 3
   \end{array} \right|,\, N=5,\, {\varepsilon_{0}}=1,\,h= - 1$ .
 
-Results are presented in the Figure \ref{fig:four_qp2}. We can see, that the first model could be valid, while the second model seems to be
-invalid for consecutively for all Hilbert transform implementations.
+Results are presented in the Figure (\ref{fig:four_qp2}). We can see, that the first model could be valid, while the second model seems to
+be invalid for consecutively for all Hilbert transform implementations.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/four_qp2.png}
@@ -2973,7 +2997,7 @@ The defined models used within the Hilbert transform comes with one, but strong 
 copes with infinities, we have suggested to split the integral into two parts, but not including the small area nearby singularity.
 
 If the models singularity $c$ is taken from the range $[a, b]$, we will divide the range $|b-a|$ by $10000$ and calculate the value
-as defined in equation \ref{eq:mat_quadadd}. 
+as defined in equation (\ref{eq:mat_quadadd}). 
  
 \begin{alignat}{1} \label{eq:mat_quadadd}
   \dashint_{ - \infty }^{\infty } \frac {f(x)}{x-c} \, dx \approx 
@@ -3016,13 +3040,13 @@ where we remember that:
    - i\,\mathrm{sgn}(\frac {n}{2} - k)\,\mathrm{sgn}(k)=\mathrm{FOURIER}(\frac {1}{\pi \,k}) .
 \end{equation}
 
-Therefore, in the discrete case we find the similar equation to \ref{eq:matlab_issue} relating the DHT and DFT:
+Therefore, in the discrete case we find the similar equation to (\ref{eq:matlab_issue}) relating the DHT and DFT:
 
 \begin{equation} \label{eq:matlab_reldhtdft}
   \mathrm{DFT}(\mathrm{DHT}({X_{k}}))=( - i)\,\mathrm{sgn}(\frac {n}{2} - k)\,\mathrm{sgn}(k)\,\mathrm{DFT}({X_{k}})
 \end{equation}
 
-From the \ref{eq:matlab_reldhtdft} we can see, that it is quite easy to operate within the Fourier/frequency domain - because the
+From the (\ref{eq:matlab_reldhtdft}) we can see, that it is quite easy to operate within the Fourier/frequency domain - because the
 quite complicate convolution is transformed to a simple algebraic operations. Also - if we have the quick algorithm to perform both
 the DFT and inverse-DFT - for example with the fast Fourier transform (FFT) and the inverse fast Fourier transform (IFFT) - the DHT
 operation will be calculated as follows:
@@ -3045,7 +3069,7 @@ Hilbert transform. If the input vector X is too short, it will be padded with ze
 
 \subsection{MIF for simple linear model} \label{chap:matlab_lin}
 
-In two Figures \ref{fig:quadgk_lin} and \ref{fig:hilb_lin} we have ga\-thered the results ob\-tained with the MATLAB quadgk() and
+In two Figures (\ref{fig:quadgk_lin}) and (\ref{fig:hilb_lin}) we have ga\-thered the results ob\-tained with the MATLAB quadgk() and
 hilbert() functions based Hil\-bert trans\-forms for the simple linear model defined in model (\ref{eq:physical_frequency_linear}).
 For each method we can see a accep\-table accu\-racy.
 
@@ -3079,9 +3103,9 @@ For each method we can see a accep\-table accu\-racy.
 
 \subsection{MIF for simple nonlinear model} \label{chap:matlab_nlo}
 
-In the next four Figures: \ref{fig:quadgk_pnp}, \ref{fig:quadgk_fmix}, \ref{fig:hilb_pnp} and \ref{fig:hilb_fmix} we have gathered
+In the next four Figures: (\ref{fig:quadgk_pnp}), (\ref{fig:quadgk_fmix}), (\ref{fig:hilb_pnp}) and (\ref{fig:hilb_fmix}) we have gathered
 the results obtained with the MATLAB® quadgk() and hilbert() functions based Hilbert transforms for the pump-probe and frequency
-mixing models with the same parameters as in chapter \ref{chap:nc_nlo}. 
+mixing models with the same parameters as in Chapter (\ref{chap:nc_nlo}). 
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/quadgk_pnp.png}
@@ -3148,13 +3172,13 @@ with noticeable error.
 
 \subsection{MIF for simple quantum-perturbative model} \label{chap:matlab_quantum}
 
-We have also put the determined methods onto test with quantum-perturbative models taken from chapter \ref{chap:nc_nlo}.
+We have also put the determined methods onto test with quantum-perturbative models taken from Chapter (\ref{chap:nc_nlo}).
 
 \subsubsection*{Linear model - results:}
 
-In the Figures: \ref{fig:quadgk_qp1} and \ref{fig:hilb_qp1} we have gathered the results ob\-tained with the MATLAB quadgk() and
+In the Figures: (\ref{fig:quadgk_qp1}) and (\ref{fig:hilb_qp1}) we have gathered the results ob\-tained with the MATLAB quadgk() and
 hilbert() functions based Hil\-bert tran\-sforms for the linear qua\-ntum\--per\-tur\-ba\-tive model taken with the same para\-meters as in
-chapter \ref{chap:nc_nlo}.
+Chapter (\ref{chap:nc_nlo}).
 
 \begin{figure}
   \includegraphics[width=150mm]{img/quadgk_qp1.png}
@@ -3190,9 +3214,9 @@ We observe quite acceptable results for the investigated model, for both methods
 
 \subsubsection*{Second-order model - results:}
 
-In the Figures: \ref{fig:quadgk_qp2} and \ref{fig:hilb_qp2} we have ga\-thered the results ob\-tained with the MATLAB quadgk() and
+In the Figures: (\ref{fig:quadgk_qp2}) and (\ref{fig:hilb_qp2}) we have ga\-thered the results ob\-tained with the MATLAB quadgk() and
 hilbert() func\-tions based Hil\-bert transforms for the se\-cond\--order quan\-tum\--per\-tur\-bative model taken with the same
-para\-meters as in chapter \ref{chap:nc_nlo}.
+para\-meters as in Chapter (\ref{chap:nc_nlo}).
 
 \begin{figure}
   \includegraphics[width=150mm]{img/quadgk_qp2.png}
@@ -3231,7 +3255,7 @@ We observe a huge error as in all previously chapters for the investigated model
 \subsection{Time comparison conclusions:} \label{chap:gencom_time}
 
 Until now we have not mention how much time does it take for each of investigated methods to calculate desired results. In the
-Table \ref{gencom_time} we have showed how much time does it take to perform the calculations for all 5 investigated models.
+Table (\ref{gencom_time}) we have showed how much time does it take to perform the calculations for all 5 investigated models.
 
 \begin{table}
   \caption{Time comparison} \label{gencom_time} 
@@ -3256,7 +3280,7 @@ choose the appropriate method reasonably.
 \subsection{Accuracy comparison conclusions:} \label{chap:gencom_accuracy}
 
 We have prepare the subjective summary of the accuracy obtained with investigated methods with the zero (bad accuracy) to ten
-(good accuracy). It is presented in the table~\ref{gencom_accuracy}.
+(good accuracy). It is presented in the Table~(\ref{gencom_accuracy}).
 
 
 \begin{table}
@@ -3895,7 +3919,7 @@ describe this set up will be to use Figure (\ref{fig:zscan_sch}) and Figure (\re
  \label{fig:zscan_diag}}
 \end{figure}
 
-\subsubsection*{Legend for Figures \ref{fig:zscan_sch} and \ref{fig:zscan_diag}} 
+\subsubsection*{Legend for Figures (\ref{fig:zscan_sch}) and (\ref{fig:zscan_diag})} 
 Overview of the main measurement part of the z-scan set-up built at the Wrocław University of Technology and being used since summer 2010.
  
 \begin{enumerate}[(a)]
@@ -3915,7 +3939,7 @@ technique have been deployed ``EZ-Scan", ``White Light z-scan", ``Excite-Probe z
 description - the z-scan technique uses a single laser beam, a mobile stage and two detectors - for the open and closed aperture.
 Using physical model - we can relate the open-aperture results with the nonlinear absorption and the closed-aperture with the
 nonlinear refraction index. The mobile stage moves the sample through the position focal point of the focusing lens. We therefore obtain
-two diagrams - shown on \ref{fig:zscan_sch} and \ref{fig:zscan_diag}.
+two diagrams - shown on (\ref{fig:zscan_sch}) and (\ref{fig:zscan_diag}).
 
 
 \begin{figure}
@@ -3945,7 +3969,7 @@ wavelength and after so - perform the z-scan experiment on the investigated samp
 
 \subsubsection*{Calculation of the nonlinear absorption coefficient:}
 
-As shown of the \ref{fig:oa_plot} the open-aperture transmittance can be described with the approximation equation:
+As shown of the Figure (\ref{fig:oa_plot}) the open-aperture transmittance can be described with the approximation equation:
 
 \begin{equation}
   \Delta \,\mathrm{T}(Z)=\frac {\beta \,{I_{0}}\,(1 - e^{( - \alpha )}\,L)}{\alpha \,2\,\sqrt{2}\,} 
@@ -3974,7 +3998,7 @@ information about the nonlinear absorption processes.
 
 \subsubsection*{Calculation of the nonlinear refraction index:}
 
-On the Figure \ref{fig:ca_plot} we can see the closed-aperture transmittance plot with respect to the sample position Z. It has a
+On the Figure (\ref{fig:ca_plot}) we can see the closed-aperture transmittance plot with respect to the sample position Z. It has a
 characteristic shape of peak trailing the valley or the valley trailing the peak if the ${n_{2}}$ sign is negative. What now
 interests us, is the difference between the peak and valley amplitude - we will call it $\Delta \,{T_{pv}}$. From this difference
 we can calculate the on-axis peak nonlinear phase shift with sample at focus $\Delta \,{\Phi_{0}}$
@@ -4023,7 +4047,7 @@ results requires the better numerical precision, because the general error cumul
 approximation error, fitting and numerical calculations error.
 
 A typical plot containing the z-scan measurement for the close aperture, open aperture and the laser reference is shown in the Figure
-\ref{fig:zscan_both}
+(\ref{fig:zscan_both}).
 
 \begin{figure} 
   \includegraphics{img/zscan_both.png}
