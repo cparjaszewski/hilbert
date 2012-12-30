@@ -16,7 +16,7 @@ classdef HilbertTransform < handle
     % wrn - display warnings [default: true]
 
     %% Author info:
-    % [Krzysztof Parjaszewski, University of Wroclaw, Summer 2011]
+    % [Krzysztof Parjaszewski, University of Wroclaw]
     % As a part of MSc Thesis - "Numerical evaluation of the Hilbert transform used to 
     % better understand and solve the Kramers-Kronig relations in nonlinear optics"
     % krzysztof.parjaszewski@gmail.com
@@ -302,9 +302,9 @@ classdef HilbertTransform < handle
         error_plot = cy - hcy; % Absolute error
         plot(x, error_plot, 'linewidth', 4, 'color', 'yellow'); % plot yellow error line
         hold off; 
-%         f_name = [datestr(now, 'yyyy-mm-dd HH-MM-SS'), ' ', tit_str]; 
         title(tit_str); % make title
-%         saveas(obj.t_gcf,f_name,'jpg');
+        f_name = [datestr(now, 'yyyy-mm-dd HH-MM-SS'), ' ', tit_str];
+        saveas(obj.t_gcf, f_name, 'jpg');
       end
       
       function make1dSummary(obj,args, vals, Hi, Hr, f_title, model_name)

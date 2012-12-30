@@ -13,7 +13,7 @@ function H = htrancc(fun, X, tol, inh)
     % H  - the Hilbert transform on the desired interval (ordinates)
     
     %% Author info:
-    % [Krzysztof Parjaszewski, University of Wroclaw, Summer 2011]
+    % [Krzysztof Parjaszewski, University of Wroclaw]
     % As a part of MSc Thesis - "Numerical evaluation of the Hilbert transform used to 
     % better understand and solve the Kramers-Kronig relations in nonlinear optics"
     % krzysztof.parjaszewski@gmail.com
@@ -33,9 +33,19 @@ function H = htrancc(fun, X, tol, inh)
     Yp(1, NX-1)   =  -0.125*Y(1, NX-2)     +   0.75*Y(1, NX-1)     +  0.375*Y(1, NX);
     Yp(1, 2:NX-2) = -0.0625*Y(1, 1:(NX-3)) + 0.5625*Y(1, 2:(NX-2)) + 0.5625*Y(1, 3:(NX-1)) - 0.0625*Y(1, 4:NX);
     
+    % Precalculation of ccFun
+    Period = B - A;
+    Center = (B+A)/2;
+    ccFun = @(t) (fun(t .* Period./2 + Center));
+    
+    % Preparation of constant values
+    AKN = precalculateAKN(ccFun);
+    DCK = precalculateDCK(AKN, Yp, A, B);
+    
     % Main application loop with the waitbar:
     for n = 1:1:NX-1
-        Hh(n) = hcc(fun, Yp(n), tol, A, B); 
+        dck = squeeze(DCK(n, :, :));
+        Hh(n) = hcc(ccFun, Yp(n), tol, A, B, dck); 
         waitbar(n/(NX-1), h, 'Please wait');
     end;
     if nargin<4, close(h); end;
@@ -50,11 +60,11 @@ function H = htrancc(fun, X, tol, inh)
 
 end
 
-function h = hcc(fun, y, tol, a, b)
+function h = hcc(ccFun, y, tol, a, b, dck)
     %% Hilbert transform using the Clenshaw-Curtis quadrature
     
     %% INPUT:
-    % fun - an function_handle                         (function-handle) 
+    % ccFun - an function_handle                       (function-handle) 
     % y   - abscissa to operate with                   (scalar)
     % tol - deserved tolerance                         (scalar)
     % a - investigated range minimum                   (scalar)
@@ -71,26 +81,81 @@ function h = hcc(fun, y, tol, a, b)
     % right summand.
     
     % Central integral
-    h = hccside2side(fun, y, tol, a, b);
+    h = hccside2side(ccFun, y, tol, a, b, dck);
     
-    % Left integral
+    % Left integral - for now we assume 0
     leftIntVal  = 0;
     
-    % Right integral
+    % Right integral - for now we assume 0
     rightIntVal = 0;
     
     % Final summation
     h = leftIntVal + h + rightIntVal;
 end
 
-function h = hccside2side(fun, y, tol, a, b)
+function h = hccside2side(ccFun, y, tol, a, b, dck)
     %% Hilbert transform using the Clenshaw-Curtis quadrature for a
     %% definite interval
     Period = b - a;
-    Center = (b+a)/2;
-    d = (y - Center ) .* 2 ./ Period;
-   
-    ccFun = @(t) (fun(t .* Period./2 + Center));
+    Center = (b + a) / 2;
+    c = (y - Center ) .* 2 ./ Period;
     
-    h = 1 / pi * newdocc(@(t) ccFun(t), d, tol);
+    h = 1 / pi * newdocc(@(t) ccFun(t), c, tol, dck);
+end
+
+function AKN = precalculateAKN(ccFun)
+    % prealocation of memory
+    AKN = zeros(2 ^ 13 + 1, 13);
+    
+    % main loop
+    for n=1:13
+      N = 2 ^ n;
+      akn = precalculateAN(ccFun, N);
+      AKN(1:N+1, n) = akn';
+    end;
+end
+
+function DCK = precalculateDCK(AKN, Yp, a, b)   
+    % prealocation of memory
+    DCK = zeros(length(Yp), 2 ^ 13 + 2, 13);
+    
+    Period = b - a;
+    Center = (b + a) / 2;
+    C = (Yp - Center ) .* 2 ./ Period;
+    
+    % main loop
+    for n=1:13
+      N = 2 ^ n;
+      a = AKN(1:N+1, n)';
+      dck = precalculateDCKN(a, C, N);
+      DCK(1:length(C), 1:N+2, n) = dck;
+    end;
+end
+
+% precalculateAN(fun, N);
+% a = get_a(fun, N)
+function a = precalculateAN(fun, N) % implementation of (2.1) equation from [1]
+  jN  = 0:1:N;                                                        % N+1 points for the last point
+  jN1 = 0:1:N-1;                                                      % N points (the last point will be calculated separately)
+  args = cos(pi .* jN1 ./ N);                                         % precalculation of arguments
+  vals = [0.5, ones(1, N-1), zeros(1,N)] .* [fun(args), zeros(1,N)];  % double prime - first&last element is halved and N additional zeros are added
+  ap = 2 / N .* real(fft(vals));                                      % DCT-I done with fft
+  al = 1 / N .* fun(-1) .* cos(pi .* jN);                             % FFT has not calculated the last summand
+  a = ap(1:N) + al(1:N);                                              % first N values are calculated
+  % Last a value:
+  argsN = cos(pi .* jN ./ N);                                         % N + 1 range of arguments
+  valsN = [0.5, ones(1, N-1), 0.5] .* fun(argsN) .* cos(pi .* jN);    % N + 1 summands
+  a(N+1) = 2 / N .*  sum(valsN);                                      % N + 1 th value
+end
+
+% precalculateDCKN(A, Yp, N)
+% get_d(a, c, N)
+function d = precalculateDCKN(a, Yp, N)                             % implementation of (1.11) recursive equation from [1], but vector-style
+  l = length(Yp);                                                     % vector length
+  d = zeros(l, N+2);                                                  % matrix memory prelocation
+  d(:, N+2) = 0; d(:, N+1) = 0;                                       % last and prelast value zeroes
+  d(:, N) = a(N+1);                                                   % first one is simple
+  for n = N-1:-1:1 
+    d(:, n) = 2 * a(n+1) + 2 * Yp' .* d(:, n+1) - d(:, n+2);         % recursive equation solving 
+  end; 
 end

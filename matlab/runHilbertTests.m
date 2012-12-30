@@ -18,7 +18,7 @@ function runHilbertTests
   % 'hilbert' 
 
   %% Author info:
-  % [Krzysztof Parjaszewski, University of Wroclaw, 2011-2012]
+  % [Krzysztof Parjaszewski, University of Wroclaw]
   % As a part of MSc Thesis - "Numerical evaluation of the Hilbert transform used to 
   % better understand and solve the Kramers-Kronig relations in nonlinear optics"
   % krzysztof.parjaszewski@gmail.com
@@ -34,8 +34,8 @@ function runHilbertTests
     tStart=tic; % timing
     % We iterate through all models:
     for model = allmodels.all_models, 
-%     if strcmp('htran', htransform.name), htransform.test_1d(model); end
-      htransform.test_1d(model); 
+     if strcmp('htrancc', htransform.name), htransform.test_1d(model); end
+%      htransform.test_1d(model); 
     end; 
     tElapsed=toc(tStart); % timing
     testSummaryText = ['Test for ', htransform.name, ' took: ', num2str(tElapsed), '.'] ;

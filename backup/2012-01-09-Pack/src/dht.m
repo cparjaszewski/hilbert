@@ -14,7 +14,7 @@ function YH = dht(X)
     % 3. http://en.wikipedia.org/wiki/Hilbert_transform
 
     %% Author info:
-    % [Krzysztof Parjaszewski, University of Wroclaw, 2011-2012]
+    % [Krzysztof Parjaszewski, University of Wroclaw]
     % As a part of MSc Thesis - "Numerical evaluation of the Hilbert transform used to 
     % better understand and solve the Kramers-Kronig relations in nonlinear optics"
     % krzysztof.parjaszewski@gmail.com

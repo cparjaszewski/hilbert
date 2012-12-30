@@ -16,7 +16,7 @@ function HY = hfthilbert(Y)
     % 2. http://en.wikipedia.org/wiki/Discrete_Hartley_transform
     
     %% Author info:
-    % [Krzysztof Parjaszewski, University of Wroclaw, 2011-2012]
+    % [Krzysztof Parjaszewski, University of Wroclaw]
     % As a part of MSc Thesis - "Numerical evaluation of the Hilbert transform in~nonlinear optics"
     % krzysztof.parjaszewski@gmail.com
     

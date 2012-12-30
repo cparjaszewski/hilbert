@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.5.5)  26 DEC 2012 03:31
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.12.27)  29 DEC 2012 01:42
 entering extended mode
 **Thesis.tex
 (C:\doc\MSc\tex\texlipse\Thesis.tex
@@ -133,6 +133,10 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\ncctools\nccmath.sty"
+Package: nccmath 2005/02/21 v1.2 Additional Math Commands (NCC)
+\NCC@fracrulewidth=\dimen114
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2009/06/22 v3.00
 
@@ -164,13 +168,13 @@ Language: polish 2005/03/31 v1.2l Polish support from the babel system
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count101
-\U@D=\dimen114
+\U@D=\dimen115
 )
 Package babel Info: Making " an active character on input line 83.
-\pl@left=\dimen115
-\pl@down=\dimen116
-\pl@right=\dimen117
-\pl@temp=\dimen118
+\pl@left=\dimen116
+\pl@down=\dimen117
+\pl@right=\dimen118
+\pl@temp=\dimen119
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\english.ldf"
 Language: english 2005/03/30 v3.3o English support from the babel system
@@ -446,7 +450,7 @@ LaTeX Font Info:    Redeclaring math symbol \boxdot on input line 685.
 \mayacnta=\count103
 \mayacntb=\count104
 \mayacntc=\count105
-\mayawidth=\dimen119
+\mayawidth=\dimen120
 LaTeX Font Info:    Redeclaring math symbol \intop on input line 750.
 LaTeX Font Info:    Redeclaring math symbol \ointop on input line 757.
 LaTeX Font Info:    Redeclaring math delimiter \lbrace on input line 839.
@@ -775,12 +779,12 @@ Package: caption 2011/08/18 v3.2b Customizing captions (AR)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
 Package: caption3 2011/08/18 v1.3b caption3 kernel (AR)
-\captionmargin=\dimen120
-\captionmargin@=\dimen121
-\captionwidth=\dimen122
-\caption@indent=\dimen123
-\caption@parindent=\dimen124
-\caption@hangindent=\dimen125
+\captionmargin=\dimen121
+\captionmargin@=\dimen122
+\captionwidth=\dimen123
+\caption@indent=\dimen124
+\caption@parindent=\dimen125
+\caption@hangindent=\dimen126
 )
 \c@ContinuedFloat=\count106
 Package caption Info: float package is loaded.
@@ -792,8 +796,8 @@ Package: mathtools 2010/07/21 v1.08b mathematical typesetting tools (MH)
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count107
 \calc@Bcount=\count108
-\calc@Adimen=\dimen126
-\calc@Bdimen=\dimen127
+\calc@Adimen=\dimen127
+\calc@Bdimen=\dimen128
 \calc@Askip=\skip47
 \calc@Bskip=\skip48
 LaTeX Info: Redefining \setlength on input line 76.
@@ -805,21 +809,21 @@ LaTeX Info: Redefining \addtolength on input line 77.
 Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
 )
 \g_MT_multlinerow_int=\count110
-\l_MT_multwidth_dim=\dimen128
+\l_MT_multwidth_dim=\dimen129
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
 \lst@mode=\count111
 \lst@gtempboxa=\box30
 \lst@token=\toks25
 \lst@length=\count112
-\lst@currlwidth=\dimen129
+\lst@currlwidth=\dimen130
 \lst@column=\count113
 \lst@pos=\count114
-\lst@lostspace=\dimen130
-\lst@width=\dimen131
+\lst@lostspace=\dimen131
+\lst@width=\dimen132
 \lst@newlines=\count115
 \lst@lineno=\count116
-\lst@maxwidth=\dimen132
+\lst@maxwidth=\dimen133
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
@@ -1050,31 +1054,31 @@ Now handling font encoding OT4 ...
    defining Unicode char U+2423 (decimal 9251)
 )
 (C:\doc\MSc\tex\texlipse\Thesis.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count119
-\scratchdimen=\dimen133
+\scratchdimen=\dimen134
 \scratchbox=\box32
 \nofMPsegments=\count120
 \nofMParguments=\count121
 \everyMPshowfont=\toks26
 \MPscratchCnt=\count122
-\MPscratchDim=\dimen134
+\MPscratchDim=\dimen135
 \MPnumerator=\count123
 \makeMPintoPDFobject=\count124
 \everyMPtoPDFconversion=\toks27
@@ -1083,34 +1087,34 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count125
-LaTeX Font Info:    Try loading font information for OML+plm on input line 51.
+LaTeX Font Info:    Try loading font information for OML+plm on input line 52.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\polski\omlplm.fd"
 File: omlplm.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMS+plsy on input line 51.
+LaTeX Font Info:    Try loading font information for OMS+plsy on input line 52.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\polski\omsplsy.fd"
 File: omsplsy.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMX+plex on input line 51.
+LaTeX Font Info:    Try loading font information for OMX+plex on input line 52.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\polski\omxplex.fd"
 File: omxplex.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <14.4> on input line 51.
+(Font)              <14.4> on input line 52.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <10> on input line 51.
+(Font)              <10> on input line 52.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <7> on input line 51.
-LaTeX Font Info:    Try loading font information for U+msa on input line 51.
+(Font)              <7> on input line 52.
+LaTeX Font Info:    Try loading font information for U+msa on input line 52.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 51.
+LaTeX Font Info:    Try loading font information for U+msb on input line 52.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -1122,13 +1126,13 @@ File: ./../img/title.png Graphic file (type png)
 
 {C:/Users/Krzysztof/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/doc/
 MSc/tex/img/title.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 79.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 80.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 79.
-LaTeX Font Info:    Try loading font information for OT4+cmtt on input line 88.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 80.
+LaTeX Font Info:    Try loading font information for OT4+cmtt on input line 89.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\polski\ot4cmtt.fd"
 File: ot4cmtt.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
@@ -1137,11 +1141,11 @@ File: ot4cmtt.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 File: ./../img/nlo.png Graphic file (type png)
  <use ./../img/nlo.png>
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <12> on input line 148.
+(Font)              <12> on input line 149.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <8> on input line 148.
+(Font)              <8> on input line 149.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <6> on input line 148.
+(Font)              <6> on input line 149.
 
 [3] [4 <C:/doc/MSc/tex/img/nlo.png>]
 <./../img/convolution.png, id=30, 429.85594pt x 210.03468pt>
@@ -1149,7 +1153,7 @@ File: ./../img/convolution.png Graphic file (type png)
 
 <use ./../img/convolution.png> [5 <C:/doc/MSc/tex/img/convolution.png>]
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <5> on input line 269.
+(Font)              <5> on input line 270.
 
 <./../img/equalizer.png, id=40, 106.14656pt x 70.01157pt>
 File: ./../img/equalizer.png Graphic file (type png)
@@ -1163,7 +1167,7 @@ File: ./../img/opt_phenom3.png Graphic file (type png)
 File: ./../img/lin_plot.png Graphic file (type png)
 
 <use ./../img/lin_plot.png>
-Underfull \vbox (badness 3250) has occurred while \output is active []
+Underfull \vbox (badness 3503) has occurred while \output is active []
 
  [11]
 [12 <C:/doc/MSc/tex/img/lin_plot.png>]
@@ -1195,173 +1199,154 @@ File: ./../img/fmix_3d.png Graphic file (type png)
 
 <use ./../img/fmix_3d.png> [16 <C:/doc/MSc/tex/img/fmix_sch.png>] [17 <C:/doc/M
 Sc/tex/img/fmix_2d.png> <C:/doc/MSc/tex/img/fmix_3d.png>] [18] [19] [20]
-<./../img/qp_plot.png, id=115, 889.07156pt x 304.88907pt>
+<./../img/qp_plot.png, id=114, 889.07156pt x 304.88907pt>
 File: ./../img/qp_plot.png Graphic file (type png)
 
 <use ./../img/qp_plot.png>
-<./../img/qp_3da.png, id=116, 569.12625pt x 262.73157pt>
+<./../img/qp_3da.png, id=115, 569.12625pt x 262.73157pt>
 File: ./../img/qp_3da.png Graphic file (type png)
 
 <use ./../img/qp_3da.png>
-<./../img/qp_3db.png, id=117, 456.95718pt x 280.04625pt>
+<./../img/qp_3db.png, id=116, 456.95718pt x 280.04625pt>
 File: ./../img/qp_3db.png Graphic file (type png)
 
-<use ./../img/qp_3db.png> [21]
-<./../img/htran_illustration.png, id=121, 804.00375pt x 444.91219pt>
+<use ./../img/qp_3db.png>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [21]
+<./../img/htran_illustration.png, id=120, 804.00375pt x 444.91219pt>
 File: ./../img/htran_illustration.png Graphic file (type png)
 
 <use ./../img/htran_illustration.png> [22 <C:/doc/MSc/tex/img/qp_plot.png>]
 [23 <C:/doc/MSc/tex/img/qp_3da.png> <C:/doc/MSc/tex/img/qp_3db.png>] [24 <C:/do
 c/MSc/tex/img/htran_illustration.png>] [25] [26]
-<./../img/htran_lin.png, id=143, 513.41812pt x 411.78844pt>
+<./../img/htran_lin.png, id=142, 513.41812pt x 411.78844pt>
 File: ./../img/htran_lin.png Graphic file (type png)
 
 <use ./../img/htran_lin.png> [27 <C:/doc/MSc/tex/img/htran_lin.png>]
-<./../img/htran_pnp_2d.png, id=150, 536.75531pt x 292.84406pt>
+<./../img/htran_pnp_2d.png, id=149, 536.75531pt x 292.84406pt>
 File: ./../img/htran_pnp_2d.png Graphic file (type png)
 
 <use ./../img/htran_pnp_2d.png>
-<./../img/htran_pnp_3derr.png, id=151, 338.76563pt x 268.75406pt>
+<./../img/htran_pnp_3derr.png, id=150, 338.76563pt x 268.75406pt>
 File: ./../img/htran_pnp_3derr.png Graphic file (type png)
 
 <use ./../img/htran_pnp_3derr.png> [28 <C:/doc/MSc/tex/img/htran_pnp_2d.png>]
-<./../img/htran_fmix_2d.png, id=157, 609.02531pt x 357.58594pt>
+<./../img/htran_fmix_2d.png, id=156, 609.02531pt x 357.58594pt>
 File: ./../img/htran_fmix_2d.png Graphic file (type png)
 
 <use ./../img/htran_fmix_2d.png>
-<./../img/htran_fmix_3derr.png, id=158, 371.13657pt x 293.59688pt>
+<./../img/htran_fmix_3derr.png, id=157, 371.13657pt x 293.59688pt>
 File: ./../img/htran_fmix_3derr.png Graphic file (type png)
 
-<use ./../img/htran_fmix_3derr.png> [29 <C:/doc/MSc/tex/img/htran_pnp_3derr.png
->] [30 <C:/doc/MSc/tex/img/htran_fmix_2d.png> <C:/doc/MSc/tex/img/htran_fmix_3d
-err.png>] <./../img/htran_qp_2da.png, id=168, 446.41782pt x 431.36156pt>
+<use ./../img/htran_fmix_3derr.png>
+<./../img/htran_qp_2da.png, id=158, 446.41782pt x 431.36156pt>
 File: ./../img/htran_qp_2da.png Graphic file (type png)
 
 <use ./../img/htran_qp_2da.png>
-<./../img/htran_qp_2db.png, id=169, 413.29407pt x 431.36156pt>
+<./../img/htran_qp_2db.png, id=159, 413.29407pt x 431.36156pt>
 File: ./../img/htran_qp_2db.png Graphic file (type png)
 
-<use ./../img/htran_qp_2db.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [31 <C:/doc/MSc/tex/img/htran_qp_2da.png> <C:/doc/MSc/tex/img/htran_qp_2db.png
->]
-<./../img/htran_qp_3d.png, id=177, 842.39719pt x 490.08093pt>
+<use ./../img/htran_qp_2db.png> [29 <C:/doc/MSc/tex/img/htran_pnp_3derr.png>]
+[30 <C:/doc/MSc/tex/img/htran_fmix_2d.png> <C:/doc/MSc/tex/img/htran_fmix_3derr
+.png>] <./../img/htran_qp_3d.png, id=169, 842.39719pt x 490.08093pt>
 File: ./../img/htran_qp_3d.png Graphic file (type png)
 
-<use ./../img/htran_qp_3d.png> [32 <C:/doc/MSc/tex/img/htran_qp_3d.png>]
+<use ./../img/htran_qp_3d.png> [31 <C:/doc/MSc/tex/img/htran_qp_2da.png> <C:/do
+c/MSc/tex/img/htran_qp_2db.png>]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1437.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1482.
 
-
-[33] <./../img/nc_lin1.png, id=186, 541.27219pt x 280.04625pt>
+ [32 <C:/doc/MSc/tex/img/htran_qp_3d.png>]
+<./../img/nc_lin1.png, id=182, 541.27219pt x 280.04625pt>
 File: ./../img/nc_lin1.png Graphic file (type png)
 
 <use ./../img/nc_lin1.png>
-<./../img/nc_lin2.png, id=187, 530.73282pt x 274.77657pt>
+<./../img/nc_lin2.png, id=183, 530.73282pt x 274.77657pt>
 File: ./../img/nc_lin2.png Graphic file (type png)
 
 <use ./../img/nc_lin2.png>
-<./../img/nc_lin3.png, id=188, 504.38437pt x 268.75406pt>
+<./../img/nc_lin3.png, id=184, 504.38437pt x 268.75406pt>
 File: ./../img/nc_lin3.png Graphic file (type png)
 
 <use ./../img/nc_lin3.png>
-<./../img/nc_lin4.png, id=189, 529.98pt x 277.035pt>
+<./../img/nc_lin4.png, id=185, 529.98pt x 277.035pt>
 File: ./../img/nc_lin4.png Graphic file (type png)
 
-<use ./../img/nc_lin4.png> [34 <C:/doc/MSc/tex/img/nc_lin1.png>] [35 <C:/doc/MS
-c/tex/img/nc_lin2.png> <C:/doc/MSc/tex/img/nc_lin3.png>]
-<./../img/nc_pnp.png, id=199, 1560.5803pt x 622.57594pt>
+<use ./../img/nc_lin4.png> [33] [34 <C:/doc/MSc/tex/img/nc_lin1.png> <C:/doc/MS
+c/tex/img/nc_lin2.png>] [35 <C:/doc/MSc/tex/img/nc_lin3.png> <C:/doc/MSc/tex/im
+g/nc_lin4.png>] <./../img/nc_pnp.png, id=200, 1560.5803pt x 622.57594pt>
 File: ./../img/nc_pnp.png Graphic file (type png)
 
 <use ./../img/nc_pnp.png>
-<./../img/nc_fmix1.png, id=200, 528.47438pt x 274.77657pt>
+<./../img/nc_fmix1.png, id=201, 528.47438pt x 274.77657pt>
 File: ./../img/nc_fmix1.png Graphic file (type png)
 
-<use ./../img/nc_fmix1.png> [36 <C:/doc/MSc/tex/img/nc_lin4.png>] [37 <C:/doc/M
-Sc/tex/img/nc_pnp.png> <C:/doc/MSc/tex/img/nc_fmix1.png>]
-<./../img/nc_qp1.png, id=212, 832.61063pt x 291.33844pt>
+<use ./../img/nc_fmix1.png> [36 <C:/doc/MSc/tex/img/nc_pnp.png>]
+<./../img/nc_qp1.png, id=206, 832.61063pt x 291.33844pt>
 File: ./../img/nc_qp1.png Graphic file (type png)
 
-<use ./../img/nc_qp1.png> [38 <C:/doc/MSc/tex/img/nc_qp1.png>]
-<./../img/nc_quantum2.png, id=217, 1605.74907pt x 627.84563pt>
+<use ./../img/nc_qp1.png> [37 <C:/doc/MSc/tex/img/nc_fmix1.png>]
+<./../img/nc_quantum2.png, id=212, 1605.74907pt x 627.84563pt>
 File: ./../img/nc_quantum2.png Graphic file (type png)
 
-<use ./../img/nc_quantum2.png> [39 <C:/doc/MSc/tex/img/nc_quantum2.png>]
-[40] [41] <./../img/hcc_lin1.png, id=228, 767.11594pt x 604.50844pt>
+<use ./../img/nc_quantum2.png> [38 <C:/doc/MSc/tex/img/nc_qp1.png>] [39 <C:/doc
+/MSc/tex/img/nc_quantum2.png>] [40]
+<./../img/hcc_lin1.png, id=224, 767.11594pt x 604.50844pt>
 File: ./../img/hcc_lin1.png Graphic file (type png)
 
 <use ./../img/hcc_lin1.png>
-<./../img/hcc_lin2.png, id=229, 755.82375pt x 599.23875pt>
+<./../img/hcc_lin2.png, id=225, 755.82375pt x 599.23875pt>
 File: ./../img/hcc_lin2.png Graphic file (type png)
 
 <use ./../img/hcc_lin2.png>
-<./../img/hcc_pnp.png, id=230, 1582.41188pt x 636.87938pt>
+<./../img/hcc_pnp.png, id=226, 1582.41188pt x 636.87938pt>
 File: ./../img/hcc_pnp.png Graphic file (type png)
 
 <use ./../img/hcc_pnp.png>
-<./../img/hcc_fmix.png, id=231, 1601.2322pt x 606.01407pt>
+<./../img/hcc_fmix.png, id=227, 1601.2322pt x 606.01407pt>
 File: ./../img/hcc_fmix.png Graphic file (type png)
 
 <use ./../img/hcc_fmix.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [42 <C:/doc/MSc/tex/img/hcc_lin1.png>] [43 <C:/doc/MSc/tex/img/hcc_lin2.png> <
-C:/doc/MSc/tex/img/hcc_pnp.png>]
-<./../img/hcc_qp1.png, id=242, 1551.54657pt x 627.09282pt>
+<./../img/hcc_qp1.png, id=228, 1551.54657pt x 627.09282pt>
 File: ./../img/hcc_qp1.png Graphic file (type png)
 
-<use ./../img/hcc_qp1.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [44 <C:/doc/MSc/tex/img/hcc_fmix.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 2029--2030
-
- []
-
+<use ./../img/hcc_qp1.png> [41] [42 <C:/doc/MSc/tex/img/hcc_lin1.png>] [43 <C:/
+doc/MSc/tex/img/hcc_lin2.png> <C:/doc/MSc/tex/img/hcc_pnp.png>] [44 <C:/doc/MSc
+/tex/img/hcc_fmix.png> <C:/doc/MSc/tex/img/hcc_qp1.png>]
 <./../img/hcc_qp2.png, id=247, 1568.10844pt x 642.14906pt>
 File: ./../img/hcc_qp2.png Graphic file (type png)
 
-<use ./../img/hcc_qp2.png>
-Underfull \vbox (badness 5274) has occurred while \output is active []
-
- [45 <C:/doc/MSc/tex/img/hcc_qp1.png>] [46 <C:/doc/MSc/tex/img/hcc_qp2.png>] [4
-7] [48]
-Underfull \hbox (badness 10000) in paragraph at lines 2268--2270
-
- []
-
-[49] <./../img/fht_lin.png, id=266, 800.9925pt x 300.3722pt>
+<use ./../img/hcc_qp2.png> [45] [46 <C:/doc/MSc/tex/img/hcc_qp2.png>] [47]
+[48] <./../img/fht_lin.png, id=261, 800.9925pt x 300.3722pt>
 File: ./../img/fht_lin.png Graphic file (type png)
 
-<use ./../img/fht_lin.png>
-<./../img/fht_pnp.png, id=267, 772.38562pt x 312.41719pt>
+<use ./../img/fht_lin.png> [49]
+<./../img/fht_pnp.png, id=266, 772.38562pt x 312.41719pt>
 File: ./../img/fht_pnp.png Graphic file (type png)
 
 <use ./../img/fht_pnp.png>
-<./../img/fht_fmix.png, id=268, 763.35187pt x 298.86656pt>
+<./../img/fht_fmix.png, id=267, 763.35187pt x 298.86656pt>
 File: ./../img/fht_fmix.png Graphic file (type png)
 
-<use ./../img/fht_fmix.png> [50 <C:/doc/MSc/tex/img/fht_lin.png>] [51 <C:/doc/M
-Sc/tex/img/fht_pnp.png> <C:/doc/MSc/tex/img/fht_fmix.png>]
-<./../img/fht_qp1.png, id=278, 761.09344pt x 301.125pt>
+<use ./../img/fht_fmix.png>
+<./../img/fht_qp1.png, id=268, 761.09344pt x 301.125pt>
 File: ./../img/fht_qp1.png Graphic file (type png)
 
-<use ./../img/fht_qp1.png>
-Underfull \vbox (badness 5970) has occurred while \output is active []
-
- [52 <C:/doc/MSc/tex/img/fht_qp1.png>]
-<./../img/fht_qp2.png, id=283, 776.9025pt x 303.38344pt>
+<use ./../img/fht_qp1.png> [50 <C:/doc/MSc/tex/img/fht_lin.png>] [51 <C:/doc/MS
+c/tex/img/fht_pnp.png> <C:/doc/MSc/tex/img/fht_fmix.png>]
+<./../img/fht_qp2.png, id=278, 776.9025pt x 303.38344pt>
 File: ./../img/fht_qp2.png Graphic file (type png)
 
 <use ./../img/fht_qp2.png>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [53 <C:/doc/MSc/tex/img/fht_qp2.png>] [54] [55]
-<./../img/hht_lin.png, id=295, 763.35187pt x 312.41719pt>
+ [52 <C:/doc/MSc/tex/img/fht_qp1.png>] [53 <C:/doc/MSc/tex/img/fht_qp2.png>] [5
+4]
+<./../img/hht_lin.png, id=290, 763.35187pt x 312.41719pt>
 File: ./../img/hht_lin.png Graphic file (type png)
 
-<use ./../img/hht_lin.png>
+<use ./../img/hht_lin.png> [55 <C:/doc/MSc/tex/img/hht_lin.png>]
 <./../img/hht_pnp.png, id=296, 779.16093pt x 309.40594pt>
 File: ./../img/hht_pnp.png Graphic file (type png)
 
@@ -1373,58 +1358,64 @@ File: ./../img/hht_fmix.png Graphic file (type png)
 <./../img/hht_qp1.png, id=298, 774.64406pt x 306.39468pt>
 File: ./../img/hht_qp1.png Graphic file (type png)
 
-<use ./../img/hht_qp1.png> [56 <C:/doc/MSc/tex/img/hht_lin.png>] [57 <C:/doc/MS
-c/tex/img/hht_pnp.png> <C:/doc/MSc/tex/img/hht_fmix.png>]
+<use ./../img/hht_qp1.png> [56 <C:/doc/MSc/tex/img/hht_pnp.png>] [57 <C:/doc/MS
+c/tex/img/hht_fmix.png> <C:/doc/MSc/tex/img/hht_qp1.png>]
 <./../img/hht_qp2.png, id=308, 765.6103pt x 310.15875pt>
 File: ./../img/hht_qp2.png Graphic file (type png)
 
-<use ./../img/hht_qp2.png> [58 <C:/doc/MSc/tex/img/hht_qp1.png>] [59 <C:/doc/MS
-c/tex/img/hht_qp2.png>]
-<./../img/four_lin.png, id=317, 773.13844pt x 307.1475pt>
+<use ./../img/hht_qp2.png>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [58 <C:/doc/MSc/tex/img/hht_qp2.png>] [59]
+<./../img/four_lin.png, id=316, 773.13844pt x 307.1475pt>
 File: ./../img/four_lin.png Graphic file (type png)
 
 <use ./../img/four_lin.png>
-<./../img/four_pnp.png, id=318, 761.09344pt x 303.38344pt>
+<./../img/four_pnp.png, id=317, 761.09344pt x 303.38344pt>
 File: ./../img/four_pnp.png Graphic file (type png)
 
 <use ./../img/four_pnp.png>
-<./../img/four_fmix.png, id=319, 768.62157pt x 304.13625pt>
+<./../img/four_fmix.png, id=318, 768.62157pt x 304.13625pt>
 File: ./../img/four_fmix.png Graphic file (type png)
 
-<use ./../img/four_fmix.png> [60] [61 <C:/doc/MSc/tex/img/four_lin.png> <C:/doc
-/MSc/tex/img/four_pnp.png>]
+<use ./../img/four_fmix.png>
+Underfull \vbox (badness 7064) has occurred while \output is active []
+
+ [60 <C:/doc/MSc/tex/img/four_lin.png>] [61 <C:/doc/MSc/tex/img/four_pnp.png> <
+C:/doc/MSc/tex/img/four_fmix.png>]
 <./../img/four_qp1.png, id=329, 767.11594pt x 312.41719pt>
 File: ./../img/four_qp1.png Graphic file (type png)
 
 <use ./../img/four_qp1.png>
-Underfull \vbox (badness 1635) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62 <C:/doc/MSc/tex/img/four_fmix.png>]
+ [62 <C:/doc/MSc/tex/img/four_qp1.png>]
 <./../img/four_qp2.png, id=334, 770.12718pt x 306.39468pt>
 File: ./../img/four_qp2.png Graphic file (type png)
 
-<use ./../img/four_qp2.png> [63 <C:/doc/MSc/tex/img/four_qp1.png>]
+<use ./../img/four_qp2.png>
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <17.28> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 2961.
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 3006.
 
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <17.28> on input line 2961.
+(Font)              <17.28> on input line 3006.
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <14.4> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 2963.
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 3008.
 
- [64 <C:/doc/MSc/tex/img/four_qp2.png>] [65]
+ [63 <C:/doc/MSc/tex/img/four_qp2.png>] [64]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3067.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3112.
 
 
-<./../img/quadgk_lin.png, id=347, 772.38562pt x 306.39468pt>
+<./../img/quadgk_lin.png, id=343, 772.38562pt x 306.39468pt>
 File: ./../img/quadgk_lin.png Graphic file (type png)
 
 <use ./../img/quadgk_lin.png>
-<./../img/hilb_lin.png, id=348, 776.9025pt x 304.88907pt>
+<./../img/hilb_lin.png, id=344, 776.9025pt x 304.88907pt>
 File: ./../img/hilb_lin.png Graphic file (type png)
 
-<use ./../img/hilb_lin.png> [66 <C:/doc/MSc/tex/img/quadgk_lin.png>]
+<use ./../img/hilb_lin.png> [65] [66 <C:/doc/MSc/tex/img/quadgk_lin.png> <C:/do
+c/MSc/tex/img/hilb_lin.png>]
 <./../img/quadgk_pnp.png, id=353, 771.63281pt x 304.88907pt>
 File: ./../img/quadgk_pnp.png Graphic file (type png)
 
@@ -1456,12 +1447,12 @@ File: ./../img/quadgk_qp2.png Graphic file (type png)
 <./../img/hilb_qp2.png, id=360, 758.835pt x 312.41719pt>
 File: ./../img/hilb_qp2.png Graphic file (type png)
 
-<use ./../img/hilb_qp2.png> [67 <C:/doc/MSc/tex/img/hilb_lin.png>] [68 <C:/doc/
-MSc/tex/img/quadgk_pnp.png> <C:/doc/MSc/tex/img/quadgk_fmix.png>] [69 <C:/doc/M
-Sc/tex/img/hilb_pnp.png> <C:/doc/MSc/tex/img/hilb_fmix.png>] [70 <C:/doc/MSc/te
-x/img/quadgk_qp1.png> <C:/doc/MSc/tex/img/hilb_qp1.png>] [71 <C:/doc/MSc/tex/im
-g/quadgk_qp2.png> <C:/doc/MSc/tex/img/hilb_qp2.png>] [72] [73] [74] [75]
-(C:\doc\MSc\tex\texlipse\Thesis.bbl [76] [77]
+<use ./../img/hilb_qp2.png> [67 <C:/doc/MSc/tex/img/quadgk_pnp.png>] [68 <C:/do
+c/MSc/tex/img/quadgk_fmix.png> <C:/doc/MSc/tex/img/hilb_pnp.png>] [69 <C:/doc/M
+Sc/tex/img/hilb_fmix.png> <C:/doc/MSc/tex/img/quadgk_qp1.png>] [70 <C:/doc/MSc/
+tex/img/hilb_qp1.png> <C:/doc/MSc/tex/img/quadgk_qp2.png>] [71 <C:/doc/MSc/tex/
+img/hilb_qp2.png>] [72] [73] [74] (C:\doc\MSc\tex\texlipse\Thesis.bbl [75]
+[76]
 Underfull \hbox (badness 2961) in paragraph at lines 155--161
 [][]\OT4/cmr/m/n/12 Mark G. Kuzyk, Ben-jamin R. An-der-son, Nathan J. Daw-son, 
 Sheng-Ting
@@ -1485,57 +1476,66 @@ Underfull \hbox (badness 10000) in paragraph at lines 175--179
 -ton-ics.
  []
 
-[78])
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 3483
+[77] [78])
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <6> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3535.
+
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 3546
 .
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
+LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <6> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3546.
+
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <6> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3483.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3555.
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3488.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3560.
 
  [79]
-LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <6> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3598.
+[80] [81] [82]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [80]
-[81] [82] [83]
-LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <6> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3884.
+ [83]
+[84]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- <./../img/zscan_sch.png, id=428, 386.94562pt x 199.49532pt>
+ [85]
+<./../img/zscan_sch.png, id=434, 386.94562pt x 199.49532pt>
 File: ./../img/zscan_sch.png Graphic file (type png)
 
 <use ./../img/zscan_sch.png>
-<./../img/zscan_diag.png, id=429, 373.395pt x 202.50656pt>
+<./../img/zscan_diag.png, id=435, 373.395pt x 202.50656pt>
 File: ./../img/zscan_diag.png Graphic file (type png)
 
-<use ./../img/zscan_diag.png> [84 <C:/doc/MSc/tex/img/zscan_sch.png>]
-<./../img/oa_plot.png, id=434, 315.42844pt x 203.25937pt>
+<use ./../img/zscan_diag.png> [86] [87 <C:/doc/MSc/tex/img/zscan_sch.png> <C:/d
+oc/MSc/tex/img/zscan_diag.png>]
+<./../img/oa_plot.png, id=444, 315.42844pt x 203.25937pt>
 File: ./../img/oa_plot.png Graphic file (type png)
 
 <use ./../img/oa_plot.png>
-<./../img/ca_plot.png, id=435, 415.5525pt x 266.49562pt>
+<./../img/ca_plot.png, id=445, 415.5525pt x 266.49562pt>
 File: ./../img/ca_plot.png Graphic file (type png)
 
-<use ./../img/ca_plot.png> [85 <C:/doc/MSc/tex/img/zscan_diag.png>] [86 <C:/doc
-/MSc/tex/img/oa_plot.png> <C:/doc/MSc/tex/img/ca_plot.png>] [87]
-<./../img/zscan_both.png, id=449, 398.23781pt x 257.46187pt>
+<use ./../img/ca_plot.png> [88 <C:/doc/MSc/tex/img/oa_plot.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [89 <C:/doc/MSc/tex/img/ca_plot.png>]
+<./../img/zscan_both.png, id=454, 398.23781pt x 257.46187pt>
 File: ./../img/zscan_both.png Graphic file (type png)
 
-<use ./../img/zscan_both.png> [88 <C:/doc/MSc/tex/img/zscan_both.png>]
+<use ./../img/zscan_both.png> [90] [91 <C:/doc/MSc/tex/img/zscan_both.png>]
 (C:\doc\MSc\tex\texlipse\Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 7967 strings out of 494019
- 111492 string characters out of 3146487
- 263645 words of memory out of 3000000
- 11032 multiletter control sequences out of 15000+200000
+ 8060 strings out of 494019
+ 112552 string characters out of 3146485
+ 269322 words of memory out of 3000000
+ 11121 multiletter control sequences out of 15000+200000
  35844 words of font info for 104 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 36i,17n,40p,1230b,2143s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,17n,40p,1292b,1840s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dv
 ips/pl/plit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/pl/plrm.enc}{C:/Pr
 ogram Files/MiKTeX 2.9/fonts/enc/dvips/pl/plmi.enc} <C:\Users\Krzysztof\AppData
@@ -1569,11 +1569,10 @@ ic/pl/plr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plsy10.pfb><C
 :/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plsy8.pfb><C:/Program Files/Mi
 KTeX 2.9/fonts/type1/public/pl/plti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/public/pl/plti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plt
-i7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plti8.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/pl/pltt12.pfb>
-Output written on Thesis.pdf (88 pages, 6359655 bytes).
+i7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/pltt12.pfb>
+Output written on Thesis.pdf (91 pages, 6377828 bytes).
 PDF statistics:
- 648 PDF objects out of 1000 (max. 8388607)
+ 656 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  346 words of extra memory for PDF output out of 10000 (max. 10000000)
 

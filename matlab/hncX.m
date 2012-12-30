@@ -21,7 +21,7 @@ function [H, F] = hncX(fun, a, b, tol, n, cs, pts, wrn, inh)
     % F - an array of points                       (abscissas) 
     
     %% Author info:
-    % [Krzysztof Parjaszewski, University of Wroclaw, Summer 2011]
+    % [Krzysztof Parjaszewski, University of Wroclaw]
     % As a part of MSc Thesis - "Numerical evaluation of the Hilbert transform used to 
     % better understand and solve the Kramers-Kronig relations in nonlinear optics"
     % krzysztof.parjaszewski@gmail.com
@@ -47,13 +47,14 @@ function [H, F] = hncX(fun, a, b, tol, n, cs, pts, wrn, inh)
     for k=1:PTS
         waitbar(k/PTS, h);
         innerfun = @(x) fun(x) ./ (x - F(k));
-        Hp(k) = quadncX(@(x) innerfun(x),      aMax, F(k) - cs, tol, n, wrn) + ...
-                quadncX(@(x) innerfun(x), F(k) + cs,      bMax, tol, n, wrn);
+        Hp(k) = quadncX(@(x) innerfun(x),      aMax, F(k) - cs, tol, n, wrn) ...
+              + quadncX(@(x) innerfun(x), F(k) + cs,      bMax, tol, n, wrn);
     end
     % finally we are closing the waitbar
     if(true==closewb), close(h); end;
     
-    Hp = Hp./pi; H = interp1(F, Hp, X, 'pchip');
+    Hp = Hp./pi; 
+		H = interp1(F, Hp, X, 'pchip');
 end
 
 function res = quadncX(fun, a, b, tol, n, wrn)
@@ -87,16 +88,21 @@ function res = quadncX(fun, a, b, tol, n, wrn)
         step2 = doStep(fun, a, b, nStep, tab);
         res = (4*step2-step1)/3; 
         err = abs((step1-res)/max(abs([step1, res, tol])));
-        if (err<tol), break;
-        else nosteps = nStep; M = M*1.3;
-        end;
+        
+				if (err<tol), break;
+        else nosteps = nStep; M = M*1.3; end;
+				
         if (nosteps >=maxNoSteps), break; end;
-        iterates = iterates + 1;
+        
+				iterates = iterates + 1;
     end
+		
     if (wrn == true)
-     if   (iterates >= maxIterate), warning('QUADNCX:MaxIterReached', 'maximum number of iterations reached - the integral seems to be singular');
-     elseif (nosteps >=maxNoSteps), warning('QUADNCX:MaNoSteps', 'maximum number of steps reached - the integral seems to be singular'); 
-     end;
+      if   (iterates >= maxIterate), warning('QUADNCX:MaxIterReached', ...
+		    'maximum number of iterations reached - the integral seems to be singular');
+      elseif (nosteps >=maxNoSteps), warning('QUADNCX:MaNoSteps', ...
+		    'maximum number of steps reached - the integral seems to be singular');  
+			end;
     end
 end
 

@@ -14,7 +14,8 @@ function res = quadncX(fun,a,b,tol,n)
     %% OUTPUT:
     % res  - calculated quadrature value
     
-    %% [Krzysztof Parjaszewski, University of Wroclaw, 2011-2012]
+    %% Author info:
+		% [Krzysztof Parjaszewski, University of Wroclaw]
     % As a part of MSc Thesis - "Numerical evaluation of the Hilbert transform in~nonlinear optics"
     % krzysztof.parjaszewski@gmail.com
     

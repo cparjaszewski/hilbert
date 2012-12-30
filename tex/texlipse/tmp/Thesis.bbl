@@ -220,6 +220,11 @@ L.~F. Shampine.
 \newblock Sensitive measurement of optical nonlinearities using a single beam.
 \newblock {\em Quantum}, 26(4):760--769, April 1990.
 
+\bibitem{sommariva_nontensorial}
+Alvise Sommariva, Marco Vianello, and Renato Zanovello.
+\newblock R.: Nontensorial clenshaw–curtis cubature.
+\newblock {\em Numer. Algorithms}, pages 409--427, 2008.
+
 \bibitem{chang_computation}
 Sy-Been~Jaw Soo-Chang~Pei.
 \newblock Computation of discrete hilbert transform through fast hartley

@@ -12,7 +12,7 @@ function H = htrancc(fun,X,tol)
     % H  - the Hilbert transform on the desired interval (ordinates)
     
     %% Author info:
-    % [Krzysztof Parjaszewski, University of Wroclaw, Summer 2011]
+    % [Krzysztof Parjaszewski, University of Wroclaw]
     % As a part of MSc Thesis - "Numerical evaluation of the Hilbert transform used to 
     % better understand and solve the Kramers-Kronig relations in nonlinear optics"
     % krzysztof.parjaszewski@gmail.com

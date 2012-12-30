@@ -15,8 +15,8 @@ function res = fht(X)
     % Data Structures" held in the Institute of Computer Science,
     % University of Wroclaw
   
-	%% Author info:
-    % [Krzysztof Parjaszewski, University of Wroclaw, 2011-2012]
+	  %% Author info:
+    % [Krzysztof Parjaszewski, University of Wroclaw]
     % As a part of MSc Thesis - "Numerical evaluation of the Hilbert transform in~nonlinear optics"
     % krzysztof.parjaszewski@gmail.com
     

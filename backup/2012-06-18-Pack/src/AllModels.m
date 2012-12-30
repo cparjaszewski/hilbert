@@ -11,7 +11,7 @@ classdef AllModels < handle
     % [5] David Crichton Hutchings, M Sheik-Bahae, D J Hagan, and E W Van Stryland. Kramers-kronig relations in nonlinear optics. Optical and Quantum Electronics, 24(1):1–30, 1992.
     
     %% Author info:
-    % [Krzysztof Parjaszewski, University of Wroclaw, 2011-2012]
+    % [Krzysztof Parjaszewski, University of Wroclaw]
     % As a part of MSc Thesis - "Numerical evaluation of the Hilbert transform in~nonlinear optics"
     % krzysztof.parjaszewski@gmail.com
     

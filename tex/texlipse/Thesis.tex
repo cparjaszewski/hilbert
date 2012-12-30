@@ -5,6 +5,7 @@
 \usepackage{float}
 \usepackage{url} % Better display of ~ tilde
 \usepackage{amsmath}
+\usepackage{nccmath}
 \usepackage{amssymb}
 \usepackage{arcs}
 \usepackage[polish,english]{babel} 
@@ -193,7 +194,7 @@ reversed~\cite{bracewell_fourier}:
 \end{equation}
  
 The result of the convolution of two functions $f$ and $g$ is a third function $h$ than can be described as the area overlap. The example
-has been presented on the Figure~(\ref{fig:mathematical_convolution}).
+has been presented on Figure~(\ref{fig:mathematical_convolution}).
 
 \begin{figure} 
 	\begin{center}
@@ -342,7 +343,7 @@ with its effect. The first and easy example can be a force acting on a mass. The
 Therefore the force is here the cause and the mass acceleration is the effect.
 
 In the field of optical research - we will be interested in both light and matter properties. When a light signal is passing through a
-matter, from the time-domain perspective - we can extract the input and the output signals, as presented on the Figure
+matter, from the time-domain perspective - we can extract the input and the output signals, as presented on Figure
 (\ref{fig:mathematical_inoutput}). From now on we will consistently use the \textbf{input} definition for the time-domain signal in time
 period \textbf{before} the interaction with the investigated matter and the \textbf{output} definition for the the time-domain signal
 \textbf{after} the interaction with matter.
@@ -517,7 +518,7 @@ fading sinusoidal exponent:
   h_{\text{lin}} (t) = 1 - e^{( - t)}\,\mathrm{sin}(20\,t)\,\Theta (t) .
 \end{equation}
 
-The plot of the equation (\ref{eq:physical_linear_response}) is given on the Figure (\ref{fig:physical_linplot}).
+The plot of the equation (\ref{eq:physical_linear_response}) is given on Figure (\ref{fig:physical_linplot}).
 
 \begin{figure}[H]
   \includegraphics[width=150mm]{img/lin_plot.png}
@@ -604,7 +605,7 @@ the molecule. We are talking about an important problem in nonlinear optics whic
 process - to allow us to use the Titchmarsh theorem. 
 
 In \cite{christodoulides_nonlinear} we can find results showing that the probe signal absorbance depends not only on the pump
-signal properties, but also on the time delay between the pump and probe - see the Figure (\ref{physical_fig:pnp_absorption}).
+signal properties, but also on the time delay between the pump and probe - see Figure (\ref{physical_fig:pnp_absorption}).
 
 \begin{figure} 
 	\begin{center}
@@ -622,7 +623,7 @@ probe signal frequency:
   \chi_{pp} = \chi_{pp}(\delta, \Delta_1 \, t \, (\text{ const }), \,\Delta )
 \end{equation}
 
-Therefore we obtain the three dimensional plots presented on the Figures (\ref{fig:physical_pnp_2d}) and (\ref{fig:physical_pnp_3d}).
+Therefore we obtain the three dimensional plots presented on Figures (\ref{fig:physical_pnp_2d}) and (\ref{fig:physical_pnp_3d}).
 
 \begin{figure}
   \includegraphics[width=150mm]{img/pnp_2d.png}
@@ -697,7 +698,7 @@ as in the equation (\ref{eq:fwm_ddefinition}):
    \,(\delta  + \Delta  + \frac {i}{{T_{2}}}) - \Omega ^{2}\,(\delta + \frac {i}{{T_{2}}}).
 \end{equation}
 
-The test 3-dimensional plot is presented in the Figures (\ref{fig:fmix_2d}) and (\ref{fig:fmix_3d}).
+The test 3-dimensional plot is presented in Figures (\ref{fig:fmix_2d}) and (\ref{fig:fmix_3d}).
 
 \begin{figure}
 	\begin{center} 
@@ -836,39 +837,51 @@ The $\omega_{p}$ is the frequency of the input photon and it will be a variable 
 susceptibilities as a functions of $\omega_{p}$:
 
 
-\begin{subequations} \label{eq:susceptibility_results}
-  \begin{equation}   \label{eq:sresults_linear}   
-    {\chi_{1, \,i, \,j}}({\omega_{p}}) = \frac {N}{{\varepsilon_{0}}\,h} \sum_{m}\,(\frac {{\mu_{i, \,gm}}\,{\mu_{j, \,
-     mg}}}{{\omega_{mg}} - {\omega_{p}}} + \frac {{\mu_{j, \,gm}}\,{\mu_{i, \,mg}}}{{\omega_{mg}} + {\omega_{p}}}),
-  \end{equation}
-  \begin{equation}   \label{eq:sresults_quadratical}
-     \chi_{2, \,i, \,j, \,k}({\omega_{p}} + {\omega_{q}}, \,{\omega_{q}}, \,{\omega_{p}}) = 
-      \frac{N}{{\varepsilon_{0}}\,h^{2}}{P_{I}}\, \sum_{mn}\, (
-      \frac{{\mu_{i,\,gn}}\,{\mu_{j,\,nm}}\,{\mu_{k,\,mg}}}{(\omega_{ng} - \omega_{p} - {\omega_{q}})\,({ \omega_{mg}}
-      -{\omega_{p}})} + \\ 
-  \end{equation}
-  \begin{alignat*} {1}
-    &  + \frac{{\mu_{j,\,gn}}\,{\mu_{i,\,nm}}\,{\mu_{k,\,mg}}}{(\omega_{ng} + \omega_{q})\,(\omega_{mg} - \omega_{p})}
-       + \frac{{\mu_{i,\,gn}}\,{\mu_{k,\,nm}}\,{\mu_{i,\,mg}}}{(\omega_{ng} + \omega_{q})\,(\omega_{mg} + \omega_{p}
-       + \omega_{q})}),\nonumber\\  
-    & \mbox{ \footnotesize{where } }, \nonumber
-  \end{alignat*}
-  \begin{equation} \label{eq:sresults_cubic}   
-   {\chi_{3, \,k, \,j, \,i, \,h}}({\omega_{\sigma }}, \,{\omega_{r}}, \,{\omega_{q}}, \,{\omega_{p}}) =
-   \end{equation}
-  \begin{alignat*}{1} 
-    & \frac{N}{{\varepsilon_{0}}\,h^{3}} {P_{I}} \! \sum_{mnv}\,(\frac {{\mu_{k, \,gv}}\,{\mu_{j, \,vn}}\,{\mu_{i,
-    \,nm}}\,{\mu_{h, \,mg}}} {({\omega_{vg}} - {\omega_{r}} - {\omega_{q}} - {\omega_{p}})\,({\omega_{ng}} - {\omega_{q}} - {\omega_{p}})\,({\omega_{mg}} - { \omega_{p}})} 
-    \\ &  + \frac {{\mu_{j, \,gv}}\,{\mu_{k, \,vn}}\,{\mu_{i, \,nm}}\,{\mu_{h, \,mg}}}
-    {({\omega_{vg}} + {\omega_{r}}) \,({\omega_{ng}} - {\omega_{q}} - {\omega_{p}})\,({\omega_{ mg}} - {\omega_{p}})} 
-         + \frac {{\mu_{j, \,gv}}\,{\mu_{i, \,vn}}\,{\mu_{k, \,nm}}\,{\mu_{h, \,mg}}}
-    {({\omega_{vg}}+{\omega_{r}})\,({\omega_{ng}} + {\omega_{r}} + {\omega_{q}})\,({\omega_{mg}} - {\omega_{p}})}  \nonumber
-    \\ &  + \frac {{\mu_{j, \,gv}}\,{\mu_{i, \,vn}}\,{\mu_{h,\,nm}}\,{\mu_{k, \,mg}}}
-    {({\omega_{vg}} + {\omega_{r}})\,({\omega_{ng}} + {\omega_{r}} + {\omega_{q}} )\,({\omega_{mg}} + {\omega_{r}} + {\omega_{q}} + {
-    \omega_{p}})}).
-    \nonumber
-  \end{alignat*}
-\end{subequations}
+% Quantum-perturbation - result model equation - linear case
+\begin{equation} \label{eq:sresults_linear}   
+  { \chi_{1, \, i, \, j } } ( {\omega_{p} } ) = \frac {N} { {\varepsilon_{0} } \, h} 
+    \sum_{m} \, 
+      ( \frac { {\mu_{i, \, gm} } \, {\mu_{j, \, mg} } } { {\omega_{mg} } - {\omega_{p} } } 
+      + \frac { {\mu_{j, \, gm} } \, {\mu_{i, \, mg} } } { {\omega_{mg} } + {\omega_{p} } } ),
+\end{equation}
+
+% Quantum-perturbation - result model equation - second-order case
+\begin{equation} \label{eq:sresults_quadratical}
+  \begin{split}
+    & \chi_{2, \, i, \, j, \, k}({\omega_{p}} + {\omega_{q}}, \, {\omega_{q}}, \, {\omega_{p}}) = 
+        \frac{N}{{\varepsilon_{0}}\,h^{2}}{P_{I}}\, \sum_{mn}\, 
+ \\ & ( \frac{{\mu_{i, \, gn}} \, {\mu_{j,\,nm}} \, {\mu_{k, \, mg}}}
+             {(\omega_{ng} - \omega_{p} - {\omega_{q}})\,({ \omega_{mg}} - {\omega_{p}})} 
+ \\ & + \frac{{\mu_{j, \, gn}} \, {\mu_{i,\,nm}} \, {\mu_{k, \, mg}}}
+             {(\omega_{ng} + \omega_{q})\,(\omega_{mg} - \omega_{p})}
+ \\ & + \frac{{\mu_{i, \, gn}} \, {\mu_{k,\,nm}} \, {\mu_{i, \, mg}}}
+             {(\omega_{ng} + \omega_{q})\,(\omega_{mg} + \omega_{p}+ \omega_{q})})
+  \end{split} 
+\end{equation}
+
+% Quantum-perturbation - result model equation - third-order case
+\begin{equation} \label{eq:sresults_cubic}
+  \begin{split}
+    & \chi_{3, \,k, \,j, \,i, \,h} ({\omega_{\sigma }}, \,{\omega_{r}}, \,{\omega_{q}}, \,{\omega_{p}}) 
+      = \frac{N}{{\varepsilon_{0}} \, h^{3}} {P_{I}} \! \sum_{mnv}\,
+ \\ & ( \frac {{\mu_{k, \,gv}} \, {\mu_{j, \,vn}} \, {\mu_{i,\,nm}} \, {\mu_{h, \,mg}}} 
+              {({\omega_{vg}} - {\omega_{r}} - {\omega_{q}} - {\omega_{p}})\,
+               ({\omega_{ng}} - {\omega_{q}} - {\omega_{p}}) \,
+               ({\omega_{mg}} - {\omega_{p}})} 
+ \\ & + \frac {{\mu_{j, \,gv}} \, {\mu_{k, \,vn}} \, {\mu_{i, \,nm}} \, {\mu_{h, \,mg}}}
+              {({\omega_{vg}} + {\omega_{r}}) \,
+               ({\omega_{ng}} - {\omega_{q}} - {\omega_{p}}) \,
+               ({\omega_{ mg}} - {\omega_{p}})} 
+ \\ & + \frac {{\mu_{j, \,gv}} \, {\mu_{i, \,vn}} \, {\mu_{k, \,nm}} \, {\mu_{h, \,mg}}}
+              {({\omega_{vg}} + {\omega_{r}}) \,
+               ({\omega_{ng}} + {\omega_{r}} + {\omega_{q}}) \,
+               ({\omega_{mg}} - {\omega_{p}})} 
+ \\ & + \frac {{\mu_{j, \,gv}} \, {\mu_{i, \,vn}} \, {\mu_{h,\,nm}} \, {\mu_{k, \,mg}}}
+              {({\omega_{vg}} + {\omega_{r}}) \, 
+               ({\omega_{ng}} + {\omega_{r}} + {\omega_{q}} ) \, 
+               ({\omega_{mg}} + {\omega_{r}} + {\omega_{q}} + { \omega_{p}})}).
+  \end{split}
+\end{equation}
 
 \subsubsection*{The density matrix model}
 
@@ -877,83 +890,91 @@ equations we can easily jump to the density matrix operator models. Not getting 
 term $\gamma_{ab}$ which will be the imaginary tensor describing the so called dumping rate, which is an element of the density matrix,
 describing the coherence between states $a$ and $b$. The models have been described in the following equations:
 
-\begin{subequations} \label{eq:susceptibility_sligh_modifications}
-  \begin{equation} \label{eq:ssmods_linear}
-    {\chi_{1}}({\omega_{p}})=\frac {N}{{\varepsilon_{0}}\,h}\sum_{n}\,(\frac {{\mu_{i, \,an}}\,{\mu_{j, \,na}}}{{\omega_{na}} -
+% Quantum-perturbation density matrix - result model equation - linear case
+\begin{equation} \label{eq:ssmods_linear}
+    {\chi_{1}}({\omega_{p}}) = \frac {N}{{\varepsilon_{0}}\,h}\sum_{n}\,(\frac {{\mu_{i, \,an}}\,{\mu_{j, \,na}}}{{\omega_{na}} -
     {\omega_{p}} - i\,{\gamma_{na}}} + \frac {{\mu_{i, \,na}}\,{\mu_{j, \,an}}}{{\omega_{na}} - {\omega_{p}} + i\,{\gamma_{na}}}),
-  \end{equation}
-  \begin{equation} \label{eq:ssmods_quadratical}
-    {\chi_{2, \,i, \,j, \,k}}({\omega_{p}} + {\omega_{q}}, \,{\omega_{q}}, \,{\omega_{p}}) = \frac
-    {N}{2\,{\varepsilon_{0}}\,h^{2}}\sum_{lmn}\,{\rho_{0, \,ll}}\,(\frac {{\mu_{i, \,l, \,n}}\,{\mu_{j, \,nm}}\,{\mu_{k,
-    \,ml}}}{({\omega_{nl}} - {\omega_{p}} - {\omega_{q}}- i\,{\gamma_{nl}})\,({\omega_{ml}} - {\omega_{p}} - i\,{\gamma_{ml}})} +
-  \end{equation}
-  \begin{alignat*}{1}
-    + \frac {{\mu_{i, \,l, \,n}}\,{\mu_{k, \,nm}}\,{\mu_{j, \,ml}}}
-     {({\omega_{nl}} - {\omega_{p}} - {\omega_{p}} - i\,{\gamma_{nl}})\,({\omega_{ml}} - {\omega_{q}} - i\,{\gamma_{ml}})} 
-+\\ +\frac {{\mu_{k, \,l, \,n}}\,{\mu_{i, \,nm}}\,{\mu_{j,\,ml}}}
-     {({\omega_{mn}} - {\omega_{p}} - {\omega_{q}} - i\,{\gamma_{mn}})\,({\omega_{nl}} + {\omega_{q}} + i\,{\gamma_{nl}})}
-     \nonumber
-+\\ +\frac{{\mu_{j, \,l, \,n}}\,{\mu_{i, \,nm}}\,{\mu_{k, \,ml}}}
-     {({\omega_{mn}} - {\omega_{p}} - {\omega_{q}} - i\,{\gamma_{mn}})\,({\omega_{nl}} + {\omega_{q}} + i\,{\gamma_{nl}})} 
-+\\ +\frac {{\mu_{j, \,l, \,n}}\,{\mu_{i, \,nm}}\,{\mu_{k,\,ml}}}
-     {({\omega_{nm}} + {\omega_{p}} + {\omega_{q}} + i\,{\gamma_{nm}})\,({\omega_{ml}} - {\omega_{p}} - i\,{\gamma_{ml}})}
-     \nonumber
-+\\ +\frac{{\mu_{k, \,l, \,n}}\,{\mu_{j, \,nm}}\,{\mu_{i, \,ml}}}
-     {({\omega_{nm}} + {\omega_{p}} + {\omega_{q}} + i\,{\gamma_{nm}})\,({\omega_{ml}} - {\omega_{p}} - i\,{\gamma_{ml}})} 
-+\\ +\frac {{\mu_{k, \,l, \,n}}\,{\mu_{j, \,nm}}\,{\mu_{i, \,ml}}}
-     {({\omega_{ml}} + {\omega_{p}} + {\omega_{q}} + i\,{\gamma_{ml}})\,({\omega_{nl}} + {\omega_{p}} + i\,{\gamma_{nl}})}
-     \nonumber
-+\\ +\frac {{\mu_{j, \,l, \,n}}\,{\mu_{k, \,nm}}\,{\mu_{i, \,ml}}}
-     {({\omega_{ml}} + {\omega_{p}} + {\omega_{q}} + i\,{\gamma_{ml}})\,({\omega_{nl}} + {\omega_{q}} + i\,{\gamma_{nl}})}),
-     \nonumber
-  \end{alignat*}
-  \begin{equation} \label{eq:ssmods_cubic}
-    {\chi_{3, \,k, \,j, \,i, \,h}}({\omega_{p}} + {\omega_{q}} + {\omega_{r}}, \,{\omega_{r}}, \,{\omega_{q}}, \,{\omega_{p}})=\frac
-	{N}{{\varepsilon_{0}}\,h^{3}}\,\cdot
-  \end{equation}
-  \begin{alignat*}{1}
-  	\cdot\,\sum_{vnml}\,{\rho_{0, \,ll}}\,(
-  	\frac {{\mu_{k,\,lv}}\,{\mu_{j,\,vn}}\,{\mu_{i,\,nm}}\,{\mu_{h,\,ml}}}
-  	 {({\omega_{vl}} - {\omega_{p}} - {\omega_{q}} - {\omega_{r}} - i\,{\gamma_{vl}})\,
-  	  ({\omega_{nl}} - {\omega_{p}} - {\omega_{q}} - i\,{\gamma_{nl}})\,
-  	  ({\omega_{ml}} - {\omega_{p}} - i\,{\gamma_{ml}})} 
-+\\ +\frac {{\mu_{h,\,lv}}\,{\mu_{k,\,vn}}\,{\mu_{j,\,nm}}\,{\mu_{i,\,ml}}}
-     {({\omega_{nv}} - {\omega_{p}} - {\omega_{q}} - {\omega_{r}} - i\,nv)\,
-      ({\omega_{mv}} -	{\omega_{p}} - {\omega_{q}} - i\,{\gamma_{mv}})\,
-      ({\omega_{vl}} + {\omega_{p}} + i\,{\gamma_{vl}})} 
-+\\ +\frac {{\mu_{i,\,lv}}\,{\mu_{k,\,vn}}\,{\mu_{j,\,nm}}\,{\mu_{h,\,ml}}}
-     {({\omega_{nv}} - {\omega_{p}} - {\omega_{q}} - {\omega_{r}} - i\,{\gamma_{nv}})\,
-      ({\omega_{vm}} + {\omega_{p}} + {\omega_{q}} + i\,{\gamma_{vm}})\,
-      ({\omega_{ml}} - {\omega_{p}} - i\,{\gamma_{ml}})} 
-+\\ +\frac {{\mu_{h,\,lv}}\,{\mu_{i,\,vn}}\,{\mu_{k,\,nm}}\,{\mu_{j,\,ml}}}
-     {({\omega_{mn}} - {\omega_{p}} - {\omega_{q}} - {\omega_{r}} - i\,{\gamma_{mn}})\,
-      ({\omega_{nl}} - {\omega_{p}} - {\omega_{q}} + i\,{\gamma_{nl}})\,
-      ({\omega_{vl}} + {\omega_{p}} + i\,{\gamma_{vl}})} 
-+\\ +\frac {{\mu_{j,\,lv}}\,{\mu_{k,\,vn}}\,{\mu_{i,\,nm}}\,{\mu_{h,\,ml}}}
-     {({\omega_{vn}} - {\omega_{p}} - {\omega_{q}} - {\omega_{r}} + i\,{\gamma_{vn}})\,
-      ({\omega_{nl}} - {\omega_{p}} - {\omega_{q}} - i\,{\gamma_{nl}})\,
-      ({\omega_{ml}} - {\omega_{p}} - i\,{\gamma_{ml}})} 
-+\\ +\frac {{\mu_{h,\,lv}}\,{\mu_{j,\,vn}}\,{\mu_{k,\,nm}}\,{\mu_{i,\,ml}}}
-     {({\omega_{nm}} + {\omega_{p}} + {\omega_{q}} + {\omega_{r}} + i\,{\gamma_{nm}})\,
-      ({\omega_{mv}} - {\omega_{p}} - {\omega_{q}} - i\,{\gamma_{mv}})\,
-      ({\omega_{vl}} + {\omega_{p}} + i\,{\gamma_{vl}})} 
-+\\ +\frac {{\mu_{i,\,lv}}\,{\mu_{j,\,vn}}\,{\mu_{k,\,nm}}\,{\mu_{h,\,ml}}}
-     {({\omega_{vm}} + {\omega_{p}} + {\omega_{q}} + {\omega_{r}} + i\,{\gamma_{nm}})\,
-      ({\omega_{vm}} + {\omega_{p}} + {\omega_{q}} + i\,{\gamma_{mv}})\,
-      ({\omega_{ml}} - {\omega_{p}} - i\,{\gamma_{ml}})} 
-+\\ +\frac {{\mu_{h, \,lv}}\,{\mu_{i,\,vn}}\,{\mu_{j,\,mn}}\,{\mu_{k,\,ml}}}
-     {({\omega_{ml}} + {\omega_{p}} + {\omega_{q}} + {\omega_{r}} + i\,{\gamma_{ml}})\,
-      ({\omega_{nl}} + {\omega_{p}} + {\omega_{q}} + i\,{\gamma_{nl}})\,
-      ({\omega_{vl}} + {\omega_{p}} + i\,{\gamma_{vl}})}).
-  \end{alignat*}
-\end{subequations}
+\end{equation}
 
-What is interesting, after expanding all the permutations in (\ref{eq:susceptibility_sligh_modifications}) we will get the 48 different
+% Quantum-perturbation density matrix - result model equation - second-order case
+\begin{equation} \label{eq:ssmods_quadratical}
+  \begin{split}
+    & {\chi_{2, \,i, \,j, \,k}}({\omega_{p}} + {\omega_{q}}, \,{\omega_{q}}, \,{\omega_{p}}) 
+      = \frac{N} {2 \, {\varepsilon_0} \, h^{2}} 
+        \sum_{lmn} \, {\rho_{0, \,ll}} \, 
+ \\ & ( \frac {{\mu_{i, \,l, \,n}} \, {\mu_{j, \,nm}} \, {\mu_{k, \,ml}}} 
+              {({\omega_{nl}} - {\omega_{p}} - {\omega_{q}} - i\,{\gamma_{nl}}) \,
+               ({\omega_{ml}} - {\omega_{p}} - i\,{\gamma_{ml}}) } 
+ \\ & + \frac {{\mu_{i, \,l, \,n}}\,{\mu_{k, \,nm}}\,{\mu_{j, \,ml}}}
+              {({\omega_{nl}} - {\omega_{p}} - {\omega_{p}} - i\,{\gamma_{nl}}) \,
+               ({\omega_{ml}} - {\omega_{q}} - i\,{\gamma_{ml}})} 
+ \\ & + \frac {{\mu_{k, \,l, \,n}}\,{\mu_{i, \,nm}}\,{\mu_{j,\,ml}}}
+              {({\omega_{mn}} - {\omega_{p}} - {\omega_{q}} - i\,{\gamma_{mn}}) \,
+               ({\omega_{nl}} + {\omega_{q}} + i\,{\gamma_{nl}})}
+ \\ & + \frac {{\mu_{j, \,l, \,n}}\,{\mu_{i, \,nm}}\,{\mu_{k, \,ml}}}
+              {({\omega_{mn}} - {\omega_{p}} - {\omega_{q}} - i\,{\gamma_{mn}}) \,
+               ({\omega_{nl}} + {\omega_{q}} + i\,{\gamma_{nl}})}
+ \\ & + \frac {{\mu_{j, \,l, \,n}}\,{\mu_{i, \,nm}}\,{\mu_{k,\,ml}}}
+              {({\omega_{nm}} + {\omega_{p}} + {\omega_{q}} + i\,{\gamma_{nm}}) \,
+               ({\omega_{ml}} - {\omega_{p}} - i\,{\gamma_{ml}})}
+ \\ & + \frac {{\mu_{k, \,l, \,n}}\,{\mu_{j, \,nm}}\,{\mu_{i, \,ml}}}
+              {({\omega_{nm}} + {\omega_{p}} + {\omega_{q}} + i\,{\gamma_{nm}}) \,
+               ({\omega_{ml}} - {\omega_{p}} - i\,{\gamma_{ml}})} 
+ \\ & + \frac {{\mu_{k, \,l, \,n}}\,{\mu_{j, \,nm}}\,{\mu_{i, \,ml}}}
+              {({\omega_{ml}} + {\omega_{p}} + {\omega_{q}} + i\,{\gamma_{ml}}) \,
+               ({\omega_{nl}} + {\omega_{p}} + i\,{\gamma_{nl}})}
+ \\ & + \frac {{\mu_{j, \,l, \,n}}\,{\mu_{k, \,nm}}\,{\mu_{i, \,ml}}}
+              {({\omega_{ml}} + {\omega_{p}} + {\omega_{q}} + i\,{\gamma_{ml}}) \,
+               ({\omega_{nl}} + {\omega_{q}} + i\,{\gamma_{nl}})} ),
+  \end{split}
+\end{equation}
+
+% Quantum-perturbation density matrix - result model equation - third-order case
+\begin{equation} \label{eq:ssmods_cubic}
+  \begin{split}
+    & {\chi_{3, \,k, \,j, \,i, \,h}}({\omega_{p}} + {\omega_{q}} + {\omega_{r}}, \,{\omega_{r}}, \,{\omega_{q}}, \,{\omega_{p}})
+       = \frac {N} {{\varepsilon_{0}}\,h^{3}} \, \cdot \, \sum_{vnml}\,{\rho_{0, \,ll}} \, 
+ \\ & ( \frac {{\mu_{k,\,lv}}\,{\mu_{j,\,vn}}\,{\mu_{i,\,nm}}\,{\mu_{h,\,ml}}}
+  	          {({\omega_{vl}} - {\omega_{p}} - {\omega_{q}} - {\omega_{r}} - i\,{\gamma_{vl}}) \,
+  	           ({\omega_{nl}} - {\omega_{p}} - {\omega_{q}} - i\,{\gamma_{nl}}) \,
+  	           ({\omega_{ml}} - {\omega_{p}} - i\,{\gamma_{ml}})} 
+ \\ & + \frac {{\mu_{h,\,lv}}\,{\mu_{k,\,vn}}\,{\mu_{j,\,nm}}\,{\mu_{i,\,ml}}}
+              {({\omega_{nv}} - {\omega_{p}} - {\omega_{q}} - {\omega_{r}} - i\,nv) \,
+               ({\omega_{mv}} - {\omega_{p}} - {\omega_{q}} - i\,{\gamma_{mv}}) \,
+               ({\omega_{vl}} + {\omega_{p}} + i\,{\gamma_{vl}})}
+ \\ & + \frac {{\mu_{i,\,lv}}\,{\mu_{k,\,vn}}\,{\mu_{j,\,nm}}\,{\mu_{h,\,ml}}}
+              {({\omega_{nv}} - {\omega_{p}} - {\omega_{q}} - {\omega_{r}} - i\,{\gamma_{nv}}) \,
+               ({\omega_{vm}} + {\omega_{p}} + {\omega_{q}} + i\,{\gamma_{vm}}) \,
+               ({\omega_{ml}} - {\omega_{p}} - i\,{\gamma_{ml}})}
+ \\ & + \frac {{\mu_{h,\,lv}}\,{\mu_{i,\,vn}}\,{\mu_{k,\,nm}}\,{\mu_{j,\,ml}}}
+              {({\omega_{mn}} - {\omega_{p}} - {\omega_{q}} - {\omega_{r}} - i\,{\gamma_{mn}}) \,
+               ({\omega_{nl}} - {\omega_{p}} - {\omega_{q}} + i\,{\gamma_{nl}}) \,
+               ({\omega_{vl}} + {\omega_{p}} + i\,{\gamma_{vl}})} 
+ \\ & + \frac {{\mu_{j,\,lv}}\,{\mu_{k,\,vn}}\,{\mu_{i,\,nm}}\,{\mu_{h,\,ml}}}
+              {({\omega_{vn}} - {\omega_{p}} - {\omega_{q}} - {\omega_{r}} + i\,{\gamma_{vn}}) \,
+               ({\omega_{nl}} - {\omega_{p}} - {\omega_{q}} - i\,{\gamma_{nl}}) \,
+               ({\omega_{ml}} - {\omega_{p}} - i\,{\gamma_{ml}})}
+ \\ & + \frac {{\mu_{h,\,lv}}\,{\mu_{j,\,vn}}\,{\mu_{k,\,nm}}\,{\mu_{i,\,ml}}}
+              {({\omega_{nm}} + {\omega_{p}} + {\omega_{q}} + {\omega_{r}} + i\,{\gamma_{nm}}) \,
+               ({\omega_{mv}} - {\omega_{p}} - {\omega_{q}} - i\,{\gamma_{mv}}) \,
+               ({\omega_{vl}} + {\omega_{p}} + i\,{\gamma_{vl}})}
+ \\ & + \frac {{\mu_{i,\,lv}}\,{\mu_{j,\,vn}}\,{\mu_{k,\,nm}}\,{\mu_{h,\,ml}}}
+              {({\omega_{vm}} + {\omega_{p}} + {\omega_{q}} + {\omega_{r}} + i\,{\gamma_{nm}}) \,
+               ({\omega_{vm}} + {\omega_{p}} + {\omega_{q}} + i\,{\gamma_{mv}}) \,
+               ({\omega_{ml}} - {\omega_{p}} - i\,{\gamma_{ml}})} 
+ \\ & + \frac {{\mu_{h, \,lv}}\,{\mu_{i,\,vn}}\,{\mu_{j,\,mn}}\,{\mu_{k,\,ml}}}
+              {({\omega_{ml}} + {\omega_{p}} + {\omega_{q}} + {\omega_{r}} + i\,{\gamma_{ml}}) \,
+               ({\omega_{nl}} + {\omega_{p}} + {\omega_{q}} + i\,{\gamma_{nl}}) \,
+               ({\omega_{vl}} + {\omega_{p}} + i\,{\gamma_{vl}})}).
+  \end{split}
+\end{equation}
+
+
+What is interesting, after expanding all the permutations in (\ref{eq:ssmods_cubic}) we will get the 48 different
 summands - which show how the quantum mechanical approach is hard to apply.
 
-In further calculations we will use both the (\ref{eq:susceptibility_results}) and (\ref{eq:susceptibility_sligh_modifications})
-equations in simplified version - with just a few summands. the visualization of the results for a typical quantum-perturbative model
-obtained with equations (\ref{eq:susceptibility_sligh_modifications}) are shown in the Figure (\ref{fig:qp_plot}):
+In further calculations we will use both the presented equations in simplified version - with just a few summands. The visualization of the
+results for a typical quantum-perturbative model obtained with equation (\ref{eq:ssmods_cubic}) are shown in Figure (\ref{fig:qp_plot}).
 
 \begin{figure}
 	\includegraphics[width=150mm]{img/qp_plot.png}
@@ -964,8 +985,8 @@ obtained with equations (\ref{eq:susceptibility_sligh_modifications}) are shown 
 \begin{figure} 
   \includegraphics[width=150mm]{img/qp_3da.png} \\
   \includegraphics[width=150mm]{img/qp_3db.png}
-  \caption{Quantum-perturbative plot for 3-level model of with arbitrary (non-physical) parameters. Red plot is for the imaginary
-  and the blue plot is for the real part of the second-order susceptibility.
+  \caption{Three dimensional quantum-perturbative plot for 3-level model of with arbitrary (non-physical) parameters. Upper plot is for the
+  imaginary and the lower plot is for the real part of the second-order susceptibility.
   \label{fig:qp_3d}}
 \end{figure}
    
@@ -993,9 +1014,8 @@ We assume that the input function R is defined for a discrete set of arguments:
 	F = \{ F_1, F_2, \ldots, F_N \} \quad (F_i < F_j \, \text{ for } i < j) . 
 \end{equation}
 
-We will calculate the Hilbert transform of $R$ for the same discrete set of arguments $F$. An example has been presented on
-the Figure (\ref{fig:htran_illustration}), where the blue plot represents the input function $R$ and the green plot represents the output
-function $HT$.
+We will calculate the Hilbert transform of $R$ for the same discrete set of arguments $F$. An example has been presented on Figure
+(\ref{fig:htran_illustration}), where the blue plot represents the input function $R$ and the green plot represents the output function $HT$.
 
 
 We start from reminding the definition of the Hilbert transform:
@@ -1115,7 +1135,7 @@ That leads to a simple observation that condition $0 < \frac {\omega - F_1}{F_N 
 argument is well defined. What now interests us the most, is the integral:
 
 \begin{equation} \label{eq:htran_interestint} 
-  \mathrm{Y}(\omega )=\int_{F_1}^{F_N}\frac {\mathrm{R}(\Omega ) - \mathrm{R}(\omega )}{\Omega  - \omega }\,d\Omega
+  \mathrm{Y}(\omega ) = \int_{F_1}^{F_N} \frac { \mathrm{R}(\Omega ) - \mathrm{R}( \omega )}{\Omega  - \omega } \, d\Omega
 \end{equation}
 
 
@@ -1123,7 +1143,7 @@ We would like the denominator in the (\ref{eq:htran_interestint}) equation never
 numerically. For this reason we are preparing a new set of values, which are just a simple midways of $F$:
 
 \begin{equation} \label{eq:htran_newpoints}
-  \widehat{F_{k}}=\frac {{F_{k}} + {F_{k + 1}}}{2} \,\mbox{ for } \, k = 1\,\ldots\,{N - 1}
+  \widehat{F_k}=\frac { F_k + F_{k + 1} }{2} \,\mbox{ for } \, k = 1 \, \ldots \, {N - 1}
 \end{equation} 
 
 We will also need to approximate the values of a new $\widehat{R}$ at $\widehat{F_j} \quad (j = 1 \ldots N-1)$  points.
@@ -1131,13 +1151,14 @@ We will do this by a simple cubic interpolation. $R(\widehat{F_j}) = \widehat{R_
 
 \begin{subequations} \label{eq:htran_r3interp}
   \begin{equation}   \label{eq:hr3inp_first}
-    \widehat{R_{1}} = \frac {3\,{R_{1}} + 6\,{R_{2}} - {R_{3}}}{8}
+    \widehat{R_1}     = \frac {3 \, R_1 + 6 \, R_2 - R_3}{8}
   \end{equation}
   \begin{equation}   \label{eq:hr3inp_next}
-    \widehat{R_{k}} = \frac { - {R_{k - 1}} + 9\,{R_{k}} + 9\,{R_{k + 1}} - {R_{k + 2}}}{16} \quad \mbox{ for } \, k = 2\,\ldots\,{N - 2}
+    \widehat{R_k}     = \frac { - R_{k - 1} + 9 \, R_k + 9 \, R_{k + 1} - R_{k + 2} }{16} 
+                        \quad \mbox{ for } \, k = 2 \, \ldots \, {N - 2}
   \end{equation}
   \begin{equation}   \label{eq:hr3inp_last}
-    \widehat{R_{N-1}} = \frac { - {R_{N - 2}} + 6\,{R_{N - 1}} + 3\,{R_{N}}}{8}
+    \widehat{R_{N-1}} = \frac { - R_{N - 2} + 6 \, R_{N - 1} + 3 \, R_N}{8}
   \end{equation}
 \end{subequations}
 
@@ -1146,21 +1167,21 @@ quadrature integration. The introduced $\widehat{Y_{i}}$ symbol describes the nu
 calculated with the following equation:
 
 \begin{equation} \label{eq:htran_simplequadrature}
-  \widehat{Y_{i}}=\sum_{j=1}^{N}\,\frac {{h_{j}}\,({R_{j}} - \widehat{R_{i}})}{{F_{j}} - \widehat{F_{i}}} \,\mbox{ for } \, i =
-  1\,\ldots\,{N - 1} .
+  \widehat{Y_{i}} = \sum_{j=1}^{N} \, \frac {h_j \, (R_j - \widehat{R_i})} 
+                                            {F_j - \widehat{F_i}} \, \mbox{ for } \, i = 1 \, \ldots \, {N - 1} .
 \end{equation}
 
 To do such an integration we will hire the Simpson's rule. If N is odd, we have:
 
 \begin{subequations} \label{eq:htran_nodd}
   \begin{equation}   \label{eq:hnodd_fnlast}
-    {h_{1}} = {h_{N}} = \frac {F_2 - F_1}{3} = \frac {\Delta \,F}{3}
+    h_1 = h_N = \frac {F_2 - F_1}{3} = \frac {\Delta \, F}{3}
   \end{equation}
   \begin{equation}   \label{eq:hnodd_even}
-    {h_{j}} = \frac {4\,\Delta \,F}{3}  \,\mbox{ for } \,j=2, \,4\,\ldots\,{N - 1}
+    h_j = \frac {4 \, \Delta \, F}{3}  \, \mbox{ for } \, j = 2, \, 4 \, \ldots \, {N - 1}
   \end{equation}
   \begin{equation}   \label{eq:hnodd_odd}
-    {h_{j}} = \frac {2\,\Delta \,F}{3}  \,\mbox{ for } \,j=3, \,5\,\ldots\,{N - 2}
+    h_j = \frac {2 \, \Delta \, F}{3}  \, \mbox{ for } \, j = 3, \, 5 \, \ldots \, {N - 2}
   \end{equation}
 \end{subequations}
 
@@ -1168,52 +1189,51 @@ If N is even, the last interval should be obtained using the trapezoidal rule:
 
 \begin{subequations} \label{eq:htran_neven}
   \begin{equation}   \label{eq:hneven_first}
-    {h_{1}} = \frac {\Delta \,F}{3} = \frac {F_2 - F_1}{3}
+    h_1 = \frac {\Delta \, F}{3} = \frac {F_2 - F_1}{3}
   \end{equation}
   \begin{equation}   \label{eq:hneven_even}
-    {h_{j}}=\frac {4\,\Delta \,F}{3}  \,\mbox{ for } \,j=2, \,4\,\ldots\,{N - 2}
+    h_j = \frac {4 \, \Delta \, F}{3}  \, \mbox{ for } \, j = 2, \, 4 \, \ldots \, {N - 2}
   \end{equation}
   \begin{equation}   \label{eq:hneven_odd}
-    {h_{j}}=\frac {2\,\Delta \,F}{3}  \,\mbox{ for } \,j=3, \,5\,\ldots\,{N - 3}
+    h_j = \frac {2 \, \Delta \, F}{3}  \, \mbox{ for } \, j = 3, \, 5 \, \ldots \, {N - 3}
   \end{equation}
    \begin{equation}   \label{eq:hneven_prelast}
-    {h_{N - 1}} = \frac {5\,\Delta \,F}{6}
+    h_{N - 1} = \frac {5 \, \Delta \, F}{6}
   \end{equation}
    \begin{equation}   \label{eq:hneven_last}
-    {h_{N}} = \frac {\Delta \,F}{2}
+    h_N = \frac {\Delta \, F}{2}
   \end{equation}
 \end{subequations}
 
 In the next step, we calculate the Hilbert transform at points $\widehat{F_j} \, (j = 1, \ldots, N-1)$ :  
 
 \begin{equation} \label{eq:htran_htpoints}
-  \widehat{HT_{i}} = \frac {1}{\pi} 
-  \left[ 
-      - \widehat{R_{i}}\,\mathrm{ln}(\frac {\widehat{F_{i}} - F_{1}}{F_{N} - \widehat{F_{i}}})
-      + \widehat{Y_{i}} 
-  \right] .
+  \widehat{HT_i} = \frac {1}{\pi} 
+  \left[ -  \widehat{R_i}
+         \, \mathrm{ln}(\frac {\widehat{F_i} - F_1}{F_N - \widehat{F_i} })
+         +  \widehat{Y_i} 
+  \right].
 \end{equation}
 
 Finally we need to undo the cubic interpolation. $ HT(F_i) = HT_{i} $, so: 
 
-\begin{subequations} \label{eq:htran_undointp}
-  \begin{equation}   \label{eq:htundo_first}
-    HT_{1} = \frac {15\,\widehat{HT_{1}} - 10\,\widehat{HT_{2}} + 3\,\widehat{HT_{3}}}{8}
-  \end{equation}
-  \begin{equation}   \label{eq:htundo_second}
-    HT_{2} =\frac {3\,\widehat{HT_{1}} + 6\,\widehat{HT_{2}} - 1\,\widehat{HT_{3}}}{8}
-  \end{equation}
-  \begin{equation}   \label{eq:htundo_next}
-    HT_{i} =\frac { - \widehat{HT_{i - 1}} + 9\,\widehat{HT_{i}} + 9\,\widehat{HT_{i + 1}} - \widehat{ \mathit{HT}_{i + 1}} } {16} \,\mbox{
-    for } \,i=3,\,4,\,\ldots\,{N - 2}
-  \end{equation}
-  \begin{equation}   \label{eq:htundo_prelast}
-    HT_{N - 1} =\frac { - \widehat{HT_{N - 3}} + 6\,\widehat{HT_{N - 2}} + 3\,\widehat{HT_{N - 1}}}{8}
-  \end{equation}
-  \begin{equation}   \label{eq:htundo_last}
-    HT_{N} =\frac {3\,\widehat{HT_{N - 3}} - 10\,\widehat{HT_{N - 2}} + 15\,\widehat{HT_{N - 1}}}{8}
-  \end{equation}
-\end{subequations}
+\begin{align}
+  \label{eq:htundo_first}  
+    HT_1       & = \frac {15 \, \widehat{HT_1} - 10 \, \widehat{HT_2} + 3 \, \widehat{HT_3}}{8}
+    \\
+  \label{eq:htundo_second}
+    HT_2       & = \frac {3 \, \widehat{HT_1} + 6 \, \widehat{HT_2} - 1 \, \widehat{HT_3}}{8}
+    \\ 
+  \label{eq:htundo_next}
+    HT_i       & = \frac { - \widehat{HT_{i - 1}} + 9 \, \widehat{HT_i} + 9 \, \widehat{HT_{i + 1}} - \widehat{ \mathit{HT}_{i + 1}} }
+                   {16} \, \mbox{ for } \, i = 3, \, 4, \, \ldots \, {N - 2} 
+    \\
+  \label{eq:htundo_prelast}
+    HT_{N - 1} & = \frac { - \widehat{HT_{N - 3}} + 6 \, \widehat{HT_{N - 2}} + 3 \, \widehat{HT_{N - 1}}}{8} 
+    \\
+  \label{eq:htundo_last}
+    HT_N       & = \frac {3 \, \widehat{HT_{N - 3}} - 10 \, \widehat{HT_{N - 2}} + 15 \, \widehat{HT_{N - 1}}}{8}  
+\end{align}
 
 In the following chapters we will show the results obtained with this method.
 
@@ -1227,7 +1247,7 @@ We shall remind the model presented in Chapter (\ref{chap:physical_models}) in t
 
 The real part of $\chi_{\text{lin}}$ will be used as the input function $R$ in the equation (\ref{eq:htran_first_modification}). The
 output function $HT$ calculated with the HTRAN algorithm is compared to the imaginary part of the $\chi_{\text{lin}}$. We have presented
-the results in the Figure (\ref{eq:htran_lin}). In this and in the following chapters we would like the error function
+the results in Figure (\ref{eq:htran_lin}). In this and in the following chapters we would like the error function
 represented with the yellow colour to be as close to zero as possible. We also would like the numerical results to be close to the
 values calculated analytically.
 
@@ -1249,9 +1269,9 @@ We remind the equation for the pump-and-probe susceptibility model (\ref{eq:phys
 \begin{multline} \label{eq:htran_fparameters}
   \chi_{pp} (\delta ) = \frac {G\,{n_{0}}\,{\gamma_{ba}}}{\Delta + \delta + I\,\eta } \\
     \left(  
-    	1 - \frac{{\Omega_{1}}^{2}\,(\Delta - \delta  + I\,\eta )\,(\delta  + 2\,I\,\eta )}
-    	         {(\Delta  - I\,\eta )\,((\delta + I\,\theta )\,(\Delta + \delta  + I\,\eta )\,(\delta - \Delta  + I\,\eta ) 
-    	            - {\Omega_{1}}^{2}\,(\delta  + I\,\eta ))\,2} 
+    	1 - \frac{{\Omega_{1}}^{2}\,(\Delta - \delta + I \, \eta ) \, (\delta + 2 \, I \, \eta )}
+    	         {(\Delta  - I \, \eta) \, ((\delta + I \, \theta ) \, (\delta + \Delta + I \, \eta ) 
+    	           \, (\delta - \Delta  + I\,\eta ) - 2 \, {\Omega_{1}}^{2} \, (\delta  + I \, \eta ))} 
     \right) 
 \end{multline}
 
@@ -1266,7 +1286,7 @@ and we have assign the values for the constants:
   $\Omega_{1}$  & $=$ & $4.3$. \\
 \end{tabular}
 
-The results for such set of parameters are shown on the Figure (\ref{fig:htran_pnp_2d}).
+The results for such set of parameters are shown on Figure (\ref{fig:htran_pnp_2d}).
 
 \begin{figure}
   \includegraphics[width=150mm]{img/htran_pnp_2d.png}
@@ -1282,7 +1302,7 @@ The results for such set of parameters are shown on the Figure (\ref{fig:htran_p
 The resulted b-plot seems to be a not-so-bad introduction into the Hilbert transform evaluation, as we have only employed the
 simple Simpson's rule. We would also like to perform the three-dimensional analysis of the assumed pump-probe susceptibility, so we
 employ the (\ref{eq:dconclude_imag}) and (\ref{eq:dconclude_real}) equations for each frequency. The obtained three-dimensional shapes are
-similar to the original ones, but we have received a huge relative error as presented in the Figure (\ref{fig:htran_pnp_3derr}).
+similar to the original ones, but we have received a huge relative error as presented in Figure (\ref{fig:htran_pnp_3derr}).
 
 \begin{figure}
   \begin{center}
@@ -1337,7 +1357,7 @@ With such a complex function we obtain the two and three dimensional results pre
 \end{figure}
 
 While the obtained three-dimensional shape looks very similar to those obtained analytically, the relative error still remains huge for some
-areas (Figure \ref{fig:htran_fmix_3derr}):
+areas - see Figure (\ref{fig:htran_fmix_3derr}).
 
 \begin{figure}
   \begin{center}
@@ -1358,25 +1378,23 @@ We will use the models already prepared for both linear and second-order nonline
   i\,{\gamma_{n}}} + \frac {{\mu_{2, \,n}}\,{\mu_{1, \,n}}}{{\Omega_{n}} + \omega + i\,{\gamma_{n}}}) ,
 \end{equation}
 
-where we have used the following values of the constants: 
+We have used the constants' values defined in (\ref{eq:htran_qp1_const}). 
 
-\begin{align*}
-  \mu &= \begin{bmatrix} 
+\begin{equation} \label{eq:htran_qp1_const}
+  \mu = \begin{bmatrix} 
           1  & 3 \\ 
           -1 & -2
-        \end{bmatrix},  \\
-  \Omega &= \begin{bmatrix}
+        \end{bmatrix},
+  \Omega = \begin{bmatrix}
            3 \\ 16
-           \end{bmatrix}, \\
-  \gamma &= \begin{bmatrix}
+           \end{bmatrix},
+  \gamma = \begin{bmatrix}
            1 \\ 2
-           \end{bmatrix}, \\
-  N &= 5, \\
-  \varepsilon_0 &= 1, \\
-  h &= -1.
-\end{align*}
-
-Results are gathered on the Figure (\ref{fig:htran_qp_2d}).
+           \end{bmatrix}, 
+  N = 5, 
+  \varepsilon_0 = 1, 
+  h = -1.
+\end{equation}
 
 \begin{figure} 
   \includegraphics[width=70mm]{img/htran_qp_2da.png} 
@@ -1394,31 +1412,56 @@ Results are gathered on the Figure (\ref{fig:htran_qp_2d}).
   \label{fig:htran_qp_2d}}
 \end{figure}
 
-\begin{multline} \label{eq:htran_qp_reminder}
-  {\chi_{2, \,qp}}({\omega_{1}}, \,{\omega_{2}}) = 
-  2 \, N { \varepsilon_{0}}\,h^{2}) \sum_{n=1}^{2} \sum_{m=1}^{2} \sum_{l=1}^{2} 
-  (\\ \frac {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{nl}} - \omega_1 - \omega_2 - i\,{\gamma_{nl}})\,({\Omega_{ml}} - \omega_1 - i\,{\gamma_{ml}})}
-  +\\ + \frac {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{nl}} - \omega_1 - \omega_1 - i\,{\gamma_{nl}})\,({\Omega_{ml}} - \omega_2 - i\,{\gamma_{ml}})} 
-  +\\ + \frac {{\mu_{l, \,n}}\,{\mu_{nm}} \,{\mu_{ml}}}
-      {({\Omega_{mn}} - \omega_1 - \omega_2 - i\,{\gamma_{mn}})\,({\Omega_{nl}} + \omega_2 + i\,{\gamma_{nl}})} 
-  +\\ + \frac {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{mn}} - \omega_1 - \omega_2 - i\,{\gamma_{mn}})\,({\Omega_{nl}} + \omega_2 + i\,{\gamma_{nl}})} 
-  +\\ + \frac {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{nm}} + \omega_1 + \omega_2 + i\,{\gamma_{nm}})\,({\Omega_{ml}} - \omega_1 - i\,{\gamma_{ml}})} 
-  +\\ + \frac {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{nm}} + \omega_1 + \omega_2 + i\,{\gamma_{nm}})\,({\Omega_{ml}} - \omega_1 - i\,{\gamma_{ml}})} 
-  +\\ + \frac {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{ml}} + \omega_1 + \omega_2 + i\,{\gamma_{ml}})\,({\Omega_{nl}} + \omega_1 + i\,{\gamma_{nl}})} 
-  +\\ + \frac {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{ml}} + \omega_1 + \omega_2 + i\,{\gamma_{ml}})\,({\Omega_{nl}} + \omega_2 + i\,{\gamma_{nl}})}
-  ) .
-\end{multline} 
+Results are gathered on Figure (\ref{fig:htran_qp_2d}). As we can see - the absolute error is quite huge, but on the other hand the
+pairs of plots (a.c) with (a.d) and (b.c) with (b.d) have at least similar shapes. As for the simplest applied method these results can be
+satisfactory in case we only would like to initially reject or accept the investigated model. In case we need much higher accuracy, we will
+need to search for more precise methods.
 
-In the (\ref{eq:htran_qp_reminder}) we are using the following constants' values:
-$\mu=[[1,\,3],\,[-1,\,-2]],\,\Omega=[[3,\,16],\,[4,\,12]],\,\gamma=[[1,\,2],\,[-1,\,3]],\,N=5,\,\varepsilon_{0}=1,\,h=-1$.
+In the equation (\ref{eq:htran_qp_reminder}) we remind the second-order quantum-perturbative sum-over-states model from the Chapter
+(\ref{chap:problem_quantum}). 
 
+\begin{equation} \label{eq:htran_qp_reminder}
+  \begin{split} 
+     & \chi_{2, \, qp}(\omega_1, \, \omega_2 ) = 
+    \frac{N} {2 \, \varepsilon_0 \, h^2} \sum_{n=1}^{2} \sum_{m=1}^{2} \sum_{l=1}^{2} 
+    \\ ( & \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{ml}} - \omega_1 - i \, {\gamma_{ml}})^{-1} }
+        {({\Omega_{nl}} - \omega_1 - \omega_2 - i \, {\gamma_{nl}}) }
+       + \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{ml}} - \omega_2 - i \, {\gamma_{ml}})^{-1} }
+        {({\Omega_{nl}} - \omega_1 - \omega_1 - i \, {\gamma_{nl}}) } 
+    \\ + & \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{nl}} + \omega_2 + i \, {\gamma_{nl}})^{-1} }
+        {({\Omega_{mn}} - \omega_1 - \omega_2 - i \, {\gamma_{mn}}) } 
+       + \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{nl}} + \omega_2 + i \, {\gamma_{nl}})^{-1} }
+        {({\Omega_{mn}} - \omega_1 - \omega_2 - i \, {\gamma_{mn}}) } 
+    \\ + & \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{ml}} - \omega_1 - i \, {\gamma_{ml}})^{-1} }
+        {({\Omega_{nm}} + \omega_1 + \omega_2 + i \, {\gamma_{nm}}) } 
+       + \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{ml}} - \omega_1 - i \, {\gamma_{ml}})^{-1} }
+        {({\Omega_{nm}} + \omega_1 + \omega_2 + i \, {\gamma_{nm}}) } 
+    \\ + & \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{nl}} + \omega_1 + i \, {\gamma_{nl}})^{-1} }
+        {({\Omega_{ml}} + \omega_1 + \omega_2 + i \, {\gamma_{ml}}) } 
+       + \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{nl}} + \omega_2 + i \, {\gamma_{nl}})^{-1} }
+        {({\Omega_{ml}} + \omega_1 + \omega_2 + i \, {\gamma_{ml}})}).
+  \end{split} 
+\end{equation}
+
+We have applied the following constants' values: 
+
+\begin{equation} \label{eq:htran_qp_constant}
+  \mu = \begin{bmatrix}
+          1, &  3 \\
+         -1, & -2
+        \end{bmatrix}, \,
+  \Omega = \begin{bmatrix}
+          3, & 16 \\
+          4, & 12
+        \end{bmatrix}, \,
+  \gamma = \begin{bmatrix}
+          1, & 2 \\
+         -1, & 3
+        \end{bmatrix}, \,
+  N = 5, \,
+  \varepsilon_0 = 1, \, 
+  h = -1.
+\end{equation}
 
 \begin{figure}
   \includegraphics[width=150mm]{img/htran_qp_3d.png}
@@ -1431,23 +1474,22 @@ $\mu=[[1,\,3],\,[-1,\,-2]],\,\Omega=[[3,\,16],\,[4,\,12]],\,\gamma=[[1,\,2],\,[-
      \label{fig:htran_qp_3d}}
 \end{figure}
 
-In the Figure (\ref{fig:htran_qp_3d}) we can see that there is a similarity in obtained plots, but both the relative and absolute
-error do not satisfy us at all. Results obtained with 2-Dimensional model were more satisfying.
+As the equations (\ref{eq:dlucarini_imag}) and (\ref{eq:dlucarini_real}) are symmetric, in the 3-dimensional model we treated the real and
+imaginary parts as input and performed the 2-dimensional Hilbert transform in a simplified ``stripe by stripe'' way. Results are
+presented in Figure (\ref{fig:htran_qp_3d}). We can see that there is a similarity in obtained plots, but both the relative and absolute
+error do not satisfy us at all. Those obtained with 2-dimensional model were more satisfying - see Figure (\ref{fig:htran_qp_2d}).
 
 We have implemented the HTRAN method in the MATLAB \textsuperscript{\textregistered} environment, and its source code is available in
 the Appendix A.1.
 
+\section{Newton-Cotes based Hilbert transform (HNC)} \label{chap:nc}
 
-
-
-\section{Newton-Cotes Hilbert transform} \label{chap:nc}
-
-\subsection{Overview of the NC quadrature of arbitrary degree}  \label{chap:nc_quadrature}
+\subsection{Overview of the Newton-Cotes (NC) quadrature of arbitrary degree}  \label{chap:nc_quadrature}
 
 Newton-Cotes formula for numerical integration is taken into consideration. We compare formula for an arbitrary degree - having in
 our mind that the choice between formulas of high and low degree must be undertaken with the awareness of numerical errors which
 may arise. Newton-Cotes quadrature is a method for numerical integration with equispaced vertices. As we would like to integrate
-function f = f(x) within the range $[a, b]$ we introduce the following calculations.
+function $f = f(x)$ within the range $[a, b]$ we introduce the following symbols:
 
 \begin{subequations} \label{eq:nc_parameters}
   \begin{equation}   \label{eq:ncparms_x}
@@ -1469,7 +1511,7 @@ function f = f(x) within the range $[a, b]$ we introduce the following calculati
 With parameters defined in this way, the quadrature in sense of Newton-Cotes is defined as following:
 
 \begin{equation} \label{eq:nc_mainequation}
-   NC_{n}(f)={A_{n, \,k}}\sum_{k=0}^{n}\, (a + \frac {(b - a)}{n} \, k) . 
+   NC_{n} (f) = { A_{n, \, k} } \sum_{ k = 0 }^{n} \, f \, (a + \frac {(b - a)} {n} \, k) . 
 \end{equation}
 
 Let's remind the Hilbert transform from the equation (\ref{eq:mathematical_hilbert}):
@@ -1478,17 +1520,27 @@ Let's remind the Hilbert transform from the equation (\ref{eq:mathematical_hilbe
 	\mathcal{H}[f(x)] = \frac{1}{\pi} \dashint_{ - \infty }^{\infty } \frac{f(\omega)}{(x - \omega)} \, d\omega . 
 \end{equation}
 
-We would like to apply the Newton-Cotes quadrature to calculate the Hilbert transform. While the NC quadrature is not perfect, we need
-perform the integration without including a short region $[x-cs, x+cs]$ near the singularity. We will also omit the infinities and instead
-of them we will integrate from a starting point $a$ to the ending point $b$:
+\subsection{Our implementation of the Hilbert Transform HNC}  \label{chap:nc_hilbert_transform}
+
+We would like to apply the Newton-Cotes quadrature to calculate the Hilbert transform. Prepared algorithm will consist of two
+main steps. In the first step we modify the region under the integral to omit singularities and deal with infinities. To omit the
+singularities as the NC quadrature was not designed to be used on singular functions, we will set a small constant value $c_s$ and
+perform the integration without including a short region $[x - c_s, x + c_s]$ near the singularity. To deal with the infinities we observe
+that near infinities our input function vanishes so without much loss, we will integrate from a finite, starting point $a$ to the ending
+point $b$:
 
 \begin{equation}
-	\mathcal{H}_{NC}[f(x)] \approx \frac{1}{\pi} \dashint_{ a }^{ x-cs } \frac{f(\omega)}{(x - \omega)} \, d\omega 
-                           +  	   \frac{1}{\pi} \dashint_{ x+cs }^{ b } \frac{f(\omega)}{(x - \omega)} \, d\omega .
+	\mathcal{H}[f(x)] \approx \frac{1}{\pi} \int_{ a }^{ x - c_s } \frac{ f(\omega) }{ (x - \omega) } \, d\omega 
+                           +  \frac{1}{\pi} \int_{ x + c_s }^{ b } \frac{ f(\omega) }{ (x - \omega) } \, d\omega .
 \end{equation} 
 
-Parameters such as $a$, $b$ and $cs$ are widely described the Appendix A.2 with the whole source code and additional comments.
+In the second step, important in our implementation, we are pre\-calculating the $A_{n, \, k}$ matrix described in equation
+(\ref{eq:ncparms_a}) within the function \texttt{prevaluateNCTab(n, a, b)}. We are applying the \texttt{maple} function that connects MATLAB
+with Maple and gives us the power of both tools. Once we know the $A_{n, \, k}$ matrix, we can perform the step-by-step calculation in the
+\texttt{doStep(fun, a, b, nosteps, tab)} function, which is called with a different number of steps (described with the \texttt{nosteps}
+parameter) in the parent loop as long as we demand better precision, related to the tolerance (\texttt{tol}) parameter.
 
+The full algorithm is presented in the Appendix A.2 with the additional comments. 
 
 \subsection{NC for simple linear model - results} \label{chap:nc_lin}
 
@@ -1499,12 +1551,13 @@ cases, some of those results are stated below. We have used the same model as in
   \chi (\omega ) \approx \frac { - 20}{(\omega \,i + 1 - 20\,i)\,(\omega \,i + 1 + 20\,i)}
 \end{equation} 
 
-Some results has been presented on the Figures (\ref{fig:nc_lin1}), (\ref{fig:nc_lin2}), (\ref{fig:nc_lin3}) and (\ref{fig:nc_lin4})
+Some results has been presented on Figures (\ref{fig:nc_lin1}), (\ref{fig:nc_lin2}), (\ref{fig:nc_lin3}) and (\ref{fig:nc_lin4})
 
 \begin{figure}
   \includegraphics[width=150mm]{img/nc_lin1.png}
    \caption{ The Figure presents the first of four results of the NC Hilbert Transform method applied for the simple linear model. Results
-   are plotted together. Calculations were performed with the parameters ($n=8, \,c s=\mbox{.1e-1}, \,tol=\mbox{.2e-1}$ 
+   are plotted together. Calculations were performed with the parameters ($n = 8, \, c_s = \mbox{.1e-1}, \, tol = \mbox{.2e-1})$. Tol -
+   parameter describes the error tolerance:
      a.a) The plot of the real part of $\chi (\omega )$ 
      a.b) absolute error plot (a.d-plot minus a.c-plot) 
      a.c) imaginary part of $\chi (\omega )$ calculated analytically 
@@ -1519,8 +1572,8 @@ Some results has been presented on the Figures (\ref{fig:nc_lin1}), (\ref{fig:nc
 
 \begin{figure}
   \includegraphics[width=150mm]{img/nc_lin2.png}
-  \caption{ The Figure presents the the second of four results of the NC Hilbert Transform method applied for the simple linear model.
-  Results are plotted together. Calculations were performed with the parameters ($n=3, \,cs=\mbox{.1e-1}, \,tol=\mbox{.2e-1}$
+  \caption{ The Figure presents the second of four results of the NC Hilbert Transform method applied for the simple linear model.
+  Results are plotted together. Calculations were performed with the parameters ($n = 3, \, c_s = \mbox{.1e-1}, \, tol = \mbox{.2e-1})$
      a.a) The plot of the imaginary part of $\chi (\omega )$
      a.b) absolute error plot (a.d-plot minus a.c-plot) 
      a.c) real part of $\chi (\omega )$ calculated analytically 
@@ -1536,7 +1589,7 @@ Some results has been presented on the Figures (\ref{fig:nc_lin1}), (\ref{fig:nc
 \begin{figure}
   \includegraphics[width=150mm]{img/nc_lin3.png}
   \caption{ The Figure presents the third of four results of the NC Hilbert Transform method applied for the simple linear model. Results
-   are plotted together. Calculations were performed with the parameters ($n=13, \,tol=\mbox{.5e-2}, \,cs=\mbox{.5e-1}$
+   are plotted together. Calculations were performed with the parameters ($n = 13, \ , tol = \mbox{.5e-2}, \, c_s = \mbox{.5e-1})$
     a.a) The plot of the real part of $\chi (\omega )$
     a.b) absolute error plot (a.d-plot minus a.c-plot) 
     a.c) imaginary part of $\chi (\omega )$ calculated analytically 
@@ -1552,7 +1605,7 @@ Some results has been presented on the Figures (\ref{fig:nc_lin1}), (\ref{fig:nc
 \begin{figure}
   \includegraphics[width=150mm]{img/nc_lin4.png}
   \caption{The Figure presents the fourth of four results of the NC Hilbert Transform method applied for the simple linear model. Results
-   are plotted together. Calculations were performed with the parameters ($n=33, \,tol=\mbox{.2e-2}, \,cs=\mbox{.5e-1}$
+   are plotted together. Calculations were performed with the parameters ($n = 33, \, tol = \mbox{.2e-2}, \, c_s = \mbox{.5e-1}) $
     a.a) The plot of the real part of $\chi (\omega )$
     a.b) absolute error plot (a.d-plot minus a.c-plot) 
     a.c) imaginary part of $\chi (\omega )$ calculated analytically 
@@ -1571,54 +1624,16 @@ which may lead to better results in the particular cases.
 
 \subsection{NC for simple nonlinear model - results} \label{chap:nc_nlo}
 
-We have performed calculations for the same both nonlinear pump-probe and wave-mixing model as in the Chapter (\ref{chap:htran_lin}).
-We have assigned some randomly picked values to the constants: 
- 
-  $G             = 1$, \,
-  $\gamma_{ba}   = -0.1$, \, 
-  $n_0           = 1$, \,
-  $\Delta        = 1.3$, \,
-  $eta           = 1$, \,
-  $\theta        = 1.4$, \,
-  $\Omega_1      = 4.3$, \,
-  $\Omega_1      = 1$, \,
-  $w_0           = 1$, \,
-  $h             = 1$, \,
-  $\mu_{ba}      = 1$, \,
-  $T_1           = 1$, \,
-  $\varepsilon_0 = 1$,
+We have performed calculations for the same both nonlinear pump-probe (\ref{eq:htran_fparameters}) and wave-mixing (\ref{eq:htran_feffexp})
+models as in the Chapter (\ref{chap:htran_lin}) with the same set of parameters (constant values).
 
-and we will used them in the pump-and-probe (\ref{eq:nc_chipp}) and the frequency mixing (\ref{eq:nc_chimix}) model equations:
-
-\begin{multline} \label{eq:nc_chipp}
-  \chi_{pp}(\delta ) = 
-  \frac {G\,{n_{0}}\,{\gamma_{ba}}}{\Delta  + \delta  + I\,\eta }
-  \\ 
-  \left(
-      1 - \frac{{\Omega_{1}}^{2}\,(\Delta - \delta  + I\,\eta )\,(\delta  + 2\,I\,\eta )}
-                {2\,(\Delta  - I\,\eta )\,((\delta  + I\,\theta)\,(\Delta  + \delta  + I\,\eta )\, (\delta  - \Delta  + I\,\eta ) 
-                   - {\Omega_{1}}^{2}\,(\delta  + I\,\eta ))} 
-  \right) ,
-\end{multline}
-
-\begin{align} \label{eq:nc_chimix}
-  {\chi_{mix}}(\delta ) 
-    &= 6\,N\,{w_{0}}\,\varepsilon_0\,h^{3}\,{\mu_{\mathit{ba}}}^{4}
-      \,( - \delta  - \Delta  - \frac {i}{{T_{2}}})
-      \,(\delta  + \frac{2\,i}{{T_{2}}}) (\Delta  + \frac {i}{{T_{2}}})\,(\Delta  + \delta  + \frac{i}{{T_{2}}})\cdot \\
-    & \cdot	(\delta ^{3} - \frac {2\,i\,\delta ^{2}}{{T_{2}}} - \delta \,\Delta ^{2} - \frac {2\,i\,\delta }{{T_{1}}\,{T_{2}}}
-      - \frac {\delta }{{T_{2}}^{2}} + \frac {\delta ^{2}}{{T_{1}}} - \frac {\Delta ^{2}}{{T_{1}}} - \frac {1}{{T_{1}}\,{T_{2}}^{2}} -
-      {\Omega_{2}}\,\delta  + \frac {{\Omega_{2}}\,i}{{T_{2}}}) .
-  \nonumber
-\end{align}
-
-Results for pump-and-probe model has been presented in the Figure (\ref{fig:nc_pnp}). Results for the frequency mixing model has been
-presented in the Figure (\ref{fig:nc_fmix1}). 
+Results for pump-and-probe model has been presented in Figure (\ref{fig:nc_pnp}). Results for the frequency mixing model has been
+presented in Figure (\ref{fig:nc_fmix1}). 
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/nc_pnp.png}
   \caption{ The Figure presents results of the NC Hilbert Transform method applied for the pump-and-probe model. Results
-   are plotted together. Calculations were performed with the parameters ($n=4, \,cs=\mbox{.1e-1}, \,tol=\mbox{.1e-1}$
+   are plotted together. Calculations were performed with the parameters ($n = 4, \, c_s = \mbox{.1e-1}, \, tol = \mbox{.1e-1})$
      a.a) The plot of the real part of ${\chi_{pp}}(\omega )$
      a.b) absolute error plot (a.d-plot minus a.c-plot) 
      a.c) imaginary part of ${\chi_{pp}}(\omega )$ calculated analytically 
@@ -1626,7 +1641,10 @@ presented in the Figure (\ref{fig:nc_fmix1}).
      b.a) The plot of the imaginary part of ${\chi_{pp}}(\omega )$ 
      b.b) absolute error plot (b.d-plot minus b.c-plot) 
      b.c) real part of $\chi_{pp} (\omega )$ calculated analytically 
-     b.d) real part of ${\chi_{pp}}(\omega )$ obtained with the NC Hilbert transform of b.a-plot 
+     b.d) real part of ${\chi_{pp}}(\omega )$ obtained with the NC Hilbert transform of b.a-plot.
+     With so few points and relatively long execution time the HNC method seems to be not a best fit for the analysis. We can see only the
+     first sketch of calculated plot and based on that result we can initially falsify the investigated model. In this case the model seems
+     to be correct.
      \label{fig:nc_pnp}
      }
 \end{figure} 
@@ -1634,7 +1652,7 @@ presented in the Figure (\ref{fig:nc_fmix1}).
 \begin{figure} 
   \includegraphics[width=150mm]{img/nc_fmix1.png}
   \caption{ The Figure presents results of the NC Hilbert Transform method applied for the frequency mixing model.
-  Results are plotted together. Calculations were performed with the parameters ($n=8, \,cs=\mbox{.3e-2}, \,tol=\mbox{.1e-1}$
+  Results are plotted together. Calculations were performed with the parameters ($n = 8, \, c_s = \mbox{.3e-2}, \, tol = \mbox{.1e-1})$
      a.a) The plot of the real part of ${\chi_{mix}}(\omega )$
      a.b) absolute error plot (a.d-plot minus a.c-plot) 
      a.c) imaginary part of ${\chi_{mix}}(\omega )$ calculated analytically 
@@ -1642,7 +1660,9 @@ presented in the Figure (\ref{fig:nc_fmix1}).
      b.a) The plot of the imaginary part of ${\chi_{mix}}(\omega )$ 
      b.b) absolute error plot (b.d-plot minus b.c-plot) 
      b.c) real part of $\chi_{mix} (\omega )$ calculated analytically 
-     b.d) real part of ${\chi_{mix}}(\omega )$ obtained with the Hilbert transform of b.a-plot 
+     b.d) real part of ${\chi_{mix}}(\omega )$ obtained with the Hilbert transform of b.a-plot
+     We managed to use more points than in Figure (\ref{fig:nc_pnp}). We have received quite low error, but still in some areas 
+     the method seems to generate large error.
      \label{fig:nc_fmix1}
      }
 \end{figure}
@@ -1651,20 +1671,32 @@ presented in the Figure (\ref{fig:nc_fmix1}).
 
 \subsubsection*{Linear model - results:}
 
-For the linear susceptibility we have used the model from the Chapter (\ref{chap:problem_quantum}): 
+For the linear susceptibility we have used the model from Chapter (\ref{chap:problem_quantum}): 
 
 \begin{equation} \label{eq:nclin_chipp}
-  {\chi_{1, \,qp}}(\omega ) = \frac {N}{\varepsilon_0\,h} \sum_{n=1}^{2}\,(\frac {{\mu_{1, \,n}}\,{ \mu_{2, \,n}}}{{\Omega_{n}}
-  - \omega  - i\,{\gamma_{n}}} + \frac {{\mu_{2, \,n}}\,{\mu_{1, \,n}}}{{\Omega_{n}} + \omega + i\,{\gamma_{n}}})
+  \chi_{1, \, qp}(\omega ) = \frac {N}{\varepsilon_0 \, h} \sum_{n=1}^{2} \, 
+    ( \frac {{\mu_{1, \,n}} \, { \mu_{2, \, n}}}
+            {{\Omega_{n}} - \omega  - i \, {\gamma_{n}}} 
+    + \frac {{\mu_{2, \,n}}\,{\mu_{1, \,n}}}
+            {{\Omega_{n}} + \omega + i \, {\gamma_{n}}} )
 \end{equation}
 
-This time we used the following parameters: \,
-$\mu = [[3, \, - 0.5], \,[1.2, \,2.4]]$, \, 
-$\Omega = [ - 3, \,13]$, \,
-$\gamma = [0.7, \,2.3]$, \,
-$N = 8$, \,
-$\varepsilon_{0} = 1.4$, \,
-$h = - 2.7$. 
+This time we used the following parameters: 
+
+\begin{equation}
+  \mu = \begin{bmatrix} 
+    3, & - 0.5 \\ 1.2, & 2.4
+  \end{bmatrix},
+  \Omega = \begin{bmatrix} 
+    - 3, & 13
+  \end{bmatrix}, \,
+  \gamma = \begin{bmatrix} 
+    0.7, & 2.3
+  \end{bmatrix}, \,
+  N = 8, \,
+  \varepsilon_{0} = 1.4, \,
+  h = - 2.7.
+\end{equation} 
 
 Evaluation time of two plots given in Figure (\ref{fig:nc_qp1}) was 615 seconds.
 
@@ -1679,7 +1711,8 @@ Evaluation time of two plots given in Figure (\ref{fig:nc_qp1}) was 615 seconds.
     b.b) The plot of the real part of ${\chi_{1, \, qp}}(\omega )$ 
     b.b) absolute error plot (d-plot minus c-plot) 
     b.c) imaginary part of ${\chi_{1, \, qp}}(\omega )$ obtained with the NC Hilbert transform of a-plot 
-    b.d) imaginary part of ${\chi_{1, \, qp}}(\omega )$ calculated analytically  
+    b.d) imaginary part of ${\chi_{1, \, qp}}(\omega )$ calculated analytically
+    We can see a good fit, but still in some areas results are with high error.  
     \label{fig:nc_qp1}
   }
 \end{figure}
@@ -1688,46 +1721,53 @@ Evaluation time of two plots given in Figure (\ref{fig:nc_qp1}) was 615 seconds.
 
 For the second-order susceptibility we used the model from Chapter (\ref{chap:problem_quantum}):
 
-\begin{multline} \label{eq:nclin_chipp2}
-  \chi_{2, \,qp}({\omega_{1}}, \,{\omega_{2}})
-  = 2\,N\,\varepsilon_{0}\,h^{2}\,\sum_{n=1}^{2}\sum_{m=1}^{2}\sum_{l=1}^{2} 
-   (
- \\    \frac{{\mu_{l,\,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{nl}} - \omega_1 - \omega_2 - i\,{\gamma_{nl}})\,({\Omega_{ml}} - \omega_1 - i\,{\gamma_{ml}})} 
-+ \\ + \frac{{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{nl}} - \omega_1 - \omega_1 - i\,{\gamma_{nl}})\,({\Omega_{ml}} - \omega_2 - i\,{\gamma_{ml}})}
-+ \\ + \frac{{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{mn}} - \omega_1 - \omega_2 - i\,{\gamma_{mn}})\,({\Omega_{nl}} + \omega_2 + i\,{\gamma_{nl}})}
-+ \\ + \frac{{\mu_{l, \,n }}\,{\mu_{nm}}\,{\mu_{ml}}} 
-      {({\Omega_{mn}} - \omega_1 - \omega_2 - i\,{\gamma_{mn}})\,({\Omega_{nl}} + \omega_2 + i\,{\gamma_{nl}})} 
-+ \\ + \frac{{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{nm}} + \omega_1 + \omega_2 + i\,{\gamma_{nm}})\,({\Omega_{ml}} - \omega_1 - i\,{\gamma_{ml}})}
-+ \\ + \frac{{\mu_{l, \,n}}\,{\mu_{ nm}}\,{\mu_{ml}}}
-      {({\Omega_{nm}} + \omega_1 + \omega_2 + i\,{\gamma_{nm}})\,({\Omega_{ml}} - \omega_1 - i\,{\gamma_{ml}})} 
-+ \\ + \frac{{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{ml}} + \omega_1 + \omega_2 + i\,{\gamma_{ml}})\,({\Omega_{nl}} + \omega_1 + i\,{\gamma_{nl}})}
-+ \\ + \frac{{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{ml}} + \omega_1 + \omega_2 + i\,{\gamma_{ml}})\,({\Omega_{nl}} + \omega_2 + i\,{\gamma_{nl}})}
-   )
-\end{multline}
-with the constant values already chosen: \\
-$\mu = \left| \begin{array}{cc} 
-    1 & 3 \\ -1 & -2 
-  \end{array} \right|,\, 
-  \Omega = \left| \begin{array}{cc} 
-    3 & 16 \\ 4 & 12 
-  \end{array} \right|,\,
-  \gamma = \left| \begin{array}{cc} 
-  1 & 2 \\ -1 & 3
-  \end{array} \right|,\, N=5,\, {\varepsilon_{0}}=1,\,h= - 1.$
+\begin{equation}  \label{eq:nclin_chipp2}
+  \begin{split} 
+     & \chi_{2, \, qp}(\omega_1, \, \omega_2 ) = 
+    \frac{N} {2 \, \varepsilon_0 \, h^2} \sum_{n=1}^{2} \sum_{m=1}^{2} \sum_{l=1}^{2} 
+    \\ ( & \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{ml}} - \omega_1 - i \, {\gamma_{ml}})^{-1} }
+        {({\Omega_{nl}} - \omega_1 - \omega_2 - i \, {\gamma_{nl}}) }
+       + \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{ml}} - \omega_2 - i \, {\gamma_{ml}})^{-1} }
+        {({\Omega_{nl}} - \omega_1 - \omega_1 - i \, {\gamma_{nl}}) } 
+    \\ + & \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{nl}} + \omega_2 + i \, {\gamma_{nl}})^{-1} }
+        {({\Omega_{mn}} - \omega_1 - \omega_2 - i \, {\gamma_{mn}}) } 
+       + \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{nl}} + \omega_2 + i \, {\gamma_{nl}})^{-1} }
+        {({\Omega_{mn}} - \omega_1 - \omega_2 - i \, {\gamma_{mn}}) } 
+    \\ + & \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{ml}} - \omega_1 - i \, {\gamma_{ml}})^{-1} }
+        {({\Omega_{nm}} + \omega_1 + \omega_2 + i \, {\gamma_{nm}}) } 
+       + \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{ml}} - \omega_1 - i \, {\gamma_{ml}})^{-1} }
+        {({\Omega_{nm}} + \omega_1 + \omega_2 + i \, {\gamma_{nm}}) } 
+    \\ + & \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{nl}} + \omega_1 + i \, {\gamma_{nl}})^{-1} }
+        {({\Omega_{ml}} + \omega_1 + \omega_2 + i \, {\gamma_{ml}}) } 
+       + \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{nl}} + \omega_2 + i \, {\gamma_{nl}})^{-1} }
+        {({\Omega_{ml}} + \omega_1 + \omega_2 + i \, {\gamma_{ml}})}).
+  \end{split} 
+\end{equation}
 
-Results are presented in the Figure (\ref{fig:nc_quantum2}). We can see a very large relative error reaching up to the 100\%. We can also
-see that this model seems to be invalid. This will be checked with another methods in next chapters.
+with the constant values already chosen:
+
+\begin{equation} \label{eq:nclin_const2}
+  \mu = \begin{bmatrix} 
+    1, & 3 \\ -1, & -2 
+  \end{bmatrix} \, 
+  \Omega = \begin{bmatrix} 
+    3, & 16 \\ 4, & 12 
+  \end{bmatrix} \,
+  \gamma = \begin{bmatrix} 
+  1, & 2 \\ -1, & 3
+  \end{bmatrix} \, 
+  N = 5, \, 
+  \varepsilon_0 = 1, \,
+  h= - 1.
+\end{equation}
+
+Results are presented in Figure (\ref{fig:nc_quantum2}). We can see a very large relative error reaching up to the 100\%. We may also
+suspect this model is invalid. This will be checked with another methods in next chapters.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/nc_quantum2.png}
   \caption{The Figure presents the results of the NC Hilbert Transform method applied for the second-order
-  quantum-perturbative model. Results are plotted together. Calculations were performed with the parameters ($n=4, \,cs=\mbox{.1e-1},
+  quantum-perturbative model. Results are plotted together. Calculations were performed with the parameters ($n = 4, \, c_s = \mbox{.1e-1}),
   \,tol=\mbox{.1e-1}$ a.a) The plot of the real part of ${\chi_{2, \,qp}}(\omega )$
      a.b) absolute error plot (a.d-plot minus a.c-plot) 
      a.c) imaginary part of ${\chi_{2, \,qp}}(\omega )$ calculated analytically 
@@ -1739,10 +1779,10 @@ see that this model seems to be invalid. This will be checked with another metho
      \label{fig:nc_quantum2}
      }
 \end{figure}
+ 
+\section{Clenshaw-Curtis based Hilbert transform} \label{chap:hcc}
 
-\section{Hilbert Clenshaw-Curtis Implementation} \label{chap:hcc}
-
-\subsection{Overview of the Hilbert Clenshaw-Curtis Implementation} \label{chap:hcc_overview}
+\subsection{Overview of the Clenshaw-Curtis based Hilbert transform implementation} \label{chap:hcc_overview}
 
 The algorithm for the Hilbert transform using the modified Clenshaw-Curtis quadrature is presented. 
 
@@ -1752,31 +1792,32 @@ The heart of the calculation has been presented by T. Hasegawa and T. Torri in \
 the Cauchy principal value integral on the interval $[-1, 1]$:
 
 \begin{equation} \label{eq:hcc_cpvint}
-	\dashint_{-1} ^ {1} \frac{f(x)} {(x-c)} d \, x \, \text{for} \, c \in (-1, 1) .
+	\dashint_{-1} ^ {1} \frac{f(x)} {(x-c)} \, d \, x \quad \text{for} \, c \in (-1, 1) .
 \end{equation}
 
 
-The first step suggested by the authors is to remove the singularity from the integral (equation \ref{eq:hcc_singularity}) :
+The first step suggested by the authors is to remove the singularity from the integral :
 
 \begin{equation}   \label{eq:hcc_singularity}
   \dashint_{-1}^{1} \frac{f(x)}{(x-c)} d \, x = \dashint_{-1}^{1} \frac{f(x)-f(c)}{(x-c)} + f(c) \, log(\frac{1-c}{1+c})
 \end{equation}
 
-After some transformation authors finally obtain the iterative formula presented in the equations (\ref{eq:hccformula_sum}) and
-(\ref{eq:hccformula_rec}). The formula (\ref{eq:hccformula_sum}) depends on the parameter N, which will be used in the adaptive
+After some transformation authors finally obtain the iterative formula presented in equations (\ref{eq:hccformula_sum}) and
+(\ref{eq:hccformula_rec}). The formula (\ref{eq:hccformula_sum}) depends on the parameter $N$, which will be used in the adaptive
 algorithm. The recursive equation (\ref{eq:hccformula_rec}) should be solved with the starting values: $d_N = d_{N+1} = 0$
 
 \begin{subequations} \label{eq:hcc_formula}
   \begin{equation}   \label{eq:hccformula_sum}
-    \dashint_{-1}^{1} \frac{f(x)}{(x-c)} d\,x \approx 2 \, \sideset{}{'}\sum_{k=0}^{N/2-1} \frac{d_{2k}}{1 - 4k^2} +
-    f(c)\,log(\frac{1-c}{1+c})
+    \dashint_{-1}^{1} \frac{f(x)}{(x - c)} d \, x 
+    \approx 2 \, \sideset{}{'} \sum_{k = 0} ^ {N / 2 - 1} \frac{d_{2k}}{1 - 4k ^ 2} + f(c) \, log(\frac{1-c} {1+c})
   \end{equation}
   \begin{equation}   \label{eq:hccformula_rec}
-    d_{k+1} - 2\,c\,d+k + d_{k-1} = 2 \, a_k^N \, \text{ for } \, k = N, N - 1, \ldots , 1 .
+    d_{k+1} - 2 \, c \, d_k + d_{k-1} 
+    = 2 \, a_k^N \, \text{ for } \, k = N, N - 1, \ldots , 1 .
   \end{equation}
 \end{subequations}
 
-The remaining issue is to calculate the $a_k ^ N$ coefficients, which has been described in the equation (\ref{eq:hcc_akn}). It is
+The remaining issue is to calculate the coefficients $a_k ^ N$, that have been described in equation (\ref{eq:hcc_akn}).  $a_k ^ N$ is
 also known as the discrete cosine transform of the first type (DCT-I):
 
 \begin{equation} \label{eq:hcc_akn}
@@ -1787,8 +1828,8 @@ also known as the discrete cosine transform of the first type (DCT-I):
 
 \subsubsection*{Hilbert transform using the Clenshaw-Curtis quadrature:}
 
-While the Clenshaw-Curtis quadrature is defined for finite range $[-1,\,1]$, the Hilbert transform uses the definite and improper
-integral over the range $[-\infty,\, \infty]$. Here we must remind the law of conservation of energy, from which we can easily
+While the Clenshaw-Curtis quadrature is defined for finite range $[-1,\,1]$, the Hilbert transform is defined by the definite and improper
+integral over the unbounded interval $[-\infty,\, \infty]$. Here we must remind the law of conservation of energy, from which we can easily
 deduce that the susceptibility - as the investigated physical quantity - for low frequencies and thus for low energies has low
 values. From this it follows that function $f = f(x)$ tends to zero when closing to infinities. Thereby the value of integrated
 function from equation (\ref{eq:hcc_adapt}) decreases rapidly and for relatively large values of x this integrand will be omitted.
@@ -1798,7 +1839,7 @@ function from equation (\ref{eq:hcc_adapt}) decreases rapidly and for relatively
 \end{equation}
 
 Therefore, we will not be changing the integration range from interval to real line. What must be taken into consideration right
-now - is that the well-chosen, finite interval for integration stated in (\ref{eq:hcc_interval}) or an integral with a period few times
+now is that the well-chosen, finite interval for integration stated in (\ref{eq:hcc_interval}) or an integral with an interval few times
 bigger.
 
 \begin{equation} \label{eq:hcc_interval}
@@ -1806,8 +1847,8 @@ bigger.
 \end{equation}
 
 The specific choice of integration interval should be done during the numerical calculations. As default in our algorithm, we have
-set the integration interval to be based on the (\ref{eq:hcc_interval}), but with period simply $5$ times longer. For all
-investigated models it gave us satisfactionary results.
+set the integration interval to be based on the (\ref{eq:hcc_interval}), but simply $5$ times longer. For all
+investigated models it gave us satisfactory results.
 
 \subsubsection*{Our implementation of the Hilbert Clenshaw-Curtis iterations:}
 
@@ -1899,7 +1940,7 @@ The algorithm source has been presented in the Appendix A.3.
 
 \subsection{HCCI for simple linear model} \label{chap:hcc_lin}
 
-The Figures (\ref{fig:cci_lin1}) and (\ref{fig:cci_lin2}) presents the results obtained with the method for the model defined in
+Figures (\ref{fig:cci_lin1}) and (\ref{fig:cci_lin2}) presents the results obtained with the method for the model defined in
 model (\ref{eq:physical_frequency_linear}). As we can see - the Hilbert Clenshaw-Curtis iterations gives us much better accuracy than HTRAN
 or Newton-Cotes quadrature. In next chapters we will check what happens for another models.
 
@@ -1982,7 +2023,7 @@ $N = 8$, \,
 $\varepsilon_{0} = 1.4,$, \, 
 $h = - 2.7$ .
 
-Results are presented in the Figure (\ref{fig:hcc_qp1}). We can see a perfect match here!
+Results are presented in Figure (\ref{fig:hcc_qp1}). We can see a perfect match here!
 
 \begin{figure}
   \includegraphics[width=150mm]{img/hcc_qp1.png}
@@ -2026,19 +2067,24 @@ We have also used the same model as in Chapter (\ref{chap:nc_nlo}) to describe t
   )  
 \end{multline}
 
-for the defined set of parameters: \\
+for the defined set of parameters:
 
-$\mu = \left| \begin{array}{cc} 
+\begin{equation}
+	\mu = \left| \begin{array}{cc} 
     1 & 3 \\ -1 & -2 
-  \end{array} \right|,\, 
+  \end{array} \right|, \, 
   \Omega = \left| \begin{array}{cc} 
     3 & 16 \\ 4 & 12 
-  \end{array} \right|,\,
+  \end{array} \right|, \,
   \gamma = \left| \begin{array}{cc} 
   1 & 2 \\ -1 & 3
-  \end{array} \right|,\, N=5,\, {\varepsilon_{0}}=1,\,h= - 1$
+  \end{array} \right|, \,
+  N = 5, \, 
+  \varepsilon_0 = 1, \,
+  h= - 1
+\end{equation}
 
-Results are presented in the Figure (\ref{fig:hcc_qp2}). As for the Newton-Cotes calculations in Chapter (\ref{chap:nc_quantum}) we can
+Results are presented in Figure (\ref{fig:hcc_qp2}). As for the Newton-Cotes calculations in Chapter (\ref{chap:nc_quantum}) we can
 see the model could be invalid because the arisen errors reach up to 100\%. 
 
 \begin{figure} 
@@ -2265,7 +2311,7 @@ The rule (\ref{eq:hartley_srapplied}) using the periodicity property from (\ref{
       - \mathrm{sin} \left( \frac {2\,\pi \,(k - \frac{N}{2})}{N} \right) \, \mathrm{DHT}(x_{2, \, - k + \frac {N}{2}})
   \end{multline}
   
-  for \,$k = \frac {N}{2}, \, \frac {N}{2} + 2, \dotsc, \, N - 1$ \\
+  for \,$k = \frac {N}{2}, \, \frac {N}{2} + 2, \dotsc, \, N - 1$
 \end{subequations}
  
 The remaining definition for the negative index, need to be explained:
@@ -2301,7 +2347,7 @@ presented in Appendix A.4.
 
 \subsection{FTHA for simple linear model} \label{chap:hartley_lin}
 
-In the Figure (\ref{fig:fht_lin}) we have presented the results obtained with the Fast Hartley Hilbert Transform for the simple
+In Figure (\ref{fig:fht_lin}) we have presented the results obtained with the Fast Hartley Hilbert Transform for the simple
 linear model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Fast Hartley Hilbert Transform gives us quite well
 accuracy, similar to HCCI and much better than HTRAN or Newton-Cotes quadrature. 
 
@@ -2379,7 +2425,7 @@ $N=8$,
 ${\varepsilon_{0}}=1.4, 
 h= - 2.7$
 
-Results are presented in the Figure (\ref{fig:fht_qp1}). We can see a perfect match here!
+Results are presented in Figure (\ref{fig:fht_qp1}). We can see a perfect match here!
 
 \begin{figure}
   \includegraphics[width=150mm]{img/fht_qp1.png}
@@ -2433,7 +2479,7 @@ $\mu = \left| \begin{array}{cc}
   1 & 2 \\ -1 & 3
   \end{array} \right|,\, N=5,\, {\varepsilon_{0}}=1,\,h= - 1$
 
-Results are presented in the Figure (\ref{fig:fht_qp2}). As for the previous calculations, we can see the model could be invalid
+Results are presented in Figure (\ref{fig:fht_qp2}). As for the previous calculations, we can see the model could be invalid
 because of the raised errors reach up to 100\%.
 
 \begin{figure} 
@@ -2588,7 +2634,7 @@ consists of three main parts:
 
 \subsection{HHT for simple linear model} \label{chap:hermite_lin}
 
-In the Figure (\ref{fig:hht_lin}) we have presented the results obtained with the Hermite-Hilbert transform for the simple
+In Figure (\ref{fig:hht_lin}) we have presented the results obtained with the Hermite-Hilbert transform for the simple
 linear model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Hermite-Hilbert transform comes with poor accuracy,
 but we would like to put this method into examination with defined models.
 
@@ -2668,7 +2714,7 @@ $N=8$,
 ${\varepsilon_{0}}=1.4, 
 h= - 2.7$
 
-Results are presented in the Figure (\ref{fig:hht_qp1}). 
+Results are presented in Figure (\ref{fig:hht_qp1}). 
 
 \begin{figure}
   \includegraphics[width=150mm]{img/hht_qp1.png}
@@ -2721,7 +2767,7 @@ $\mu = \left| \begin{array}{cc}
   1 & 2 \\ -1 & 3
   \end{array} \right|,\, N=5,\, {\varepsilon_{0}}=1,\,h= - 1$
 
-Results are presented in the Figure (\ref{fig:hht_qp2}). As for the previous calculations, we can see the model could be invalid
+Results are presented in Figure (\ref{fig:hht_qp2}). As for the previous calculations, we can see the model could be invalid
 because the occurring errors reach up to 100\%.
 
 \begin{figure} 
@@ -2804,7 +2850,7 @@ The full source code of this algorithm, has been presented in the appendix A.6.
 
 \subsection{Fourier-series for simple linear model} \label{chap:fourier_lin}
 
-In the Figure (\ref{fig:four_lin}) we have presented the results obtained with the Fourier-Hilbert transform for the simple
+In Figure (\ref{fig:four_lin}) we have presented the results obtained with the Fourier-Hilbert transform for the simple
 linear model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Fourier-Hilbert transform comes with poor accuracy,
 but we would like to put this method into examination with defined models.
 
@@ -2884,7 +2930,7 @@ $N=8$,
 ${\varepsilon_{0}}=1.4$, 
 $h= - 2.7$.
 
-Results are presented in the Figure (\ref{fig:four_qp1}). 
+Results are presented in Figure (\ref{fig:four_qp1}). 
 
 \begin{figure}
   \includegraphics[width=150mm]{img/four_qp1.png}
@@ -2937,7 +2983,7 @@ $\mu = \left| \begin{array}{cc}
   1 & 2 \\ -1 & 3
   \end{array} \right|,\, N=5,\, {\varepsilon_{0}}=1,\,h= - 1$ .
 
-Results are presented in the Figure (\ref{fig:four_qp2}). We can see, that the first model could be valid, while the second model seems to
+Results are presented in Figure (\ref{fig:four_qp2}). We can see, that the first model could be valid, while the second model seems to
 be invalid for consecutively for all Hilbert transform implementations.
 
 \begin{figure} 
@@ -3176,7 +3222,7 @@ We have also put the determined methods onto test with quantum-perturbative mode
 
 \subsubsection*{Linear model - results:}
 
-In the Figures: (\ref{fig:quadgk_qp1}) and (\ref{fig:hilb_qp1}) we have gathered the results ob\-tained with the MATLAB quadgk() and
+In Figures: (\ref{fig:quadgk_qp1}) and (\ref{fig:hilb_qp1}) we have gathered the results ob\-tained with the MATLAB quadgk() and
 hilbert() functions based Hil\-bert tran\-sforms for the linear qua\-ntum\--per\-tur\-ba\-tive model taken with the same para\-meters as in
 Chapter (\ref{chap:nc_nlo}).
 
@@ -3214,7 +3260,7 @@ We observe quite acceptable results for the investigated model, for both methods
 
 \subsubsection*{Second-order model - results:}
 
-In the Figures: (\ref{fig:quadgk_qp2}) and (\ref{fig:hilb_qp2}) we have ga\-thered the results ob\-tained with the MATLAB quadgk() and
+In Figures: (\ref{fig:quadgk_qp2}) and (\ref{fig:hilb_qp2}) we have ga\-thered the results ob\-tained with the MATLAB quadgk() and
 hilbert() func\-tions based Hil\-bert transforms for the se\-cond\--order quan\-tum\--per\-tur\-bative model taken with the same
 para\-meters as in Chapter (\ref{chap:nc_nlo}).
 
@@ -3476,7 +3522,34 @@ More info: http://www.organometallics.pwr.wroc.pl/
 \section*{Appendix A - The source code}
 \subsection*{Appendix A.1 - HTRAN}
 \begin{lstlisting}
-	 function [HT,F] = htran(F,R)
+	function [HT,F] = htran(F,R)
+	    %% Description:
+	    % Hilbert transform for discrete value vector. This is a fast and quite satisfactory 
+	    % algorithm based on the important assumption that R disappears out of the F region.
+	
+	    %% Based on:
+	    % 1. "Hilbert Transform by Numerical Integration" by I.J. Weinbert, 
+	    % RADC-TR-79-3, January 1979, Rome Aire Development Center
+	    % ERRATA:
+	    % In the original publication there was an typo error - the Hilbert
+	    % transform is not the 
+	    %   1/pi*int(u(tau)/(tau-t),tau=-inf..inf) 
+	    % but should rather be:
+	    %   1/pi*int(u(tau)/(t-tau),tau=-inf..inf) 
+	    
+	    %% INPUT:
+	    % F - an array of points (abscissas)
+	    % R - an array of values (ordinates)
+	    
+	    %% OUTPUT:
+	    % HT   - an array of Hilbert Transform values * (ordinates)
+	    % F    - an array of points *                   (abscissas) 
+	    % *    - corrected, so size(F,1) <= size(F,2)
+	    
+	    % We also do not assume that the input signal R is even or odd - because
+	    % the original Hilbert Transform was prepared for all type of possible
+	    % functions.
+	
 	    %% The algorithm:
 	   
 	    % Correcing the input size:
@@ -3488,15 +3561,15 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    Fp(1,1:N-1) = 0.5 .* (F(1,1:N-1)+F(1,2:N));
 	    step = F(2)-F(1);
 	    
-	    % Build h array (step array for faster calculation) - Simpson's rule combined with 
-	    % the trapezoidal rule
+	    % Build h array (step array for faster calculation) 
+	    % - Simpson's rule combined with the trapezoidal rule
 	    h(1) = step/3;
 	    h(1,2:N-1) = 2.*step./3 + mod(1:N-2,2).*2.*step./3;
 	    h(N) = step/3;
 	    if (mod(N,2)==1), h(N-1) = 5*step/6; h(N) = step/2; end;
 	    
-	    % Cubic interpolation for the interior values and parabolic interpolation for the 
-	    % end values we obtain
+	    % Cubic interpolation for the interior values and parabolic 
+	    % interpolation for the end values we obtain
 	    % new set of ordinates, to omit the singularity:
 	    Rp = zeros(1,N-1);
 	    Rp(1)       =   0.375*R(1)      +  0.75*R(2)      - 0.125*R(3);
@@ -3515,8 +3588,8 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    Xres = zeros(1,N);
 	    Xres(1)       =  1.875 *Xp(1)       - 1.25  *Xp(2)       + 0.375 *Xp(3);
 	    Xres(1,2)     =  0.375 *Xp(1)       + 0.75  *Xp(2)       - 0.125 *Xp(3);
-	    Xres(1,3:N-2) = -0.0625*Xp(1,1:N-4) + 0.5625*Xp(1,2:N-3) + ..
-	                     0.5625*Xp(1,3:N-2) - 0.0625*Xp(1,4:N-1);
+	    Xres(1,3:N-2) = - 0.0625*Xp(1,1:N-4) + 0.5625*Xp(1,2:N-3) + 0.5625*Xp(1,3:N-2) ...
+	                    - 0.0625*Xp(1,4:N-1);
 	    Xres(1,N-1)   = -0.125 *Xp(1,N-3)   + 0.75  *Xp(1,N-2)   + 0.375 *Xp(1,N-1);
 	    Xres(1,N)     =  0.375 *Xp(1,N-3)   - 1.25  *Xp(1,N-2)   + 1.875 *Xp(1,N-1);
 	    
@@ -3524,24 +3597,44 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    % Orig = imag(Xres);
 	    HT = Xres;
 	end
-	
-	 
 \end{lstlisting}
 \subsection*{Appendix A.2 - HNCX}
 \begin{lstlisting}
-	function [H, F] = hncX(fun, a, b, tol, n, cs, pts, wrn, inh)    
+	function [H, F] = hncX(fun, a, b, tol, n, cs, pts, wrn, inh)
+	    %% Description:
+	    % This algorithm is a simple implementation of the Hilbert transform 
+	    % based on the Newton-Cotes quadrature
+	    % of an arbitrary degree with getting close, but just omitting the singularity
+	    % We do not like to use Newton-Cotes of much higher degree, instead we use the
+	    % complex quadrature of lower degree for many small steps  
+	    
+	    %% INPUT:
+	    % fun   - real-valued function to transform    (function-handle)
+	    % a     - integration starting point           (scalar)
+	    % b     - integration ending point             (scalar)
+	    % tol   - required tolerance                   (scalar)  [optional, default: 10^(-5)]
+	    % n     - degree of Newton-Cotes quadrature    (scalar)  [optional, default: 8]
+	    % cs    - how close to singularity             (scalar)  [optional, default: 0.01]
+	    % pts   - #points to perform Hilbert transform (scalar)  [optional, default: 200]
+	    % wrn   - warning on flag                      (boolean) [optional, default: true]
+	    % inh   - the external waitbar handle          (handle)  [optional, default: new waitbar]
+	    
+	    %% OUTPUT:
+	    % H - calculated Hilbert transform values      (ordinates)
+	    % F - an array of points                       (abscissas) 
+	    
 	    %% The algorithm:
 	    
 	    % Preparation of arguments
 	    if nargin < 3, error('QUADNCX:ParamErr', ...
-	                         'Wrong number of parameter given: fun, a, b are mandatory'); end;
+	       'Wrong number of parameter given: fun, a, b are mandatory'); end;
 	    if nargin < 4, tol = 10^(-3); end;
 	    if nargin < 5, n = 8; end;
 	    if nargin < 6, cs = 0.1; end;
 	    if nargin < 7, pts = 200; end;
 	    if nargin < 8, wrn = true; end;
 	    if nargin < 9, h = waitbar(0, 'Please Wait'); closewb= true; 
-	                   else h = inh; closewb = false; end;
+	    else h = inh; closewb = false; end;
 	    
 	    % We would like to integrate within 5 times bigger region
 	    d = b - a;
@@ -3553,8 +3646,8 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    for k=1:PTS
 	        waitbar(k/PTS, h);
 	        innerfun = @(x) fun(x) ./ (x - F(k));
-	        Hp(k) = quadncX(@(x) innerfun(x),      aMax, F(k) - cs, tol, n, wrn) + ...
-	                quadncX(@(x) innerfun(x), F(k) + cs,      bMax, tol, n, wrn);
+	        Hp(k) = quadncX(@(x) innerfun(x),      aMax, F(k) - cs, tol, n, wrn) ...
+	              + quadncX(@(x) innerfun(x), F(k) + cs,      bMax, tol, n, wrn);
 	    end
 	    % finally we are closing the waitbar
 	    if(true==closewb), close(h); end;
@@ -3562,7 +3655,26 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    Hp = Hp./pi; H = interp1(F, Hp, X, 'pchip');
 	end
 	
-	function res = quadncX(fun, a, b, tol, n, wrn)    
+	function res = quadncX(fun, a, b, tol, n, wrn)
+	    %% Description:
+	    % Newton-Cotes quadrature of an arbitrary degree
+	
+	    %% More info:
+	    % While this method does not shows very good accuraccy, a set of
+	    % arbitrary set parameters has been prepared, but they may be changed
+	    % in case of different quadratures.
+	    
+	    %% INPUT:
+	    % fun   - real-valued function to integrate     (function-handle)
+	    % a     - integration starting point            (scalar)
+	    % b     - integration ending point              (scalar)
+	    % tol   - required tolerance                    (scalar)  [optional, default: 10^(-5)]
+	    % n     - degree of the Newton-Cotes quadrature (scalar)  [optional, default: 8]
+	    % wrn   - warning on flag                       (boolean) [optional, default: true]
+	    
+	    %% OUTPUT:
+	    % res - an quadrature result point              (scalar)
+	    
 	    nosteps = 100; maxNoSteps = 256*32;
 	    iterates  = 1; maxIterate = 256;
 	    M = 1.1;
@@ -3574,31 +3686,63 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	        step2 = doStep(fun, a, b, nStep, tab);
 	        res = (4*step2-step1)/3; 
 	        err = abs((step1-res)/max(abs([step1, res, tol])));
-	        if (err<tol), break;
-	        else nosteps = nStep; M = M*1.3;
-	        end;
+	        
+					if (err<tol), break;
+	        else nosteps = nStep; M = M*1.3; end;
+					
 	        if (nosteps >=maxNoSteps), break; end;
-	        iterates = iterates + 1;
+	        
+					iterates = iterates + 1;
 	    end
 	    if (wrn == true)
 	     if   (iterates >= maxIterate), warning('QUADNCX:MaxIterReached', ...
-	         'maximum number of iterations reached - the integral seems to be singular'); 
-         elseif (nosteps >=maxNoSteps), warning('QUADNCX:MaNoSteps', ...
-             'maximum number of steps reached - the integral seems to be singular'); 
+	        'maximum number of iterations reached - the integral seems to be
+	     singular'); elseif (nosteps >=maxNoSteps), warning('QUADNCX:MaNoSteps', ...
+	        'maximum number of steps reached - the integral seems to be singular');  
          end; 
-        end
+       end
 	end
 	
 	function tab = prevaluateNCTab(n, a, b)
+	    %% Description:
+	    % A routine to pre-evalute the Newton-Cotes coefficients
+	
+	    %% More info:
+	    % The table of NC coefficient is calculated using Maple syntax:
+	    % Digits:=100;n:=(n);evalf(seq(1/n*(-1)^(n-k)*1/(factorial(k)
+	    %                    * factorial(n-k))*int(product(t-j, 
+	    %                    j = 0..n)/(t-k), t=0..n), k=0..n));
+	    
+	    %% INPUT:
+	    % n     - degree of the Newton-Cotes quadrature (scalar) 
+	    % a     - integration starting point            (scalar)
+	    % b     - integration ending point              (scalar)
+	    
+	    %% OUTPUT:
+	    % tab - Newton-Cotes coefficients               (vector)
+	    
 	    %% The algorithm:
-	    maplestr = ['Digits:=40:n:=' num2str(n) ':tab:=evalf(seq(((' num2str(b) ') ...
-	      -(' num2str(a)'))/n*(-1)^(n-k)*1/(factorial(k)*factorial(n-k)) ...
-	      *int(product(t-jj, jj=0..n)/(t-k), t=0..n), k=0..n));'];
+	    maplestr = ['Digits:=40:n:=' num2str(n) ':tab:=evalf(seq(((' num2str(b) ')-(' ...
+	       num2str(a) '))/n*(-1)^(n-k)*1/(factorial(k)*factorial(n-k)) ...
+	       * int(product(t-jj, jj=0..n)/(t-k), t=0..n), k=0..n));'];
 	    maple string;
 	    tab = str2num(maple(maplestr))'; %#ok<ST2NM>
 	end
 	
 	function res = doStep(fun, a, b, nosteps, tab)
+	    %% Description:
+	    % Simple numerical quadrature for given coefficients' table is performed
+	    
+	    %% INPUT:
+	    % fun     - the real-valued function we will like to integrate (function-handle)
+	    % a       - integration starting point                         (scalar)
+	    % b       - integration ending point                           (scalar)
+	    % nosteps - number of points to divine the integration range   (scalar)
+	    % tab     - vector of Newton-Cotes coeffients                  (vector) 
+	    
+	    %% OUTPUT:
+	    % res     - calculated quadrature value                        (scalar)
+	
 	    %% The algorithm:
 	    nc = size(tab, 1);
 	    intervals = linspace(a, b, nosteps);
@@ -3617,13 +3761,26 @@ More info: http://www.organometallics.pwr.wroc.pl/
 \subsection*{Appendix A.3 - HTRANCC}
 \begin{lstlisting}
 	function H = htrancc(fun, X, tol, inh)
+	    %% Description:
+	    % Hilbert transform based on the Clenshaw-Curtis quadrature modified
+	    % to work on infinite integral which is used in the Hilbert transform formula
+	        
+	    %% INPUT:
+	    % fun - an function_handle                          (function-handle) 
+	    % X   - interval of abscissas to operate with       (abscissas)
+	    % tol - deserved tolerance                          (scalar)
+	    % inh - inner waitbar                               (waitbar-handle)
+	     
+	    %% OUTPUT:
+	    % H  - the Hilbert transform on the desired interval (ordinates)
+	 
 	    %% The algorithm:
 	    
 	    % We set the default tolerance if not given:
 	    if nargin<3, tol=10^(-3); end;
 	    if nargin<4, h = waitbar(0, 'Please wait', 'Name', ...
 	       'Hilbert Transform with Clenshaw-Curtis'); 
-	       else h = inh; end;
+        else h = inh; end;
 	    
 	    a = min(X); b = max(X); NX = length(X); T = abs(b - a);
 	    A = a - 2 * T; B = b + 2 * T;
@@ -3631,9 +3788,9 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    
 	    % Cubic interpolation rutine (N->N-1 points):
 	    Yp(1)         =   0.375*Y(1)           +   0.75*Y(2)           -  0.125*Y(3);
-	    Yp(1, NX-1)   =  -0.125*Y(1, NX-2)     +   0.75*Y(1, NX-1)     +  0.375*Y(1, NX);
-	    Yp(1, 2:NX-2) = -0.0625*Y(1, 1:(NX-3)) + 0.5625*Y(1, 2:(NX-2)) + 0.5625*Y(1, 3:(NX-1)) ...
-	                   - 0.0625*Y(1, 4:NX);
+	    Yp(1, NX-1)   = - 0.125*Y(1, NX-2)     +   0.75*Y(1, NX-1)     +  0.375*Y(1, NX);
+	    Yp(1, 2:NX-2) = - 0.0625*Y(1, 1:(NX-3)) + 0.5625*Y(1, 2:(NX-2)) ...
+	                    + 0.5625*Y(1, 3:(NX-1)) - 0.0625*Y(1, 4:NX);
 	    
 	    % Main application loop with the waitbar:
 	    for n = 1:1:NX-1
@@ -3646,7 +3803,7 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    H = zeros(1,NX);
 	    H(1)        =  1.875 *Hh(1)        - 1.25  *Hh(2)        + 0.375 *Hh(3);
 	    H(1,2)      =  0.375 *Hh(1)        + 0.75  *Hh(2)        - 0.125 *Hh(3);
-	    H(1,3:NX-2) = -0.0625*Hh(1,1:NX-4) + 0.5625*Hh(1,2:NX-3) + 0.5625*Hh(1,3:NX-2) ...
+	    H(1,3:NX-2) = - 0.0625*Hh(1,1:NX-4) + 0.5625*Hh(1,2:NX-3) + 0.5625*Hh(1,3:NX-2) ...
 	                  - 0.0625*Hh(1,4:NX-1);
 	    H(1,NX-1)   = -0.125 *Hh(1,NX-3)   + 0.75  *Hh(1,NX-2)   + 0.375 *Hh(1,NX-1);
 	    H(1,NX)     =  0.375 *Hh(1,NX-3)   - 1.25  *Hh(1,NX-2)   + 1.875 *Hh(1,NX-1);
@@ -3654,6 +3811,25 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	end
 	
 	function h = hcc(fun, y, tol, a, b)
+	    %% Hilbert transform using the Clenshaw-Curtis quadrature
+	    
+	    %% INPUT:
+	    % fun - an function_handle                         (function-handle) 
+	    % y   - abscissa to operate with                   (scalar)
+	    % tol - deserved tolerance                         (scalar)
+	    % a - investigated range minimum                   (scalar)
+	    % b - investigated range minimum                   (scalar)
+	    
+	    %% OUTPUT:
+	    % h  - the Hilbert transform in the desired point  (scalar)
+	    
+	    % We will split the indefinite integral into three main parts:
+	    % hcc = int(fun(x)/(x-y), x = -inf..a) ...
+	    %     + int(fun(x)/(x-y), x = a..b) ...
+	    %     + int(fun(x)/(x-y), x = b..inf)
+	    % Due to small values ouf of the [a,b] range, we will skip left and
+	    % right summand.
+	    
 	    % Central integral
 	    h = hccside2side(fun, y, tol, a, b);
 	    
@@ -3668,7 +3844,8 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	end
 	
 	function h = hccside2side(fun, y, tol, a, b)
-	    % Hilbert transform using the Clenshaw-Curtis quadrature for a definite interval
+	    %% Hilbert transform using the Clenshaw-Curtis quadrature for a
+	    %% definite interval
 	    Period = b - a;
 	    Center = (b+a)/2;
 	    d = (y - Center ) .* 2 ./ Period;
@@ -3680,7 +3857,23 @@ More info: http://www.organometallics.pwr.wroc.pl/
 \end{lstlisting}
 \subsection*{Appendix A.4 - HFTHILBERT}
 \begin{lstlisting}
-	function HY = hfthilbert(Y)   
+	function HY = hfthilbert(Y)
+	    %% Description:
+	    % This is a standard and efficient algorithm ferforming the discrete
+	    % Hilbert transform based on two discrete Hartley transforms in O(n log
+	    % n) with zero padding
+	   
+	    %% INPUT:
+	    % Y - an discrete array of values (ordinates)
+	    
+	    %% OUTPUT:
+	    % HY   - an array of Hilbert Transform values * (ordinates)
+	    
+	    %% Based on:
+	    % 1. Soo-Chang Pei and Sy-Been Jaw - "Computation of Discrete Hilbert
+	    % Transform through Fast Hartley Transform"
+	    % 2. http://en.wikipedia.org/wiki/Discrete_Hartley_transform
+	   
 	    %% The algorithm:
 	        
 	    % We perform the zero padding to the next power-of-two length
@@ -3708,8 +3901,25 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    % The final output vector
 	    HY = HY(1:N);
 	end
-	
-	function res = fht(X)   
+
+	function res = fht(X)
+	    %% Description:
+	    % Fast Hartley Transform algorithm.This algorithm is faster than simple 
+	    % FFT because it works only in real domain, which involves half the 
+	    % number of multiplications
+	      
+	    %% INPUT:
+	    % X - an discrete array of values (ordinates)
+	    
+	    %% OUTPUT:
+	    % HY   - an array of Discrete Hartley Transform values * (ordinates)
+	    
+	    %% Based on:
+	    % 1. Ronald F. Ullman - "An algorithm for the Fast Hartley Transform"
+	    % 2. Krzysztof Lorys - polish notes to the lecture of "Algorithms and
+	    % Data Structures" held in the Institute of Computer Science,
+	    % University of Wroclaw
+	  
 	    %% The algorithm:
 	    N = length(X);
 	    
@@ -3726,15 +3936,26 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    res = DHT(1:N);
 	end
 	
-	function HY = dofht(X,N,CAS)    
+	function HY = dofht(X,N,CAS)
+	    %% Recursive, divide & conquer radix-2 Fast Hartley Transform
+	    
+	    %% INPUT:
+	    % X   - an discrete array of values (ordinates)
+	    % D   - the length of X vector
+	    % CAS - the precalculated cell of 1:8-8 matrix for performing the instant FHT
+	    
+	    %% OUTPUT:
+	    % HY   - an array of Discrete Hartley Transform values * (ordinates)
+	    
 	    % Fast Hartley Trasform for N lower than 8
 	    if N<=8, 
 	        HY=X * CAS{N} ; % Instant FHT for 8-element array
 	        return;
 	    end;
 	    % We split the input vector into two equal vectors
-	    X1 = X(1:2:end); X2 = X(2:2:end); % In MATLAB first index equals 1, not 0 - 
-	    % but in literature X1 is called even, X2 - odd indices.
+	    % In MATLAB first index equals 1, not 0 - but in literature 
+	    % X1 is called even, X2 - odd indices.
+	    X1 = X(1:2:end); X2 = X(2:2:end); 
 	    
 	    % Divide & conquer approach
 	    HT1 = dofht(X1,N/2,CAS);
@@ -3756,64 +3977,104 @@ More info: http://www.organometallics.pwr.wroc.pl/
 \end{lstlisting}
 \subsection*{Appendix A.5 - HERHTRANS}
 \begin{lstlisting}
-		function [YH, YFun] = herhtrans(fun, X, tol, maxN)    
-		    %% The algorithm:
-		    
-		    if nargin < 3, tol = 10^(-4); end;
-		    if nargin < 4, maxN = 18; end;
-		    % We set the initial multipliers count on 4, but it shall/may rise  
-		    MaxN = min(maxN, 27);InitN = 4;N = InitN;
-		    
-		    sum = 0; val = 0;
-		    % Main loop
-		    i=1; AN = zeros(1, N);
-		    Fval = fun(X);
-		    while (i<=N)
-		        n = i-1; % Select proper Hermite function
-		        AN(i) = getAN(fun, n, tol);
-		        HphiVal = hphin(X, n); 
-		        phiVal = phin(X, n); 
-		        multiplier = AN(i) .* HphiVal;
-		        sum = sum + multiplier;
-		        val = val + AN(i) .* phiVal;
-		        
-		        % If the current multiplier is not negligable - we need to search further
-		        err = max(abs((val-Fval)/max(abs([val,Fval,tol]))));
-		        if ((i > (N-2)) && (err >= tol) && (N<MaxN)), N = N+1; end; 
-		        i = i+1;
-		    end
-		    YH = -real(sum);
-		    YFun = val;
-		end
-		
-		function an = getAN(fun, n, tol)
-		    pFun = phiFun(n);
-		    funphi = @(t) (fun(t)).*pFun(t);
-		    
-		    % We change the integration range from -inf .. inf to -1 .. 1
-		    ccFun = @(t) ((abs(t)<1) .* funphi(-t./(t.^2-1)) .* (1+t.^2) ./ (-1+t.^2).^2);
-		    
-		    % Main numerical integration
-		    N = 128; 
-		    prev = docc(ccFun, N/2);
-		    while (N < 1024*1024)
-		        an = docc(ccFun, N);
-		        if (abs(an-prev)<tol), break; else N = 2*N; end;
-		        prev = an;
-		    end
-		end
-		
+	function [YH, YFun] = herhtrans(fun, X, tol, maxN)
+	    %% Description: 
+	    % This is a hilbert transform function based on the orthonormal Hermite polynomials 
+	    % and Hermite functions. They have been previously precalculated with 
+	    % MATLAB-Maple toolbox
+	    
+	    %% INPUT:
+	    % fun - an discrete array of values (function handle)
+	    % X (abscissas)
+	    % tol (scalar)
+	    % maxN (scalar)
+	    
+	    %% OUTPUT:
+	    % YH   - an array of Hilbert Transform values  (ordinates)
+	    % YFun - calculated fun(X) approximation
+	    
+	    %% Based on:
+	    % 1. M. Johansson - "The Hilbert transform"
+	    % 2. http://en.wikipedia.org/wiki/Hermite_polynomial
+	    % 3. http://en.wikipedia.org/wiki/Hilbert_transform
+	    
+	    %% The algorithm:
+	    
+	    if nargin < 3, tol = 10^(-4); end;
+	    if nargin < 4, maxN = 18; end;
+	    % We set the initial multipliers count on 4, but it shall/may rise  
+	    MaxN = min(maxN, 27);InitN = 4;N = InitN;
+	    
+	    sum = 0; val = 0;
+	    % Main loop
+	    i=1; AN = zeros(1, N);
+	    Fval = fun(X);
+	    while (i<=N)
+	        n = i-1; % Select proper Hermite function
+	        AN(i) = getAN(fun, n, tol);
+	        HphiVal = hphin(X, n); 
+	        phiVal = phin(X, n); 
+	        multiplier = AN(i) .* HphiVal;
+	        sum = sum + multiplier;
+	        val = val + AN(i) .* phiVal;
+	        
+	        % If the current multiplier is not negligable - we need to search further
+	        err = max(abs((val-Fval)/max(abs([val,Fval,tol]))));
+	        if ((i > (N-2)) && (err >= tol) && (N<MaxN)), N = N+1; end; 
+	        i = i+1;
+	    end
+	    YH = -real(sum);
+	    YFun = val;
+	end
+	
+	function an = getAN(fun, n, tol)
+	    pFun = phiFun(n);
+	    funphi = @(t) (fun(t)).*pFun(t);
+	    
+	    % We change the integration range from -inf .. inf to -1 .. 1
+	    ccFun = @(t) ((abs(t)<1) .* funphi(-t./(t.^2-1)) .* (1+t.^2) ./ (-1+t.^2).^2);
+	    
+	    % Main numerical integration
+	    N = 128; 
+	    prev = docc(ccFun, N/2);
+	    while (N < 1024*1024)
+	        an = docc(ccFun, N);
+	        if (abs(an-prev)<tol), break; else N = 2*N; end;
+	        prev = an;
+	    end
+	end
+			
 		%% phin, hphin, phiFun, hPhiFun - cached/precalculated function procedures
 \end{lstlisting}
 \subsection*{Appendix A.6 - FOURHTRANS}
 \begin{lstlisting}
 	function [HY, Y] = fourhtrans(fun, X, m, doccN, inh)
+	    %% Description: 
+	    % This is a hilbert transform function based on the Fouries series
+	    % approximation of the given function.
+	    
+	    %% INPUT:
+	    % fun - an discrete array of values        (function handle)
+	    % X - interval to perform Hilbert transform  (abscissas)
+	    % m - order of Fourier series expantions   (scalar) [optional, default:30]
+	    % doccN - number of points for CC integral (scalar) [optional, default:1024]
+	    % inh - the output waitbar                  (handle) [optional, new created]
+	    
+	    %% OUTPUT:
+	    % HY - an array of Hilbert Transform values (ordinates)
+	    % Y  - an array of fun(X) approximation     (ordinates)
+	    
+	    %% Based on:
+	    % 1. M. Johansson - "The Hilbert transform"
+	    % 2. http://en.wikipedia.org/wiki/Fourier_series
+	    % 3. http://en.wikipedia.org/wiki/Hilbert_transform
+	    
 	    %% The algorithm:
 	    if nargin<3,m=1024; end;
 	    if nargin<4,doccN=4096; end;
 	    if nargin<5,h=waitbar(0,'Calculations - Please wait...','Name', ...
-	      'Hilbert transform based on the Fouries series'); 
-	      closewb = true; else h = inh; closewb = false; end;
+	       'Hilbert transform based on the Fouries series'); closewb = true; 
+	    else h = inh; closewb = false; end;
 	
 	    % First we calculate the X boundaries
 	    a = min(X);       
@@ -3855,7 +4116,31 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    HY = HYp(INN); 
 	end
 	
-	function val = docc(fun, N, a, b)    
+	function val = docc(fun, N, a, b)
+	    %% Description:
+	    % This is one point algorithm and should be used in algorithms that
+	    % need to determine the full vector values
+	    % Look precisely:
+	    % abcde -> abcdedcb ( there is no second 'a' )
+	    
+	    %% INPUT:
+	    % fun - an function_handle 
+	    % N - number of points to operate with tolerance (scalar) [optional, default:256]
+	    % a - the lower integration bound (scalar) [optional, default: -1]
+	    % b - the upper integration bound (scalar) [optional, default:  1]
+	    
+	    %% OUTPUT:
+	    % val  - value of integral
+	    
+	    %% Based on:
+	    % 1. http://fourier.eng.hmc.edu/e161/lectures/dct/node2.html
+	    % (unfortunatelly this is DCT-II, so another type)
+	    % 2. http://en.wikipedia.org/wiki/Clenshaw-Curtis_quadrature
+	    % The very important quote: 
+	    % "For example, a DCT-I of N=5 real numbers abcde is exactly equivalent
+	    % to a DFT of eight real numbers abcdedcb (even symmetry), divided by
+	    % two."
+	    
 	    %% The algorithm:
 	    if nargin<4, b =   1; end;
 	    if nargin<3, a =  -1; end;
@@ -3870,28 +4155,38 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	
 	    % Getting the value with standard -1,1 Clenshaw Curtis integration routine
 	    val = onetoonecc(newfun,N);
+	    
 	end
 	    
 	function val = onetoonecc(fun, N)
 	    %% CC integration from -1 to 1:
-	    N2  = N/2;                                           
+	    
 	    % We make this division once, for faster computation
-	    ps  = 0:1:N2;                                        
+	    N2  = N/2;                                           
+	    
 	    % Array of N/2+1 points (where N2 = N/2)
-	    xn  = cos(ps.*pi./N);                                
+	    ps  = 0:1:N2;                                        
+	    
 	    % N2+1 abscissaas from the 0..pi range
-	    yn  = fun(xn) + fun(-xn);                            
+	    xn  = cos(ps.*pi./N);                                
+	    
 	    % N2+1 ordinates for fun(cos(n*pi/N))
-	    yn(isnan(yn) | (isfinite(yn)==0)) = 0;               
+	    yn  = fun(xn) + fun(-xn);                            
+	    
 	    % We shall set all NaNs and Infs to zero
-	    g   = real(fft(yn(1+[0:N2 (N2-1):-1:1])))./2;        
+	    yn(isnan(yn) | (isfinite(yn)==0)) = 0;               
+	    
 	    % Look at quote in the base description about the connection of DCT-I and DFT/FFT
-	    cn  = [g(1), g(2:N2)+g(N:-1:N2+2), g(N2+1)];         
+	    g   = real(fft(yn(1+[0:N2 (N2-1):-1:1])))./2;        
+	    
 	    % We take symmetrical values and add them together (ommiting first and last)
-	    dn  = [2, 2./(1-(2.*(1:1:(N2-1))).^2), 2./(1-N^2)];  
+	    cn  = [g(1), g(2:N2)+g(N:-1:N2+2), g(N2+1)];         
+	    
 	    % This is the final vector for multiplying
-	    val = (dn * cn' )/ N;                                
+	    dn  = [2, 2./(1-(2.*(1:1:(N2-1))).^2), 2./(1-N^2)];  
+	    
 	    % Final cc integral calculation
+	    val = (dn * cn' )/ N;                                
 	end
 \end{lstlisting}
 
@@ -3969,7 +4264,7 @@ wavelength and after so - perform the z-scan experiment on the investigated samp
 
 \subsubsection*{Calculation of the nonlinear absorption coefficient:}
 
-As shown of the Figure (\ref{fig:oa_plot}) the open-aperture transmittance can be described with the approximation equation:
+As shown of Figure (\ref{fig:oa_plot}) the open-aperture transmittance can be described with the approximation equation:
 
 \begin{equation}
   \Delta \,\mathrm{T}(Z)=\frac {\beta \,{I_{0}}\,(1 - e^{( - \alpha )}\,L)}{\alpha \,2\,\sqrt{2}\,} 
@@ -3998,7 +4293,7 @@ information about the nonlinear absorption processes.
 
 \subsubsection*{Calculation of the nonlinear refraction index:}
 
-On the Figure (\ref{fig:ca_plot}) we can see the closed-aperture transmittance plot with respect to the sample position Z. It has a
+On Figure (\ref{fig:ca_plot}) we can see the closed-aperture transmittance plot with respect to the sample position Z. It has a
 characteristic shape of peak trailing the valley or the valley trailing the peak if the ${n_{2}}$ sign is negative. What now
 interests us, is the difference between the peak and valley amplitude - we will call it $\Delta \,{T_{pv}}$. From this difference
 we can calculate the on-axis peak nonlinear phase shift with sample at focus $\Delta \,{\Phi_{0}}$
@@ -4046,7 +4341,7 @@ Scientists are very interested in optimization of the z-scan method. The physica
 results requires the better numerical precision, because the general error cumulates with the laser non stability, method
 approximation error, fitting and numerical calculations error.
 
-A typical plot containing the z-scan measurement for the close aperture, open aperture and the laser reference is shown in the Figure
+A typical plot containing the z-scan measurement for the close aperture, open aperture and the laser reference is shown in Figure
 (\ref{fig:zscan_both}).
 
 \begin{figure} 
