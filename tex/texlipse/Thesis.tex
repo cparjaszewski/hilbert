@@ -1792,7 +1792,7 @@ The heart of the calculation has been presented by T. Hasegawa and T. Torri in \
 the Cauchy principal value integral on the interval $[-1, 1]$:
 
 \begin{equation} \label{eq:hcc_cpvint}
-	\dashint_{-1} ^ {1} \frac{f(x)} {(x-c)} \, d \, x \quad \text{for} \, c \in (-1, 1) .
+	\dashint_{-1} ^ {1} \frac{f(x)} {(x-c)} \; d \, x \quad \text{for} \quad c \in (-1, 1) .
 \end{equation}
 
 
@@ -1831,23 +1831,22 @@ also known as the discrete cosine transform of the first type (DCT-I):
 While the Clenshaw-Curtis quadrature is defined for finite range $[-1,\,1]$, the Hilbert transform is defined by the definite and improper
 integral over the unbounded interval $[-\infty,\, \infty]$. Here we must remind the law of conservation of energy, from which we can easily
 deduce that the susceptibility - as the investigated physical quantity - for low frequencies and thus for low energies has low
-values. From this it follows that function $f = f(x)$ tends to zero when closing to infinities. Thereby the value of integrated
-function from equation (\ref{eq:hcc_adapt}) decreases rapidly and for relatively large values of x this integrand will be omitted.
+values. From this it follows that function $f = f(x)$ tends to zero when closing to infinities. Thereby the value of expression:
 
 \begin{equation} \label{eq:hcc_adapt}
   \frac{f(x)}{x-c} d \, x
 \end{equation}
 
-Therefore, we will not be changing the integration range from interval to real line. What must be taken into consideration right
-now is that the well-chosen, finite interval for integration stated in (\ref{eq:hcc_interval}) or an integral with an interval few times
-bigger.
+decreases rapidly and for relatively large values of x this integrand will be omitted. Therefore, we will not be changing the integration
+range from interval to real line. Instead of that we will enlarge the interval being the area if interest. For example - if the investigated
+values are described in interval $[a, b]$, we can enlarge it to the following interval:
 
 \begin{equation} \label{eq:hcc_interval}
   [A, B] = [a - 2|b-a|, b + 2|b-a|] 
 \end{equation}
 
-The specific choice of integration interval should be done during the numerical calculations. As default in our algorithm, we have
-set the integration interval to be based on the (\ref{eq:hcc_interval}), but simply $5$ times longer. For all
+As this was only an example, the specific choice of integration interval should be done during the numerical calculations. As default in our
+algorithm, we have set the integration interval to be based on the (\ref{eq:hcc_interval}), but simply $5$ times longer. For all
 investigated models it gave us satisfactory results.
 
 \subsubsection*{Our implementation of the Hilbert Clenshaw-Curtis iterations:}
@@ -1859,7 +1858,7 @@ qua\-dra\-ture for each given point. But to omit the problems with singularities
 whole procedure is now:
 
 
-\textbf{INPUT:}
+\subsubsection*{INPUT:}
  
 
 \begin{tabular}{ l l }
@@ -1870,68 +1869,66 @@ whole procedure is now:
 \end{tabular}
 
 
-\emptyline
-
-
-\textbf{PRE-CALCULATIONS:}
+\subsubsection*{PRE-CALCULATIONS:}
 
 \begin{equation} \label{eq:cci_period}
-  T = B - A
+  Period = B - A
 \end{equation}
 
 \begin{equation} \label{eq:cci_center}
-  C = \frac{B+A}{2}
+  Center = \frac{B+A}{2}
 \end{equation}
 
 From $N$ points of $Y$ we calculate the cubic interpolation having $N-1$ inner points:
 
 \begin{subequations} \label{eq:cci_cubicinterpolation}
   \begin{equation}   \label{eq:ccicinterp_first}
-    {Yp_{1}}=\frac {3\,{Y_{1}} + 6\,{Y_{2}} - {Y_{3}}}{8}
+    Xp_1 = \frac {3 \, X_1 + 6 \, X_2 - X_3}{8}
   \end{equation}
   \begin{equation}   \label{eq:ccicinterp_next}
-    {Yp_{k}}=\frac { - {Y_{k - 1}} + 9\,{Y_{k}} + 9\,{Y_{k + 1}} - {Y_{k + 2}}}{16}
+    Xp_k = \frac { - X_{k - 1} + 9 \, X_k + 9 \, X_{k + 1} - X_{k + 2}}{16}
   \end{equation}
   \begin{equation}   \label{eq:ccicinterp_last}
-    {Yp_{N}}=\frac { - {Y_{N - 2}} + 6\,{Y_{N - 1}} + 3\,{Y_{N}}}{8}
+    Xp_N = \frac { - X_{N - 2} + 6 \, X_{N - 1} + 3 \, X_N}{8}
   \end{equation}
 \end{subequations}
 
-\textbf{MAIN CALCULATIONS:}
+\subsubsection*{MAIN CALCULATIONS:}
 As the central part, we calculate the $N-1$ values for each on of inner points: 
 
 \begin{equation} \label{eq:cci_newd}
-	d_k= \frac{2 \, (Yp_{k} - C ) }{T}, \text{ for k = 1, \ldots , \ $N-1$}
+	c_k = \frac{2 \, (Xp_k - Center ) }{Period}, \quad \text{ for } \quad k = 1, \ldots, \ N-1
 \end{equation}
 
 \begin{equation} \label{eq:cci_approx}
-  Hh_{k} \approx \frac{1}{\pi} \dashint_{A}^{B} \frac{f(\frac{x \, T}{2} + C)}{x-d_k} d\,x, \text{ for k = 1, \ldots , \ $N-1$}
+  Hh_k \approx \frac{1}{\pi} \dashint_{A}^{B} \frac{f(\frac{x \, Period}{2} + Center)}{x - c_k} d \, x, \quad \text{ for } \quad k = 1,
+  \ldots , \ N-1
 \end{equation}
 
-\textbf{POST-CALCULATIONS:} \\
+\subsubsection*{POST-CALCULATIONS:}
 From $N-1$ points of Hh we calculate $N$ points using the reverse cubic interpolation:
 
 \begin{subequations} \label{eq:cci_revcubicinterp}
   \begin{equation}   \label{eq:ccircinterp_first}
-    {H_{1}}=\frac {15\,{Hh_{1}} - 10\,{Hh_{2}} + 3\,{Hh_{3}}}{8}
+    H_1 = \frac {15 \, Hh_1 - 10\,{Hh_{2}} + 3\,{Hh_{3}}}{8}
   \end{equation}
   \begin{equation}   \label{eq:ccircinterp_second}
-    {H_{2}}=\frac {3\,{Hh_{1}} + 6\,{Hh_{2}} - {Hh_{3}}}{8}
+    H_2 = \frac {3 \, Hh_1 + 6 \, Hh_{2} - {Hh_{3}}}{8}
   \end{equation}
   \begin{equation}   \label{eq:ccircinterp_next}
-    {H_{k}}=\frac { - {Hh_{k - 1}} + 9\,{Hh_{k}} + 9\,{Hh_{k + 1}} - {Hh_{k + 2}}}{16}
+    H_k = \frac { - Hh_{k - 1} + 9 \, Hh_k + 9 \, Hh_{k + 1} - Hh_{k + 2}}{16}
   \end{equation}
   \begin{equation}   \label{eq:ccircinterp_prelast}
-    {H_{N - 1}}=\frac { - {Hh_{N - 3}} + 6\,{Hh_{2}} - {Hh_{3}}}{8}
+    H_{N - 1} = \frac { - Hh_{N - 3} + 6 \, Hh_2 - Hh_{3}}{8}
   \end{equation}
   \begin{equation}   \label{eq:ccircinterp_last}
-    {H_{N}}=\frac {3\,{Hh_{N - 3}} - 10\,{Hh_{N - 2}} + 15\,{Hh_{N - 1}}}{8}
+    H_N =\frac {3 \, Hh_{N - 3} - 10 \, Hh_{N - 2} + 15 \, Hh_{N - 1}}{8}
   \end{equation}
 \end{subequations}
 
-\textbf{OUTPUT:} \\
+\subsubsection*{OUTPUT:} 
 \begin{tabular}{r l}
-  H & - N-length Hilbert transform for given function values at X abscissas \\
+  $H$ & - $N$-length Hilbert transform for given function values at $X$ abscissas \\
 \end{tabular}
 
 \emptyline
