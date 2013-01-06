@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.12.27)  30 DEC 2012 16:56
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.12.27)  6 JAN 2013 23:11
 entering extended mode
 **Thesis.tex
 (C:\doc\MSc\tex\texlipse\Thesis.tex
@@ -1053,7 +1053,11 @@ Now handling font encoding OT4 ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 )
-(C:\doc\MSc\tex\texlipse\Thesis.aux)
+(C:\doc\MSc\tex\texlipse\Thesis.aux
+
+LaTeX Warning: Label `eq:cci_center' multiply defined.
+
+)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
 LaTeX Font Info:    ... okay on input line 47.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
@@ -1068,8 +1072,7 @@ LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 47.
 LaTeX Font Info:    ... okay on input line 47.
 LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 47.
 LaTeX Font Info:    ... okay on input line 47.
-
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+ ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count119
 \scratchdimen=\dimen134
@@ -1291,168 +1294,170 @@ File: ./../img/nc_qp1.png Graphic file (type png)
 File: ./../img/nc_quantum2.png Graphic file (type png)
 
 <use ./../img/nc_quantum2.png> [38 <C:/doc/MSc/tex/img/nc_qp1.png>] [39 <C:/doc
-/MSc/tex/img/nc_quantum2.png>] [40]
-<./../img/hcc_lin1.png, id=224, 767.11594pt x 604.50844pt>
+/MSc/tex/img/nc_quantum2.png>]
+Overfull \hbox (26.43372pt too wide) in paragraph at lines 1865--1872
+[][][] 
+ []
+
+<./../img/cci_bigger_interval.png, id=221, 427.5975pt x 118.19156pt>
+File: ./../img/cci_bigger_interval.png Graphic file (type png)
+
+<use ./../img/cci_bigger_interval.png> [40 <C:/doc/MSc/tex/img/cci_bigger_inter
+val.png>] [41] <./../img/hcc_lin1.png, id=229, 767.11594pt x 604.50844pt>
 File: ./../img/hcc_lin1.png Graphic file (type png)
 
 <use ./../img/hcc_lin1.png>
-<./../img/hcc_lin2.png, id=225, 755.82375pt x 599.23875pt>
+<./../img/hcc_lin2.png, id=230, 755.82375pt x 599.23875pt>
 File: ./../img/hcc_lin2.png Graphic file (type png)
 
 <use ./../img/hcc_lin2.png>
-<./../img/hcc_pnp.png, id=226, 1582.41188pt x 636.87938pt>
+<./../img/hcc_pnp.png, id=231, 1582.41188pt x 636.87938pt>
 File: ./../img/hcc_pnp.png Graphic file (type png)
 
 <use ./../img/hcc_pnp.png>
-<./../img/hcc_fmix.png, id=227, 1601.2322pt x 606.01407pt>
+<./../img/hcc_fmix.png, id=232, 1601.2322pt x 606.01407pt>
 File: ./../img/hcc_fmix.png Graphic file (type png)
 
 <use ./../img/hcc_fmix.png>
-<./../img/hcc_qp1.png, id=228, 1551.54657pt x 627.09282pt>
+<./../img/hcc_qp1.png, id=233, 1551.54657pt x 627.09282pt>
 File: ./../img/hcc_qp1.png Graphic file (type png)
 
-<use ./../img/hcc_qp1.png> [41] [42 <C:/doc/MSc/tex/img/hcc_lin1.png>] [43 <C:/
-doc/MSc/tex/img/hcc_lin2.png> <C:/doc/MSc/tex/img/hcc_pnp.png>] [44 <C:/doc/MSc
-/tex/img/hcc_fmix.png> <C:/doc/MSc/tex/img/hcc_qp1.png>]
+<use ./../img/hcc_qp1.png> [42] [43 <C:/doc/MSc/tex/img/hcc_lin1.png>] [44 <C:/
+doc/MSc/tex/img/hcc_lin2.png> <C:/doc/MSc/tex/img/hcc_pnp.png>]
 <./../img/hcc_qp2.png, id=247, 1568.10844pt x 642.14906pt>
 File: ./../img/hcc_qp2.png Graphic file (type png)
 
-<use ./../img/hcc_qp2.png> [45] [46 <C:/doc/MSc/tex/img/hcc_qp2.png>] [47]
-[48] <./../img/fht_lin.png, id=261, 800.9925pt x 300.3722pt>
+<use ./../img/hcc_qp2.png> [45 <C:/doc/MSc/tex/img/hcc_fmix.png>] [46 <C:/doc/M
+Sc/tex/img/hcc_qp1.png> <C:/doc/MSc/tex/img/hcc_qp2.png>] [47] [48] [49]
+<./../img/fht_lin.png, id=267, 800.9925pt x 300.3722pt>
 File: ./../img/fht_lin.png Graphic file (type png)
 
-<use ./../img/fht_lin.png> [49]
-<./../img/fht_pnp.png, id=266, 772.38562pt x 312.41719pt>
+<use ./../img/fht_lin.png> [50 <C:/doc/MSc/tex/img/fht_lin.png>]
+<./../img/fht_pnp.png, id=272, 772.38562pt x 312.41719pt>
 File: ./../img/fht_pnp.png Graphic file (type png)
 
 <use ./../img/fht_pnp.png>
-<./../img/fht_fmix.png, id=267, 763.35187pt x 298.86656pt>
+<./../img/fht_fmix.png, id=273, 763.35187pt x 298.86656pt>
 File: ./../img/fht_fmix.png Graphic file (type png)
 
 <use ./../img/fht_fmix.png>
-<./../img/fht_qp1.png, id=268, 761.09344pt x 301.125pt>
+<./../img/fht_qp1.png, id=274, 761.09344pt x 301.125pt>
 File: ./../img/fht_qp1.png Graphic file (type png)
 
-<use ./../img/fht_qp1.png> [50 <C:/doc/MSc/tex/img/fht_lin.png>] [51 <C:/doc/MS
-c/tex/img/fht_pnp.png> <C:/doc/MSc/tex/img/fht_fmix.png>]
-<./../img/fht_qp2.png, id=278, 776.9025pt x 303.38344pt>
+<use ./../img/fht_qp1.png> [51 <C:/doc/MSc/tex/img/fht_pnp.png>] [52 <C:/doc/MS
+c/tex/img/fht_fmix.png> <C:/doc/MSc/tex/img/fht_qp1.png>]
+<./../img/fht_qp2.png, id=284, 776.9025pt x 303.38344pt>
 File: ./../img/fht_qp2.png Graphic file (type png)
 
 <use ./../img/fht_qp2.png>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [52 <C:/doc/MSc/tex/img/fht_qp1.png>] [53 <C:/doc/MSc/tex/img/fht_qp2.png>] [5
-4]
-<./../img/hht_lin.png, id=290, 763.35187pt x 312.41719pt>
+ [53 <C:/doc/MSc/tex/img/fht_qp2.png>] [54] [55]
+<./../img/hht_lin.png, id=296, 763.35187pt x 312.41719pt>
 File: ./../img/hht_lin.png Graphic file (type png)
 
-<use ./../img/hht_lin.png> [55 <C:/doc/MSc/tex/img/hht_lin.png>]
-<./../img/hht_pnp.png, id=296, 779.16093pt x 309.40594pt>
+<use ./../img/hht_lin.png>
+<./../img/hht_pnp.png, id=297, 779.16093pt x 309.40594pt>
 File: ./../img/hht_pnp.png Graphic file (type png)
 
 <use ./../img/hht_pnp.png>
-<./../img/hht_fmix.png, id=297, 775.39688pt x 304.88907pt>
+<./../img/hht_fmix.png, id=298, 775.39688pt x 304.88907pt>
 File: ./../img/hht_fmix.png Graphic file (type png)
 
 <use ./../img/hht_fmix.png>
-<./../img/hht_qp1.png, id=298, 774.64406pt x 306.39468pt>
+<./../img/hht_qp1.png, id=299, 774.64406pt x 306.39468pt>
 File: ./../img/hht_qp1.png Graphic file (type png)
 
-<use ./../img/hht_qp1.png> [56 <C:/doc/MSc/tex/img/hht_pnp.png>] [57 <C:/doc/MS
-c/tex/img/hht_fmix.png> <C:/doc/MSc/tex/img/hht_qp1.png>]
-<./../img/hht_qp2.png, id=308, 765.6103pt x 310.15875pt>
+<use ./../img/hht_qp1.png> [56 <C:/doc/MSc/tex/img/hht_lin.png>] [57 <C:/doc/MS
+c/tex/img/hht_pnp.png> <C:/doc/MSc/tex/img/hht_fmix.png>]
+<./../img/hht_qp2.png, id=309, 765.6103pt x 310.15875pt>
 File: ./../img/hht_qp2.png Graphic file (type png)
 
-<use ./../img/hht_qp2.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [58 <C:/doc/MSc/tex/img/hht_qp2.png>] [59]
-<./../img/four_lin.png, id=316, 773.13844pt x 307.1475pt>
+<use ./../img/hht_qp2.png> [58 <C:/doc/MSc/tex/img/hht_qp1.png>] [59 <C:/doc/MS
+c/tex/img/hht_qp2.png>]
+<./../img/four_lin.png, id=318, 773.13844pt x 307.1475pt>
 File: ./../img/four_lin.png Graphic file (type png)
 
 <use ./../img/four_lin.png>
-<./../img/four_pnp.png, id=317, 761.09344pt x 303.38344pt>
+<./../img/four_pnp.png, id=319, 761.09344pt x 303.38344pt>
 File: ./../img/four_pnp.png Graphic file (type png)
 
 <use ./../img/four_pnp.png>
-<./../img/four_fmix.png, id=318, 768.62157pt x 304.13625pt>
+<./../img/four_fmix.png, id=320, 768.62157pt x 304.13625pt>
 File: ./../img/four_fmix.png Graphic file (type png)
 
-<use ./../img/four_fmix.png>
-Underfull \vbox (badness 7064) has occurred while \output is active []
-
- [60 <C:/doc/MSc/tex/img/four_lin.png>] [61 <C:/doc/MSc/tex/img/four_pnp.png> <
-C:/doc/MSc/tex/img/four_fmix.png>]
-<./../img/four_qp1.png, id=329, 767.11594pt x 312.41719pt>
+<use ./../img/four_fmix.png> [60] [61 <C:/doc/MSc/tex/img/four_lin.png> <C:/doc
+/MSc/tex/img/four_pnp.png>]
+<./../img/four_qp1.png, id=330, 767.11594pt x 312.41719pt>
 File: ./../img/four_qp1.png Graphic file (type png)
 
 <use ./../img/four_qp1.png>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62 <C:/doc/MSc/tex/img/four_qp1.png>]
-<./../img/four_qp2.png, id=334, 770.12718pt x 306.39468pt>
+ [62 <C:/doc/MSc/tex/img/four_fmix.png>]
+<./../img/four_qp2.png, id=335, 770.12718pt x 306.39468pt>
 File: ./../img/four_qp2.png Graphic file (type png)
 
 <use ./../img/four_qp2.png>
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <17.28> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 3004.
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 3007.
 
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <17.28> on input line 3004.
+(Font)              <17.28> on input line 3007.
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <14.4> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 3006.
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 3009.
 
- [63 <C:/doc/MSc/tex/img/four_qp2.png>] [64]
+ [63 <C:/doc/MSc/tex/img/four_qp1.png>] [64 <C:/doc/MSc/tex/img/four_qp2.png>] 
+[65]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3110.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3113.
 
 
-<./../img/quadgk_lin.png, id=343, 772.38562pt x 306.39468pt>
+<./../img/quadgk_lin.png, id=348, 772.38562pt x 306.39468pt>
 File: ./../img/quadgk_lin.png Graphic file (type png)
 
 <use ./../img/quadgk_lin.png>
-<./../img/hilb_lin.png, id=344, 776.9025pt x 304.88907pt>
+<./../img/hilb_lin.png, id=349, 776.9025pt x 304.88907pt>
 File: ./../img/hilb_lin.png Graphic file (type png)
 
-<use ./../img/hilb_lin.png> [65] [66 <C:/doc/MSc/tex/img/quadgk_lin.png> <C:/do
-c/MSc/tex/img/hilb_lin.png>]
-<./../img/quadgk_pnp.png, id=353, 771.63281pt x 304.88907pt>
+<use ./../img/hilb_lin.png>
+<./../img/quadgk_pnp.png, id=350, 771.63281pt x 304.88907pt>
 File: ./../img/quadgk_pnp.png Graphic file (type png)
 
 <use ./../img/quadgk_pnp.png>
-<./../img/quadgk_fmix.png, id=354, 792.71156pt x 313.9228pt>
+<./../img/quadgk_fmix.png, id=351, 792.71156pt x 313.9228pt>
 File: ./../img/quadgk_fmix.png Graphic file (type png)
 
 <use ./../img/quadgk_fmix.png>
-<./../img/hilb_pnp.png, id=355, 797.98125pt x 306.39468pt>
+<./../img/hilb_pnp.png, id=352, 797.98125pt x 306.39468pt>
 File: ./../img/hilb_pnp.png Graphic file (type png)
 
 <use ./../img/hilb_pnp.png>
-<./../img/hilb_fmix.png, id=356, 780.66656pt x 302.63063pt>
+<./../img/hilb_fmix.png, id=353, 780.66656pt x 302.63063pt>
 File: ./../img/hilb_fmix.png Graphic file (type png)
 
-<use ./../img/hilb_fmix.png>
-<./../img/quadgk_qp1.png, id=357, 774.64406pt x 302.63063pt>
+<use ./../img/hilb_fmix.png> [66 <C:/doc/MSc/tex/img/quadgk_lin.png>] [67 <C:/d
+oc/MSc/tex/img/hilb_lin.png> <C:/doc/MSc/tex/img/quadgk_pnp.png>] [68 <C:/doc/M
+Sc/tex/img/quadgk_fmix.png> <C:/doc/MSc/tex/img/hilb_pnp.png>]
+<./../img/quadgk_qp1.png, id=369, 774.64406pt x 302.63063pt>
 File: ./../img/quadgk_qp1.png Graphic file (type png)
 
 <use ./../img/quadgk_qp1.png>
-<./../img/hilb_qp1.png, id=358, 794.2172pt x 316.18124pt>
+<./../img/hilb_qp1.png, id=370, 794.2172pt x 316.18124pt>
 File: ./../img/hilb_qp1.png Graphic file (type png)
 
 <use ./../img/hilb_qp1.png>
-<./../img/quadgk_qp2.png, id=359, 759.58781pt x 305.64188pt>
+<./../img/quadgk_qp2.png, id=371, 759.58781pt x 305.64188pt>
 File: ./../img/quadgk_qp2.png Graphic file (type png)
 
 <use ./../img/quadgk_qp2.png>
-<./../img/hilb_qp2.png, id=360, 758.835pt x 312.41719pt>
+<./../img/hilb_qp2.png, id=372, 758.835pt x 312.41719pt>
 File: ./../img/hilb_qp2.png Graphic file (type png)
 
-<use ./../img/hilb_qp2.png> [67 <C:/doc/MSc/tex/img/quadgk_pnp.png>] [68 <C:/do
-c/MSc/tex/img/quadgk_fmix.png> <C:/doc/MSc/tex/img/hilb_pnp.png>] [69 <C:/doc/M
-Sc/tex/img/hilb_fmix.png> <C:/doc/MSc/tex/img/quadgk_qp1.png>] [70 <C:/doc/MSc/
-tex/img/hilb_qp1.png> <C:/doc/MSc/tex/img/quadgk_qp2.png>] [71 <C:/doc/MSc/tex/
-img/hilb_qp2.png>] [72] [73] [74] (C:\doc\MSc\tex\texlipse\Thesis.bbl [75]
-[76]
+<use ./../img/hilb_qp2.png> [69 <C:/doc/MSc/tex/img/hilb_fmix.png>] [70 <C:/doc
+/MSc/tex/img/quadgk_qp1.png> <C:/doc/MSc/tex/img/hilb_qp1.png>] [71 <C:/doc/MSc
+/tex/img/quadgk_qp2.png> <C:/doc/MSc/tex/img/hilb_qp2.png>] [72] [73] [74]
+(C:\doc\MSc\tex\texlipse\Thesis.bbl [75] [76]
 Underfull \hbox (badness 2961) in paragraph at lines 155--161
 [][]\OT4/cmr/m/n/12 Mark G. Kuzyk, Ben-jamin R. An-der-son, Nathan J. Daw-son, 
 Sheng-Ting
@@ -1478,21 +1483,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 175--179
 
 [77] [78])
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <6> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3533.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3536.
 
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 3544
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 3547
 .
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <6> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3544.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3547.
 
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <6> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3553.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3556.
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3558.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3561.
 
  [79]
 [80] [81] [82]
@@ -1503,76 +1508,78 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [85]
-<./../img/zscan_sch.png, id=434, 386.94562pt x 199.49532pt>
+<./../img/zscan_sch.png, id=436, 386.94562pt x 199.49532pt>
 File: ./../img/zscan_sch.png Graphic file (type png)
 
 <use ./../img/zscan_sch.png>
-<./../img/zscan_diag.png, id=435, 373.395pt x 202.50656pt>
+<./../img/zscan_diag.png, id=437, 373.395pt x 202.50656pt>
 File: ./../img/zscan_diag.png Graphic file (type png)
 
 <use ./../img/zscan_diag.png> [86] [87 <C:/doc/MSc/tex/img/zscan_sch.png> <C:/d
 oc/MSc/tex/img/zscan_diag.png>]
-<./../img/oa_plot.png, id=444, 315.42844pt x 203.25937pt>
+<./../img/oa_plot.png, id=446, 315.42844pt x 203.25937pt>
 File: ./../img/oa_plot.png Graphic file (type png)
 
 <use ./../img/oa_plot.png>
-<./../img/ca_plot.png, id=445, 415.5525pt x 266.49562pt>
+<./../img/ca_plot.png, id=447, 415.5525pt x 266.49562pt>
 File: ./../img/ca_plot.png Graphic file (type png)
 
-<use ./../img/ca_plot.png> [88 <C:/doc/MSc/tex/img/oa_plot.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [89 <C:/doc/MSc/tex/img/ca_plot.png>]
-<./../img/zscan_both.png, id=454, 398.23781pt x 257.46187pt>
+<use ./../img/ca_plot.png> [88 <C:/doc/MSc/tex/img/oa_plot.png>] [89 <C:/doc/MS
+c/tex/img/ca_plot.png>]
+<./../img/zscan_both.png, id=456, 398.23781pt x 257.46187pt>
 File: ./../img/zscan_both.png Graphic file (type png)
 
 <use ./../img/zscan_both.png> [90] [91 <C:/doc/MSc/tex/img/zscan_both.png>]
-(C:\doc\MSc\tex\texlipse\Thesis.aux) ) 
+(C:\doc\MSc\tex\texlipse\Thesis.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 8059 strings out of 494019
- 112536 string characters out of 3146485
- 268322 words of memory out of 3000000
- 11120 multiletter control sequences out of 15000+200000
+ 8065 strings out of 494019
+ 112739 string characters out of 3146485
+ 270322 words of memory out of 3000000
+ 11125 multiletter control sequences out of 15000+200000
  35844 words of font info for 104 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 36i,17n,40p,1292b,1840s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dv
-ips/pl/plit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/pl/plrm.enc}{C:/Pr
-ogram Files/MiKTeX 2.9/fonts/enc/dvips/pl/plmi.enc} <C:\Users\Krzysztof\AppData
-\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mathabx\dpi600\matha10.pk> <C:\Users\K
-rzysztof\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mathabx\dpi600\matha6.
-pk> <C:\Users\Krzysztof\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mathabx
-\dpi600\matha8.pk> <C:\Users\Krzysztof\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
-\public\mathabx\dpi720\mathx10.pk> <C:\Users\Krzysztof\AppData\Local\MiKTeX\2.9
-\fonts\pk\ljfour\public\mathabx\dpi720\mathb12.pk>{C:/Program Files/MiKTeX 2.9/
-fonts/enc/dvips/pl/plms.enc} <C:\Users\Krzysztof\AppData\Local\MiKTeX\2.9\fonts
-\pk\ljfour\public\mathabx\dpi600\matha12.pk>{C:/Program Files/MiKTeX 2.9/fonts/
-enc/dvips/pl/pltt.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmbsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
-5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/pl/plbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/p
-l/plbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plbx6.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/pl/plbx8.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/pl/plmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/pl/plmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plmi6.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plmi7.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/pl/plmi8.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/pl/plr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl
-/plr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plr17.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/pl/plr6.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/pl/plr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/pl/plr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plsy10.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plsy8.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/pl/plti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/pl/plti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plt
-i7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/pltt12.pfb>
-Output written on Thesis.pdf (91 pages, 6378254 bytes).
+ 36i,17n,40p,1292b,2143s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/pl/plit.enc}{C:/Program Files/Mi
+KTeX 2.9/fonts/enc/dvips/pl/plrm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvi
+ps/pl/plmi.enc} <C:\Users\Krzysztof\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\pu
+blic\mathabx\dpi600\matha10.pk> <C:\Users\Krzysztof\AppData\Local\MiKTeX\2.9\fo
+nts\pk\ljfour\public\mathabx\dpi600\matha6.pk> <C:\Users\Krzysztof\AppData\Loca
+l\MiKTeX\2.9\fonts\pk\ljfour\public\mathabx\dpi600\matha8.pk> <C:\Users\Krzyszt
+of\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mathabx\dpi720\mathx10.pk> <
+C:\Users\Krzysztof\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mathabx\dpi7
+20\mathb12.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/pl/plms.enc} <C:\Use
+rs\Krzysztof\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mathabx\dpi600\mat
+ha12.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/pl/pltt.enc}<C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/
+msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plbx10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/pl/plbx12.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/pl/plbx6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/pl/plbx8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plmi10.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plmi12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/pl/plmi6.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/pl/plmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl
+/plmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plr10.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/pl/plr12.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/pl/plr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/pl/plr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plr7.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plr8.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/pl/plsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/pl/plsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plti1
+0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plti12.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/pl/plti7.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/pl/pltt12.pfb>
+Output written on Thesis.pdf (91 pages, 6383971 bytes).
 PDF statistics:
- 656 PDF objects out of 1000 (max. 8388607)
+ 660 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 346 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 351 words of extra memory for PDF output out of 10000 (max. 10000000)
 

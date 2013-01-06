@@ -39,7 +39,7 @@ function H = htrancc(fun, Xinterval, tol, inh)
     
     % Precalculation of ccFun
     Period = B - A;
-    Center = (B+A)/2;
+    Center = (B + A) / 2;
     ccFun = @(t) (fun(t .* Period ./2 + Center));
     
     % Preparation of constant values
