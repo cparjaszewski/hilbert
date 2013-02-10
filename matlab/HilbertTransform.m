@@ -6,7 +6,7 @@ classdef HilbertTransform < handle
     % a. htran      - based on paper by I.J. Weinbert             [MSc Thesis, chapter 4]
     % b. hncX       - based on Newton-Cotes quadrature            [MSc Thesis, chapter 5]
     % c. htrancc    - based on the Clenshaw-Curtis quadrature     [MSc Thesis, chapter 6]
-    % d. hfthilbert - based on the fast Hartley transform         [MSc Thesis, chapter 7]
+    % d. frthilbert - based on the fast Hartley transform         [MSc Thesis, chapter 7]
     % e. herhtrans  - based on Hermite transform                  [MSc Thesis, chapter 8]
     % f. fourhtrans - based on Fouries series approximation       [MSc Thesis, chapter 9]
     % g. quadgk     - built-in MATLAB Gauss-Kronrod quadrature  [MSc Thesis, chapter 10a]
@@ -17,8 +17,7 @@ classdef HilbertTransform < handle
 
     %% Author info:
     % [Krzysztof Parjaszewski, University of Wroclaw]
-    % As a part of MSc Thesis - "Numerical evaluation of the Hilbert transform used to 
-    % better understand and solve the Kramers-Kronig relations in nonlinear optics"
+    % As a part of MSc Thesis - "Numerical evaluation of the Hilbert transform in~nonlinear optics"
     % krzysztof.parjaszewski@gmail.com
 
     properties
@@ -37,7 +36,7 @@ classdef HilbertTransform < handle
             'htran' , ...      % MSc Thesis, chapter  4
             'hncX', ...        % MSc Thesis, chapter  5
             'htrancc', ...     % MSc Thesis, chapter  6
-            'hfthilbert', ...  % MSc Thesis, chapter  7
+            'frthilbert', ...  % MSc Thesis, chapter  7
             'herhtrans', ...   % MSc Thesis, chapter  8
             'fourhtrans', ...  % MSc Thesis, chapter  9
             'quadgk', ...      % MSc Thesis, chapter 10a
@@ -46,7 +45,7 @@ classdef HilbertTransform < handle
             @obj.t_htran_1d, ...
             @obj.t_hncX_1d, ...
             @obj.t_htrancc_1d, ...
-            @obj.t_hfthilbert_1d, ...
+            @obj.t_frthilbert_1d, ...
             @obj.t_herhtrans_1d, ...
             @obj.t_fourhtrans_1d, ...
             @obj.t_quadgk_1d, ...
@@ -55,7 +54,7 @@ classdef HilbertTransform < handle
             @obj.t_htran_2d, ...
             @obj.t_hncX_2d, ...
             @obj.t_htrancc_2d, ...
-            @obj.t_hfthilbert_2d, ...
+            @obj.t_frthilbert_2d, ...
             @obj.t_herhtrans_2d, ...
             @obj.t_fourhtrans_2d, ...
             @obj.t_quadgk_2d, ...
@@ -130,7 +129,7 @@ classdef HilbertTransform < handle
           obj.make1dSummary(x, f(x), Hi, Hr, 't_htrancc_1d', model_name);
         end
        
-        function t_hfthilbert_1d(obj, model) % Hilbert Transform with Hartley transform
+        function t_frthilbert_1d(obj, model) % Hilbert Transform with Hartley transform
            % Read model
           [x, X, f, l, model_name] = Utils.prepareTest(model);
           
@@ -141,8 +140,8 @@ classdef HilbertTransform < handle
           Y = f(X);               
 
           % Calculate the Hilbert transform values 
-          HLi = hfthilbert(real(Y)); 
-          HLr = hfthilbert(imag(Y)); 
+          HLi = frthilbert(real(Y)); 
+          HLr = frthilbert(imag(Y)); 
           
           % Rotate the minus/plus problem for models
           [HLr, HLi] = Utils.rotate(model.orientation, HLr, HLi);
@@ -151,7 +150,7 @@ classdef HilbertTransform < handle
           [Hi, Hr] = Utils.shortenRange(HLi, HLr, l);
           
           % Show final summary
-          obj.make1dSummary(x, f(x), Hi, Hr, 't_hfthilbert_1d', model_name);
+          obj.make1dSummary(x, f(x), Hi, Hr, 't_frthilbert_1d', model_name);
         end
         
         function t_herhtrans_1d(obj, model) % Discrete Hermite transform and Hermite transform 
@@ -278,7 +277,7 @@ classdef HilbertTransform < handle
             figure, mesh(X1, X2, Hhtrancclog);
         end
    
-        function t_hfthilbert_2d(~, model) % Hilbert Transform with Hartley transform
+        function t_frthilbert_2d(~, model) % Hilbert Transform with Hartley transform
         end
         
         function t_herhtrans_2d(~, model) % Discrete Hermite transform and Hermite transform 

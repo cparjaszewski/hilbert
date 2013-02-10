@@ -14,7 +14,7 @@ function testother
     for i = x
         iter = iter + 1;
         fivals = res(iter,:);
-        hvals(iter, :) = hfthilbert(fivals);
+        hvals(iter, :) = frthilbert(fivals);
         waitbar(iter/l);
     end, close(h);
     

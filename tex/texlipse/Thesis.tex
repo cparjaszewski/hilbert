@@ -5,6 +5,7 @@
 \usepackage{float}
 \usepackage{url} % Better display of ~ tilde
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{nccmath}
 \usepackage{amssymb}
 \usepackage{arcs}
@@ -42,6 +43,8 @@
 \def\ddashint{\Xint=} 
 \def\dashint{\Xint-}
 \newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\BigO}[1]{\ensuremath{\operatorname{O}\bigl(#1\bigr)}}
+\newtheorem{thm}{Theorem}
 
 
 \begin{document}
@@ -1535,10 +1538,11 @@ point $b$:
 \end{equation} 
 
 In the second step, important in our implementation, we are pre\-calculating the $A_{n, \, k}$ matrix described in equation
-(\ref{eq:ncparms_a}) within the function \texttt{prevaluateNCTab(n, a, b)}. We are applying the \texttt{maple} function that connects MATLAB
-with Maple and gives us the power of both tools. Once we know the $A_{n, \, k}$ matrix, we can perform the step-by-step calculation in the
-\texttt{doStep(fun, a, b, nosteps, tab)} function, which is called with a different number of steps (described with the \texttt{nosteps}
-parameter) in the parent loop as long as we demand better precision, related to the tolerance (\texttt{tol}) parameter.
+(\ref{eq:ncparms_a}) within the function \texttt{prevaluateNCTab(n, a, b)}. We will perform the symbolic calculations by applying
+the \texttt{maple} function that connects MATLAB with Maple and gives us the power of both tools. Once we know the $A_{n, \, k}$ matrix, we
+can perform the step-by-step calculation in the \texttt{doStep(fun, a, b, nosteps, tab)} function, which is called with a different number
+of steps (described with the \texttt{nosteps} parameter) in the parent loop as long as we demand better precision, related to the tolerance
+(\texttt{tol}) parameter.
 
 The full algorithm is presented in the Appendix A.2 with the additional comments. 
 
@@ -1685,7 +1689,8 @@ This time we used the following parameters:
 
 \begin{equation}
   \mu = \begin{bmatrix} 
-    3, & - 0.5 \\ 1.2, & 2.4
+    3,   & - 0.5 \\ 
+    1.2, &   2.4
   \end{bmatrix},
   \Omega = \begin{bmatrix} 
     - 3, & 13
@@ -1748,18 +1753,23 @@ with the constant values already chosen:
 
 \begin{equation} \label{eq:nclin_const2}
   \mu = \begin{bmatrix} 
-    1, & 3 \\ -1, & -2 
+    1,  &  3 \\ 
+    -1, & -2 
   \end{bmatrix} \, 
   \Omega = \begin{bmatrix} 
-    3, & 16 \\ 4, & 12 
+    3, & 16 \\ 
+    4, & 12 
   \end{bmatrix} \,
   \gamma = \begin{bmatrix} 
-  1, & 2 \\ -1, & 3
+    1, & 2 \\ 
+   -1, & 3
   \end{bmatrix} \, 
   N = 5, \, 
   \varepsilon_0 = 1, \,
   h= - 1.
 \end{equation}
+
+
 
 Results are presented in Figure (\ref{fig:nc_quantum2}). We can see a very large relative error reaching up to the 100\%. We may also
 suspect this model is invalid. This will be checked with another methods in next chapters.
@@ -1796,7 +1806,7 @@ the Cauchy principal value integral on the interval $[-1, 1]$:
 \end{equation}
 
 
-The first step suggested by the authors is to remove the singularity from the integral :
+The first step suggested by the authors is to remove the singularity from the integral:
 
 \begin{equation}   \label{eq:hcc_singularity}
   \dashint_{-1}^{1} \frac{f(x)}{(x-c)} d \, x = \dashint_{-1}^{1} \frac{f(x)-f(c)}{(x-c)} + f(c) \, log(\frac{1-c}{1+c})
@@ -1866,7 +1876,7 @@ As the input we receive $fun$, $XInterval$ and $tol$ parameters - described as b
 
   $fun$       &- investigated function, \\
   $XInterval$ &- given $N$-length abscissas and related ordinates, \\
-  $tol$       &- tolerance parameter, related to the stop condition in adaptive algorithm. \\
+  $tol$       &- tolerance, related to the stop condition in adaptive algorithm. \\
   
 \end{tabular}
 
@@ -1896,7 +1906,7 @@ a new function $ccFun$, described as below:
 	Center = \frac{B + A}{2},
 \end{equation}
 
-\begin{equation} \label{eq:cci_center}
+\begin{equation} \label{eq:cci_cecfun}
 	ccFun(x) = fun( \frac{x \cdot Period}{2} + Center).
 \end{equation}
 
@@ -2046,18 +2056,16 @@ As in the Chapter (\ref{chap:nc_nlo}), we have used the same model to describe t
 \end{equation}
 
 This time we used the following parameters: 
-
-
 \begin{equation} \label{eq:hhc_qpconst2}
   \mu = \begin{bmatrix} 
      3, & -0.5 \\ 1.2, & 2.4 
-  \end{bmatrix} \, 
+  \end{bmatrix} , \, 
   \Omega = \begin{bmatrix} 
      -3, & 13 
-  \end{bmatrix} \,
+  \end{bmatrix} , \,
   \gamma = \begin{bmatrix} 
      0.7, & 2.3
-  \end{bmatrix} \, 
+  \end{bmatrix} , \, 
   N = 8, \, 
   \varepsilon_0 = 1.4, \,
   h= - 2.7.
@@ -2103,193 +2111,266 @@ can see the model can be invalid.
 \end{figure}
 
 
-\section{Fast Hartley transform approach} \label{chap:hartley}
+\section{Fast Hartley transform based Hilbert transform (FRTHT)} \label{chap:hartley}
 
-\subsection{Overview of the FTHA} \label{chap:hartley_overview}
+\subsection{Overview of the FRTHT} \label{chap:hartley_overview}
 
-The Fast Hartley Transform approach for the Hilbert transform is based on two efficient O (n log n) discrete Hartley transforms and
-was well described by Soo-Chang Pei in \cite{chang_computation}. This approach is faster than another discrete Hilbert transform
-based on two Fourier transforms, because the whole computation are carried using only real numbers, which is faster than Fourier
-computation carried using time consuming complex numbers.
+The Fast Hartley transform based Hilbert transform applies two efficient $\BigO{n \log n}$ discrete Hartley transforms described by
+Soo-Chang Pei in \cite{chang_computation}. The Hilbert transform is defined by the mathematical convolution - see convolution definition
+(\ref{eh:mth_convolution}) - as stated in the following equation:
 
-\subsubsection*{Discrete Hartley Transform}
+\begin{equation} \label{eq:frtht_convolution}
+	\mathcal{H}[f(x)] = \frac{1}{x \, \pi} \convolution f(x) .
+\end{equation}
 
-For a given N-length vector X both the discrete Hartley transform and inverse discrete Hartley transform are defined as follows:
+Due to the observation (\ref{eq:physical_convolution}), the Hilbert transform can be presented with Fourier transform and the inverse
+Fourier transform:
 
-\begin{subequations} \label{eq:fhta_definition}
-  \begin{equation}   \label{eq:fhtadef_dht}
-    \mathrm{DHT}(X_k) = \sum_{n = 0}^{N - 1} \, X_n \, (
-      \mathrm{cos} \left(\frac {2 \, \pi \, k \, n}{N} \right) 
-    + \mathrm{sin} \left(\frac {2 \, \pi \, k \, n}{N} \right) )
+\begin{equation} \label{eq:frtht_convolutionexp}
+	\mathcal{H}[f(x)] = \mathcal{F}^{-1} \left( \mathcal{F}( \frac{1}{x \, \pi} ) \, \cdot \, \mathcal{F}(f(x)) \right) .
+\end{equation}.
+
+The FRTHT computation is carried using only real numbers, which is faster than time consuming Fourier computation using complex numbers.
+
+\subsubsection*{Discrete Hartley transform (DRT)}
+
+For a given vector $X \in \mathbb{R} ^ N$ the discrete Hartley transform (DRT) and the inverse discrete Hartley transform (IDRT) are
+defined as follows:
+
+\begin{subequations} \label{eq:frtht_definition}
+\begin{equation}   \label{eq:frthtdef_drt}
+    R = DRT(x) ,
   \end{equation}
-  \begin{equation}   \label{eq:fhtadef_idht}
-    \mathrm{IDHT}({H_{k}})= \frac {1}{N} \sum_{k = 0}^{N - 1} \, H_n \, (
+  \begin{equation}   \label{eq:frthtdef_idrt}
+    X = IDRT(R) ,
+  \end{equation}
+  \begin{equation}   \label{eq:frthtdef_hk}
+    R_k = \sum_{n = 0}^{N - 1} \, X_n \, \left(
+      \mathrm{cos} \left(\frac {2 \, \pi \, k \, n}{N} \right) 
+    + \mathrm{sin} \left(\frac {2 \, \pi \, k \, n}{N} \right) \right) ,
+  \end{equation}
+  \begin{equation}   \label{eq:frthtdef_xk}
+    X_k = \frac {1}{N} \sum_{k = 0}^{N - 1} \, R_n \, \left(
     	\mathrm{cos} \left( \frac {2 \, \pi \, k \, n}{N} \right) 
-      + \mathrm{sin} \left( \frac {2 \, \pi \, k \, n}{N} \right) ) 
+      + \mathrm{sin} \left( \frac {2 \, \pi \, k \, n}{N} \right) \right) .
   \end{equation}
 \end{subequations}
 
 \subsubsection*{Hartley transform convolution theorem}
 
-Now we will introduce the Hartley transform convolution theorem. We define the N-length vector x as convolution of two N-length
-vectors ${x_{1}}$, ${x_{2}}$ as follows:
+Now we will introduce the Hartley transform convolution theorem. We define the vector $z \in \mathbb{R} ^ N$ as convolution of two vectors
+$x, v \in \mathbb{R} ^ N$ as follows:
 
-\begin{equation} \label{eq:hartley_convolution}
-  x_n = x_{1, \,n} \convolution x_{2, \,n} = \sum_{k = 0}^{N - 1} \, x_{1, \, k} \, x_{2, \, n - k} 
+\begin{subequations} \label{eq:hartley_convolution}
+	\begin{equation} \label{eq:hartley_z}
+		z = x \, \convolution \, v ,
+	\end{equation}
+	\begin{equation} \label{eq:hartley_xv}
+  		z_n = \sum_{k = 0}^{N - 1} \, x_k \, v_{n - k} . 
+	\end{equation}
+\end{subequations}
+
+We have used the negative indexes for vector $v$, defined with the time reversal notation:
+
+\begin{equation} \label{eq:hartley_negindex}
+   v_{(-k)} \stackrel{\mathrm{def}}{=} v_{((N - k) \mod N)} .
 \end{equation}
 
-For a given convolution, the following theorem is stated:
+For the vector $X \in \mathbb{R} ^ N $ we define the $ \mathrm{even}(X) $ and $ \mathrm{odd}(X) $ functions - so we can distract the even
+and the odd parts of $X$:
 
-\begin{equation} \label{eq:hartley_theorem}
-  \mathrm{DHT}(x_n) = \mathrm{DHT}(x_{1, \,  k}) \, \mathrm{even}(\mathrm{DHT}(x_{2, \, k})) 
-                    + \mathrm{DHT}(x_{1, \, -k}) \, \mathrm{odd} (\mathrm{DHT}(h_{2, \, k})),
-\end{equation}
+\begin{subequations} \label{eq:hartley_oddeven}
+	\begin{equation} \label{eq:hartley_odd}
+		\mathrm{odd}(X_k)  = \frac{(X_k) - (X_{(-k)})}{2} ,
+	\end{equation}
+	\begin{equation} \label{eq:hartley_even}
+		\mathrm{even}(X_k) = \frac{(X_k) + (X_{(-k)})}{2} .
+	\end{equation}
+\end{subequations}
 
-with: $\mathrm{DHT}(x_{2, \,k}) = \mathrm{even}(\mathrm{DHT}(x_{2, \,k})) 
-                                 + \mathrm{odd} (\mathrm{DHT}(x_{2, \,k}))$
+For vector $z$ defined in equation (\ref{eq:hartley_xv}), the Hartley transform convolution theorem is stated:
 
-The proof of the Hartley transform convolution theorem can be found in \cite{chang_computation}. 
+\begin{thm} \label{eq:hartley_theorem}
+	\begin{subequations}
+		\begin{equation}
+			DZ = \mathrm{DRT}(z) ,
+	    \end{equation}
+	    \begin{equation} 
+			DX = \mathrm{DRT}(x) ,
+		\end{equation}
+	    \begin{equation} 
+			DV = \mathrm{DRT}(v) ,
+		\end{equation}
+		\begin{equation}
+			DZ_n = DX_n      \, \cdot \, \mathrm{even}(DV_n) 
+        	     + DX_{(-n)} \, \cdot \, \mathrm{odd} (DV_n) .
+		\end{equation}
+	\end{subequations}
+\end{thm}
+
+The proof of Theorem (\ref{eq:hartley_theorem}) can be found in \cite{chang_computation}. 
 
 \subsubsection*{Relation between discrete Fourier and discrete Hilbert transform}
 
-To better understand the relation between the discrete Fourier and discrete Hilbert transform we will introduce the dicrete Hilbert kernel:
+To better understand the relation between the discrete Fourier and discrete Hilbert transform we will remind the discrete Hilbert kernel:
 
 \begin{equation}   \label{eq:hdfttps_smallh}
-	h_k = \frac {1}{\pi \, k} \, \mbox{ discrete Hilbert kernel } .  
+	h_k = \frac {1}{\pi \, k} \, \mbox{ - discrete Hilbert kernel } .  
 \end{equation}
 
-The discrete Fourier transform of the discrete Hilbert kernel will be marked with the symbol $\mathrm{H}(k)$ :
+The discrete Fourier transform of the discrete Hilbert kernel will be marked with the symbol $\mathrm{H}$ :
 
 \begin{equation}   \label{eq:hdfttps_bigh}
-    \mathrm{H}(k) = \mathrm{DFT}(h_k), 
+    \mathrm{H} = \mathrm{DFT}(h), 
 \end{equation}
 
 and the $\mathrm{H}$ has the following properties:
 
 \begin{subequations} \label{eq:hartley_defh}
   \begin{equation}   \label{eq:hdefh_fhalf}
-    \mathrm{H}(k) =  i \, \mbox{ for } \, k = 1, \, 2, \, \ldots, \, \frac {N}{2} - 1 ,
-  \end{equation}
-  \begin{equation}   \label{eq:hdefh_middle}
-    \mathrm{H}(k) =  0 \, \mbox{ for } \, k = 0, \, \frac {N}{2} ,
-  \end{equation}
-  \begin{equation}   \label{eq:hdefh_shalf}
-    \mathrm{H}(k) = -i \, \mbox{ for } \, k = \frac {N}{2} + 1, \, \frac {N}{2} + 2, \, \ldots, \, N - 1
-  \end{equation} .
+    \mathrm{H_k} =  
+    \begin{cases}
+    	i  \, \mbox{ for } \, k = 1, \, 2, \, \ldots, \, \frac {N}{2} - 1 , \\
+    	0  \, \mbox{ for } \, k = 0, \, \frac {N}{2} , \\
+    	-i \, \mbox{ for } \, k = \frac {N}{2} + 1, \, \frac {N}{2} + 2, \, \ldots, \, N - 1 .
+    \end{cases}
+  \end{equation} 
 \end{subequations}
 
-We derive the discrete Fourier transform of the Hilbert transform for a given N-length vector x:
+We derive the discrete Fourier transform of the Hilbert transform for vector $x \in \mathbb{R} ^ N$:
 
-\begin{equation} \label{eq:hartley_dfttheorem}
-  \mathrm{DFT}(\mathrm{DISCRETE\_HILBERT}(x_k)) = 
-  	\mathrm{H}(k) \, \mathrm{DFT}(x_k)  = ( - i) \, \mathrm{\text{sgn}}(k) \, \mathrm{DFT}(x_k) .
-\end{equation}
-
+\begin{subequations} \label{eq:hartley_dfttheorem}
+	\begin{equation}
+		FHX = \mathrm{DFT} \left(\mathrm{DHT} (x) \right) ,
+	\end{equation}
+	\begin{equation}
+		FX = \mathrm{DFT} (x) ,
+	\end{equation}
+	\begin{equation} 
+	    FHX_k = H_k \, \cdot \, FX_k = ( - i) \, \mathrm{\text{sgn}}(k) \, F_k .
+	\end{equation}
+\end{subequations}
 \subsubsection*{Application of the discrete Hartley transform to calculate the discrete Hilbert transform:}
 
-Using the Hartley transform convolution theorem (\ref{eq:hartley_defh}) for a given N-length vector x we obtain:
+Using the Theorem (\ref{eq:hartley_theorem}) for vector $x \in \mathbb{R} ^ N$ we obtain:
 
-\begin{multline} \label{eq:hartley_fullconvolution}
-         \mathrm{DHT}(\mathrm{DISCRETE\_HILBERT}(x_k))  
-  = \\ = \mathrm{DHT}(x_{k})   \, \mathrm{even}(\mathrm{DHT}(h_k)) 
-       + \mathrm{DHT}(x_{- k}) \, \mathrm{odd} (\mathrm{DHT}(h_k)),
-\end{multline} 
+\begin{subequations} \label{eq:hartley_fullconvolution}
+	\begin{equation}
+		RHX = \mathrm{DRT} \left( \mathrm{DHT}(x) \right) ,
+	\end{equation}
+	\begin{equation}
+		RX =  \mathrm{DRT}(x) ,
+	\end{equation}
+	\begin{equation}
+		RH =  \mathrm{DRT}(h) ,
+	\end{equation}
+	\begin{equation}
+	    RHX_k = RX_{(k)}   \, \mathrm{even}(RH_k) 
+	          + RX_{(- k)} \, \mathrm{odd} (RH_k) .
+	\end{equation} 
+\end{subequations}
 
-where we have use the time reversal notation: $ x_{ - k} = x_{(N - k) \, \mathrm{mod} \, N}$.
 
 Now we should notice, that the discrete Hilbert transform kernel defined in (\ref{eq:hdfttps_smallh}) is an odd function, so its even
-part equals zero. So (\ref{eq:hartley_fullconvolution}) simplifies now into a product of two separate Hartley transforms:
+part equals zero. Therefore (\ref{eq:hartley_fullconvolution}) simplifies now into a product of two separate Hartley transforms:
 
 \begin{equation} \label{eq:hartley_simpleconvolution}
-  \mathrm{DHT}(\mathrm{DISCRETE\_HILBERT}(x_k))=\mathrm{DHT}(x_{ - k})\,\mathrm{odd}(\mathrm{DHT}(h_k)) =
-  \mathrm{DHT}(x_{- k})\,\mathrm{DHT}(h_k)
+	RHX_k = RX_{(- k)} \, \mathrm{odd}(RH_k) 
+	      = RX_{(- k)} \, RH_k
 \end{equation}
 
 By \cite{chang_computation} the second transform is defined:
 
-\begin{subequations} \label{eq:hartley_strans} 
-  \begin{equation}   \label{eq:hstrans_fhalf}
-    \mathrm{DHT}(h_k) =  1 \, \mbox{ for } \, k = 1, \, 2, \, \ldots, \, \frac {N}{2} - 1
-  \end{equation}
-  \begin{equation}   \label{eq:hstrans_middle}
-    \mathrm{DHT}(h_k) =  0 \, \mbox{ for } \, k = 0, \, \frac {N}{2}
-  \end{equation}
-  \begin{equation}   \label{eq:hstrans_shalf}
-    \mathrm{DHT}(h_k) = -1 \, \mbox{ for } \, k = \frac {N}{2} + 1, \, \frac {N}{2} + 2 .. N - 1
-  \end{equation}
-\end{subequations}
+\begin{equation}   \label{eq:hartley_strans}
+    RH_k = 
+    \begin{cases}
+    	1  \, \mbox{ for } \, k = 1, \, 2, \, \ldots, \, \frac {N}{2} - 1 , \\
+    	0  \, \mbox{ for } \, k = 0, \, \frac {N}{2} , \\
+    	-1 \, \mbox{ for } \, k = \frac {N}{2} + 1, \, \frac {N}{2} + 2 .. N - 1 .
+	\end{cases}
+\end{equation}
 
-In order to calculate the Hilbert of a given N-length vector x the last thing to do is to apply the inverse discrete Hartley
+In order to calculate the Hilbert transform of vector $x \in \mathbb{R} ^ N$ the last thing to do is to apply the inverse discrete Hartley
 transform on the very right side of (\ref{eq:hartley_simpleconvolution}) equation.
 
 \subsubsection*{Fast Hartley Transform algorithm}
 
 Ronald F. Ullmann has showed the fast algorithm for the discrete Hartley transform in~\cite{ullmann_algorithm}. The important
-assumption is that - as for the fast Fourier transform algorithm, the fast Hartley transform algorithm is defined for a K-length
-vector x, where K is the power-of-two:
+assumption is that, as for the fast Fourier transform algorithm, the fast Hartley transform algorithm is defined for $x \in \mathbb{R} ^
+K$, where K is the power-of-two:
 
 \begin{equation} \label{eq:ullmand_existp}
-  \exists p\,\ \in\ \,N : K=2^{p}
+  \exists p \, \ \in \ \, N : K = 2 ^ {p} \quad \mbox{ for } \ \, p = 0, \, 1, \, 2, \, \ldots  .
 \end{equation}
 
-
-The (\ref{eq:ullmand_existp}) condition for the algorithm and the further possibilities to modify it are discussed further. We will
-start with the very same thing as in the fast Fourier algorithm - we split the x vector into two smaller vectors:
+The (\ref{eq:ullmand_existp}) condition and the further possibilities to modify the algorithm are discussed further. We will start with the
+very same thing as in the fast Fourier algorithm - we split $x$ vector into two smaller vectors $x_1, x_2$:
 
 \begin{subequations} \label{eq:hartley_smallervectors}
-  \begin{equation}   \label{eq:hsvs_even}
-    x_{1, \, \frac     {m}{2}} = x_m \, \mbox{ for } \, m = 0, \, 2, \, \ldots, \, N - 1
-  \end{equation}
-  \begin{equation}   \label{eq:hsvs_odd}
-    x_{2, \, \frac {m - 1}{2}} = x_m \, \mbox{ for } \, m = 1, \, 3, \, \ldots, \, N - 2
+	\begin{equation}   \label{eq:hsvs_oddeven}
+		\begin{array}{c l}      
+			x_{1, \, m} &= x_{(2m)} \\
+			x_{2, \, m} &= x_{(2m+1)} 
+		\end{array}\Bigg\} 
+		\quad \mbox{ for } \ \, m = 0, \, 1, \, 2, \, \ldots, \, \Big\lfloor \frac{N}{2} - 1 \Big\rfloor , \\
   \end{equation}
 \end{subequations}
 
-Taking into account the initial definition of the discrete Hartley transform (\ref{eq:fhtadef_dht}), we obtain:
+Taking into account the initial definition of the discrete Hartley transform (\ref{eq:frthtdef_hk}), we obtain:
 
 \begin{multline}  \label{eq:hartley_longdht}
- \mathrm{DHT}(x_k) = \left( 
- 	\sum_{n = 0}^{\frac {N}{2} - 1} \, \mathrm{x}(2 \, n) \, (
- 		\mathrm{cos} \left( \frac {2 \, \pi \, k \, 2 \, n}{N} \right) 
-  	  + \mathrm{sin} \left( \frac {2 \, \pi \, k \, 2 \, n}{N} \right) ) \right)  
- + \\ \left( 
- 	\sum_{n = 0}^{\frac {N}{2} - 1} \, \mathrm{x}(2 \, n + 1) \, (
- 		\mathrm{cos} \left( \frac {2 \, \pi \, k \, (2 \, n + 1)}{N} \right) 
- 	  + \mathrm{sin} \left( \frac {2 \, \pi \, k \, (2 \, n + 1)}{N} \right) ) \right)
+	RX_k = 
+		\left( 
+ 			\sum_{n = 0}^{\lfloor \frac{N}{2} - 1 \rfloor } \, (2 \, n ) \, x \,  \left(
+ 				\mathrm{cos} \left( \frac {2 \, \pi \, k \, (2 \, n) }{N} \right) 
+  	  	  	  + \mathrm{sin} \left( \frac {2 \, \pi \, k \, (2 \, n) }{N} \right) \right) 
+        \right)  
+\\ + \, \left( 
+ 			\sum_{n = 0}^{\lfloor \frac{N}{2} - 1 \rfloor } \, (2 \, n + 1) \, x \,  \left(
+ 				\mathrm{cos} \left( \frac {2 \, \pi \, k \, (2 \, n + 1)}{N} \right) 
+ 	  	      + \mathrm{sin} \left( \frac {2 \, \pi \, k \, (2 \, n + 1)}{N} \right) \right) 
+ 	  	\right)
 \end{multline}
 
 In \cite{ullmann_algorithm} the following ''shift rule'' for the discrete Hartley transform is stated :
 
 \begin{equation} \label{eq:hartley_shiftrule}
-  \mathrm{DHT}(x_{k + c}) = \mathrm{DHT}(x_k) \, \mathrm{cos}(c)
- + \mathrm{DHT}(x_{ - k}) \, \mathrm{sin}(c)
+  RX_{(k + c)} = RX_{k}     \, \mathrm{cos}(c)
+               + RX_{(- k)} \, \mathrm{sin}(c) .
 \end{equation}
 
-If we apply the Hartley shift rule (\ref{eq:hartley_shiftrule}) to the split equation in (\ref{eq:hartley_longdht}) we obtain:
+If we apply the Hartley shift rule (\ref{eq:hartley_shiftrule}) to  equation (\ref{eq:hartley_longdht}) we obtain:
+\begin{subequations} 
+	\begin{equation}
+		RX_1 = \mathrm{DRT}(x_1) ,
+	\end{equation}
+	\begin{equation}
+		RX_2 = \mathrm{DRT}(x_2) ,
+	\end{equation}
+	\begin{multline} \label{eq:hartley_srapplied}
+	  RX_k = RX_{1, \, k} 
+	  	+ \mathrm{cos} \left( \frac {2 \, \pi \, k}{N} \right) \, RX_{2, \,    k } +
+	      \mathrm{sin} \left( \frac {2 \, \pi \, k}{N} \right) \, RX_{2, \, (- k)} \, \\
+	  \mbox{ for } \, k = 0, \, 1, \, 3, \, \ldots, \, \Big\lfloor \frac{N}{2} - 1 \Big\rfloor .
+	\end{multline}
+\end{subequations}
 
-\begin{multline} \label{eq:hartley_srapplied}
-  \mathrm{DHT}(x_k) = \mathrm{DHT}(x_{1, \, k}) 
-  	+ \mathrm{cos} \left( \frac {2 \, \pi \, k}{N} \right) \, \mathrm{DHT}(x_{2, \,k}) +
-      \mathrm{sin} \left( \frac {2 \, \pi \, k}{N} \right) \, \mathrm{DHT}(x_{2, \, - k})\, \\
-  \mbox{ for } \, k=0, \, 1, \, 3, \, \ldots, \frac {N}{2} - 1
-\end{multline}
 
 The rule (\ref{eq:hartley_srapplied}) can be applied only for the half of the possible k values ($k < \frac{N}{2}$). Now we will use
 the periodic properties of the discrete Hartley transform kernel:
 
 \begin{subequations} \label{eq:hartley_kernel}
   \begin{equation}   \label{eq:hkern_plus}
-    \mathrm{cos} \left(   \frac {2 \, \pi \, k \,      (n + N)}{N} \right) + 
-    \mathrm{sin} \left(   \frac {2 \, \pi \, k \, 2 \, (n + N)}{N} \right) =
-    \mathrm{cos} \left(   \frac {2 \, \pi \, k \, n}{N} \right) + 
-    \mathrm{sin} \left(   \frac {2 \, \pi \, k \, 2 \, n}{N} \right)
+    \mathrm{cos} \left(   \frac {2 \, \pi \, k \, 2 \, (n + N) }{N} \right)  
+  + \mathrm{sin} \left(   \frac {2 \, \pi \, k \, 2 \, (n + N) }{N} \right) 
+  = \mathrm{cos} \left(   \frac {2 \, \pi \, k \, ( 2 \, n ) }{N} \right) 
+  + \mathrm{sin} \left(   \frac {2 \, \pi \, k \, ( 2 \, n ) }{N} \right) ,
   \end{equation}
   \begin{equation}   \label{eq:hkern_minus}
-    \mathrm{cos} \left(   \frac {2 \, \pi \, k \,      (n + \frac {N}{2})}{N} \right)  + 
-    \mathrm{sin} \left(   \frac {2 \, \pi \, k \, 2 \, (n + \frac {N}{2})}{N} \right) = 
-    - \left( \mathrm{cos}(\frac {2 \, \pi \, k \, n}{N}) +
-             \mathrm{sin}(\frac {2 \, \pi \, k \, 2 \, n}{N}) 
-      \right)
+    \mathrm{cos} \left(   \frac {2 \, \pi \, k \, 2 \, (n + \frac {N}{2})}{N} \right) 
+  + \mathrm{sin} \left(   \frac {2 \, \pi \, k \, 2 \, (n + \frac {N}{2})}{N} \right)  
+  = - \mathrm{cos} \left( \frac {2 \, \pi \, k \, ( 2 \, n ) }{N} \right)
+    - \mathrm{sin} \left( \frac {2 \, \pi \, k \, ( 2 \, n ) }{N} \right) .
   \end{equation}
 \end{subequations}
 
@@ -2298,62 +2379,62 @@ The rule (\ref{eq:hartley_srapplied}) using the periodicity property from (\ref{
 
 \begin{subequations} \label{eq:hartley_periodicity}
   \begin{equation}   \label{eq:hperiod_fhalf}
-    \mathrm{DHT}(x_k) = \mathrm{DHT}(x_{1, \,k}) 
-    	+ \mathrm{cos} \left( \frac {2 \, \pi \, k}{N} \right) \, \mathrm{DHT}(x_{2, \, k}) +
-          \mathrm{sin} \left( \frac {2 \, \pi \, k}{N} \right) \, \mathrm{DHT}(x_{2, \, - k})
+    RX_k = RX_{1, \, k} 
+    	+ \mathrm{cos} \left( \frac {2 \, \pi \, k}{N} \right) \, RX_{2, \,    k } 
+        + \mathrm{sin} \left( \frac {2 \, \pi \, k}{N} \right) \, RX_{2, \, (- k)}
   \end{equation}
   
-  for $ \, k = 0, \,1,\dotsc,\frac {N}{2} - 1$
+  for $ \, k = 0, \, 1, \, \dotsc, \, \Big\lfloor\frac{N}{2} - 1 \Big\rfloor $ ,
+  
   \begin{multline}   \label{eq:hperiod_shalf}
-    \mathrm{DHT}(x_k) = \\
-        \mathrm{DHT}(x_{1, \,k - \frac {N}{2}}) 
-      - \mathrm{cos} \left( \frac {2\,\pi \,(k - \frac{N}{2})}{N} \right) \, \mathrm{DHT}(x_{2, \,   k - \frac {N}{2}}) 
-      - \mathrm{sin} \left( \frac {2\,\pi \,(k - \frac{N}{2})}{N} \right) \, \mathrm{DHT}(x_{2, \, - k + \frac {N}{2}})
+    RX_k = \\
+        RX_{1, \, (k - \frac {N}{2})} 
+      - \mathrm{cos} \left( \frac {2\,\pi \,(k - \frac{N}{2})}{N} \right) \, RX_{2, \, (  k - \frac {N}{2})} 
+      - \mathrm{sin} \left( \frac {2\,\pi \,(k - \frac{N}{2})}{N} \right) \, RX_{2, \, (- k + \frac {N}{2})}
   \end{multline}
   
-  for \,$k = \frac {N}{2}, \, \frac {N}{2} + 2, \dotsc, \, N - 1$
+  for \, $k = \Big\lfloor \frac{N}{2}     \Big\rfloor, 
+           \, \Big\lfloor \frac{N}{2} + 1 \Big\rfloor, 
+           \, \ldots \, , \, N - 1$ .
 \end{subequations}
  
-The remaining definition for the negative index, need to be explained:
-
-\begin{equation} \label{eq:hartley_negindex}
-  \mathrm{DHT}(v_{ - k}) = \mathrm{DHT}(v_{(N - k) \, \mathrm{mod} \, N})
-\end{equation}
-
-Of course this is a typical divide-and-conquer approach, where the complexity is reduced from $\mathrm{O}(n^{2}) \, $ to
-$ \, \mathrm{O}(n \, \mathrm{log}(n))$, very similar to the approach used in the Cooley-Tukey FFT algorithm \cite{Tukey_algorithm}.
+The definition of the negative index has been already explained in (\ref{eq:hartley_negindex}). Of course this is a typical
+divide-and-conquer approach, where the complexity is reduced from $\BigO{n^2} $ to $\BigO{n \log n}$, very similar to the approach used in
+the Cooley-Tukey FFT algorithm \cite{Tukey_algorithm}.
 
 \subsubsection*{Non-power-of-two case}
 
-There are several approaches when calculating the fast Fourier transform for a non-power-of-two case length of the input x vector. 
-One approach PFA is the Good-Thomas \cite{Good_interaction} / prime-factor algorithm for a vector length K defined:
+There are several approaches when calculating the fast Fourier transform for a non-power-of-two case length of the input x vector. One
+approach was described in Good-Thomas \cite{Good_interaction} as the prime-factor algorithm (PFA) for non-prime K:
 
 \begin{equation}  \label{eq:hartley_goodk}
   K = K_1 \, K_2 ,
 \end{equation}
 
-Where $K_1$ and $K_2$ are relatively prime numbers. Another approach was presented by Leo Bluestein, called also the chirp
-z-transform algorithm is presented in \cite{bluestein_linear}. Another author, George Bruun, has invented the approach based on
-the recursive polynomial-factorization in \cite{bruun_ztransform}. Rader has prepared the special FFT algorithm especially for
-vectors of prime size in \cite{rader_dicrete}. But we will use the simplest possible approach - called the zero-padding. So in case
-of input vector with the size of non-power-of-two, we add the suffix vector filled with vectors to fit the next possible
-power-of-two size. In the worst case, the input vector size will be doubled, which has no influence on the asymptotic complexity,
-which remains O(n log n). While the discrete signal analysis is the domain of scientists, we will end with conclusion stated by M.
-Lamb in \cite{lamb_issues} that he is uncertain, if zero padding has an influence on the spectral resolution, but in most cases it
-has a little influence on the results obtained in the discrete transforms.
+Where $K_1$ and $K_2$ are relatively prime numbers. Another approach, named the chirp z-transform algorithm, was presented by Leo Bluestein
+in \cite{bluestein_linear}. Other author, George Bruun, has invented the approach based on the recursive polynomial-factorization and
+described it in \cite{bruun_ztransform}. Rader has prepared the special FFT algorithm especially for vectors of prime size in
+\cite{rader_dicrete}. 
 
-The source code of the discrete Hilbert transform using both the fast Hartley transform and inverse fast Hartley transform has been
-presented in Appendix A.4.
+But we will use the simplest possible approach - called the zero-padding. So in case of input vector with the size of
+non-power-of-two, we add the suffix vector filled with vectors to fit the next possible power-of-two size. In the worst case, the input
+vector size will be doubled, which has no influence on the asymptotic complexity, which remains $\BigO{n \log n}$. While the discrete signal
+analysis is the domain of scientists, we will end with conclusion stated by M. Lamb in \cite{lamb_issues} that he is uncertain, if zero
+padding has an influence on the spectral resolution, but in most cases it has a little influence on the results obtained in the discrete
+transforms.
 
-\subsection{FTHA for simple linear model} \label{chap:hartley_lin}
+Our source code of the discrete Hilbert transform using both the fast Hartley transform and inverse fast Hartley transform has been
+presented in Appendix A.4. In our future research we can switch to another solution for the non power-of-two $N$, as listed before.
 
-In Figure (\ref{fig:fht_lin}) we have presented the results obtained with the Fast Hartley Hilbert Transform for the simple
-linear model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Fast Hartley Hilbert Transform gives us quite well
-accuracy, similar to HCCI and much better than HTRAN or Newton-Cotes quadrature. 
+\subsection{FRTHT for simple linear model} \label{chap:hartley_lin}
+
+In Figure (\ref{fig:fht_lin}) we have presented the results obtained with the Fast Hartley Hilbert Transform for the simple linear model
+defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Fast Hartley Hilbert Transform gives us quite well accuracy,
+similar to HCCI and much better than HTRAN or Newton-Cotes quadrature.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/fht_lin.png}
-  \caption{The Figure presents the results of the Fast Hartley Hilbert Transform method applied to the simple linear
+  \caption{The Figure presents the results of the FRTHT method applied to the simple linear
   model. Results are plotted together.
    a.a) The plot of the real part of $\chi (\omega )$ 
    a.b) absolute error plot (c-plot minus d-plot) 
@@ -2366,7 +2447,7 @@ accuracy, similar to HCCI and much better than HTRAN or Newton-Cotes quadrature.
   }
 \end{figure}
 
-\subsection{FTHA for simple nonlinear model} \label{chap:hartley_nlo}
+\subsection{FRTHT for simple nonlinear model} \label{chap:hartley_nlo}
 
 For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results
 obtained with the Fast Hartley Hilbert Transform has been presented in Figures (\ref{fig:fht_pnp}) and (\ref{fig:fht_fmix})
@@ -2374,7 +2455,7 @@ respectively.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/fht_pnp.png}
-  \caption{The Figure presents the results of the Fast Hartley Hilbert Transform method applied to the pump-and-probe model. Results are
+  \caption{The Figure presents the results of the FRTHT method applied to the pump-and-probe model. Results are
   plotted together.
      a.a) The plot of the real part of ${\chi_{pp}}(\omega )$
      a.b) absolute error plot (a.d-plot minus a.c-plot) 
@@ -2390,7 +2471,7 @@ respectively.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/fht_fmix.png}
-  \caption{The Figure presents the results of the Fast Hartley Hilbert Transform method applied to the frequency mixing model. Results are
+  \caption{The Figure presents the results of the FRTHT method applied to the frequency mixing model. Results are
   plotted together.
      a.a) The plot of the real part of ${\chi_{mix}}(\delta )$
      a.b) absolute error plot (a.d-plot minus a.c-plot) 
@@ -2406,7 +2487,7 @@ respectively.
 
 Once again we can see a very good accuracy, better than for HTRAN or Newton-Cotes, and similar to HCCI.
 
-\subsection{FTHA for simple quantum-perturbative model} \label{chap:hartley_quantum}
+\subsection{FRTHT for simple quantum-perturbative model} \label{chap:hartley_quantum}
 
 \subsubsection*{Linear model - results:}
 
@@ -2417,19 +2498,24 @@ As in the Chapter (\ref{chap:nc_nlo}), we have used the same model to describe t
   - \omega  - i\,{\gamma_{n}}} + \frac {{\mu_{2, \,n}}\,{\mu_{1, \,n}}}{{\Omega_{n}} + \omega + i\,{\gamma_{n}}})
 \end{equation}
 
-This time we used the following parameters: \\
-$\mu = [[3, \, - 0.5], \,[1.2, \,2.4]]$, 
-$\Omega =[ - 3, \,13]$, 
-$\gamma =[0.7, \,2.3]$,  
-$N=8$, 
-${\varepsilon_{0}}=1.4, 
-h= - 2.7$
+This time we used the following parameters: 
+\begin{equation}
+	\mu = \begin{bmatrix} 
+		3,   & - 0.5 \\ 
+		1.2, &   2.4 
+	\end{bmatrix} ,
+	\Omega = \begin{bmatrix} - 3, & 13  \end{bmatrix} , 
+    \gamma = \begin{bmatrix} 0.7, & 2.3 \end{bmatrix} ,   
+    N = 8, 
+    \varepsilon_0 = 1.4, 
+    h = - 2.7
+\end{equation}
 
 Results are presented in Figure (\ref{fig:fht_qp1}). We can see a perfect match here!
 
 \begin{figure}
   \includegraphics[width=150mm]{img/fht_qp1.png}
-  \caption{Results for the linear quantum perturbative model for FHT Hilbert transform
+  \caption{Results for the linear quantum perturbative model for FRTHT method
     a.a) The plot of the imaginary part of ${\chi_{1, \,qp}}(\omega )$
     a.b) absolute error plot (d-plot minus c-plot) 
     a.c) real part of $\chi_{1, \, qp} (\omega )$ obtained with the Hilbert transform of a-plot 
@@ -2444,47 +2530,30 @@ Results are presented in Figure (\ref{fig:fht_qp1}). We can see a perfect match 
 
 \subsubsection*{Second-order model - results:}
 
-We have also used the same model as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility model:
+We have also used the same model (\ref{eq:nclin_chipp2}) as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility
+model and we have used the following values of the constants: 
 
-\begin{multline} \label{eq:fht_qp2}
-  \chi_{2, \,qp}({\omega_{1}}, \,{\omega_{2}}) = 
-     2\,N\,\varepsilon_{0}\,h^{2}\,\sum_{n=1}^{2}\sum_{m=1}^{2}\sum_{l=1}^{2}\,
-  ( 
-      \frac {{\mu_{l,\,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{nl}} - \omega_1 - \omega_2 - i\,{\gamma_{nl}})\,({\Omega_{ml}} - \omega_1 - i\,{\gamma_{ml}})}
-+\\ + \frac   {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{nl}} - \omega_1 - \omega_1 - i\,{\gamma_{nl}})\,({\Omega_{ml}} - \omega_2 - i\,{\gamma_{ml}})}
-+\\ + \frac   {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{mn}} - \omega_1 - \omega_2 - i\,{\gamma_{mn}})\,({\Omega_{nl}} + \omega_2 + i\,{\gamma_{nl}})}
-+\\ + \frac{{\mu_{l, \,n }}\,{\mu_{nm}}\,{\mu_{ml}}} 
-      {({\Omega_{mn}} - \omega_1 - \omega_2 - i\,{\gamma_{mn}})\,({\Omega_{nl}} + \omega_2 + i\,{\gamma_{nl}})} 
-+\\ + \frac   {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{nm}} + \omega_1 + \omega_2 + i\,{\gamma_{nm}})\,({\Omega_{ml}} - \omega_1 - i\,{\gamma_{ml}})}
-+\\ + \frac {{\mu_{l, \,n}}\,{\mu_{ nm}}\,{\mu_{ml}}}
-      {({\Omega_{nm}} + \omega_1 + \omega_2 + i\,{\gamma_{nm}})\,({\Omega_{ml}} - \omega_1 - i\,{\gamma_{ml}})} 
-+\\ + \frac {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{ml}} + \omega_1 + \omega_2 + i\,{\gamma_{ml}})\,({\Omega_{nl}} + \omega_1 + i\,{\gamma_{nl}})}
-+\\ + \frac {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{ml}} + \omega_1 + \omega_2 + i\,{\gamma_{ml}})\,({\Omega_{nl}} + \omega_2 + i\,{\gamma_{nl}})}
-  )  ,
-\end{multline}
-and we have used the following values of the constants: \\
-$\mu = \left| \begin{array}{cc} 
-    1 & 3 \\ -1 & -2 
-  \end{array} \right|,\, 
-  \Omega = \left| \begin{array}{cc} 
-    3 & 16 \\ 4 & 12 
-  \end{array} \right|,\,
-  \gamma = \left| \begin{array}{cc} 
-  1 & 2 \\ -1 & 3
-  \end{array} \right|,\, N=5,\, {\varepsilon_{0}}=1,\,h= - 1$
+\begin{equation}
+	\mu = \begin{bmatrix} 
+    	1, & 3 \\ -1, & -2 
+  	\end{bmatrix} , \, 
+  	\Omega =  \begin{bmatrix}  
+    	3, & 16 \\ 4, & 12 
+  	\end{bmatrix} , \,
+  	\gamma =  \begin{bmatrix}  
+  		1, & 2 \\ -1, & 3
+  	\end{bmatrix} , \, 
+  	N = 5 , \, 
+  	\varepsilon_0 = 1, \,
+  	h = - 1 .
+\end{equation}
 
 Results are presented in Figure (\ref{fig:fht_qp2}). As for the previous calculations, we can see the model could be invalid
-because of the raised errors reach up to 100\%.
+because of the raised errors reach up to $ 100 \% $.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/fht_qp2.png}
-  \caption{Results for the second-order quantum perturbative model for FHT Hilbert transform
+  \caption{Results for the second-order quantum perturbative model for FRTHT method
      a.a) The plot of the real part of $\chi_{2, \, qp}(\omega )$
      a.b) absolute error plot (a.d-plot minus a.c-plot) 
      a.c) imaginary part of $\chi_{2, \, qp}(\omega )$ calculated analytically 
@@ -2497,29 +2566,32 @@ because of the raised errors reach up to 100\%.
      }
 \end{figure}
 
-\section{Hermite-Hilbert transform} \label{chap:hermite}
+\section{Hermite polynomials based Hilbert transform - HHT} \label{chap:hermite}
 
 \subsection{Overview of the HHT}  \label{chap:hermite_overview}
 
-Hermite-Hilbert transform approach is based on the precalculation of already-known Hermite polynomials and Hermite base of orthogonal
-functions. The algorithm is based on the master thesis of Mathias Johansson \cite{johansson_hilbert}.
+Hermite polynomials based Hilbert transform approach is based on the precalculation of already-known Hermite polynomials and Hermite base of
+orthogonal functions. The algorithm is based on the master thesis of Mathias Johansson \cite{johansson_hilbert}.
 
 \subsubsection*{Hermite polynomials and Hermite functions:}
 
 Hermite polynomial of an arbitrary n degree is defined as follows:
 
 \begin{equation} \label{eq:hermite_definition}
-	H_n(x) = \frac {( - 1)^{n} \, e ^ {(x ^ 2)} \, d ^ n \, e^{( - x ^ 2)} } {{dt}^{n}}
+	H_n(x) = ( - 1)^{n} \, e ^ {x ^ 2} \frac { d ^ n } {{dx}^{n}} \, e^{ - x ^ 2}
 \end{equation}
 
 There is also an recursive equation for Hermite polynomials:
 
 \begin{subequations} \label{eq:hermite_recursive}
   \begin{equation}   \label{eq:hrec_next}
-    H_n (x) = 2 \, x \, H_{n - 1}(x) + 2 \, (n - 1) \, H_{n - 2}(x)
+    H_n (x) = 2 \, x \, H_{n - 1}(x) - 2 \, (n - 1) \, H_{n - 2}(x)
   \end{equation}
   \begin{equation}   \label{eq:hrec_first}
     H_0 (x) = 1
+  \end{equation}
+  \begin{equation}   \label{eq:hrec_second}
+    H_1 (x) = 2 \, x
   \end{equation}
 \end{subequations}
 
@@ -2531,15 +2603,15 @@ weight function and the norm function:
     \mathrm{w}(x) = e^{( - \frac {x^{2}}{2})}
   \end{equation}
   \begin{equation}   \label{eq:hwht_iter}
-    N_n (x) = \sqrt{2^{n} \, n\mathrm{!} \, \sqrt{\pi }}
+    N_n = \sqrt{2^{n} \, n\mathrm{!} \, \sqrt{\pi }}
   \end{equation}
 \end{subequations}
 
-If we multiply the n-th Hermite polynomial with the weight function w(x) and divide it by the n-th norm function $N_n$ we
+If we multiply the n-th Hermite polynomial with the weight function $w(x)$ and divide it by the n-th norm function $N_n$ we
 obtain a n-th orthogonal Hermite function:
 
 \begin{equation} \label{eq:hermite_orthogonal}
-  \phi_n (x) = \frac {\mathrm{w}(x) \, H_n (x)} {N_n (x)} 
+  \phi_n (x) = \frac {\mathrm{w}(x) \, H_n (x)} {N_n} 
   	= \frac {e^{( - \frac {x ^ 2}{2})} \, H_n (x)} {\sqrt{2^{n} \, n\mathrm{!} \, \sqrt {\pi }}}
 \end{equation}
 
@@ -2547,62 +2619,83 @@ Based on the recursive equation in (\ref{eq:hermite_recursive}) we also obtain:
 
 \begin{subequations} \label{eq:hermite_recresult}
   \begin{equation}   \label{eq:hrr_weight}
-    \phi_n (x) = \sqrt{\frac {2 \, x \, {\phi_{n - 1}}(x)}{n}} - (n - 1) \, \sqrt{\frac {{\phi_{n - 2}}(x)} {(n - 1) \, n}}
+    \phi_n (x) = \sqrt{\frac {2}{n}} \, x \, {\phi_{n - 1}}(x) - (n - 1) \, \sqrt{\frac {1} {(n - 1) \, n}} \, \phi_{n - 2}(x)
   \end{equation}
   \begin{equation}   \label{eq:hrr_iter}
     \phi_0 (x) = \frac {e^{( - \frac {x ^ 2} {2})}} {\pi ^{(\frac {1}{4})}}
   \end{equation}
 \end{subequations}
 
+Example orthogonal Hermite functions are presented on Figure (\ref{fig:her_plots}).
+
+\begin{figure}
+  \includegraphics[width=150mm]{img/her_plots.png}
+  \caption{ The Figure presents the orthogonal Hermite functions of degree 2 (green), 4 (blue) and 40 (red) drawn together. }
+  \label{fig:her_plots}
+\end{figure}
+ 
 \subsubsection*{Hilbert transform of Hermite functions:}
 
-Johansson after polish mathematician Stefan L. Hahn \cite{hahn_hilbert} states that for any f(x) and
-$\mathrm{HILBERT}(\mathrm{f}(x))$ belonging to $ L_1 $ we have:
+Johansson after polish mathematician Stefan L. Hahn \cite{hahn_hilbert} states that for any function $f(x)$ and its Hilbert transform 
+$\mathcal{H}(\mathrm{f}(x))$ that both are integrable - therefore belonging to Lebesgue space $ L_1 $ - we have:
 
 \begin{equation} \label{eg:hermite_hproperty}
-  \mathrm{HILBERT}(x \, \mathrm{f}(x)) = x \, \mathrm{HILBERT}(\mathrm{F}(x)) 
+  \mathcal{H}(x \, \mathrm{f}(x)) = x \, \mathcal{H}(\mathrm{f}(x)) 
     - \frac {1}{\pi } \, \int_{ - \infty } ^ {\infty}\mathrm{f}(\tau ) \, d\tau 
 \end{equation}
 
 The proof of the Theorem stated in (\ref{eg:hermite_hproperty}) is short:
 
-\begin{equation} \label{eq:hermite_hpropproof}
-  \mathrm{HILBERT}(x \, \mathrm{f}(x)) = 
-  	\frac{1}{\pi } \, \dashint_{ - \infty }^{ \infty } \frac {\tau \,    \mathrm{f}(\tau )} {x - \tau} \, d\tau  
-  = \frac{1}{\pi } \, \dashint_{ - \infty }^{ \infty } \frac {(x - s) \, \mathrm{f}(x - s)} {s} \, ds ,
-\end{equation}
-\begin{alignat*}{1}
-  \mbox { where } \, s &= x - \tau = 
-  	\frac{1}{\pi } \, \dashint_{ - \infty }^{ \infty } \frac {x \, \mathrm{f}(x - s)}{s} \, ds -
-    \frac{1}{\pi } \, \dashint_{ - \infty }^{ \infty } \mathrm{f}(x - s) \, ds = \\
-  &= x \, \mathrm{HILBERT}(\mathrm{f}(x)) 
-  - \frac{1}{\pi } \, \dashint_{ - \infty }^{ \infty } \mathrm{f}(\tau ) \, d\tau 
-\end{alignat*}
+\begin{proof} 
+	\begin{equation} \label{eq:hermite_hpropproof}
+  		\mathcal{H}(x \, \mathrm{f}(x)) = 
+  			\frac{1}{\pi } \, \dashint_{ - \infty }^{ \infty } \frac {\tau \, \mathrm{f}(\tau )} {x - \tau} \, d\tau.
+	\end{equation}
+  	
+	Let's make a substitution:
+	
+	\begin{equation}
+		s = x - \tau, 
+	\end{equation}
+	
+	so now:
+	
+	\begin{equation}
+		\begin{split}	  
+		    \frac{1}{\pi } \, \dashint_{ - \infty }^{ \infty } \frac {\tau \, \mathrm{f}(\tau )} {x - \tau} \, d\tau
+		  = \frac{1}{\pi } \, \dashint_{ - \infty }^{ \infty } \frac {(x - s) \, \mathrm{f}(x - s)} {s} \, ds 
+  	 = \\ = \frac{1}{\pi } \, \dashint_{ - \infty }^{ \infty } \frac {x \, \mathrm{f}(x - s)}{s} \, ds -
+		    \frac{1}{\pi } \, \dashint_{ - \infty }^{ \infty } \mathrm{f}(x - s) \, ds = \\
+		  = x \, \mathcal{H}(\mathrm{f}(x)) 
+		  - \frac{1}{\pi } \, \dashint_{ - \infty }^{ \infty } \mathrm{f}(\tau ) \, d\tau  \qedhere
+		\end{split} 
+	\end{equation}
+\end{proof}
 
 From both equations (\ref{eg:hermite_hproperty}) and (\ref{eq:hermite_recresult}) we now obtain the important result:
 
 \begin{subequations} \label{eq:hermite_impresult}
   \begin{equation}   \label{eq:hir_phinext}
-    \mathrm{HILBERT}( \phi_n (x)) = \sqrt{\frac {2} {n}} \, 
-    	\left( x \, \phi_{n - 1} (x) - \frac {1}{\pi } \, \int_{ - \infty }^{ \infty } {\phi_{n - 1}}(\eta )\,d\eta  \right)  
-    	- (n - 1) \, \sqrt{\frac {1}{n \, (n - 1)}} \, \phi_{n - 2} (x)
+    \mathcal{H}( \phi_n (x)) = \sqrt{\frac {2} {n}} \, 
+    	\left( x \, \mathcal{H}(\phi_{n - 1} (x)) - \frac {1}{\pi } \, \int_{ - \infty }^{ \infty } {\phi_{n - 1}}(\eta )\,d\eta  \right)  
+    	- (n - 1) \, \sqrt{\frac {1}{n \, (n - 1)}} \, \mathcal{H}(\phi_{n - 2} (x))
   \end{equation}
   \begin{equation}   \label{eq:hir_phifirst}
-    \mathrm{HILBERT}(\phi_{0} (x)) = 2 \, \sqrt{2} \, \pi ^{(\frac {1}{4} )} \, 
+    \mathcal{H}( \phi_{0} (x)) = 2 \, \sqrt{2} \, \pi ^ { (\frac {1}{4} ) } \, 
     	\int_{0}^{\infty } e ^ {( - \frac {\omega ^ 2} {2})} \, \mathrm{sin} (\omega \, x) \, d\omega
   \end{equation}
 \end{subequations}
 
 \subsubsection*{Hilbert transform based on the Hermite functions:}
 
-Now we can derive the Hilbert transform of an arbitrary function. We start with expanding f = f(x) into a series sum:
+Now we can derive the Hilbert transform of an arbitrary function. We start with expanding $f = f(x)$ into following series:
 
 \begin{subequations} \label{eq:hermite_fexpand}
   \begin{equation}   \label{eq:hfe_f}
-     \mathrm{f}(x) = \sum_{n = 0}^{\infty } \, a_n \, \phi_n(x) 
+     \mathrm{f}(x) = \sum_{n = 0}^{\infty } \, a_{n, f(x)} \, \phi_n(x) 
   \end{equation}
   \begin{equation}   \label{eq:hfe_an}
-     a_n(x) = \int_{ - \infty }^{\infty } \mathrm{f}(x) \, \phi_n (x) \, dx
+     a_{n, f(x)} = \int_{ - \infty }^{\infty } \mathrm{f}(x) \, \phi_n (x) \, dx
   \end{equation}
 \end{subequations}
 
@@ -2610,33 +2703,103 @@ For each function that has a limited series expansion at infinity we can provide
 
 \begin{subequations} \label{eq:hermite_estimate}
   \begin{equation}   \label{eq:hest_fapprox}
-      f(x) \approx \sum_{n = 0}^{N} \, a_n \, \phi_n (x)
+      f(x) \approx \sum_{n = 0}^{N} \, a_{n, f(x)} \, \phi_n (x)
   \end{equation}
   \begin{equation}   \label{eq:hest_happrox}
-     \mathrm{HILBERT} (\mathrm{f}(x)) \approx \sum_{n = 0} ^ {N} \, a_n \, \mathrm{HILBERT}(\phi_n (x))
+     \mathcal{H} (\mathrm{f}(x)) \approx \sum_{n = 0} ^ {N} \, a_{n, f(x)} \, \mathcal{H}(\phi_n (x))
   \end{equation}
 \end{subequations}
 
-\subsubsection*{Short description of the numerical algorithm:}
+\subsection*{Short description of the numerical algorithm:}
 
-Taking a look on the (\ref{eq:hermite_estimate}) we can see that the only difficulty is to calculate the $a_n$ coefficients,
-while both the $\phi_n (x)$ and $\mathrm{HILBERT}(\phi_n (x))$ can be precalculated once. The integral in
-(\ref{eq:hermite_fexpand}) is now much easier because there is no singularity. The algorithm is given in Appendix A.5 and it
-consists of three main parts:
+We have prepared the numerical algorithm that calculates the Hilbert transform based on presented properties of Hermite polynomials. 
 
-\begin{tabular}{l l}
-  1.         & PRECALCULATION of the Hermite function \\
-             & coefficients with Maple Toolbox \\
-  MAIN LOOP: & \\
-  2.         & ESTIMATION OF ${a_{n}}$ COEFFICIENTS \\
-  3.         & CALCULATION OF THE HILBERT TRANSFORM (\ref{eq:hest_happrox}) \\
-\end{tabular}
+Firstly we observe Hermite functions and their Hilbert transforms do not depend on the investigated function, so we can calculate them once
+and hard-code into the algorithm. The results of the precalculation stage has been applied directly to the to speed up the algorithm.
+
+\subsubsection*{Precalculation stage:}
+
+We have calculated the orthogonal Hermite functions from equation (\ref{eq:hermite_orthogonal}) and the Hilbert transforms of these
+functions from the recursive equation (\ref{eq:hir_phinext} - \ref{eq:hir_phifirst}). We have used built-in Maple toolbox for MATLAB.
+
+The important observation we have made in this precalculations is that:
+
+\begin{equation} \label{eq:hermite_hexp}
+	\mathcal{H}[e^{-x^2}] = - e^{-x^2} \, \mathop{\mathrm{erfi}}(x) .  
+\end{equation}
+
+The $\mathop{\mathrm{erfi}}(x)$ function is the Imaginary Error Function end it is defined by the $\mathop{\mathrm{erf}}(x)$ - the Error
+Function:
+
+\begin{equation} \label{eq:hermite_hexp}
+	\mathop{\mathrm{erfi}}(x) = - i \, \mathop{\mathrm{erf}} (i \, x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{t^2} \, dt .    
+\end{equation}
+
+The mentioned (\ref{eq:hermite_hexp}) observation is important, because many of numerical libraries has got the $\mathop{\mathrm{erf}}(x)$
+already implemented, we have used built-in MATLAB function.
+
+\subsubsection*{Calculation of $a_{n, f(x)}$ coefficients:}
+
+The next step to describe is the calculation of $a_{n, f(x)}$ coefficients. We have applied the Clenshaw Curtis integration routine already
+defined in Chapter (\ref{chap:hcc}). The only issue we shall describe here is the modification of the integration range for the
+equation~(\ref{eq:hfe_an}) from $(-\infty , \infty)$ to $[-1, 1]$. Therefore we state the substitution:
+
+\begin{subequations} \label{eq:her_substitution}
+	\begin{equation} \label{eq:her_subst_x}
+		x = \frac{t} {1 - t ^ 2},
+	\end{equation}
+	\begin{equation} \label{eq:her_subst_dx}
+		dx = \frac{1 + t ^ 2} {(t ^ 2 - 1) ^ 2} \, dt,
+	\end{equation} 
+\end{subequations}
+
+So for the integral similar to the one defined in equation (\ref{eq:hfe_an}) we obtain:
+
+\begin{equation} \label{eq:her_intsubst}
+	\int_{- \infty}^{\infty} f(x) \, dx = \int_{- 1}^{1} f(\frac{t} {1 - t ^ 2}) \, \frac{1 + t ^ 2} {(t ^ 2 - 1) ^ 2} \, dt .
+\end{equation}
+
+\subsubsection*{Calculation of $\mathcal{H} (\mathrm{f}(x))$:}
+
+Once we have already calculated the orthogonal Hermite functions, their Hilbert transforms and the $a_{n, f(x)}$ coefficients we can proceed
+to the main Hilbert transform calculation. We will proceed in a loop with a stop condition. In every loop step we calculating the iterative
+sums as defined in equations (\ref{eq:hest_fapprox}) and (\ref{eq:hest_happrox}) for a given vector $X \in \mathbb{R} ^ M$:
+
+\begin{subequations} \label{eq:her_main_algorithm}
+	\begin{equation} \label{eq:her_main_algorithm_fn}
+		N = 0, 1, 2, \ldots \, ,
+	\end{equation}
+	\begin{equation} \label{eq:her_main_algorithm_fn}
+		f_N(X_k) = \sum_{n = 0}^{N} \, a_{n, f(x)} \, \phi_n (X_k) 
+		\, \mbox{ for } \, k = 0, 1, 2, \ldots M, 
+	\end{equation}
+	\begin{equation} \label{eq:her_main_algorithm_hfn}
+		\mathcal{H} (\mathrm{f_N}(X_k)) N \sum_{n = 0} ^ {N} \, a_{n, f(x)} \, \mathcal{H}(\phi_n (X_k)) 
+		\, \mbox{ for } \, k = 0, 1, 2, \ldots M.
+	\end{equation} 
+\end{subequations}
+
+Once we already now the exact formula for function $f(x)$ in every point of vector $X$, we can determine the stop condition based on the
+proximity between $f(X)$ and $f_N(X)$. We will calculate the difference in each point of vector $X$ and compare that error with the
+previously set tolerance. The error $\mathop{\mathrm{err}}$ is defined as follows:
+
+\begin{subequations} \label{eq:her_stopcondition}
+	\begin{equation}
+		D = \max (|f(X_0)|, |f_N(X_0)|, |f(X_1)|, |f_N(X_1)|, \ldots, |f(X_M)|, |f_N(X_M)|, \mathop{\mathrm{tol}} ), 
+	\end{equation}
+	\begin{equation}
+		\mathop{\mathrm{err}} = \max(|\frac{f(X_0) - f_n(X_0)}{D}|, |\frac{f(X_1) - f_n(X_1)}{D}|, \ldots , |\frac{f(X_M) - f_n(X_M)}{D}|) .
+	\end{equation}
+\end{subequations}
+
+So now the stop condition is simply comparison $\mathop{\mathrm{err}}  < \mathop{\mathrm{tol}} $. After the algorithm quits the main loop
+after $N$ steps - we obtain the final result for the Hilbert transform: $\mathcal{H} (\mathrm{f_N}(X_k))$.
 
 \subsection{HHT for simple linear model} \label{chap:hermite_lin}
 
 In Figure (\ref{fig:hht_lin}) we have presented the results obtained with the Hermite-Hilbert transform for the simple
 linear model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Hermite-Hilbert transform comes with poor accuracy,
-but we would like to put this method into examination with defined models.
+but we would like to put this method into examination with all models defined in Chapter (\ref{chap:physical_models}).
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/hht_lin.png}
@@ -2706,13 +2869,23 @@ As in the Chapter (\ref{chap:nc_nlo}), we have used the same model to describe t
   - \omega  - i\,{\gamma_{n}}} + \frac {{\mu_{2, \,n}}\,{\mu_{1, \,n}}}{{\Omega_{n}} + \omega + i\,{\gamma_{n}}})
 \end{equation}
 
-This time we used the following parameters: \\
-$\mu = [[3, \, - 0.5], \,[1.2, \,2.4]]$, 
-$\Omega =[ - 3, \,13]$, 
-$\gamma =[0.7, \,2.3]$,  
-$N=8$, 
-${\varepsilon_{0}}=1.4, 
-h= - 2.7$
+This time we used the following parameters: 
+
+\begin{equation}
+  \mu = \begin{bmatrix} 
+    3,   & - 0.5 \\ 
+    1.2, &   2.4
+  \end{bmatrix},
+  \Omega = \begin{bmatrix} 
+    - 3, & 13
+  \end{bmatrix}, \,
+  \gamma = \begin{bmatrix} 
+    0.7, & 2.3
+  \end{bmatrix}, \,
+  N = 8, \,
+  \varepsilon_{0} = 1.4, \,
+  h = - 2.7.
+\end{equation} 
 
 Results are presented in Figure (\ref{fig:hht_qp1}). 
 
@@ -2733,42 +2906,25 @@ Results are presented in Figure (\ref{fig:hht_qp1}).
 
 \subsubsection*{Second-order model - results:}
 
-We have also used the same model as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility model:
+We have also used the same model (\ref{eq:nclin_chipp2}) as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility
+model and we have used the following values of the constants: 
 
-\begin{multline} \label{eq:hht_qp2}
-  \chi_{2, \,qp}({\omega_{1}}, \,{\omega_{2}}) 
-  = 2\, N\,\varepsilon_{0}\,h^{2}\,\sum_{n=1}^{2}\sum_{m=1}^{2}\sum_{l=1}^{2}
-  (      \frac {{\mu_{l,\,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{nl}} - \omega_1 - \omega_2 - i\,{\gamma_{nl}})\,({\Omega_{ml}} - \omega_1 - i\,{\gamma_{ml}})} +
-  + \\ + \frac   {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{nl}} - \omega_1 - \omega_1 - i\,{\gamma_{nl}})\,({\Omega_{ml}} - \omega_2 - i\,{\gamma_{ml}})}
-  + \\ + \frac   {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{mn}} - \omega_1 - \omega_2 - i\,{\gamma_{mn}})\,({\Omega_{nl}} + \omega_2 + i\,{\gamma_{nl}})}
-  + \\ + \frac{{\mu_{l, \,n }}\,{\mu_{nm}}\,{\mu_{ml}}} 
-      {({\Omega_{mn}} - \omega_1 - \omega_2 - i\,{\gamma_{mn}})\,({\Omega_{nl}} + \omega_2 + i\,{\gamma_{nl}})} 
-  + \\ + \frac   {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{nm}} + \omega_1 + \omega_2 + i\,{\gamma_{nm}})\,({\Omega_{ml}} - \omega_1 - i\,{\gamma_{ml}})}
-  + \\ + \frac {{\mu_{l, \,n}}\,{\mu_{ nm}}\,{\mu_{ml}}}
-      {({\Omega_{nm}} + \omega_1 + \omega_2 + i\,{\gamma_{nm}})\,({\Omega_{ml}} - \omega_1 - i\,{\gamma_{ml}})} 
-  + \\ + \frac {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{ml}} + \omega_1 + \omega_2 + i\,{\gamma_{ml}})\,({\Omega_{nl}} + \omega_1 + i\,{\gamma_{nl}})}
-  + \\ + \frac {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{ml}} + \omega_1 + \omega_2 + i\,{\gamma_{ml}})\,({\Omega_{nl}} + \omega_2 + i\,{\gamma_{nl}})}
-  ) ,
-\end{multline}
-and we will be using the following constants values: \\
-$\mu = \left| \begin{array}{cc} 
-    1 & 3 \\ -1 & -2 
-  \end{array} \right|,\, 
-  \Omega = \left| \begin{array}{cc} 
-    3 & 16 \\ 4 & 12 
-  \end{array} \right|,\,
-  \gamma = \left| \begin{array}{cc} 
-  1 & 2 \\ -1 & 3
-  \end{array} \right|,\, N=5,\, {\varepsilon_{0}}=1,\,h= - 1$
+\begin{equation}
+	\mu = \begin{bmatrix} 
+    	1, & 3 \\ -1, & -2 
+  	\end{bmatrix} , \, 
+  	\Omega =  \begin{bmatrix}  
+    	3, & 16 \\ 4, & 12 
+  	\end{bmatrix} , \,
+  	\gamma =  \begin{bmatrix}  
+  		1, & 2 \\ -1, & 3
+  	\end{bmatrix} , \, 
+  	N = 5 , \, 
+  	\varepsilon_0 = 1, \,
+  	h = - 1 .
+\end{equation}
 
-Results are presented in Figure (\ref{fig:hht_qp2}). As for the previous calculations, we can see the model could be invalid
-because the occurring errors reach up to 100\%.
+Results are presented in Figure (\ref{fig:hht_qp2}). Still we observe that the second-order quantum-perturbative model is invalid. 
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/hht_qp2.png}
@@ -2785,57 +2941,68 @@ because the occurring errors reach up to 100\%.
      }
 \end{figure} 
 
-We have checked the HHT method for various parameters, but none of them has gave us better accuracy. We
-encourage the reader to carry out their own calculations with source code given in Appendix A.5.
+We have checked the HHT method for various parameters, but none of them has gave us better accuracy. We also observed that when using more
+steps in the main loop of the algorithm, the numerical errors grow faster - so this is not a very stable algorithm. We encourage the reader
+to carry out their own calculations with source code given in Appendix A.5.
 
 \section{Fourier-series} \label{chap:fourier}
 
 \subsection{Overview of the Fourier-series based method}  \label{chap:fourier_overview}
 
 The concept of the Hilbert transform evaluation based on the Fourier series also comes from the master thesis by Mathias Johansson
-\cite{johansson_hilbert}. There is an important drawback in this approach - in general it should be applied to the periodical
+\cite{johansson_hilbert}. There is an important drawback in this approach - in general it should be applied to the periodic
 functions, but we will further assume they have a relatively long period. 
 
 \subsubsection*{Fourier series:} 
 
-Each periodical function can be decomposed into a infinite Fourier series. For a given periodic function f with a given period 2*P,
-we will introduce the Fourier coefficients:
+Each periodical function can be decomposed into a infinite Fourier series. For a given periodic function $f(x)$ with a given period $2 \,
+P$, we will introduce the Fourier coefficients:
 
 \begin{subequations} \label{eq:fourier_coeffs}
   \begin{equation}   \label{eq:fcoeffs_an}
-    {a_{f, \,n}}=\int_{ - P}^{P}\mathrm{f}(x)\,\mathrm{cos}(n\,x)\, dx
+    {a_{f, \,n}}=\int_{ -P}^{P}\mathrm{f}(x) \, \mathrm{cos}(\frac{n \, x\, \pi}{P}) \, dx
   \end{equation}
   \begin{equation}   \label{eq:fcoeffs_bn}
-    {b_{f, \,n}}=\int_{ - P}^{P}\mathrm{f}(x)\,\mathrm{sin}(n\,x)\, dx
+    {b_{f, \,n}}=\int_{ -P}^{P}\mathrm{f}(x) \, \mathrm{sin}(\frac{n \, x\, \pi}{P}) \, dx
   \end{equation}
 \end{subequations}
 
-Not getting deeply into harmonic analysis - we will assume that a series of partial sums:
+We define the sequence of partial sums:
 
 \begin{equation} \label{eq:fourier_partialsums}
-  {S_{f, \,N}}(x)=\frac {{a_{f, \,0}}}{2} + (\sum_{n=1}^{N}\,({a
-_{f, \,n}}\,\mathrm{cos}(n\,x) + {b_{f, \,n}}\,\mathrm{sin}(n\,x)
-))
+	S_{f, \,N}(x) = \frac {{a_{f, \,0}}}{2} + \sum_{n=1}^{N} \, 
+  		\left(
+  			{a_{f, \, n}} \, \mathrm{cos}(\frac{n \, x\, \pi}{P}) 
+   	      + {b_{f, \, n}} \, \mathrm{sin}(\frac{n \, x\, \pi}{P})
+		\right)
 \end{equation}
 
-for a function $f\,\ \in \,{L_{2}}( - P, \,P)$ converges at almost every point to the f, which can be written as:
+Not getting deeply into harmonic analysis - we assume that $S_{f, \,N}(x)$  converges to $f \, \in \,{L_{2}}( - P, \,P)$ almost everywhere.
+The statement ``almost everywhere'' means that set $W$ of points $t$ from the range $( -P, \, P)$ in which limit $\lim_{N\rightarrow \infty
+} S_{f, \,N} (t)$ is not equal to $f(t)$ is countable. More formal:
 
 \begin{equation} \label{eq:fourier_canbewritten}
-  \mbox{if }\,S = \{t : \lim_{N\rightarrow \infty }\,{S_{f, \,N}}(t) \neq \mathrm{f}(t) \} then |S| \leq {\aleph_{0}}
+	\begin{cases}
+		W = \{t : \lim_{N \rightarrow \infty } \, {S_{f, \,N}}(t) \neq \mathrm{f}(t) \} , \\
+		|W| \leq \aleph_0.
+	\end{cases} 
 \end{equation}
 
 \subsubsection*{Hilbert transform based on the Fourier series:}
 
 After Johansson \cite{johansson_hilbert} we state that for any given function $f\,\ \textbf{in}\ \,{L_{2}}( - P, \,P)$ we can
 calculate the Hilbert transform using the form of Fourier series for this function. All we need to do, is to make a swap in the
-(\ref{eq:fourier_partialsums}) equation - the ${a_{n}}$ coefficients should be swapped with ${b_{n}}$ coefficients.
+(\ref{eq:fourier_partialsums}) equation - the ${a_{n}}$ coefficients should be swapped with ${b_{n}}$ coefficients:
 
-\begin{multline} \label{eq:fourier_hilbert}
-  HILBERT(f(x)) = \lim_{N\rightarrow \infty }\,\frac {{a_{f, \,0}}}{2} 
-  + \\ + (\sum_{ n=1}^{N}\,({b_{f, \,n}}\,\mathrm{cos}(n\,x)
-       + {a_{f, \,n}}\, \mathrm{sin}(n\,x)))
-       \,\mbox{ [at alm. every point x] }
-\end{multline}
+\begin{equation} \label{eq:fourier_hilbert}
+	\mathcal{H}[f(x)] = \lim_{N\rightarrow \infty } \, \frac {{a_{f, \, 0}}}{2}  + \sum_{ n=1}^{N} \, 
+		\left(
+	  		  {b_{f, \,n}} \, \mathrm{cos}(\frac{n \, x\, \pi}{P}) 
+			+ {a_{f, \,n}} \, \mathrm{sin}(\frac{n \, x\, \pi}{P})
+		\right),
+\end{equation}
+
+and this statement is true almost everywhere in $(-P, P)$.
 
 \subsubsection*{Algorithm overview:}
 
@@ -2918,17 +3085,30 @@ obtained with HCCI or FHT.
 As in the Chapter (\ref{chap:nc_nlo}), we have used the same model to describe the simple linear quantum-perturbative model: 
 
 \begin{equation} \label{eq:four_qp}
-  {\chi_{1, \,qp}}(\omega ) = \frac {N}{\varepsilon_0\,h} \sum_{n=1}^{2}\,(\frac {{\mu_{1, \,n}}\,{ \mu_{2, \,n}}}{{\Omega_{n}}
-  - \omega  - i\,{\gamma_{n}}} + \frac {{\mu_{2, \,n}}\,{\mu_{1, \,n}}}{{\Omega_{n}} + \omega + i\,{\gamma_{n}}})
+  \chi_{1, \,qp} (\omega ) = \frac {N}{\varepsilon_0 \, h} \sum_{n=1}^{2} \, 
+  	\left(
+  		\frac {\mu_{1, \,n} \, \mu_{2, \, n}}{\Omega_n - \omega - i \, \gamma_n} 
+  	  + \frac {\mu_{2, \,n} \, \mu_{1, \, n}}{\Omega_n + \omega + i \, \gamma_n}
+	\right)
 \end{equation}
 
-This time we used the following parameters: \\
-$\mu = [[3, \, - 0.5], \,[1.2, \,2.4]]$, 
-$\Omega =[ - 3, \,13]$, 
-$\gamma =[0.7, \,2.3]$,  
-$N=8$, 
-${\varepsilon_{0}}=1.4$, 
-$h= - 2.7$.
+This time we used the following parameters: 
+
+\begin{equation}
+  \mu = \begin{bmatrix} 
+    3,   & - 0.5 \\ 
+    1.2, &   2.4
+  \end{bmatrix},
+  \Omega = \begin{bmatrix} 
+    - 3, & 13
+  \end{bmatrix}, \,
+  \gamma = \begin{bmatrix} 
+    0.7, & 2.3
+  \end{bmatrix}, \,
+  N = 8, \,
+  \varepsilon_{0} = 1.4, \,
+  h = - 2.7.
+\end{equation} 
 
 Results are presented in Figure (\ref{fig:four_qp1}). 
 
@@ -2949,39 +3129,26 @@ Results are presented in Figure (\ref{fig:four_qp1}).
 
 \subsubsection*{Second-order model - results:}
 
-We have also used the same model as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility model:
+We have also used the same model (\ref{eq:nclin_chipp2}) as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility
+model and we have used the following values of the constants: 
 
-\begin{multline} \label{eq:four_qp2}
-  \chi_{2, \,qp}({\omega_{1}}, \,{\omega_{2}}) = 
-   2\,N\,\varepsilon_{0}\,h^{2}\sum_{n=1}^{2}\sum_{m=1}^{2}\sum_{l=1}^{2}\,
-  (      \frac {{\mu_{l,\,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{nl}} - \omega_1 - \omega_2 - i\,{\gamma_{nl}})\,({\Omega_{ml}} - \omega_1 - i\,{\gamma_{ml}})} 
-  + \\ + \frac {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{nl}} - \omega_1 - \omega_1 - i\,{\gamma_{nl}})\,({\Omega_{ml}} - \omega_2 - i\,{\gamma_{ml}})}
-  + \\ + \frac {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{mn}} - \omega_1 - \omega_2 - i\,{\gamma_{mn}})\,({\Omega_{nl}} + \omega_2 + i\,{\gamma_{nl}})}
-  + \\ + \frac{{\mu_{l, \,n }}\,{\mu_{nm}}\,{\mu_{ml}}} 
-      {({\Omega_{mn}} - \omega_1 - \omega_2 - i\,{\gamma_{mn}})\,({\Omega_{nl}} + \omega_2 + i\,{\gamma_{nl}})} 
-  + \\ + \frac {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{nm}} + \omega_1 + \omega_2 + i\,{\gamma_{nm}})\,({\Omega_{ml}} - \omega_1 - i\,{\gamma_{ml}})}
-  + \\ + \frac {{\mu_{l, \,n}}\,{\mu_{ nm}}\,{\mu_{ml}}}
-      {({\Omega_{nm}} + \omega_1 + \omega_2 + i\,{\gamma_{nm}})\,({\Omega_{ml}} - \omega_1 - i\,{\gamma_{ml}})} 
-  + \\ + \frac {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{ml}} + \omega_1 + \omega_2 + i\,{\gamma_{ml}})\,({\Omega_{nl}} + \omega_1 + i\,{\gamma_{nl}})}
-  + \\ + \frac {{\mu_{l, \,n}}\,{\mu_{nm}}\,{\mu_{ml}}}
-      {({\Omega_{ml}} + \omega_1 + \omega_2 + i\,{\gamma_{ml}})\,({\Omega_{nl}} + \omega_2 + i\,{\gamma_{nl}})}
-  ) ,
-\end{multline}
-and we will be using the following constants values:
-$\mu = \left| \begin{array}{cc} 
-    1 & 3 \\ -1 & -2 
-  \end{array} \right|,\, 
-  \Omega = \left| \begin{array}{cc} 
-    3 & 16 \\ 4 & 12 
-  \end{array} \right|,\,
-  \gamma = \left| \begin{array}{cc} 
-  1 & 2 \\ -1 & 3
-  \end{array} \right|,\, N=5,\, {\varepsilon_{0}}=1,\,h= - 1$ .
+\begin{equation}
+	\mu = \begin{bmatrix} 
+    	1,  & 3 \\ 
+    	-1, & -2 
+  	\end{bmatrix} , \, 
+  	\Omega =  \begin{bmatrix}  
+    	3, & 16 \\ 
+    	4, & 12 
+  	\end{bmatrix} , \,
+  	\gamma =  \begin{bmatrix}  
+  		1,  & 2 \\ 
+  		-1, & 3
+  	\end{bmatrix} , \, 
+  	N = 5 , \, 
+  	\varepsilon_0 = 1, \,
+  	h = - 1 .
+\end{equation}
 
 Results are presented in Figure (\ref{fig:four_qp2}). We can see, that the first model could be valid, while the second model seems to
 be invalid for consecutively for all Hilbert transform implementations.
@@ -3006,7 +3173,7 @@ encourage the reader to carry out their own calculations with source code given 
 
 \section{MATLAB ® out-of-the-box functions} \label{chap:matlab}
 
-\subsection{Overview of the MATLAB ® interior functions} \label{chap:matlab_overview}
+\subsection{Overview of the MATLAB ® interior functions - MIF} \label{chap:matlab_overview}
 
 Why not take into consideration the already built-in numerical methods from MATLAB? We compare the results obtained with: 
 
@@ -3021,11 +3188,11 @@ Why not take into consideration the already built-in numerical methods from MATL
 
 The source code of the adaptive Gauss-Kronrod quadrature has been published in the popular Fortran 77 numerical integration
 QUADPACK library and has been also translated into the MATLAB core language. It is also based on the ''quadva'' routine described by
-Lawrence F. Shampine in \cite{shampine_vectorized}. The fundamental idea of this numerical integration algorithm is the nested
-quadrature rule - the more accurate quadrature approximation is calculated from the less accurate one. The algorithm is adaptive
-and the error estimation is based on the (G-K7,15) pair of the quadrature rules - less and more accurate - the 7-point Gauss rule
-and the 15-point Kronrod rule with a share nodes. For more information about the theory beneath this algorithm - please read D.
-Calvetti et al \cite{calvetti_computation} or the chapter 5.5 from the book by David Kahaner \cite{kahaner_numerical}.
+Lawrence F. Shampine in \cite{shampine_vectorized}. The crucial idea of this numerical integration algorithm is that the more accurate
+quadrature approximation is calculated from the less accurate one. The algorithm is adaptive and the error estimation is based on the
+(G-K7,15) pair of the quadrature rules - less and more accurate - the 7-point Gauss rule and the 15-point Kronrod rule with a share nodes.
+For more information about the theory beneath this algorithm - please read D. Calvetti et al \cite{calvetti_computation} or the chapter 5.5
+from the book by David Kahaner \cite{kahaner_numerical}.
 
 \subsubsection*{Adaptive Gauss-Kronrod quadrature - short tutorial:}
 
@@ -3047,58 +3214,71 @@ as defined in equation (\ref{eq:mat_quadadd}).
  
 \begin{alignat}{1} \label{eq:mat_quadadd}
   \dashint_{ - \infty }^{\infty } \frac {f(x)}{x-c} \, dx \approx 
-          & \, quadgk(\frac {f(x)}{x-c}, - \infty, c - \frac{|b-a|}{10000}, \text{'RelTol'}, 0.001, \text{'AbsTol'}, 0.001 ) \\
-     + \, & \, quadgk(\frac {f(x)}{x-c}, c + \frac{|b-a|}{10000}, + \infty, \text{'RelTol'}, 0.001, \text{'AbsTol'}, 0.001 )
+          & \, \mathrm{quadgk}(\frac {f(x)}{x-c}, - \infty, c - \frac{|b-a|}{10000}, \text{'RelTol'}, 0.001, \text{'AbsTol'}, 0.001 ) \\
+     + \, & \, \mathrm{quadgk}(\frac {f(x)}{x-c}, c + \frac{|b-a|}{10000}, + \infty, \text{'RelTol'}, 0.001, \text{'AbsTol'}, 0.001 )
      \nonumber
 \end{alignat}
  
 \subsubsection*{Fast Hilbert transform routine - theory:}
 
-The discrete Hilbert transform (DHT) is given by definition after \cite{kak_multilayeredarray} - for a given n-length X vector:
+The discrete Hilbert transform (DHT) is given by definition after \cite{kak_multilayeredarray} - for a given vector $X \in \mathbb{R} ^ N$:
 
 \begin{equation} \label{eq:matlab_fhttheroy}
-  \mathrm{DHT}({X_{k}})=\frac {1}{n} \left(  \! \sum_{s=0}^{n - 1}\,{X _{s}}\,(1 - ( - 1)^{(k - s)})\,\mathrm{cot}(\frac {\pi \,(k
-  - s) }{n}) \!  \right) 
+	\begin{cases}
+		\mathrm{DX} = \mathrm{DHT}(X), \\
+		\mathrm{DX}_k = \frac {1}{n} 
+			\left( 
+				\sum_{s = 0}^{n - 1} \, X_s \, (1 - ( - 1)^{(k - s)})\,\mathrm{cot}(\frac {\pi \,(k - s) }{n}) 
+			\right).
+	\end{cases}
 \end{equation}
 
 The other definition by \cite{calvetti_computation} uses the convolution:
 
 \begin{subequations} \label{eq:matlab_convolution}
-  \begin{equation}   \label{eq:mconv_dht}
-    \mathrm{DHT}({X_{k}})  = X[] * h[] = \sum_{s=0}^{n - 1}\,{h_{k - s}}\,{X_{s}}
-  \end{equation}
-  \begin{equation}   \label{eq:mconv_hk}
-    {h_{k}}=\frac {1}{n} \left(  \! \mathrm{cot}(\frac {\pi \,k}{n}) - \frac {\mathrm{cos}(\pi \,k)}{\mathrm{sin}(\frac {\pi
-    \,k}{n})}\! \right) 
-  \end{equation}
+	\begin{equation}   \label{eq:mconv_dht}
+		\mathrm{DX}_k = X * h = \sum_{s=0}^{n - 1}\,{h_{k - s}}\,{X_{s}}
+	\end{equation}
+	\begin{equation}   \label{eq:mconv_hk}
+    	h_k = \frac{1}{n} 
+    	\left(  
+    		\mathrm{cot}(\frac {\pi \, k}{n}) - \frac{\mathrm{cos}(\pi \, k)}{\mathrm{sin}(\frac {\pi \, k}{n})}
+		\right) 
+	\end{equation}
 \end{subequations}
 
-The important issue is that the DHT is closely related to the discrete Fourier transform (DFT). For a given n-length X vector in
-order to evaluate the DHT(X) we can hire the DFT routine. To start, we must remember that in the continuous case:
+The important issue is that the DHT is closely related to the discrete Fourier transform - DFT. In order to evaluate the DHT(X), for $X \in
+\mathbb{R} ^ N$, we can hire the DFT routine. To start, we must remember that in the continuous case:
 
 \begin{equation} \label{eq:matlab_issue}
-  \mathrm{FOURIER}(\mathrm{HILBERT}(X_k))=( - i\,\mathrm{sgn}( \frac {n}{2} - k)\,\mathrm{sgn}(k))\,\mathrm{FOURIER}({X_{k}}),
-\end{equation}
-
-where we remember that:
-
-\begin{equation} \label{eq:matlab_kernel}
-   - i\,\mathrm{sgn}(\frac {n}{2} - k)\,\mathrm{sgn}(k)=\mathrm{FOURIER}(\frac {1}{\pi \,k}) .
+	\begin{cases}
+	 \mathcal{F} \left[\mathcal{H}(X)\right] = \mathrm{FHX}, \\
+	 \mathcal{F} (X) = FX, \\
+	 \mathcal{F}(\frac {1}{\pi \, k}) = - i\,\mathrm{sgn}(\frac {n}{2} - k)\,\mathrm{sgn}(k), \\
+	 \mathrm{FHX}_k = \mathcal{F}(\frac {1}{\pi \,k}) \, \mathrm{sgn}(k)) \, \mathrm{FX}_k.
+	\end{cases}
 \end{equation}
 
 Therefore, in the discrete case we find the similar equation to (\ref{eq:matlab_issue}) relating the DHT and DFT:
 
 \begin{equation} \label{eq:matlab_reldhtdft}
-  \mathrm{DFT}(\mathrm{DHT}({X_{k}}))=( - i)\,\mathrm{sgn}(\frac {n}{2} - k)\,\mathrm{sgn}(k)\,\mathrm{DFT}({X_{k}})
+	\begin{cases}
+		\mathrm{DFT}(\mathrm{DHT}(X)) = \mathrm{DFHX}, \\
+		\mathrm{DFT}(X) = DFX, \\
+		\mathrm{DFHX}_k = ( -i) \, \mathrm{sgn}(\frac{n}{2} - k) \, \mathrm{sgn}(k) \, \mathrm{DFT}_k.
+	\end{cases}
 \end{equation}
 
 From the (\ref{eq:matlab_reldhtdft}) we can see, that it is quite easy to operate within the Fourier/frequency domain - because the
 quite complicate convolution is transformed to a simple algebraic operations. Also - if we have the quick algorithm to perform both
-the DFT and inverse-DFT - for example with the fast Fourier transform (FFT) and the inverse fast Fourier transform (IFFT) - the DHT
+the DFT and inverse-DFT - for example with the fast Fourier transform - FFT and the inverse fast Fourier transform - IFFT, the DHT
 operation will be calculated as follows:
 
 \begin{equation} \label{eq:matlab_fulldhthdf}
-  \mathrm{DHT}({X_{k}})=\mathrm{IDFT}(( - i)\,\mathrm{sgn}(\frac {n}{2} - k)\,\mathrm{sgn}(k)\,\mathrm{DFT}({X_{k}}))
+	\begin{cases}
+		\mathrm{INN}_k = (-i) \, \mathrm{sgn}(\frac{n}{2}-k) \, \mathrm{sgn}(k) \, \mathrm{DFX}_k \, \ \mbox{ for } \ \, k=0,1,\ldots, N, \\
+		\mathrm{DHT}(X) = \mathrm{IDFT}(\mathrm{INN}).  
+	\end{cases}
 \end{equation}
 
 \subsubsection*{Fast Hilbert transform routine - short tutorial:}
@@ -3106,7 +3286,7 @@ operation will be calculated as follows:
 While the hired DFT and IDFT routines are evaluated in complex domain, for a given input n-length X vector we have that:
 
 \begin{equation} \label{eq:matlab_implication}
-  \mathrm{hilbert}(X) \Rightarrow X + i\,\mathrm{DHT}(X)
+	\mathcal{H}(X) \Rightarrow X + i \, \mathrm{DHT}(X)
 \end{equation}
 
 In order to obtain the final result we need to take the imaginary part of the MATLAB hilbert() function output. The other
@@ -3483,7 +3663,7 @@ I would give my acknowledgements for many people from the Wrocław University of
 \end{tabular}
 
 
-Great honours should be also given for the members of the University of Wrocław. I would like to give my acknowledgements for:
+Great honours should be also given for the research staff of the University of Wrocław. I would like to give my acknowledgements for:
 
 
 \begin{tabular}{l l}

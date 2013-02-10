@@ -11,7 +11,7 @@ function runHilbertTests
   % 'htran' 
   % 'hncX 
   % 'htrancc' 
-  % 'hfthilbert' 
+  % 'frthilbert' 
   % 'herhtrans'
   % 'fourhtrans' 
   % 'quadgk' 

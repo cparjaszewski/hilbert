@@ -12,8 +12,7 @@ function otherdata(omega, conf)
 
     %% Author info:
     % [Krzysztof Parjaszewski, University of Wroclaw]
-    % As a part of MSc Thesis - "Numerical evaluation of the Hilbert transform used to 
-    % better understand and solve the Kramers-Kronig relations in nonlinear optics"
+    % As a part of MSc Thesis - "Numerical evaluation of the Hilbert transform in~nonlinear optics"
     % krzysztof.parjaszewski@gmail.com
 
     %% Test case:
@@ -108,9 +107,9 @@ function plotfun2d(data, model, method, chosenpoint)
             [~,grvals] = hncX(@(y) imag(ffun(chosenpoint, y)),a,b,tol, n, cs,pts,wrn);   
             [~,givals] = hncX(@(y) real(ffun(chosenpoint, y)),a,b,tol, n, cs,pts,wrn);   
 
-        case 'hfthilbert'            
-            grvals = hfthilbert(imag(FVAL2D));
-            givals = hfthilbert(real(FVAL2D));
+        case 'frthilbert'            
+            grvals = frthilbert(imag(FVAL2D));
+            givals = frthilbert(real(FVAL2D));
         otherwise
            error(['Test method: ' method ' not implemented yet']); 
     end
@@ -164,12 +163,12 @@ function plotfun3d(data, model, method)
                 hivals(:, iter) = IN';
                 waitbar(iter/l);
             end 
-         case 'hfthilbert'
+         case 'frthilbert'
             for i = x
                 iter = iter + 1;
                 fivals = ffun(x, i); fivals = onlynums(fivals);
-                hrvals(:, iter) = hfthilbert(imag(fivals))';
-                hivals(:, iter) = hfthilbert(real(fivals))';
+                hrvals(:, iter) = frthilbert(imag(fivals))';
+                hivals(:, iter) = frthilbert(real(fivals))';
                 waitbar(iter/l);
             end 
         otherwise
