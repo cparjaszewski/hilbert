@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.12.27)  10 FEB 2013 18:51
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.12.27)  10 FEB 2013 21:20
 entering extended mode
 **Thesis.tex
 (C:\doc\MSc\tex\texlipse\Thesis.tex
@@ -1067,14 +1067,7 @@ Now handling font encoding OT4 ...
 )
 \c@thm=\count119
 
-(C:\doc\MSc\tex\texlipse\Thesis.aux
-
-LaTeX Warning: Label `eq:hermite_hexp' multiply defined.
-
-
-LaTeX Warning: Label `eq:her_main_algorithm_fn' multiply defined.
-
-)
+(C:\doc\MSc\tex\texlipse\Thesis.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
 LaTeX Font Info:    ... okay on input line 50.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
@@ -1089,7 +1082,8 @@ LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 50.
 LaTeX Font Info:    ... okay on input line 50.
 LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 50.
 LaTeX Font Info:    ... okay on input line 50.
- ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count120
 \scratchdimen=\dimen134
@@ -1392,11 +1386,6 @@ Sc/tex/img/hht_pnp.png>]
 File: ./../img/hht_qp1.png Graphic file (type png)
 
 <use ./../img/hht_qp1.png> [59 <C:/doc/MSc/tex/img/hht_fmix.png>]
-Overfull \hbox (1.69075pt too wide) in paragraph at lines 2927--2928
-[][]\OT4/cmr/m/n/12 Results are pre-sented in Fig-ure (8.4.2[]). Still we ob-se
-rve that the second-order quantum-
- []
-
 <./../img/hht_qp2.png, id=318, 765.6103pt x 310.15875pt>
 File: ./../img/hht_qp2.png Graphic file (type png)
 
@@ -1525,85 +1514,92 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3741.
 
  [81]
+Overfull \hbox (0.23148pt too wide) in paragraph at lines 3905--3906
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][] 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [82]
-[83] [84] [85] [86]
+[83] [84] [85]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [86]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [87]
-<./../img/zscan_sch.png, id=445, 386.94562pt x 199.49532pt>
+[88] [89] <./../img/zscan_sch.png, id=451, 386.94562pt x 199.49532pt>
 File: ./../img/zscan_sch.png Graphic file (type png)
 
 <use ./../img/zscan_sch.png>
-<./../img/zscan_diag.png, id=446, 373.395pt x 202.50656pt>
+<./../img/zscan_diag.png, id=452, 373.395pt x 202.50656pt>
 File: ./../img/zscan_diag.png Graphic file (type png)
 
-<use ./../img/zscan_diag.png> [88 <C:/doc/MSc/tex/img/zscan_sch.png>]
-<./../img/oa_plot.png, id=451, 315.42844pt x 203.25937pt>
+<use ./../img/zscan_diag.png> [90 <C:/doc/MSc/tex/img/zscan_sch.png> <C:/doc/MS
+c/tex/img/zscan_diag.png>]
+<./../img/oa_plot.png, id=458, 315.42844pt x 203.25937pt>
 File: ./../img/oa_plot.png Graphic file (type png)
 
 <use ./../img/oa_plot.png>
-<./../img/ca_plot.png, id=452, 415.5525pt x 266.49562pt>
+<./../img/ca_plot.png, id=459, 415.5525pt x 266.49562pt>
 File: ./../img/ca_plot.png Graphic file (type png)
 
-<use ./../img/ca_plot.png> [89 <C:/doc/MSc/tex/img/zscan_diag.png>] [90 <C:/doc
-/MSc/tex/img/oa_plot.png> <C:/doc/MSc/tex/img/ca_plot.png>] [91]
-<./../img/zscan_both.png, id=466, 398.23781pt x 257.46187pt>
+<use ./../img/ca_plot.png> [91 <C:/doc/MSc/tex/img/oa_plot.png>] [92 <C:/doc/MS
+c/tex/img/ca_plot.png>]
+<./../img/zscan_both.png, id=469, 398.23781pt x 257.46187pt>
 File: ./../img/zscan_both.png Graphic file (type png)
 
-<use ./../img/zscan_both.png> [92 <C:/doc/MSc/tex/img/zscan_both.png>]
-(C:\doc\MSc\tex\texlipse\Thesis.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+<use ./../img/zscan_both.png> [93] [94 <C:/doc/MSc/tex/img/zscan_both.png>]
+(C:\doc\MSc\tex\texlipse\Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 8156 strings out of 494019
- 113977 string characters out of 3146485
+ 8188 strings out of 494019
+ 114256 string characters out of 3146485
  275518 words of memory out of 3000000
- 11211 multiletter control sequences out of 15000+200000
+ 11243 multiletter control sequences out of 15000+200000
  35844 words of font info for 104 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  36i,19n,40p,1292b,2145s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/pl/plit.enc}{C:/Program Files/Mi
-KTeX 2.9/fonts/enc/dvips/pl/plrm.enc} <C:\Users\Krzysztof\AppData\Local\MiKTeX\
-2.9\fonts\pk\ljfour\public\mathabx\dpi600\mathb8.pk>{C:/Program Files/MiKTeX 2.
-9/fonts/enc/dvips/pl/plmi.enc} <C:\Users\Krzysztof\AppData\Local\MiKTeX\2.9\fon
-ts\pk\ljfour\public\mathabx\dpi600\matha10.pk> <C:\Users\Krzysztof\AppData\Loca
-l\MiKTeX\2.9\fonts\pk\ljfour\public\mathabx\dpi600\matha6.pk> <C:\Users\Krzyszt
-of\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mathabx\dpi600\matha8.pk> <C
-:\Users\Krzysztof\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mathabx\dpi72
-0\mathx10.pk> <C:\Users\Krzysztof\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\publ
-ic\mathabx\dpi720\mathb12.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/pl/pl
-ms.enc} <C:\Users\Krzysztof\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mat
-habx\dpi600\matha12.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/pl/pltt.enc
-}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/pl
-bx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plbx12.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/pl/plbx6.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/pl/plbx8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/pl/plmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plmi12.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plmi6.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/pl/plmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/pl/plmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/pl
-r10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plr12.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/pl/plr17.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/pl/plr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/pl/plr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plr8.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/pl/plsy10.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/pl/plsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/pl/plti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plti12.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plti7.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/pl/pltt12.pfb>
-Output written on Thesis.pdf (92 pages, 6402712 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dv
+ips/pl/plit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/pl/plrm.enc} <C:\U
+sers\Krzysztof\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mathabx\dpi600\m
+athb8.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/pl/plmi.enc} <C:\Users\Kr
+zysztof\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mathabx\dpi600\matha10.
+pk> <C:\Users\Krzysztof\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mathabx
+\dpi600\matha6.pk> <C:\Users\Krzysztof\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
+\public\mathabx\dpi600\matha8.pk> <C:\Users\Krzysztof\AppData\Local\MiKTeX\2.9\
+fonts\pk\ljfour\public\mathabx\dpi720\mathx10.pk> <C:\Users\Krzysztof\AppData\L
+ocal\MiKTeX\2.9\fonts\pk\ljfour\public\mathabx\dpi720\mathb12.pk>{C:/Program Fi
+les/MiKTeX 2.9/fonts/enc/dvips/pl/plms.enc} <C:\Users\Krzysztof\AppData\Local\M
+iKTeX\2.9\fonts\pk\ljfour\public\mathabx\dpi600\matha12.pk>{C:/Program Files/Mi
+KTeX 2.9/fonts/enc/dvips/pl/pltt.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmbsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/pl/plbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/pl/plbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/
+plbx6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plbx8.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/pl/plmi10.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/pl/plmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/pl/plmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plmi7.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plmi8.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/pl/plr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/pl/plr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/pl
+r17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plr6.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/pl/plr7.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/pl/plr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/p
+l/plsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plsy8.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/pl/plti10.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/pl/plti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/pl/plti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/pltt12
+.pfb>
+Output written on Thesis.pdf (94 pages, 6413399 bytes).
 PDF statistics:
- 678 PDF objects out of 1000 (max. 8388607)
+ 684 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  356 words of extra memory for PDF output out of 10000 (max. 10000000)
 

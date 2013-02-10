@@ -2731,7 +2731,7 @@ The important observation we have made in this precalculations is that:
 The $\mathop{\mathrm{erfi}}(x)$ function is the Imaginary Error Function end it is defined by the $\mathop{\mathrm{erf}}(x)$ - the Error
 Function:
 
-\begin{equation} \label{eq:hermite_hexp}
+\begin{equation} \label{eq:hermite_erfi}
 	\mathop{\mathrm{erfi}}(x) = - i \, \mathop{\mathrm{erf}} (i \, x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{t^2} \, dt .    
 \end{equation}
 
@@ -2766,7 +2766,7 @@ to the main Hilbert transform calculation. We will proceed in a loop with a stop
 sums as defined in equations (\ref{eq:hest_fapprox}) and (\ref{eq:hest_happrox}) for a given vector $X \in \mathbb{R} ^ M$:
 
 \begin{subequations} \label{eq:her_main_algorithm}
-	\begin{equation} \label{eq:her_main_algorithm_fn}
+	\begin{equation} \label{eq:her_main_algorithm_N}
 		N = 0, 1, 2, \ldots \, ,
 	\end{equation}
 	\begin{equation} \label{eq:her_main_algorithm_fn}
@@ -2924,7 +2924,7 @@ model and we have used the following values of the constants:
   	h = - 1 .
 \end{equation}
 
-Results are presented in Figure (\ref{fig:hht_qp2}). Still we observe that the second-order quantum-perturbative model is invalid. 
+Results are presented in Figure (\ref{fig:hht_qp2}). Still we observe that the second\--order qu\-antum\--pertur\-bative model is invalid. 
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/hht_qp2.png}
@@ -3490,7 +3490,7 @@ Table (\ref{gencom_time}) we have showed how much time does it take to perform t
     \hline
     HTRAN & 1.8095s \\
     Newton-Cotes &  122.1465s \\
-    Clenshaw-Curtis & 776.7389s \\
+    Clenshaw-Curtis & 59.3621s \\
     Hartley & 9.5106s \\
     Hermite & 6.7423s \\
     Fourier & 443.3777s \\
@@ -3536,9 +3536,9 @@ Fourier-Hilbert, quadgk()). The first group comes with relative acceptable accur
 side we can use the Clenshaw-Curtis based implementation of the Hilbert transform - which has showed as the method with the
 best accuracy from all investigated methods.
 
-When we would analyze data that has been collected in one dimension - it would be a good idea to hire the accurate, but slow
-Clenshaw-Curtis Hilbert transform implementation. But we should also prepare a good method for two-dimensional calculation and for
-such case we should use the fast methods like Hartley-Hilbert transform or built-in MATLAB \textregistered hilbert() method.
+When we would analyze data that has been collected in one dimension - it would be a good idea to hire the accurate Clenshaw-Curtis Hilbert
+transform implementation. But we should also prepare a good method for two-dimensional calculation and for such case we should use the fast
+methods like Hartley-Hilbert transform or built-in MATLAB \textregistered hilbert() method.
 
 But what is a good information - all methods can be used in the model analysis and validation process.
 
@@ -3876,9 +3876,9 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    end
 	    if (wrn == true)
 	     if   (iterates >= maxIterate), warning('QUADNCX:MaxIterReached', ...
-	        'maximum number of iterations reached - the integral seems to be
-	     singular'); elseif (nosteps >=maxNoSteps), warning('QUADNCX:MaNoSteps', ...
-	        'maximum number of steps reached - the integral seems to be singular');  
+'maximum number of iterations reached - the integral seems to be singular'); 
+		 elseif (nosteps >=maxNoSteps), warning('QUADNCX:MaNoSteps', ...
+'maximum number of steps reached - the integral seems to be singular');  
          end; 
        end
 	end
@@ -3902,9 +3902,8 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    % tab - Newton-Cotes coefficients               (vector)
 	    
 	    %% The algorithm:
-	    maplestr = ['Digits:=40:n:=' num2str(n) ':tab:=evalf(seq(((' num2str(b) ')-(' ...
-	       num2str(a) '))/n*(-1)^(n-k)*1/(factorial(k)*factorial(n-k)) ...
-	       * int(product(t-jj, jj=0..n)/(t-k), t=0..n), k=0..n));'];
+	    maplestr = ['Digits:=40:n:=' num2str(n) ':tab:=evalf(seq(((' num2str(b) ')-('num2str(a) ...
+'))/n*(-1)^(n-k)*1/(factorial(k)*factorial(n-k))*int(product(t-jj,jj=0..n)/(t-k),t=0..n),k=0..n));'];
 	    maple string;
 	    tab = str2num(maple(maplestr))'; %#ok<ST2NM>
 	end
@@ -4037,7 +4036,7 @@ More info: http://www.organometallics.pwr.wroc.pl/
 \end{lstlisting}
 \subsection*{Appendix A.4 - HFTHILBERT}
 \begin{lstlisting}
-	function HY = hfthilbert(Y)
+	function HY = frthilbert(Y)
 	    %% Description:
 	    % This is a standard and efficient algorithm ferforming the discrete
 	    % Hilbert transform based on two discrete Hartley transforms in O(n log
@@ -4053,7 +4052,7 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    % 1. Soo-Chang Pei and Sy-Been Jaw - "Computation of Discrete Hilbert
 	    % Transform through Fast Hartley Transform"
 	    % 2. http://en.wikipedia.org/wiki/Discrete_Hartley_transform
-	   
+	    
 	    %% The algorithm:
 	        
 	    % We perform the zero padding to the next power-of-two length
@@ -4062,7 +4061,7 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    Y = [Y,zeros(1,M-N)];
 	    
 	    % Discrete Hartley transform boosted-up to O(n log n)
-	    HF = fht(Y);
+	    HF = frt(Y);
 	    
 	    % Defining the HH vector
 	    O1 = ones(1,floor(M/2)-1);O2 = -ones(1,ceil(M/2)-1);HH = [0, O1, 0, O2];
@@ -4076,15 +4075,15 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    IHX = TRHF .* HH;
 	    
 	    % Inverse Hartley transform  boosted-up to O(n log n)
-	    HY = - 1/M .* fht(IHX);
+	    HY = - 1/M .* frt(IHX);
 	    
 	    % The final output vector
 	    HY = HY(1:N);
 	end
 
-	function res = fht(X)
+	function res = frt(X)
 	    %% Description:
-	    % Fast Hartley Transform algorithm.This algorithm is faster than simple 
+	    % Fast Hartley Transform algorithm. This algorithm is faster than simple 
 	    % FFT because it works only in real domain, which involves half the 
 	    % number of multiplications
 	      
@@ -4109,44 +4108,44 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    for k=2:8, CAS{k} = cas(2*pi*((0:(k-1))'*(0:(k-1)))/k); end
 	    
 	    % Now we are sure, that X vector is of size M which is a power value of 2.
-	    DHT = dofht(X,N,CAS);
+	    DHT = dofrt(X,N,CAS);
 	    
 	    % The final vector must be truncated because it was arbitrary enlarged
 	    % to be with length of power of two
 	    res = DHT(1:N);
 	end
 	
-	function HY = dofht(X,N,CAS)
+	function HY = dofrt(X, N, CAS)
 	    %% Recursive, divide & conquer radix-2 Fast Hartley Transform
 	    
 	    %% INPUT:
 	    % X   - an discrete array of values (ordinates)
 	    % D   - the length of X vector
-	    % CAS - the precalculated cell of 1:8-8 matrix for performing the instant FHT
+	    % CAS - the precalculated cell of 1:8-8 matrix for performing the instant FRT
 	    
 	    %% OUTPUT:
 	    % HY   - an array of Discrete Hartley Transform values * (ordinates)
 	    
 	    % Fast Hartley Trasform for N lower than 8
 	    if N<=8, 
-	        HY=X * CAS{N} ; % Instant FHT for 8-element array
+	        HY=X * CAS{N} ; % Instant FRT for 8-element array
 	        return;
 	    end;
 	    % We split the input vector into two equal vectors
-	    % In MATLAB first index equals 1, not 0 - but in literature 
-	    % X1 is called even, X2 - odd indices.
 	    X1 = X(1:2:end); X2 = X(2:2:end); 
+	    % In MATLAB first index equals 1, not 0 - 
+	    % but in literature X1 is called even, X2 - odd indices.
 	    
 	    % Divide & conquer approach
-	    HT1 = dofht(X1,N/2,CAS);
-	    HT2 = dofht(X2,N/2,CAS);
+	    HT1 = dofrt(X1,N/2,CAS); %FRT of even
+	    HT2 = dofrt(X2,N/2,CAS); %FRT of odd
 	    
 	    % We precalculate the lower and upper part of the output array 
 	    low    = 1:1:N/2;
 	    revlow = [1, N/2:-1:2];
-	    arg    = (2*pi/N).*(low-1);
-	    CS = cos(arg) .* HT2(low) + sin(arg) .* HT2(revlow);
-	    H = HT1(low);
+	    arg    = (2*pi/N) .* (low-1);
+	    CS     = cos(arg) .* HT2(low) + sin(arg) .* HT2(revlow);
+	    H      = HT1(low);
 	    
 	    % The lower and upper part of DHT is combined with the following
 	    % radix-2 way
@@ -4159,7 +4158,7 @@ More info: http://www.organometallics.pwr.wroc.pl/
 \begin{lstlisting}
 	function [YH, YFun] = herhtrans(fun, X, tol, maxN)
 	    %% Description: 
-	    % This is a hilbert transform function based on the orthonormal Hermite polynomials 
+	    % This is a Hilbert transform function based on the orthonormal Hermite polynomials 
 	    % and Hermite functions. They have been previously precalculated with 
 	    % MATLAB-Maple toolbox
 	    
@@ -4180,28 +4179,27 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    
 	    %% The algorithm:
 	    
-	    if nargin < 3, tol = 10^(-4); end;
+	    if nargin < 3, tol = 10 ^ (-4); end;
 	    if nargin < 4, maxN = 18; end;
 	    % We set the initial multipliers count on 4, but it shall/may rise  
-	    MaxN = min(maxN, 27);InitN = 4;N = InitN;
+	    MaxN = min(maxN, 27); InitN = 4; N = InitN;
 	    
 	    sum = 0; val = 0;
 	    % Main loop
-	    i=1; AN = zeros(1, N);
+	    i = 1; AN = zeros(1, N);
 	    Fval = fun(X);
-	    while (i<=N)
-	        n = i-1; % Select proper Hermite function
+	    while (i <= N)
+	        n = i - 1; % Select proper Hermite function
 	        AN(i) = getAN(fun, n, tol);
 	        HphiVal = hphin(X, n); 
 	        phiVal = phin(X, n); 
-	        multiplier = AN(i) .* HphiVal;
-	        sum = sum + multiplier;
+	        sum = sum + AN(i) .* HphiVal;
 	        val = val + AN(i) .* phiVal;
 	        
 	        % If the current multiplier is not negligable - we need to search further
-	        err = max(abs((val-Fval)/max(abs([val,Fval,tol]))));
-	        if ((i > (N-2)) && (err >= tol) && (N<MaxN)), N = N+1; end; 
-	        i = i+1;
+	        err = max(abs((val - Fval)/max(abs([val, Fval, tol]))));
+	        if ((i > (N - 2)) && (err >= tol) && (N < MaxN)), N = N+1; end; 
+	        i = i + 1;
 	    end
 	    YH = -real(sum);
 	    YFun = val;
@@ -4209,22 +4207,199 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	
 	function an = getAN(fun, n, tol)
 	    pFun = phiFun(n);
-	    funphi = @(t) (fun(t)).*pFun(t);
+	    funphi = @(t) (fun(t)) .* pFun(t);
 	    
 	    % We change the integration range from -inf .. inf to -1 .. 1
-	    ccFun = @(t) ((abs(t)<1) .* funphi(-t./(t.^2-1)) .* (1+t.^2) ./ (-1+t.^2).^2);
+	    ccFun = @(t) ((abs(t)<1) .* funphi(-t ./ (t .^ 2-1)) ...
+	                 .* (1 + t .^ 2) ./ (-1 + t .^ 2) .^ 2);
 	    
 	    % Main numerical integration
 	    N = 128; 
 	    prev = docc(ccFun, N/2);
 	    while (N < 1024*1024)
 	        an = docc(ccFun, N);
-	        if (abs(an-prev)<tol), break; else N = 2*N; end;
+	        if (abs(an-prev)<tol), ...
+	            break; 
+	        else N = 2 * N; 
+	        end;
 	        prev = an;
 	    end
 	end
 			
-		%% phin, hphin, phiFun, hPhiFun - cached/precalculated function procedures
+	%% phin, hphin, phiFun, hPhiFun - cached/precalculated function procedures
+	function PHI = phin(X, n)
+	    % We would not get further than through 30th Hermite function:
+	    if n>30, error('Do you realy mean such large n coefficient? '); end
+	    
+	    % We are precomputing the most reduntant element
+	    EXPX = exp(-1./2.*X.^2); EXPX(isnan(EXPX))=0;EXPX(isinf(EXPX))=0;
+	
+	    % Array of precomputed Hermite functions
+	    phi = cell(1, 2);
+	    phi{1} = @(t)EXPX./pi.^(1./4);
+	    phi{2} = @(t)EXPX.*t./pi.^(1./4).*2.^(1./2);
+	    
+	    % [...] phi{3}-phi{31} ommitted 
+	    
+	    
+	    % We are selecting the current n Hermite function (with indexing shifted by one):
+	    funChoosen = phi{n+1};
+	    
+	    % Main calculation - may be very long:
+	    PHI = funChoosen(X); PHI(isnan(PHI))=0; PHI(isinf(PHI))=0;
+	end
+		
+	function HPHI = hphin(X, n)
+	    if n>26, error('Do you realy mean such large n coefficient? '); end
+	    
+	   	% We are precomputing the most reduntant element
+	    EXPX  = exp(-1./2.*X.^2).*erfz(1./2.*1i.*X.*2.^(1./2)); 
+	    EXPX(isnan(EXPX))=0; EXPX(isinf(EXPX))=0;
+	
+		% Cell Array of precomputed functions
+	    hphin = cell(1, 21);
+		hphin{1}  = @(t) -1i./pi.^(1./4).*EXPX;
+		hphin{2}  = @(t) -1./pi.^(3./4).*(2+t.*pi.^(1./2).*2.^(1./2).*EXPX.*1i);
+		
+		% [...] hphin{3}-hphin{27} ommitted 
+		
+			 
+	    % We are concatenating a large values;
+	    funChoosen = hphin{n+1};
+	    
+	    % main calculation - may be very long;
+	    HPHI = funChoosen(X); HPHI(isnan(HPHI))=0; HPHI(isinf(HPHI))=0;
+	    % figure, plot(X, real(HPHI)), title(['HPHI: ' num2str(n)]);
+	end
+	
+	function fun = phiFun(n)
+	    % We would not get further than through 30th Hermite function:
+	    if n>30, error('Do you realy mean such large n coefficient? '); end
+	    
+	    % We exclue the important integrand
+	    EXPX = @(t)exp(-1./2.*t.^2);
+	    
+	    % Array of precomputed Hermite functions
+	    phi = cell(1, 2);
+	    phi{1} = @(t)EXPX(t)./pi.^(1./4);
+	    phi{2} = @(t)EXPX(t).*t./pi.^(1./4).*2.^(1./2);
+	    
+	    % [...] phi{3}-phi{31} ommitted
+	    
+		fun = phi{n+1};
+	end
+	
+		
+	function fun = hPhiFun(n)
+		if n>26, error('Do you realy mean such large n coefficient? '); end
+	    
+	   	% We are precomputing the most reduntant element
+	    EXPX  = @(t)  exp(-1./2.*t.^2).*erfz(1./2.*1i.*t.*2.^(1./2));
+	
+		% Cell Array of precomputed functions
+		hphin     = cell(1, 21);
+		hphin{1}  = @(t) -1i./pi.^(1./4).*EXPX(t);
+		hphin{2}  = @(t) -1./pi.^(3./4).*(2+t.*pi.^(1./2).*2.^(1./2).*EXPX(t).*1i);
+		
+		 
+	    % [...] hphin{3}-hphin{27} ommitted
+	    
+	    % Finally, we select the proper function
+    	fun = hphin{n+1};
+	end
+	
+	function f = erfz(zz)
+		%ERFZ  Error function for complex inputs
+		%   f = erfz(z) is the error function for the elements of z.
+		%   Z may be complex and of any size.
+		%   Accuracy is better than 12 significant digits.
+		%
+		%   Usage:  f = erfz(z)
+		%
+		%   Ref: Abramowitz & Stegun section 7.1
+		%   equations 7.1.9, 7.1.23, and 7.1.29
+		%
+		%   Tested under version 5.3.1
+		%
+		%   See also erf, erfc, erfcx, erfinc, erfcore
+	
+		%   Main author Paul Godfrey <pgodfrey@intersil.com>
+		%   Small changes by Peter J. Acklam <jacklam@math.uio.no>
+		%   09-26-01
+	
+	    error(nargchk(1, 1, nargin));
+	
+	    % quick exit for empty input
+	    if isempty(zz)
+	      f = zz;
+	      return;
+	    end
+	
+	    sqrtpi=1.77245385090551602729816748334114518279754945612238;
+	
+	    f = zeros(size(zz));
+	    ff=f;
+	
+	    az=abs(zz);
+	    p1=find(az<=8);
+	    p2=find(az> 8);
+	    
+	    if ~isempty(p1)
+		   z=zz(p1);
+	
+		   nn = 32;
+	
+		   x=real(z);y=imag(z);
+		   k1=2/pi*exp(-x.*x);
+		   k2=exp(-1i*2*x.*y);
+	
+		   s1=erf(x);
+	
+		   s2=zeros(size(x));
+		   k= (x~=0);          % when x is non-zero
+		   s2(k)= k1(k)./(4*x(k)) .* (1 - k2(k));
+		   k= ~k;              % when x is zero
+		   s2(k) = 1i/pi*y(k);
+	
+		   f = s1 + s2;
+	
+		   k= y ~= 0;          % when y is non-zero
+		   xk = x(k);
+		   yk = y(k);
+	
+		   s5 = 0;
+		   for n = 1 : nn
+			  s3 = exp(-n*n/4) ./ (n*n + 4*xk.*xk);
+			  s4 = 2*xk - k2(k).*(2*xk.*cosh(n*yk) - 1i*n*sinh(n*yk));
+			  s5 = s5 + s3.*s4;
+		   end
+		   s6 = k1(k) .* s5;
+		   f(k) = f(k) + s6;
+		   ff(p1)=f;
+	    end
+	
+	    if ~isempty(p2)
+		   z=zz(p2);
+		   pn=find(real(z)<0);
+		   if ~isempty(pn), z(pn)=-z(pn); end
+	
+		   nmax=193;
+		   s=1;
+		   y=2*z.*z;
+		   for n=nmax:-2:1, s=1-n.*(s./y); end
+	
+		   f=1.0-s.*exp(-z.*z)./(sqrtpi*z);
+		   if ~isempty(pn), f(pn)=-f(pn); end
+		   pa=find(real(z)==0);
+		%  fix along i axis problem
+		   if ~isempty(pa), f(pa)=f(pa)-1; end
+		   ff(p2)=f;
+	    end
+		f=ff;
+	end
+		
+	    
+		  
 \end{lstlisting}
 \subsection*{Appendix A.6 - FOURHTRANS}
 \begin{lstlisting}
@@ -4253,7 +4428,7 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    if nargin<3,m=1024; end;
 	    if nargin<4,doccN=4096; end;
 	    if nargin<5,h=waitbar(0,'Calculations - Please wait...','Name', ...
-	       'Hilbert transform based on the Fouries series'); closewb = true; 
+	    	'Hilbert transform based on the Fouries series'); closewb = true;
 	    else h = inh; closewb = false; end;
 	
 	    % First we calculate the X boundaries
