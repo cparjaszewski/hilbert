@@ -71,30 +71,8 @@ To my Family.
 
 \section*{Abstract} \label{chap:abstract}
 
-The motivation for this work comes from the real problem stated by physicists and chemists employing theoretical models to
-describe the interaction between light and matter due to the low-level and intense light irradiation. We are interested in the light
-behaviour both in the frequency and time domains. In the frequency domain the behaviour of light can be described with the Hilbert
-transform, but to build a valid models - we need to handle two important problems. The first problem concerns the numerical evaluation
-of the Hilbert Transform, which is defined with the singular and improper integral. The second problem concerns the question stated by
-physicists: How to properly use these mathematical tools in a typical experiment and in the construction of a model useful in optical
-research? We present comparison of several implementations of the numerical calculations of the Hilbert transform:
+The application of different Hilbert transform numerical algorithms in the area of nonlinear optics is presented. We have implemented, described and tested six different algorithms and compared them together with two additional methods taken from the out-of-the-box numerical libraries. All methods are compared in terms of their efficiency, accuracy and applicability in practice. Finally we drew the conclusions for their practical usage. Algorithms are mainly prepared for the the one-dimensional models, but we assume that they may need to be extended to multi-dimensional models.
 
-\begin{itemize} \label{used_methods}
- \item Numerical trapezoidal rule mixed with the Simpson's rule and the
-cubic interpolation,
- \item Newton-Cotes quadrature of the sixth degree,
- \item Clenshaw-Curtis quadrature,
- \item Hilbert transform based on fast Hartley transforms,
- \item a method based on approximation with the orthonormal Hermite polynomials and Hermite functions,
- \item a method based on approximation with the Fourier series.
-\end{itemize}
-
-We also test two out-of-the-box MATLAB-implemented routines \texttt{quadgk} and \texttt{hil\-bert} - based on the fast Fourier
-transform. The given physical models for both linear and nonlinear optics are analyzed and validated. We formulate hints for good
-practises for scientists interested in the subject of optical experiments. Finally, we make conclusions about the numerical stability, advantages
-and disadvantages of the developed implementations in further research on nonlinear optics.
-
-\emptyline
 
 \subsection*{Keywords} \label{chap:abstract_keywords}
 numerical integration, Cauchy principal value integral, Hilbert transform, nonlinear optics, Kramers-Kronig relations, optical dispersion
@@ -135,6 +113,33 @@ University of Wrocław, PL-50-383 Wrocław \\
 Joliot-Curie 15, Poland \\
 +48-660-070-043 | E-mail: krzysztof.parjaszewski@gmail.com
 
+\section{Introduction} \label{chap:introduction}
+
+The motivation for this work comes from the real problem stated by physicists and chemists employing theoretical models to
+describe the interaction between light and matter due to the low-level and intense light irradiation. We are interested in the light
+behaviour both in the frequency and time domains. In the frequency domain the behaviour of light can be described with the Hilbert
+transform, but to build a valid models - we need to handle two important problems. The first problem concerns the numerical evaluation
+of the Hilbert Transform, which is defined with the singular and improper integral. The second problem concerns the question stated by
+physicists: How to properly apply mathematical tools in a typical experiment and in the construction of a model useful in optical
+research? We present comparison of several implementations of the numerical calculations of the Hilbert transform:
+
+\begin{itemize} \label{used_methods}
+ \item Numerical trapezoidal rule mixed with the Simpson's rule and the
+cubic interpolation,
+ \item Newton-Cotes quadrature of the sixth degree,
+ \item Clenshaw-Curtis quadrature,
+ \item Hilbert transform based on fast Hartley transforms,
+ \item a method based on approximation with the orthonormal Hermite polynomials and Hermite functions,
+ \item a method based on approximation with the Fourier series.
+\end{itemize}
+
+We also test two out-of-the-box MATLAB-implemented routines \texttt{quadgk} and \texttt{hil\-bert} - based on the fast Fourier
+transform. The given physical models for both linear and nonlinear optics are analyzed and validated. We formulate hints for good
+practises for scientists interested in the subject of optical experiments. Finally, we make conclusions about the numerical stability, advantages
+and disadvantages of the developed implementations in further research on nonlinear optics.
+
+\emptyline
+
 \section{Practical motivations} \label{chap:practical_motivations}
 Physics and chemistry are two scientific domains strictly connected with mathematics and the numerical analysis. Playing with the
 experimental results and theoretical models scientists need the tools allowing them to validate or falsify their hypothesis, conclusions and
@@ -152,7 +157,7 @@ The first motivation for this thesis was the problem stated by physicians and ch
 optical susceptibility denoted with $\chi$:
 
 \begin{equation} \label{eq:pra_susceptibility}
-	\chi = \Re (\chi) + \Im (\chi) . 
+	\chi = \Re (\chi) + i \, \Im (\chi) . 
 \end{equation}
 
 The real part of the optical susceptibility is related with an optical phenomena - the refraction of light.
