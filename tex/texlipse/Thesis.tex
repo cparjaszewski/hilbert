@@ -115,17 +115,10 @@ Joliot-Curie 15, Poland \\
 
 \section{Introduction} \label{chap:introduction}
 
-The motivation for this work comes from the real problem stated by physicists and chemists employing theoretical models to
-describe the interaction between light and matter due to the low-level and intense light irradiation. We are interested in the light
-behaviour both in the frequency and time domains. In the frequency domain the behaviour of light can be described with the Hilbert
-transform, but to build a valid models - we need to handle two important problems. The first problem concerns the numerical evaluation
-of the Hilbert Transform, which is defined with the singular and improper integral. The second problem concerns the question stated by
-physicists: How to properly apply mathematical tools in a typical experiment and in the construction of a model useful in optical
-research? We present comparison of several implementations of the numerical calculations of the Hilbert transform:
+The motivation for this work comes from the real problem stated by physicists and chemists employing theoretical models to describe the interaction between light and matter due to the low-level and intense light irradiation. We are interested in the light behaviour both in the frequency and time domains. In the frequency domain the behaviour of light can be described with the Hilbert transform, but to build a valid models - we need to handle two important problems. The first problem concerns the numerical evaluation of the Hilbert Transform, which is defined with the singular and improper integral. The second problem concerns the question stated by physicists: How to properly apply mathematical tools in a typical experiment and in the construction of a model useful in optical research? We present comparison of several implementations of the numerical calculations of the Hilbert transform:
 
 \begin{itemize} \label{used_methods}
- \item Numerical trapezoidal rule mixed with the Simpson's rule and the
-cubic interpolation,
+ \item Numerical trapezoidal rule mixed with the Simpson's rule and the cubic interpolation,
  \item Newton-Cotes quadrature of the sixth degree,
  \item Clenshaw-Curtis quadrature,
  \item Hilbert transform based on fast Hartley transforms,
@@ -133,36 +126,27 @@ cubic interpolation,
  \item a method based on approximation with the Fourier series.
 \end{itemize}
 
-We also test two out-of-the-box MATLAB-implemented routines \texttt{quadgk} and \texttt{hil\-bert} - based on the fast Fourier
-transform. The given physical models for both linear and nonlinear optics are analyzed and validated. We formulate hints for good
-practises for scientists interested in the subject of optical experiments. Finally, we make conclusions about the numerical stability, advantages
-and disadvantages of the developed implementations in further research on nonlinear optics.
+We also test two out-of-the-box MATLAB-implemented routines \texttt{quadgk} and \texttt{hil\-bert} - based on the fast Fourier transform. The given physical models for both linear and nonlinear optics are analyzed and validated. We formulate hints for good practises for scientists interested in the subject of optical experiments. Finally, we make conclusions about the numerical stability, advantages and disadvantages of the developed implementations in further research on nonlinear optics.
 
 \emptyline
 
 \section{Practical motivations} \label{chap:practical_motivations}
-Physics and chemistry are two scientific domains strictly connected with mathematics and the numerical analysis. Playing with the
-experimental results and theoretical models scientists need the tools allowing them to validate or falsify their hypothesis, conclusions and
-observations~(Figure \ref{fig:practical_nlo}).
+Physics and chemistry are two scientific domains strictly connected with mathematics and the numerical analysis. Playing with the experimental results and theoretical models scientists need the tools allowing them to validate or falsify their hypothesis, conclusions and observations~(Figure \ref{fig:practical_nlo}).
 
 
 \begin{figure} 
  \includegraphics{img/nlo.png}
- \caption{Nonlinear optics derives from many fundamental disciplines: biology, chemistry, maths, physics and computer science.
- \label{fig:practical_nlo}}
+ \caption{Nonlinear optics derives from many fundamental disciplines: biology, chemistry, maths, physics and computer science. \label{fig:practical_nlo}}
 \end{figure}
 
 
-The first motivation for this thesis was the problem stated by physicians and chemists about the complex physical quantity called the
-optical susceptibility denoted with $\chi$:
+The first motivation for this thesis was the problem stated by physicians and chemists about the complex physical quantity called the optical susceptibility denoted with $\chi$:
 
 \begin{equation} \label{eq:pra_susceptibility}
 	\chi = \Re (\chi) + i \, \Im (\chi) . 
 \end{equation}
 
-The real part of the optical susceptibility is related with an optical phenomena - the refraction of light.
-The imaginary part of the susceptibility is connected with the absorption of light. In many models these two physical quantities are connected
-to each other with the modified Hilbert transform called the Kramers-Kronig relations:
+The real part of the optical susceptibility is related with an optical phenomena - the refraction of light. The imaginary part of the susceptibility is connected with the absorption of light. In many models these two physical quantities are connected to each other with the modified Hilbert transform called the Kramers-Kronig relations:
 
 
 \begin{equation} \label{eq:pra_hilbert_connection} 
@@ -171,45 +155,30 @@ to each other with the modified Hilbert transform called the Kramers-Kronig rela
 
 The scientists require both mathematical and numerical tools to better understand the properties of the light beam interaction with matter. 
 
-In this thesis we have prepared and discussed several tools that evaluates the Hilbert transform, which together with the proper physical
-models, help to find a connection between the real and imaginary part of the optical susceptibility.   
+In this thesis we have prepared and discussed several tools that evaluates the Hilbert transform, which together with the proper physical models, help to find a connection between the real and imaginary part of the optical susceptibility.   
 
-The subject of this thesis is not only an academic exercise - in the last twenty years the global interest in photonics, and
-especially application of light in modern devices for information transfer, storage and processing - including the construction of super-fast
-all-optical computers - is steadily increasing. Recent years have seen much focus on the science and technology of photonics on
-nano scale. 
+The subject of this thesis is not only an academic exercise - in the last twenty years the global interest in photonics, and especially application of light in modern devices for information transfer, storage and processing - including the construction of super-fast all-optical computers - is steadily increasing. Recent years have seen much focus on the science and technology of photonics on nano scale. 
 
-This thesis consists of three important fragments. In the first fragment we have prepared the introduction into the mathematical calculations
-(Chapter \ref{chap:mathematical_calculations}) and the overview of the theoretical physical models we will be using to check the
-prepared numerical methods (Chapter \ref{chap:physical_models}). In the second fragment of this thesis we have prepared the short description of
-each Hilbert transform evaluating methods (Chapters \ref{chap:htran} - \ref{chap:matlab}). In the last fragment we have compared the obtained
-results (Chapter \ref{chap:comparison}) and drew the final conclusions (Chapter \ref{chap:conclusion}). You can also find the attached
-source code in the document appendices.
+This thesis consists of three important fragments. In the first fragment we have prepared the introduction into the mathematical calculations (Chapter \ref{chap:mathematical_calculations}) and the overview of the theoretical physical models we will be using to check the prepared numerical methods (Chapter \ref{chap:physical_models}). In the second fragment of this thesis we have prepared the short description of each Hilbert transform evaluating methods (Chapters \ref{chap:htran} - \ref{chap:matlab}). In the last fragment we have compared the obtained results (Chapter \ref{chap:comparison}) and drew the final conclusions (Chapter \ref{chap:conclusion}). You can also find the attached source code in the document appendices.
 
-The second motivation for this Thesis was to prepare a set of numerical tools for the advanced optical experiment called the
-Z-Scan experiment, which has been described in the Appendix B.
+The second motivation for this Thesis was to prepare a set of numerical tools for the advanced optical experiment called the Z-Scan experiment, which has been described in the Appendix B.
 
 \section{Mathematical calculations} \label{chap:mathematical_calculations}
 
 \subsection{Hilbert transform - introduction}  \label{chap:mathematical_hilbert}
 
-To define the Hilbert transform we will need to firstly define the convolution operator~$\convolution$. In the area of functional analysis
-in mathematics the convolution is defined as the integral of a product of two functions, but one of them is shifted and
-reversed~\cite{bracewell_fourier}:
+To define the Hilbert transform we will need to firstly define the convolution operator~$\convolution$. In the area of functional analysis in mathematics the convolution is defined as the integral of a product of two functions, but one of them is shifted and reversed~\cite{bracewell_fourier}:
 
 \begin{equation} \label{eh:mth_convolution}
 	(f \convolution g)(x) \stackrel{\mathrm{def}}{=}\  \int_{-\infty }^{\infty } f(\omega) \, g(x - \omega) d\omega .
 \end{equation}
  
-The result of the convolution of two functions $f$ and $g$ is a third function $h$ than can be described as the area overlap. The example
-has been presented on Figure~(\ref{fig:mathematical_convolution}).
+The result of the convolution of two functions $f$ and $g$ is a third function $h$ than can be described as the area overlap. The example has been presented on Figure~(\ref{fig:mathematical_convolution}).
 
 \begin{figure} 
 	\begin{center}
 		\includegraphics{img/convolution.png}
-		\caption{The example of convolution: the rectangle-like function overlaps another, equal rectangle-like function to create a
-		triangle-like convolution as the result. In fact - the result is the modified trapezoid for the general case.
-		\label{fig:mathematical_convolution}}
+		\caption{The example of convolution: the rectangle-like function overlaps another, equal rectangle-like function to create a triangle-like convolution as the result. In fact - the result is the modified trapezoid for the general case. \label{fig:mathematical_convolution}}
 	\end{center}
 \end{figure}  
 
@@ -222,10 +191,7 @@ Now we are ready to define the Hilbert transform. In fact it is a convolution of
 	=\ \frac{1}{\pi} \dashint_{ - \infty }^{\infty } \frac{f(\omega)}{(x - \omega)} \, d\omega . 
 \end{equation}
 
-It is important to stress that the dashed integral: $\dashint$ used in the equation~(\ref{eq:mathematical_hilbert}) means the Cauchy
-principal value integral. It is the integration method for certain improper integrals like $h(x) =\ \frac{1}{x \, \pi}$. The Cauchy
-principal value was designed to omit the singularity and it is a less rigorous integration method than the Riemann integral. For the example
-singular $ h(x) $ it is defined as in the equation (\ref{eq:mathematical_cvp}):
+It is important to stress that the dashed integral: $\dashint$ used in the equation~(\ref{eq:mathematical_hilbert}) means the Cauchy principal value integral. It is the integration method for certain improper integrals like $h(x) =\ \frac{1}{x \, \pi}$. The Cauchy principal value was designed to omit the singularity and it is a less rigorous integration method than the Riemann integral. For the example singular $ h(x) $ it is defined as in the equation (\ref{eq:mathematical_cvp}):
 
 \begin{equation} \label{eq:mathematical_cvp}
 	\dashint_{ - \infty }^{\infty } \frac{f(\omega)}{(x - \omega)} \, d\omega = \lim_{a \to \infty}\,\int_{ - a}^{a }
@@ -234,8 +200,7 @@ singular $ h(x) $ it is defined as in the equation (\ref{eq:mathematical_cvp}):
 
 More information about the Cauchy principal value integral can be easily found in the literature \cite{henrici_applied}.
 
-We have presented several pairs of functions and their Hilbert transforms in the
-Table~(\ref{tab:mathematical_hexample})~\cite{weisstein_hilbert}.
+We have presented several pairs of functions and their Hilbert transforms in the Table~(\ref{tab:mathematical_hexample})~\cite{weisstein_hilbert}.
 
 \begin{table} 
   \centering
@@ -270,12 +235,9 @@ Table~(\ref{tab:mathematical_hexample})~\cite{weisstein_hilbert}.
 
 \subsection{Fourier transform and its application}
  
-In this thesis we will very often use the description of a function in the time or in the frequency domain. The Fourier transform is a
-mathematical translation tool between those two domains and therefore is has many applications in modern physics and of course in optics.
+In this thesis we will very often use the description of a function in the time or in the frequency domain. The Fourier transform is a mathematical translation tool between those two domains and therefore is has many applications in modern physics and of course in optics.
 
-Let $f : \mathbb{R} \to \mathbb{R} $ be a function of time. We can also call this function a signal. When we will search for the frequency
-function, also named the frequency spectrum, we can apply the Hilbert transform on the time-domain $ f $ function: $ \mathcal{H}[f(t)] = 
-\overarc{f}(\omega) $.
+Let $f : \mathbb{R} \to \mathbb{R} $ be a function of time. We can also call this function a signal. When we will search for the frequency function, also named the frequency spectrum, we can apply the Hilbert transform on the time-domain $ f $ function: $ \mathcal{H}[f(t)] =  \overarc{f}(\omega) $.
 
 The one-dimensional Fourier transform is defined in the equation~(\ref{eq:mathematical_fourier}):
 
@@ -290,37 +252,26 @@ We will also use the inverse Fourier transform as defined in the equation~(\ref{
   \omega t} \, d\omega .
 \end{equation}
 
-A typical example of a implemented Fourier transform can be find in the typical radio display called the equalizer as in the
-Figure~(\ref{fig:mathematical_equalizer}).
+A typical example of a implemented Fourier transform can be find in the typical radio display called the equalizer as in the Figure~(\ref{fig:mathematical_equalizer}).
 
 \begin{figure} 
 	\begin{center}
  		\includegraphics[width=60mm]{img/equalizer.png}
- 		\caption{The typical radio display - showing the proper wavelengths used in the current fragment of a music track.
- 		\label{fig:mathematical_equalizer}}
+ 		\caption{The typical radio display - showing the proper wavelengths used in the current fragment of a music track. \label{fig:mathematical_equalizer}}
 	\end{center}
 \end{figure} 
 
-The sound wave behaves in a similar way to the the light wave. We can investigate properties of a light in the time domain - but we can also
-ask a question what different wavelengths is the investigated light beam created of. We will easily find the Fourier transform a good
-mathematical tool for answering such question. More information about the Fourier transform and its application can be easily found in the
-literature, for instance in Trott~\cite{trott_mathematica}.
+The sound wave behaves in a similar way to the the light wave. We can investigate properties of a light in the time domain - but we can also ask a question what different wavelengths is the investigated light beam created of. We will easily find the Fourier transform a good mathematical tool for answering such question. More information about the Fourier transform and its application can be easily found in the literature, for instance in Trott~\cite{trott_mathematica}.
 
 \subsection{Lebesgue and Hardy spaces}
 
-We shall also define the Lebesgue and the Hardy spaces for the next calculations. The Lebesgue space is also called the $L^p$ and is a
-function space described in the functional analysis. We can now define a function $f : \mathbb{S} \to \mathbb{D}$. The function $f$ belongs
-to the $L^p$ space if it is measurable and if raised to the $p^{\text{th}}$ power it has a finite integral on $\mathbb{S}$ with the measure
-$ \mu $. The formal definition has been presented in the equation~(\ref{eg:mathematical_lebesgue}):
+We shall also define the Lebesgue and the Hardy spaces for the next calculations. The Lebesgue space is also called the $L^p$ and is a function space described in the functional analysis. We can now define a function $f : \mathbb{S} \to \mathbb{D}$. The function $f$ belongs to the $L^p$ space if it is measurable and if raised to the $p^{\text{th}}$ power it has a finite integral on $\mathbb{S}$ with the measure $ \mu $. The formal definition has been presented in the equation~(\ref{eg:mathematical_lebesgue}):
 
 \begin{equation} \label{eg:mathematical_lebesgue}
   \|f\|_p \equiv ( \int_{S} |f|^p \, d\mu) ^ {\frac{1}{p}} < \infty .
 \end{equation}
 
-Instead of $\mathbb{S}$ we will often use the set of real numbers. The $L^2$ space, also named the set of quadratically integrable functions
-is commonly used in physics. When we have the frequency domain of a light signal it must belongs to the $L^2$ space. Otherwise its energy would
-be considered as infinite. The Hardy spaces are a part of research interests in the complex analysis. They can be defined on domains like
-discs or circles, but they can also be defined for domains like the upper-half plane. We will take a closer look only for the third case.
+Instead of $\mathbb{S}$ we will often use the set of real numbers. The $L^2$ space, also named the set of quadratically integrable functions is commonly used in physics. When we have the frequency domain of a light signal it must belongs to the $L^2$ space. Otherwise its energy would be considered as infinite. The Hardy spaces are a part of research interests in the complex analysis. They can be defined on domains like discs or circles, but they can also be defined for domains like the upper-half plane. We will take a closer look only for the third case.
 
 The upper-half plane $ \mathbb{H} $ is the set of complex numbers defined as in equation (\ref{eq:mathematical_upperhalfplane}):
 
@@ -328,17 +279,13 @@ The upper-half plane $ \mathbb{H} $ is the set of complex numbers defined as in 
   \mathbb{H} = \{ x + i \, y \;| y > 0; x, y \in \mathbb{R} \} .
 \end{equation}
 
-The complex analysis very often investigates properties of the holomorphic functions. We say a function $f : \mathbb{C} \to \mathbb{C}$ is
-holomorphic when it has a complex derivative in each point of its domain and also in a small neighbourhood for each of domain points. For
-the complex function $f$ the complex derivative is defined with a limit - very similar as for the real function - as in equation
-(\ref{eq:mathematical_complexderivative}):
+The complex analysis very often investigates properties of the holomorphic functions. We say a function $f : \mathbb{C} \to \mathbb{C}$ is holomorphic when it has a complex derivative in each point of its domain and also in a small neighbourhood for each of domain points. For the complex function $f$ the complex derivative is defined with a limit - very similar as for the real function - as in equation (\ref{eq:mathematical_complexderivative}):
 
 \begin{equation} \label{eq:mathematical_complexderivative}
   f(z_0)^{'} \stackrel{\mathrm{def}}{=} \lim_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0} \; \, \text{ and } \, z_0, \, z \in \mathbb{C} .
 \end{equation}
 
-The Hardy space $ H^{p} $ defined on the upper-half plane $ \mathbb{H} $ is a class of holomorphic functions for which the norm $
-\|f\|_{H^p} $ is finite. The required norm satisfies the equation (\ref{eq:mathematical_hardynorm}):
+The Hardy space $ H^{p} $ defined on the upper-half plane $ \mathbb{H} $ is a class of holomorphic functions for which the norm $ \|f\|_{H^p} $ is finite. The required norm satisfies the equation (\ref{eq:mathematical_hardynorm}):
 
 \begin{equation} \label{eq:mathematical_hardynorm}
   \|f\|_{H^p} = sup_{ y > 0 } \left[ \int |f(x + i \, y)|^{p} \, dx \right]^{\frac{1}{p}} \, < \, \infty.
@@ -346,34 +293,20 @@ The Hardy space $ H^{p} $ defined on the upper-half plane $ \mathbb{H} $ is a cl
 
 \subsection{The causality principle} \label{chap:mathematical_causality}
 
-The causality is the important hypothesis not only in physics, but also in philosophy and statistics. Causality in physics links the cause
-with its effect. The first and easy example can be a force acting on a mass. The mass starts to accelerate because of the applied force.
-Therefore the force is here the cause and the mass acceleration is the effect.
+The causality is the important hypothesis not only in physics, but also in philosophy and statistics. Causality in physics links the cause with its effect. The first and easy example can be a force acting on a mass. The mass starts to accelerate because of the applied force. Therefore the force is here the cause and the mass acceleration is the effect.
 
-In the field of optical research - we will be interested in both light and matter properties. When a light signal is passing through a
-matter, from the time-domain perspective - we can extract the input and the output signals, as presented on Figure
-(\ref{fig:mathematical_inoutput}). From now on we will consistently use the \textbf{input} definition for the time-domain signal in time
-period \textbf{before} the interaction with the investigated matter and the \textbf{output} definition for the the time-domain signal
-\textbf{after} the interaction with matter.
+In the field of optical research - we will be interested in both light and matter properties. When a light signal is passing through a matter, from the time-domain perspective - we can extract the input and the output signals, as presented on Figure (\ref{fig:mathematical_inoutput}). From now on we will consistently use the \textbf{input} definition for the time-domain signal in time period \textbf{before} the interaction with the investigated matter and the \textbf{output} definition for the the time-domain signal \textbf{after} the interaction with matter.
 
- We must have in our mind, that not only in the field of optics some scientists creates the models which does not obey
- causality~\cite{mukamel_causal}. But in this thesis we will assume the causality applies to all models being investigated by us.
+We must have in our mind, that not only in the field of optics some scientists creates the models which does not obey causality~\cite{mukamel_causal}. But in this thesis we will assume the causality applies to all models being investigated by us.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/opt_phenom3.png}
-  \caption{Schematic diagram of the nonlinear phenomenon -- the input beam(s') wavelength(s) may differ from the output signal(s).
-  This happens only in case of the strong optical signals.
-  \label{fig:mathematical_inoutput}}
+  \caption{Schematic diagram of the nonlinear phenomenon -- the input beam(s') wavelength(s) may differ from the output signal(s). This happens only in case of the strong optical signals. \label{fig:mathematical_inoutput}}
 \end{figure}
 
 \subsection{The Titchmarsh theorem}
 
-The central theorem in this thesis is the Titchmarsh theorem. It links the Fourier transform with the causality principle. We will focus on
-the output signal $ a(t) : \mathbb{R} \to \mathbb{R} $ and assume that the interaction with matter happens in the $ t = 0 $ time, but the
-interaction time is negligibly short. As the causal output signal - for time $ t < 0 $ it's value equals zero. Our second assumption will be
-that the output signal is quadratically integrable. We will also assume that the Fourier transform of the output signal $ \chi(\omega) =
-\mathcal{F}[a(t)] \, \in H^2 (\mathbb{H}) $ belongs to the Hardy space of the second order in the upper-half plane $ \mathbb{H} $. With such
-assumptions the Titchmarsh theorem states for the $ \chi $ function that it's real and imaginary values are Hilbert transform of each other.
+The central theorem in this thesis is the Titchmarsh theorem. It links the Fourier transform with the causality principle. We will focus on the output signal $ a(t) : \mathbb{R} \to \mathbb{R} $ and assume that the interaction with matter happens in the $ t = 0 $ time, but the interaction time is negligibly short. As the causal output signal - for time $ t < 0 $ it's value equals zero. Our second assumption will be that the output signal is quadratically integrable. We will also assume that the Fourier transform of the output signal $ \chi(\omega) = \mathcal{F}[a(t)] \, \in H^2 (\mathbb{H}) $ belongs to the Hardy space of the second order in the upper-half plane $ \mathbb{H} $. With such assumptions the Titchmarsh theorem states for the $ \chi $ function that it's real and imaginary values are Hilbert transform of each other.
 
 We have prepared the more formal notation of the Titchmarsh theorem in the following equations:
 
@@ -405,73 +338,48 @@ We have prepared the more formal notation of the Titchmarsh theorem in the follo
   \end{equation}
 \end{subequations}
 
-The Titchmarsh theorem states that the conditions from equations~(\ref{eq:mathematical_l2output} with~\ref{eq:mathematical_faoutput}),
-(\ref{eq:mathematical_ttisfourier} with~\ref{eq:mathematical_tth2fourier}) and~(\ref{eq:mathematical_titchmarsh_real} with
-\ref{eq:mathematical_titchmarsh_imag}) are mathematically equivalent.
+The Titchmarsh theorem states that the conditions from equations~(\ref{eq:mathematical_l2output} with~\ref{eq:mathematical_faoutput}), (\ref{eq:mathematical_ttisfourier} with~\ref{eq:mathematical_tth2fourier}) and~(\ref{eq:mathematical_titchmarsh_real} with \ref{eq:mathematical_titchmarsh_imag}) are mathematically equivalent.
 
-Proof with an exhausting review of both the Fourier and Hilbert transforms was described by Edward Charles Titchmarsh in
-\cite{titchmarsh_introduction} - the theory is described through all book chapters, but the theorem and its proof has been stated in Chapter
-(\ref{chap:nc}) about the conjugated integrals also Hilbert transforms.
+Proof with an exhausting review of both the Fourier and Hilbert transforms was described by Edward Charles Titchmarsh in \cite{titchmarsh_introduction} - the theory is described through all book chapters, but the theorem and its proof has been stated in Chapter (\ref{chap:nc}) about the conjugated integrals also Hilbert transforms.
 
 
 \section{Physical models to be used} \label{chap:physical_models}
 
 \subsection{The linear and the nonlinear optics} \label{chap:physical_linearnonlinear}
 
-From now on we will focus on the application of the Hilbert transform in the optical research. The central interest of the optical research
-is the interaction of light and matter. 
+From now on we will focus on the application of the Hilbert transform in the optical research. The central interest of the optical research is the interaction of light and matter. 
 
-The light, also called the electromagnetic radiation, is a form of energy which travels between particles in a wave manner. From the
-microscopic point of view, light is also a beam of photons. The photon is the elementary massless particle that transport the special
-quantities of energy. The energy $E$ of a single photon is inversely proportional to its wavelength $\lambda$ as described in the equation
-(\ref{eq:photon_frequency}). The $h = 4.135667516(91) \times 10^{-15} eV \cdot s$ is the Planck constant and the $c = 299792458 \frac{m}{s}$
-is the speed of light:
+The light, also called the electromagnetic radiation, is a form of energy which travels between particles in a wave manner. From the microscopic point of view, light is also a beam of photons. The photon is the elementary massless particle that transport the special quantities of energy. The energy $E$ of a single photon is inversely proportional to its wavelength $\lambda$ as described in the equation (\ref{eq:photon_frequency}). The $h = 4.135667516(91) \times 10^{-15} eV \cdot s$ is the Planck constant and the $c = 299792458 \frac{m}{s}$ is the speed of light:
 
 \begin{equation} \label{eq:photon_frequency}
 	E(\lambda) = \frac {h\,c} {\lambda}.
 \end{equation}
 
-When the light interacts with matter the energy transfer occurs. If the light or more precisely the photon is absorbed - the matter
-increases its energy by the quantum of energy transported by that photon. When the light is emitted, some portion of the matter's energy is
-converted into a newly generated photon. In the optical research we are interested in both processes - the absorption and the generation of
-light. We are also interested in the theory behind these two effects - which will help us understand the nature of light in general. The
-good introduction into the theory of optics can be found in the McGraw-Hill encyclopedia~\cite{mcgraw_encyclopedia}, starting from the~$
-12^{\text{th}} $ volume.
+When the light interacts with matter the energy transfer occurs. If the light or more precisely the photon is absorbed - the matter increases its energy by the quantum of energy transported by that photon. When the light is emitted, some portion of the matter's energy is converted into a newly generated photon. In the optical research we are interested in both processes - the absorption and the generation of light. We are also interested in the theory behind these two effects - which will help us understand the nature of light in general. The good introduction into the theory of optics can be found in the McGraw-Hill encyclopedia~\cite{mcgraw_encyclopedia}, starting from the~$ 12^{\text{th}} $ volume.
 
-Optics is divided in the main two areas - the linear and the nonlinear optics. To distinguish linear from the nonlinear phenomena,
-we need to remind the superposition. The superposition principle is applied to the linear system and its states the system fulfill the
-additivity (\ref{eq:physical_additivity}) and the homogeneity (\ref{eq:physical_homogeneity}) properties. The additivity is a term taken
-from algebra and it describes the function~$ f : \mathbb{X} \to \mathbb{Y}$ that preserves the addition operation:
+Optics is divided in the main two areas - the linear and the nonlinear optics. To distinguish linear from the nonlinear phenomena, we need to remind the superposition. The superposition principle is applied to the linear system and its states the system fulfill the additivity (\ref{eq:physical_additivity}) and the homogeneity (\ref{eq:physical_homogeneity}) properties. The additivity is a term taken from algebra and it describes the function~$ f : \mathbb{X} \to \mathbb{Y}$ that preserves the addition operation:
 
 \begin{equation} \label{eq:physical_additivity}
   \forall x, y \in X : f(x + y) = f(x) + f(y) .
 \end{equation}
 
-The homogeneity is an algebraic property of a function $f$: if the argument $x \in \mathbb{X} $ of a function $f : \mathbb{X} \to \mathbb{Y}
-$ is multiplied by a scalar $ \alpha $ the result is also multiplied by this scalar. More precisely:
+The homogeneity is an algebraic property of a function $f$: if the argument $x \in \mathbb{X} $ of a function $f : \mathbb{X} \to \mathbb{Y} $ is multiplied by a scalar $ \alpha $ the result is also multiplied by this scalar. More precisely:
 
 \begin{equation} \label{eq:physical_homogeneity}
   \forall \alpha \in \mathbb{R} \, \text{ and } \, \forall x \in \mathbb{X} : f(\alpha \, x) = \alpha \, f(x) .
 \end{equation}
 
-In the linear optics we state that the system satisfies the superposition principle. ``The system'' here is the investigated setup of light
-and matter. From the microscopic point of view it means - the more often photons transfers energy to and from the mass, the more the same
-effects take place and the only difference is the amount of energy being transferred in the set period of time. When the systems starts to
-``saturate'', photons cannot be processed in the same way and some new optical phenomena take place.
+In the linear optics we state that the system satisfies the superposition principle. ``The system'' here is the investigated setup of light and matter. From the microscopic point of view it means - the more often photons transfers energy to and from the mass, the more the same effects take place and the only difference is the amount of energy being transferred in the set period of time. When the systems starts to ``saturate'', photons cannot be processed in the same way and some new optical phenomena take place.
 
 \subsection{The response of a system} \label{chap:physical_systemresponse}
 
-To better understand the relation between the light~\textbf{input} and~\textbf{output} we shall once more use the convolution.
-Given the input signal in the time-domain: $ x(t) $ and the linear systems response function described as $ h(t) $ we can easily get the
-output signal $ y(t) $ as the convolution $ x(t) \convolution h(t) $:
+To better understand the relation between the light~\textbf{input} and~\textbf{output} we shall once more use the convolution. Given the input signal in the time-domain: $ x(t) $ and the linear systems response function described as $ h(t) $ we can easily get the output signal $ y(t) $ as the convolution $ x(t) \convolution h(t) $:
 
 \begin{equation} \label{eq:physical_response}
   y(t) = x(t) \convolution h(t) \stackrel{\mathrm{def}}{=} \int_{ - \infty}^{ \infty} x( t - \tau ) \cdot h(\tau) \, d\tau .
 \end{equation}
 
-This definition gives no new information because we now nothing about the response function $ h(t) $. But from the convolution
-theorem~\cite{katznelson_introduction} we know that the Fourier transform applied to the convolution of two given functions equals the
-simple multiplication of two Fourier transforms:
+This definition gives no new information because we now nothing about the response function $ h(t) $. But from the convolution theorem~\cite{katznelson_introduction} we know that the Fourier transform applied to the convolution of two given functions equals the simple multiplication of two Fourier transforms:
 
 \begin{equation} \label{eq:physical_convolution}
   \mathcal{F}(a(x) \convolution \chi(x)) = \mathcal{F}(a(x)) \cdot \mathcal{F}(\chi(x)) .
@@ -479,10 +387,7 @@ simple multiplication of two Fourier transforms:
 
 The proof to the convolution theorem (\ref{eq:physical_convolution}) can be found in \cite{titchmarsh_introduction}.
 
-The definition of the system's response (\ref{eq:physical_response}) is true for the linear case. For the nonlinear systems we must provide
-the more complicated mathematical tool called the Volterra series model well described in the PhD thesis of Antonín
-Novák~\cite{thesis_novak}. The output signal $ y(t) $ equals the sum of components, each of which is the~$ n ^ {\text{th}} $ order Volterra
-operator $ \mathbf{K_n} $ of the input signal $ x(t) $:
+The definition of the system's response (\ref{eq:physical_response}) is true for the linear case. For the nonlinear systems we must provide the more complicated mathematical tool called the Volterra series model well described in the PhD thesis of Antonín Novák~\cite{thesis_novak}. The output signal $ y(t) $ equals the sum of components, each of which is the~$ n ^ {\text{th}} $ order Volterra operator $ \mathbf{K_n} $ of the input signal $ x(t) $:
 
 \begin{equation} \label{eq:physical_volterraseries}
   y(t) = \sum_{n} \, \mathbf{K_n}[x (t) ].
@@ -497,19 +402,13 @@ The $ n ^ {\text{th}} $ order Volterra operator $ \mathbf{K_n} $ is defined as t
 
 The $ k_n : \mathbb{X}^{n} \rightarrow \mathbb{Y} $ function is called the $ n ^ {\text{th}} $ order Volterra-kernel. 
 
-We notice the output function for the linear case (\ref{eq:physical_response}) is equal to the nonlinear output function assuming that all
-the Volterra-kernels of orders higher than one are equal to zero. We say the kernel is causal if it equals zero for any negative
-argument.
+We notice the output function for the linear case (\ref{eq:physical_response}) is equal to the nonlinear output function assuming that all the Volterra-kernels of orders higher than one are equal to zero. We say the kernel is causal if it equals zero for any negative argument.
 
-From now on we must distinguish the light~\textbf{input}, the light~\textbf{output} and the matter~\textbf{response} functions from each
-other. The matter~\textbf{response} function for the interaction of the $ n^{\text{th}} $ order is the $ n^{\text{th}} $ order
-Volterra-kernel.
+From now on we must distinguish the light~\textbf{input}, the light~\textbf{output} and the matter~\textbf{response} functions from each other. The matter~\textbf{response} function for the interaction of the $ n^{\text{th}} $ order is the $ n^{\text{th}} $ order Volterra-kernel.
 
 \subsection{The linear system} \label{chap:physical_linearsystem}
 
-Let imagine an input single pulse-like signal ``shots'' the matter. We expect the matter to response with a short, fading response signal.
-The $ \Theta (t) : \mathbb{R} \rightarrow \{0, \, 1 \} $ function will state the Heaviside function defined as in the equation
-(\ref{eq:physical_heaviside}):
+Let imagine an input single pulse-like signal ``shots'' the matter. We expect the matter to response with a short, fading response signal. The $ \Theta (t) : \mathbb{R} \rightarrow \{0, \, 1 \} $ function will state the Heaviside function defined as in the equation (\ref{eq:physical_heaviside}):
 
 \begin{equation} \label{eq:physical_heaviside}
    \Theta(t)  =  
@@ -519,8 +418,7 @@ The $ \Theta (t) : \mathbb{R} \rightarrow \{0, \, 1 \} $ function will state the
    \end{cases}
 \end{equation}
 
-Not getting into the theory of the linear optical response, we can create our first simple response function $ h_{\text{lin}} $ as the
-fading sinusoidal exponent:
+Not getting into the theory of the linear optical response, we can create our first simple response function $ h_{\text{lin}} $ as the fading sinusoidal exponent:
 
 \begin{equation} \label{eq:physical_linear_response}
   h_{\text{lin}} (t) = 1 - e^{( - t)}\,\mathrm{sin}(20\,t)\,\Theta (t) .
@@ -539,29 +437,17 @@ If we would like to know the response signal in the frequency domain, we will ap
   \mathcal{F}[h_{\text{lin}}] = \chi_{\text{lin}}(\omega) \approx \frac{ -20}{(\omega \,i + 1 -20\,i)\,(\omega \,i + 1 + 20\,i)},
 \end{equation}
 
-In the equation (\ref{eq:physical_frequency_linear}) we have omitted the Dirac delta function that will appear if we calculate the Fourier
-transform properly. The Dirac delta function can be omitted from the numerical point of view. The calculated $ \chi_{\text{lin}} $
-is called the linear optical susceptibility. We are interested in the notation of $ \chi_{\text{lin}} $ as the function of frequency
-$ \omega $. More theoretical background about the optical susceptibility can be found in Boyd~\cite{boyd_nlo}. 
+In the equation (\ref{eq:physical_frequency_linear}) we have omitted the Dirac delta function that will appear if we calculate the Fourier transform properly. The Dirac delta function can be omitted from the numerical point of view. The calculated $ \chi_{\text{lin}} $ is called the linear optical susceptibility. We are interested in the notation of $ \chi_{\text{lin}} $ as the function of frequency $ \omega $. More theoretical background about the optical susceptibility can be found in Boyd~\cite{boyd_nlo}. 
 
-As You can see - the time domain linear response signal $ h_{\text{lin}} $ and the corresponding linear optical susceptibility~$
-\chi_{\text{lin}} $ pass the assumptions of the Titchmarsh theorem. In the further numerical calculations we will put the~$
-\chi_{\text{lin}} $ into tests. 
+As You can see - the time domain linear response signal $ h_{\text{lin}} $ and the corresponding linear optical susceptibility~$ \chi_{\text{lin}} $ pass the assumptions of the Titchmarsh theorem. In the further numerical calculations we will put the~$ \chi_{\text{lin}} $ into tests. 
 
 \subsection{Nonlinear models} \label{chap:physical_simnlo}
 
-In this subsection we will shortly describe the time-resolved processes which allow to determine the origin of two important nonlinear
-processes: the pump-and-probe and the frequency mixing process.
+In this subsection we will shortly describe the time-resolved processes which allow to determine the origin of two important nonlinear processes: the pump-and-probe and the frequency mixing process.
 
 \subsubsection*{Pump-and-probe process} \label{chap:physical_pnp}
 
-The laser is typically a source of a high-energy input signal. In a typical pump-and-probe process we use two laser beams. One of them
-is a strong input and we name it the 'pump'. The second input - the 'probe' - is much less intense. We try to synchronise these two
-laser beams in the following way - firstly a pump input hits the matter sample with its strong intensity - causing modifications in the matter
-properties. Shortly after that - within a time period $\Delta \, t$ - a low-intensity probe input hits the modified sample and its
-properties are measured through a detector. In a typical experiment the $\Delta \, t$ time period should be adjustable. There are various types of
-pump-probe experiments, for example one can detect changes of the amplitude of the matter response signal. The schematic diagram of a
-pump-and-probe experiment is shown in Figure (\ref{fig:physical_pnp_fig}).
+The laser is typically a source of a high-energy input signal. In a typical pump-and-probe process we use two laser beams. One of them is a strong input and we name it the 'pump'. The second input - the 'probe' - is much less intense. We try to synchronise these two laser beams in the following way - firstly a pump input hits the matter sample with its strong intensity - causing modifications in the matter properties. Shortly after that - within a time period $\Delta \, t$ - a low-intensity probe input hits the modified sample and its properties are measured through a detector. In a typical experiment the $\Delta \, t$ time period should be adjustable. There are various types of pump-probe experiments, for example one can detect changes of the amplitude of the matter response signal. The schematic diagram of a pump-and-probe experiment is shown in Figure (\ref{fig:physical_pnp_fig}).
 
 \begin{figure} 
 	\begin{center}
@@ -570,11 +456,7 @@ pump-and-probe experiment is shown in Figure (\ref{fig:physical_pnp_fig}).
 	\end{center}
 \end{figure}
 
-The key assumption in the pump-and-probe experiment is that separated and independent probe inputs cannot introduce a nonlinear
-response of the system alone \cite{boyd_nlo}. The probe signal should be sufficiently weak. In the so-called two-level model the
-investigated atomic system is characterized for both the pump and the probe inputs by two different relaxation times:~${T_{1}}$ 
-and ${T_{2}}$ respectively. A more detailed model is defined by H. N. Yum et al. \cite{yum_pump} for the nonlinear susceptibility in
-case of the pump-probe process:
+The key assumption in the pump-and-probe experiment is that separated and independent probe inputs cannot introduce a nonlinear response of the system alone \cite{boyd_nlo}. The probe signal should be sufficiently weak. In the so-called two-level model the investigated atomic system is characterized for both the pump and the probe inputs by two different relaxation times:~${T_{1}}$  and ${T_{2}}$ respectively. A more detailed model is defined by H. N. Yum et al. \cite{yum_pump} for the nonlinear susceptibility in case of the pump-probe process:
 
 \begin{multline}   \label{eq:physical_pnp_equation}
      \chi_{pp} (\delta ) = \frac {G\,n^{0}\,{\gamma_{ba}}}{\Delta  + \delta  + i\,\eta } \cdot \\
@@ -582,15 +464,14 @@ case of the pump-probe process:
      \theta)\,(\Delta  + \delta  + i\,\eta )\,(\delta  - \Delta  + i\,\eta ) - {\Omega_{1}}^{2}\,(\delta  + i\,\eta ))\,2}].
 \end{multline}
 
-In the equation (\ref{eq:physical_pnp_equation}) we have introduced a whole branch of new variables. The $\delta $ is the probe
-input frequency, the $\Delta $ means the pump input frequency. Other variables are related with the pump $ T_{1} $ relaxation time:
+In the equation (\ref{eq:physical_pnp_equation}) we have introduced a whole branch of new variables. The $\delta $ is the probe input frequency, the $\Delta $ means the pump input frequency. Other variables are related with the pump $ T_{1} $ relaxation time:
 
-\begin{tabular} {r c l}
-	$ \Omega_{1} $  & $ = $ & $ \Omega_{1} ( T_{1} )$, \\
-	$ G $           & $ = $ & $  G ( T_{1} )$, \\
+\begin{tabular} {r c l r c l r c l}
+	$ \Omega_{1} $  & $ = $ & $ \Omega_{1} ( T_{1} )$, 
+	$ G $           & $ = $ & $  G ( T_{1} )$, 
 	$ n^{0} $       & $ = $ & $  n^{0} ( T_{1} )$, \\
-	$ \gamma_{ba} $ & $ = $ & $  \gamma_{ba} ( T_{1} )$, \\
-	$ \eta $        & $ = $ & $  \eta ( T_{1} )$, \\
+	$ \gamma_{ba} $ & $ = $ & $  \gamma_{ba} ( T_{1} )$, 
+	$ \eta $        & $ = $ & $  \eta ( T_{1} )$, 
 	$ \theta $      & $ = $ & $  \theta ( T_{1} )$, \\
 \end{tabular}
 
@@ -607,25 +488,19 @@ We can now easily deduce that also the pump-and-probe nonlinear susceptibility d
   \chi_{pp} = \chi_{pp} (\delta , \Delta_1 \, t).
 \end{equation} 
 
-In sense of the response theory this observation leads us to the conclusion, that the susceptibility of the nonlinear process depends not
-only on the input signal frequency (energy) - but also on the time delay between the moments, when two or more photons arrive at
-the molecule. We are talking about an important problem in nonlinear optics which is constructing a valid model for the pump-and-probe
-process - to allow us to use the Titchmarsh theorem. 
+In sense of the response theory this observation leads us to the conclusion, that the susceptibility of the nonlinear process depends not only on the input signal frequency (energy) - but also on the time delay between the moments, when two or more photons arrive at the molecule. We are talking about an important problem in nonlinear optics which is constructing a valid model for the pump-and-probe process - to allow us to use the Titchmarsh theorem. 
 
-In \cite{christodoulides_nonlinear} we can find results showing that the probe signal absorbance depends not only on the pump
-signal properties, but also on the time delay between the pump and probe - see Figure (\ref{physical_fig:pnp_absorption}).
+In \cite{christodoulides_nonlinear} we can find results showing that the probe signal absorbance depends not only on the pump signal properties, but also on the time delay between the pump and probe - see Figure (\ref{physical_fig:pnp_absorption}).
 
 \begin{figure} 
 	\begin{center}
 		\includegraphics{img/pnp_abs.png}
-		\caption{The pump-and-probe absorption change due to time delay between the pump and probe signal. The figure taken from
-		\cite{christodoulides_nonlinear}. \label{physical_fig:pnp_absorption} }
+		\caption{The pump-and-probe absorption change due to time delay between the pump and probe signal. The figure taken from \cite{christodoulides_nonlinear}. \label{physical_fig:pnp_absorption} }
 	\end{center}
 \end{figure}
 
 
-More interesting results come when we assume that susceptibility is a complex function of two parameters, both the pump and
-probe signal frequency:
+More interesting results come when we assume that susceptibility is a complex function of two parameters, both the pump and probe signal frequency:
 
 \begin{equation} \label{eq:pnp_2args}
   \chi_{pp} = \chi_{pp}(\delta, \Delta_1 \, t \, (\text{ const }), \,\Delta )
@@ -635,27 +510,18 @@ Therefore we obtain the three dimensional plots presented on Figures (\ref{fig:p
 
 \begin{figure}
   \includegraphics[width=150mm]{img/pnp_2d.png}
-  \caption{2-Dimensional plots of both a) real and b) imaginary parts of the nonlinear susceptibility treated as a bi-argumental
-  function, where the colour means the function value
-  \label{fig:physical_pnp_2d}}
+  \caption{2-Dimensional plots of both a) real and b) imaginary parts of the nonlinear susceptibility treated as a bi-argumental function, where the colour means the function value \label{fig:physical_pnp_2d}}
 \end{figure}
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/pnp_3d.png}
-  \caption{3-Dimensional plots of both a) real and b) imaginary parts of nonlinear susceptibility treated as a bi-argumental
-  function, where the colour means the function value
-  \label{fig:physical_pnp_3d}}
+  \caption{3-Dimensional plots of both a) real and b) imaginary parts of nonlinear susceptibility treated as a bi-argumental function, where the colour means the function value \label{fig:physical_pnp_3d}}
 \end{figure}
 
 
 \subsubsection*{Frequency Mixing Process} \label{chap:physical_fm}
 
-The frequency mixing is a general class of processes where we have two or more input photons with their frequencies:
-${\omega_{input, \,1}}, \,{\omega_{input, \,2}}, \,{\omega_{input, \,3}}, \ldots $ and we receive one or more output photons with
-their frequencies: ${\omega_{output, \,1}}, \,{\omega_{output,\,2}}, \,{\omega_{output, \,3}}, \ldots $. In chapter 6.6 of Boyd
-\cite{boyd_nlo} we can find the description of processes in which we use the strong signal 'pump' with frequency $\omega$
-and the weak signal 'probe' with the frequency $\omega  - \delta $ nearly copropagating, as it was shown in Figure
-(\ref{fig:fmix_sch}).
+The frequency mixing is a general class of processes where we have two or more input photons with their frequencies: ${\omega_{input, \,1}}, \,{\omega_{input, \,2}}, \,{\omega_{input, \,3}}, \ldots $ and we receive one or more output photons with their frequencies: ${\omega_{output, \,1}}, \,{\omega_{output,\,2}}, \,{\omega_{output, \,3}}, \ldots $. In chapter 6.6 of Boyd \cite{boyd_nlo} we can find the description of processes in which we use the strong signal 'pump' with frequency $\omega$ and the weak signal 'probe' with the frequency $\omega  - \delta $ nearly copropagating, as it was shown in Figure (\ref{fig:fmix_sch}).
 
 \begin{figure}
 	\begin{center}
@@ -664,8 +530,7 @@ and the weak signal 'probe' with the frequency $\omega  - \delta $ nearly coprop
 	\end{center}
 \end{figure}
 
-For such a process the model for the linear susceptibilities has been defined by Boyd for both $\omega  + \delta $ and $\omega  -
-\delta $ frequencies, where $T_1$, $T_2$ and $\Delta$ are time-related variables, assumed constant in this thesis:
+For such a process the model for the linear susceptibilities has been defined by Boyd for both $\omega  + \delta $ and $\omega  - \delta $ frequencies, where $T_1$, $T_2$ and $\Delta$ are time-related variables, assumed constant in this thesis:
 
 \begin{subequations} \label{eq:fmix_eff1}
   \begin{equation}   \label{eq:feff1_plus}
@@ -680,8 +545,7 @@ For such a process the model for the linear susceptibilities has been defined by
   \end{equation}
 \end{subequations}
 
-Boyd also derives the third-order nonlinear susceptibilities for both $\omega  + \delta $ and $\omega  - \delta $ frequencies (we assume
-$T_1$, $T_2$ and $\Delta$ to be constant time variables).
+Boyd also derives the third-order nonlinear susceptibilities for both $\omega  + \delta $ and $\omega  - \delta $ frequencies (we assume $T_1$, $T_2$ and $\Delta$ to be constant time variables).
 
 \begin{subequations} \label{eq:fmix_eff3}
   \begin{equation}   \label{eq:feff3_plus}
@@ -696,9 +560,7 @@ $T_1$, $T_2$ and $\Delta$ to be constant time variables).
   \end{equation}
 \end{subequations}
 
-
-We have used the symbol of ${\mathrm{D}^{*}}(\delta )$ to describe the conjugate function of D. The D functions is defined
-as in the equation (\ref{eq:fwm_ddefinition}):
+We have used the symbol of ${\mathrm{D}^{*}}(\delta )$ to describe the conjugate function of D. The D functions is defined as in the equation (\ref{eq:fwm_ddefinition}):
 
 
 \begin{equation} \label{eq:fwm_ddefinition}
@@ -711,21 +573,18 @@ The test 3-dimensional plot is presented in Figures (\ref{fig:fmix_2d}) and (\re
 \begin{figure}
 	\begin{center} 
 		\includegraphics[width=150mm]{img/fmix_2d.png}
-		\caption{2-Dimensional plots of both a) real and b) imaginary parts of nonlinear susceptibility treated as a bi-argumental function, where
-		the colour means the function value \label{fig:fmix_2d}}
+		\caption{2-Dimensional plots of both a) real and b) imaginary parts of nonlinear susceptibility treated as a bi-argumental function, where the colour means the function value \label{fig:fmix_2d}}
 	\end{center}
 \end{figure}
 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=150mm]{img/fmix_3d.png}
-		\caption{3-Dimensional plots of both a) real and b) imaginary parts of nonlinear susceptibility treated as a bi-argumental function, where
-		the colour means the function value \label{fig:fmix_3d}}
+		\caption{3-Dimensional plots of both a) real and b) imaginary parts of nonlinear susceptibility treated as a bi-argumental function, where the colour means the function value \label{fig:fmix_3d}}
 	\end{center} 
 \end{figure}
 
-We will shortly review the derivation of the Hilbert transform for nonlinear models. As proposed by Lucarini~\cite{lucarini_kramers}, we
-connect the imaginary and the real part of the nonlinear optical susceptibility with the higher-level Hilbert transform:
+We will shortly review the derivation of the Hilbert transform for nonlinear models. As proposed by Lucarini~\cite{lucarini_kramers}, we connect the imaginary and the real part of the nonlinear optical susceptibility with the higher-level Hilbert transform:
 
 \begin{subequations}  \label{eq:derivation_lucarini}
   \begin{multline} \label{eq:dlucarini_imag}
@@ -743,8 +602,7 @@ connect the imaginary and the real part of the nonlinear optical susceptibility 
   \end{multline}
 \end{subequations}
 
-These integrals are hard to solve numerically and they go beyond the subject of this thesis. Here we will assume a great simplification and
-we will take only one frequency $\omega_{1}$ into consideration:
+These integrals are hard to solve numerically and they go beyond the subject of this thesis. Here we will assume a great simplification and we will take only one frequency $\omega_{1}$ into consideration:
 
 \begin{subequations}  \label{eq:derivation_conclude}
   \begin{multline}    \label{eq:dconclude_imag}
@@ -761,8 +619,7 @@ we will take only one frequency $\omega_{1}$ into consideration:
   \end{multline}
 \end{subequations}
 
-But we know that the signal response does not only depend on the input frequencies $\omega_{1},\dotsc,\omega_{n}$, but also on the time
-delays between them $T_{1},\dotsc, ,T_{n-1}$:
+But we know that the signal response does not only depend on the input frequencies $\omega_{1},\dotsc,\omega_{n}$, but also on the time delays between them $T_{1},\dotsc, ,T_{n-1}$:
 
 \begin{equation} \label{eq:derive_withdelay}
    \chi_{n, \,i, \,j_{1},\dotsc,j_{n}} (\sum_{l=1}^{n}\,\omega_{l}, \,\omega_{1},\dotsc,
@@ -789,60 +646,27 @@ Automatically we expand equation (\ref{eq:derivation_conclude}) into (\ref{eq:dc
   \end{multline}
 \end{subequations}
 
-The evaluation of the higher order Hilbert transforms will be a key to understand the mathematical model of the nonlinear optics. In this
-thesis we make only a one little step forward.
+The evaluation of the higher order Hilbert transforms will be a key to understand the mathematical model of the nonlinear optics. In this thesis we make only a one little step forward.
 
 
 \subsection{The quantum-perturbation models} \label{chap:problem_quantum}
-The quantum mechanics is a part of physics where the microscopic particles and energies are described. We can call the quantum mechanics
-also the quantum physics or the quantum theory. The main focus of the quantum physics is on the vectors describing the properties of
-indicated physical system at a given time. These vectors are the sets of properties and physical values which are time and space
-dependent. Such vectors are also named the complex wave functions. The values of such vectors are not unrestricted due to the main
-assumption that any physical action must be a multiple of a small physical quantity - called the Planck constant: $h = 6.62606957(29) \times
-10^{-34} \, \text{ Joule times second } $.
+The quantum mechanics is a part of physics where the microscopic particles and energies are described. We can call the quantum mechanics also the quantum physics or the quantum theory. The main focus of the quantum physics is on the vectors describing the properties of indicated physical system at a given time. These vectors are the sets of properties and physical values which are time and space dependent. Such vectors are also named the complex wave functions. The values of such vectors are not unrestricted due to the main assumption that any physical action must be a multiple of a small physical quantity - called the Planck constant: $h = 6.62606957(29) \times 10^{-34} \, \text{ Joule times second } $.
 
-The maths used to describe the quantum world is far more complicated than one used in the classical physics and we will not get into the
-details in this thesis. We will shortly introduce the two physical models of the quantum linear and nonlinear susceptibility described by
-Kuzyk \cite{kuzyk_nlo} and Boyd \cite{boyd_nlo}. The calculations used in both cited works are based on the time-dependent perturbation.
-The introduced concept of the perturbation is an interesting mathematical idea to solve difficult, differential equations.
+The maths used to describe the quantum world is far more complicated than one used in the classical physics and we will not get into the details in this thesis. We will shortly introduce the two physical models of the quantum linear and nonlinear susceptibility described by Kuzyk \cite{kuzyk_nlo} and Boyd \cite{boyd_nlo}. The calculations used in both cited works are based on the time-dependent perturbation. The introduced concept of the perturbation is an interesting mathematical idea to solve difficult, differential equations.
 
 \subsubsection*{The sum-over-states model}
 
-The first model is named the sum-over-states. In this model we will sum all possible excited states and transitions between such states for
-a single atom. In the linear case we assume that the atom can only be in $m$ excited states with no other option for atom than transition from
-the ground state to one of the $m$ exited states and forth. The reason for such a prohibition is simple - we will assume only one photon is
-interacting with the atom. You may associate the excited state with a situation when a single photon is absorbed by the atom and its energy
-is added to the energy of the whole system.
+The first model is named the sum-over-states. In this model we will sum all possible excited states and transitions between such states for a single atom. In the linear case we assume that the atom can only be in $m$ excited states with no other option for atom than transition from the ground state to one of the $m$ exited states and forth. The reason for such a prohibition is simple - we will assume only one photon is interacting with the atom. You may associate the excited state with a situation when a single photon is absorbed by the atom and its energy is added to the energy of the whole system.
 
-In the nonlinear cases - we will assume that the number of possible atom states and inner-states transitions is increasing. To describe the
-second-order nonlinear susceptibility we will assume there are $m$ possible troikas - so the combination of three possible states with an
-option for transition between each state in a troika. To describe the third-order nonlinear susceptibility - we will assume that there
-are $m$ possible fours of states.
+In the nonlinear cases - we will assume that the number of possible atom states and inner-states transitions is increasing. To describe the second-order nonlinear susceptibility we will assume there are $m$ possible troikas - so the combination of three possible states with an option for transition between each state in a troika. To describe the third-order nonlinear susceptibility - we will assume that there are $m$ possible fours of states.
 
-We name this model the sum-over-states, because we will perform summation over all possible excited states for the theoretical model of an
-atom. We have already introduced the Planck constant $h$. We will also used the $N$ constant to describe the number density of atoms - which
-describe the concentration of any countable objects in a given, three-dimensional volume. We shall also introduce the vacuum permittivity constant
-$\epsilon_0 \approx 8.854187817620 \times 10^{-12} \, \text{ Farad per meter } $. 
+We name this model the sum-over-states, because we will perform summation over all possible excited states for the theoretical model of an atom. We have already introduced the Planck constant $h$. We will also used the $N$ constant to describe the number density of atoms - which describe the concentration of any countable objects in a given, three-dimensional volume. We shall also introduce the vacuum permittivity constant $\epsilon_0 \approx 8.854187817620 \times 10^{-12} \, \text{ Farad per meter } $. 
 
-There are two more physical values to be discussed. First of the is $\mu_{i, ab}$ and the second is $\omega_{cd}$. $\mu_{i, ab}$ will be a
-matrix-like value, and the $\omega_{cd}$ will be a vector-like value. There are many situations in physics, when a value is
-described by the vector, two-dimensional matrix or a matrices of higher order. Such values are called \textbf{tensors}. $\mu_{ab}$ tensor
-is described as the electric dipole moment with the Coulomb-meter SI unit. The electric dipole moment in physics describes the separation of
-the negative and the positive charges in a systems consisting of charges. It is also called the system's polarity. It describes the polarity
-of a system between a state ``a'' and the state ``b''. The order of indices also matters, so $\mu_{i, ab}$ is a different value from
-$\mu_{i, ba}$. In our calculations this value will be a two-dimensional tensor - so a matrix - because one dimension will be related with
-the ``ab'' or ``ba`` direction and the second dimension will be related with $i$ - the indicated spatial property of an atom. The atom
-``shotted'' with a photon in the direction of the axis OX may behave different that ``shotted'' from the OY axis. This is also a
-simplification and in general case the more photons are we taking into consideration, the higher order of a tensor need to be introduced.
+There are two more physical values to be discussed. First of the is $\mu_{i, ab}$ and the second is $\omega_{cd}$. $\mu_{i, ab}$ will be a matrix-like value, and the $\omega_{cd}$ will be a vector-like value. There are many situations in physics, when a value is described by the vector, two-dimensional matrix or a matrices of higher order. Such values are called \textbf{tensors}. $\mu_{ab}$ tensor is described as the electric dipole moment with the Coulomb-meter SI unit. The electric dipole moment in physics describes the separation of the negative and the positive charges in a systems consisting of charges. It is also called the system's polarity. It describes the polarity of a system between a state ``a'' and the state ``b''. The order of indices also matters, so $\mu_{i, ab}$ is a different value from $\mu_{i, ba}$. In our calculations this value will be a two-dimensional tensor - so a matrix - because one dimension will be related with the ``ab'' or ``ba'' direction and the second dimension will be related with $i$ - the indicated spatial property of an atom. The atom ``shotted'' with a photon in the direction of the axis OX may behave different that ``shotted'' from the OY axis. This is also a simplification and in general case the more photons are we taking into consideration, the higher order of a tensor need to be introduced.
 
-The last value is an amount of energy related with a frequency $\omega_{cd}$ required for an atom to make a transition between state
-``c'' and state ``d''. We will use a one-dimensional tensor to describe this value. $P_{I}$ is the intrinsic permutation operator, in
-general it is used not to repeat the very same summands again and again just with slight modification of $+$ and $-$ signs - but please see
-details in \cite{boyd_nlo}.
+The last value is an amount of energy related with a frequency $\omega_{cd}$ required for an atom to make a transition between state ``c'' and state ``d''. We will use a one-dimensional tensor to describe this value. $P_{I}$ is the intrinsic permutation operator, in general it is used not to repeat the very same summands again and again just with slight modification of $+$ and $-$ signs - but please see details in \cite{boyd_nlo}.
 
-The $\omega_{p}$ is the frequency of the input photon and it will be a variable in our equations. The final equations are taken from Boyd
-\cite{boyd_nlo}. They describe the linear (first order) optical susceptibility and the nonlinear (second and third order) optical
-susceptibilities as a functions of $\omega_{p}$:
+The $\omega_{p}$ is the frequency of the input photon and it will be a variable in our equations. The final equations are taken from Boyd \cite{boyd_nlo}. They describe the linear (first order) optical susceptibility and the nonlinear (second and third order) optical susceptibilities as a functions of $\omega_{p}$:
 
 
 % Quantum-perturbation - result model equation - linear case
@@ -893,10 +717,7 @@ susceptibilities as a functions of $\omega_{p}$:
 
 \subsubsection*{The density matrix model}
 
-Starting from the models described in the (\ref{eq:sresults_linear}), (\ref{eq:sresults_quadratical}) and (\ref{eq:sresults_cubic})
-equations we can easily jump to the density matrix operator models. Not getting into the theoretical background - we will introduce a new
-term $\gamma_{ab}$ which will be the imaginary tensor describing the so called dumping rate, which is an element of the density matrix,
-describing the coherence between states $a$ and $b$. The models have been described in the following equations:
+Starting from the models described in the (\ref{eq:sresults_linear}), (\ref{eq:sresults_quadratical}) and (\ref{eq:sresults_cubic}) equations we can easily jump to the density matrix operator models. Not getting into the theoretical background - we will introduce a new term $\gamma_{ab}$ which will be the imaginary tensor describing the so called dumping rate, which is an element of the density matrix, describing the coherence between states $a$ and $b$. The models have been described in the following equations:
 
 % Quantum-perturbation density matrix - result model equation - linear case
 \begin{equation} \label{eq:ssmods_linear}
@@ -978,23 +799,19 @@ describing the coherence between states $a$ and $b$. The models have been descri
 \end{equation}
 
 
-What is interesting, after expanding all the permutations in (\ref{eq:ssmods_cubic}) we will get the 48 different
-summands - which show how the quantum mechanical approach is hard to apply.
+What is interesting, after expanding all the permutations in (\ref{eq:ssmods_cubic}) we will get the 48 different summands - which show how the quantum mechanical approach is hard to apply.
 
-In further calculations we will use both the presented equations in simplified version - with just a few summands. The visualization of the
-results for a typical quantum-perturbative model obtained with equation (\ref{eq:ssmods_cubic}) are shown in Figure (\ref{fig:qp_plot}).
+In further calculations we will use both the presented equations in simplified version - with just a few summands. The visualization of the results for a typical quantum-perturbative model obtained with equation (\ref{eq:ssmods_cubic}) are shown in Figure (\ref{fig:qp_plot}).
 
 \begin{figure}
 	\includegraphics[width=150mm]{img/qp_plot.png}
-	\caption{Quantum-perturbative plot for 3-level model of with arbitrary (non-physical) parameters. Red plot is for the imaginary and the
-	blue plot is for the real part of the linear susceptibility. \label{fig:qp_plot}}
+	\caption{Quantum-perturbative plot for 3-level model of with arbitrary (non-physical) parameters. Red plot is for the imaginary and the blue plot is for the real part of the linear susceptibility. \label{fig:qp_plot}}
 \end{figure}
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/qp_3da.png} \\
   \includegraphics[width=150mm]{img/qp_3db.png}
-  \caption{Three dimensional quantum-perturbative plot for 3-level model of with arbitrary (non-physical) parameters. Upper plot is for the
-  imaginary and the lower plot is for the real part of the second-order susceptibility.
+  \caption{Three dimensional quantum-perturbative plot for 3-level model of with arbitrary (non-physical) parameters. Upper plot is for the imaginary and the lower plot is for the real part of the second-order susceptibility.
   \label{fig:qp_3d}}
 \end{figure}
    
@@ -1002,18 +819,13 @@ results for a typical quantum-perturbative model obtained with equation (\ref{eq
 
 \subsection{Overview of the HTRAN} \label{chap:htran_overview}
 
-In this chapter we present the simplest possible but still nice working numerical calculation of the Hilbert transform based on the report
-by I. J. Weinberg \cite{weinberg_hilbert}. It uses the Simpson and trapezoidal quadrature. We have slightly modified author's algorithm and
-it no longer requires the input to be an even function.
+In this chapter we present the simplest possible but still nice working numerical calculation of the Hilbert transform based on the report by I. J. Weinberg \cite{weinberg_hilbert}. It uses the Simpson and trapezoidal quadrature. We have slightly modified author's algorithm and it no longer requires the input to be an even function.
 
-The algorithm is presented in two parts. In the first part, we present how the Hilbert transform equation can be modified with one strict
-assumption from the singular integral to the non-singular one. In the second part, we will use the new set of input function
-values based on the interpolation method.
+The algorithm is presented in two parts. In the first part, we present how the Hilbert transform equation can be modified with one strict assumption from the singular integral to the non-singular one. In the second part, we will use the new set of input function values based on the interpolation method.
 
 \begin{figure}
 	\includegraphics[width=150mm]{img/htran_illustration.png}
-	\caption{A sample input plot (ordered pairs of OX abscissae - F - and the OY ordinates - R) with the sample output plot HT for the HTRAN
-	algorithm. \label{fig:htran_illustration}} 
+	\caption{A sample input plot (ordered pairs of OX abscissae - F - and the OY ordinates - R) with the sample output plot HT for the HTRAN algorithm. \label{fig:htran_illustration}} 
 \end{figure}
 
 We assume that the input function R is defined for a discrete set of arguments:
@@ -1022,8 +834,7 @@ We assume that the input function R is defined for a discrete set of arguments:
 	F = \{ F_1, F_2, \ldots, F_N \} \quad (F_i < F_j \, \text{ for } i < j) . 
 \end{equation}
 
-We will calculate the Hilbert transform of $R$ for the same discrete set of arguments $F$. An example has been presented on Figure
-(\ref{fig:htran_illustration}), where the blue plot represents the input function $R$ and the green plot represents the output function $HT$.
+We will calculate the Hilbert transform of $R$ for the same discrete set of arguments $F$. An example has been presented on Figure (\ref{fig:htran_illustration}), where the blue plot represents the input function $R$ and the green plot represents the output function $HT$.
 
 
 We start from reminding the definition of the Hilbert transform:
@@ -1073,8 +884,7 @@ As the input function R is assumed to be square-integrable, we will put even mor
   \mathrm{R}(\omega) = 0 \, \text{ for } \omega < F_1 \, \text { or } \, \omega > F_N.  
 \end{equation}
 
-With the strict-vanishing assumption (\ref{eq:htran_vanishes}) for $R(\omega)$, we can simplify the equation (\ref{eq:htran_ht_three}) as
-follows:
+With the strict-vanishing assumption (\ref{eq:htran_vanishes}) for $R(\omega)$, we can simplify the equation (\ref{eq:htran_ht_three}) as follows:
 
 \begin{equation} \label{eq:htran_ht}
   \mathrm{HT}(\omega ) = \frac{1}{\pi } \left[ 
@@ -1084,8 +894,7 @@ follows:
   \right] .
 \end{equation}
 
-As $\omega  \in [F_1, \,F_N]$  we will now consider two cases - that takes into account the position of  $\omega $ in relation to $F_1$  and
-$F_N$ We have two possibilities:
+As $\omega  \in [F_1, \,F_N]$  we will now consider two cases - that takes into account the position of  $\omega $ in relation to $F_1$  and $F_N$ We have two possibilities:
 
 \begin{equation}   \label{eq:htran_twoposibilities}
 	\omega - F_1 < F_N - \omega \, \text{ and } F_N - \omega \leq \omega - F_1 
@@ -1098,8 +907,7 @@ We shall also notice the symmetry property of the the function $\frac {1}{\Omega
   + \int_{\omega + M}^{ \infty }\frac {1}{\Omega - \omega}\,d\Omega = 0
 \end{equation}
 
-Together with the observation (\ref{eq:htran_forallm}) each of two cases from (\ref{eq:htran_twoposibilities}) leads to results obtained
-in equations (\ref{eq:htran_htres1}) and (\ref{eq:htran_htres2}) respectively:
+Together with the observation (\ref{eq:htran_forallm}) each of two cases from (\ref{eq:htran_twoposibilities}) leads to results obtained in equations (\ref{eq:htran_htres1}) and (\ref{eq:htran_htres2}) respectively:
 
 \begin{subequations} \label{eq:htran_htresults}
   \begin{multline}   \label{eq:htran_htres1}
@@ -1138,24 +946,20 @@ And we can see that both the (\ref{eq:htran_htresults}) derivations lead to the 
   \right] 
 \end{equation}
 
-We also observe that for any $\omega$ inside the range $[F_1, \,F_N] $ both values $\omega  - F_1$ and $F_N - \omega$ are non-negative.
-That leads to a simple observation that condition $0 < \frac {\omega - F_1}{F_N - \omega }$ is satisfied and therefore the logarithm
-argument is well defined. What now interests us the most, is the integral:
+We also observe that for any $\omega$ inside the range $[F_1, \,F_N] $ both values $\omega  - F_1$ and $F_N - \omega$ are non-negative. That leads to a simple observation that condition $0 < \frac {\omega - F_1}{F_N - \omega }$ is satisfied and therefore the logarithm argument is well defined. What now interests us the most, is the integral:
 
 \begin{equation} \label{eq:htran_interestint} 
   \mathrm{Y}(\omega ) = \int_{F_1}^{F_N} \frac { \mathrm{R}(\Omega ) - \mathrm{R}( \omega )}{\Omega  - \omega } \, d\Omega
 \end{equation}
 
 
-We would like the denominator in the (\ref{eq:htran_interestint}) equation never equals zero, so we can calculate the whole integral
-numerically. For this reason we are preparing a new set of values, which are just a simple midways of $F$:
+We would like the denominator in the (\ref{eq:htran_interestint}) equation never equals zero, so we can calculate the whole integral numerically. For this reason we are preparing a new set of values, which are just a simple midways of $F$:
 
 \begin{equation} \label{eq:htran_newpoints}
   \widehat{F_k}=\frac { F_k + F_{k + 1} }{2} \,\mbox{ for } \, k = 1 \, \ldots \, {N - 1}
 \end{equation} 
 
-We will also need to approximate the values of a new $\widehat{R}$ at $\widehat{F_j} \quad (j = 1 \ldots N-1)$  points.
-We will do this by a simple cubic interpolation. $R(\widehat{F_j}) = \widehat{R_j}$, so:
+We will also need to approximate the values of a new $\widehat{R}$ at $\widehat{F_j} \quad (j = 1 \ldots N-1)$  points. We will do this by a simple cubic interpolation. $R(\widehat{F_j}) = \widehat{R_j}$, so:
 
 \begin{subequations} \label{eq:htran_r3interp}
   \begin{equation}   \label{eq:hr3inp_first}
@@ -1170,9 +974,7 @@ We will do this by a simple cubic interpolation. $R(\widehat{F_j}) = \widehat{R_
   \end{equation}
 \end{subequations}
 
-By now, the calculation of the $\mathrm{Y}$ function from the (\ref{eq:htran_interestint}) equation will be performed by a simple
-quadrature integration. The introduced $\widehat{Y_{i}}$ symbol describes the numerical approximation of the $\mathrm{Y}$ function
-calculated with the following equation:
+By now, the calculation of the $\mathrm{Y}$ function from the (\ref{eq:htran_interestint}) equation will be performed by a simple quadrature integration. The introduced $\widehat{Y_{i}}$ symbol describes the numerical approximation of the $\mathrm{Y}$ function calculated with the following equation:
 
 \begin{equation} \label{eq:htran_simplequadrature}
   \widehat{Y_{i}} = \sum_{j=1}^{N} \, \frac {h_j \, (R_j - \widehat{R_i})} 
@@ -1253,16 +1055,11 @@ We shall remind the model presented in Chapter (\ref{chap:physical_models}) in t
   \mathcal{F}[h_{\text{lin}}] = \chi_{\text{lin}}(\omega) \approx \frac{ -20}{(\omega \,i + 1 -20\,i)\,(\omega \,i + 1 + 20\,i)} .
 \end{equation}
 
-The real part of $\chi_{\text{lin}}$ will be used as the input function $R$ in the equation (\ref{eq:htran_first_modification}). The
-output function $HT$ calculated with the HTRAN algorithm is compared to the imaginary part of the $\chi_{\text{lin}}$. We have presented
-the results in Figure (\ref{eq:htran_lin}). In this and in the following chapters we would like the error function
-represented with the yellow colour to be as close to zero as possible. We also would like the numerical results to be close to the
-values calculated analytically.
+The real part of $\chi_{\text{lin}}$ will be used as the input function $R$ in the equation (\ref{eq:htran_first_modification}). The output function $HT$ calculated with the HTRAN algorithm is compared to the imaginary part of the $\chi_{\text{lin}}$. We have presented the results in Figure (\ref{eq:htran_lin}). In this and in the following chapters we would like the error function represented with the yellow colour to be as close to zero as possible. We also would like the numerical results to be close to the values calculated analytically.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/htran_lin.png}
-  \caption{The Figure presents the results of the HTRAN method applied for the simple linear model. We have used 500 points (N = 500).
-  Results are plotted together 
+  \caption{The Figure presents the results of the HTRAN method applied for the simple linear model. We have used 500 points (N = 500). Results are plotted together 
    a) The plot of the real part of $\chi (\omega )$ 
    b) absolute error plot (c-plot minus d-plot) 
    c) imaginary part of $\chi (\omega )$ obtained with the Hilbert transform of a-plot 
@@ -1284,13 +1081,13 @@ We remind the equation for the pump-and-probe susceptibility model (\ref{eq:phys
 \end{multline}
 
 and we have assign the values for the constants:
-\begin{tabular}{r r l}
-  $G$           & $=$ & $1$, \\
-  $\gamma_{ba}$ & $=$ & $1$, \\
-  $n_0$         & $=$ & $1$, \\
+\begin{tabular}{r r l r r l r r l r r l}
+  $G$           & $=$ & $1$, 
+  $\gamma_{ba}$ & $=$ & $1$, 
+  $n_0$         & $=$ & $1$, 
   $\Delta$      & $=$ & $1.3$, \\
-  $\eta$        & $=$ & $1$, \\
-  $\theta$      & $=$ & $1.4$, \\
+  $\eta$        & $=$ & $1$, 
+  $\theta$      & $=$ & $1.4$, 
   $\Omega_{1}$  & $=$ & $4.3$. \\
 \end{tabular}
 
@@ -1307,17 +1104,12 @@ The results for such set of parameters are shown on Figure (\ref{fig:htran_pnp_2
     \label{fig:htran_pnp_2d}}
 \end{figure}
 
-The resulted b-plot seems to be a not-so-bad introduction into the Hilbert transform evaluation, as we have only employed the
-simple Simpson's rule. We would also like to perform the three-dimensional analysis of the assumed pump-probe susceptibility, so we
-employ the (\ref{eq:dconclude_imag}) and (\ref{eq:dconclude_real}) equations for each frequency. The obtained three-dimensional shapes are
-similar to the original ones, but we have received a huge relative error as presented in Figure (\ref{fig:htran_pnp_3derr}).
+The resulted b-plot seems to be a not-so-bad introduction into the Hilbert transform evaluation, as we have only employed the simple Simpson's rule. We would also like to perform the three-dimensional analysis of the assumed pump-probe susceptibility, so we employ the (\ref{eq:dconclude_imag}) and (\ref{eq:dconclude_real}) equations for each frequency. The obtained three-dimensional shapes are similar to the original ones, but we have received a huge relative error as presented in Figure (\ref{fig:htran_pnp_3derr}).
 
 \begin{figure}
   \begin{center}
     \includegraphics{img/htran_pnp_3derr.png}
-    \caption{The Figure presents the combined relative error for the results of the HTRAN method applied for the two-dimensional
-    pump-and-probe model. The light-cyan colour shows the area of error below 100\%. 
-    \label{fig:htran_pnp_3derr}}
+    \caption{The Figure presents the combined relative error for the results of the HTRAN method applied for the two-dimensional pump-and-probe model. The light-cyan colour shows the area of error below 100\%.  \label{fig:htran_pnp_3derr}}
   \end{center}
 \end{figure} % which is not very bad, but there are areas with error  more above 100
 
@@ -1329,8 +1121,7 @@ Let us remind and simplify the wave-mixing model stated in the Chapter (\ref{cha
             { ( \Delta + \frac {i}{ { T_{2} } } ) \, ( \Delta  + \delta  + \frac {i}{ { T_{2} } } ) \, { \mathrm{D} } ^ {*} (\delta) },
 \end{equation}
 
-We perform the evaluation for the wave-mixing model as stated in the model described by (\ref{eq:feff3_plus}). We expand this
-equation to resolve the complex conjugate of the function D, and the resulting function is:
+We perform the evaluation for the wave-mixing model as stated in the model described by (\ref{eq:feff3_plus}). We expand this equation to resolve the complex conjugate of the function D, and the resulting function is:
 
 \begin{equation} \label{eq:htran_feffexp}
   \chi_{mix}( \delta ) = 
@@ -1355,8 +1146,7 @@ With such a complex function we obtain the two and three dimensional results pre
  
 \begin{figure}
   \includegraphics[width=150mm]{img/htran_fmix_2d.png}
-  \caption{The Figure presents the combined relative error for the results of the HTRAN method applied for the
-  two-dimensional wave-mixing model.
+  \caption{The Figure presents the combined relative error for the results of the HTRAN method applied for the two-dimensional wave-mixing model.
    a) The plot of the real part of ${\chi_{mix}}(\omega )$
    b) absolute error plot (c-plot minus d-plot)
    c) (red) imaginary part of  ${\chi_{mix}}(\omega )$
@@ -1364,21 +1154,18 @@ With such a complex function we obtain the two and three dimensional results pre
    \label{fig:htran_mix_2d} }
 \end{figure}
 
-While the obtained three-dimensional shape looks very similar to those obtained analytically, the relative error still remains huge for some
-areas - see Figure (\ref{fig:htran_fmix_3derr}).
+While the obtained three-dimensional shape looks very similar to those obtained analytically, the relative error still remains huge for some areas - see Figure (\ref{fig:htran_fmix_3derr}).
 
 \begin{figure}
   \begin{center}
     \includegraphics{img/htran_fmix_3derr.png}
-    \caption{The Figure presents the combined relative error for the real part of nonlinear susceptibility
-    ${\chi_{mix}}(\delta )$ describing the wave-mixing process. \label{fig:htran_fmix_3derr}}
+    \caption{The Figure presents the combined relative error for the real part of nonlinear susceptibility ${\chi_{mix}}(\delta )$ describing the wave-mixing process. \label{fig:htran_fmix_3derr}}
   \end{center}    
 \end{figure}
 
 \subsection{HTRAN for simple quantum-perturbative model - results} \label{chap:htran_quantum}
 
-We will use the models already prepared for both linear and second-order nonlinear susceptibilities defined in Chapter
-(\ref{chap:problem_quantum}).
+We will use the models already prepared for both linear and second-order nonlinear susceptibilities defined in Chapter (\ref{chap:problem_quantum}).
 
 \begin{equation} \label{eq:htran_qpeq}
   \chi_{1, \,qp}(\omega ) = 
@@ -1407,8 +1194,7 @@ We have used the constants' values defined in (\ref{eq:htran_qp1_const}).
 \begin{figure} 
   \includegraphics[width=70mm]{img/htran_qp_2da.png} 
   \includegraphics[width=70mm]{img/htran_qp_2db.png}  
-  \caption{The Figure presents the results of the HTRAN method applied for the linear quantum-perturbative model. The results for both real
-  and imaginary values are plotted together on Figures a and b:
+  \caption{The Figure presents the results of the HTRAN method applied for the linear quantum-perturbative model. The results for both real and imaginary values are plotted together on Figures a and b:
   a.a) The plot of the imaginary part of ${\chi_{1, \, qp}}(\omega )$ 
   a.b) absolute error plot (a.d-plot minus a.c-plot) 
   a.c) real part of ${\chi_{1, \, qp}}(\omega )$ calculated analytically
@@ -1420,10 +1206,7 @@ We have used the constants' values defined in (\ref{eq:htran_qp1_const}).
   \label{fig:htran_qp_2d}}
 \end{figure}
 
-Results are gathered on Figure (\ref{fig:htran_qp_2d}). As we can see - the absolute error is quite huge, but on the other hand the
-pairs of plots (a.c) with (a.d) and (b.c) with (b.d) have at least similar shapes. As for the simplest applied method these results can be
-satisfactory in case we only would like to initially reject or accept the investigated model. In case we need much higher accuracy, we will
-need to search for more precise methods.
+Results are gathered on Figure (\ref{fig:htran_qp_2d}). As we can see - the absolute error is quite huge, but on the other hand the pairs of plots (a.c) with (a.d) and (b.c) with (b.d) have at least similar shapes. As for the simplest applied method these results can be satisfactory in case we only would like to initially reject or accept the investigated model. In case we need much higher accuracy, we will need to search for more precise methods.
 
 In the equation (\ref{eq:htran_qp_reminder}) we remind the second-order quantum-perturbative sum-over-states model from the Chapter
 (\ref{chap:problem_quantum}). 
@@ -1473,8 +1256,7 @@ We have applied the following constants' values:
 
 \begin{figure}
   \includegraphics[width=150mm]{img/htran_qp_3d.png}
-  \caption{The Figure presents the results of the HTRAN method applied for the second-order nonlinear quantum-perturbative model. Results
-  in the three-dimensional-like plot are plotted together.
+  \caption{The Figure presents the results of the HTRAN method applied for the second-order nonlinear quantum-perturbative model. Results in the three-dimensional-like plot are plotted together.
      a) - The calculated real part of ${\chi_{2, \, qp}}$ 
      b) The calculated imaginary part of ${\chi_{2, \, qp}}$ 
      c) The real part of nonlinear susceptibility ${\chi_{2, \, qp}}$ calculated analytically 
@@ -1482,22 +1264,15 @@ We have applied the following constants' values:
      \label{fig:htran_qp_3d}}
 \end{figure}
 
-As the equations (\ref{eq:dlucarini_imag}) and (\ref{eq:dlucarini_real}) are symmetric, in the 3-dimensional model we treated the real and
-imaginary parts as input and performed the 2-dimensional Hilbert transform in a simplified ``stripe by stripe'' way. Results are
-presented in Figure (\ref{fig:htran_qp_3d}). We can see that there is a similarity in obtained plots, but both the relative and absolute
-error do not satisfy us at all. Those obtained with 2-dimensional model were more satisfying - see Figure (\ref{fig:htran_qp_2d}).
+As the equations (\ref{eq:dlucarini_imag}) and (\ref{eq:dlucarini_real}) are symmetric, in the 3-dimensional model we treated the real and imaginary parts as input and performed the 2-dimensional Hilbert transform in a simplified ``stripe by stripe'' way. Results are presented in Figure (\ref{fig:htran_qp_3d}). We can see that there is a similarity in obtained plots, but both the relative and absolute error do not satisfy us at all. Those obtained with 2-dimensional model were more satisfying - see Figure (\ref{fig:htran_qp_2d}).
 
-We have implemented the HTRAN method in the MATLAB \textsuperscript{\textregistered} environment, and its source code is available in
-the Appendix A.1.
+We have implemented the HTRAN method in the MATLAB \textsuperscript{\textregistered} environment, and its source code is available in the Appendix A.1.
 
 \section{Newton-Cotes based Hilbert transform (HNC)} \label{chap:nc}
 
 \subsection{Overview of the Newton-Cotes (NC) quadrature of arbitrary degree}  \label{chap:nc_quadrature}
 
-Newton-Cotes formula for numerical integration is taken into consideration. We compare formula for an arbitrary degree - having in
-our mind that the choice between formulas of high and low degree must be undertaken with the awareness of numerical errors which
-may arise. Newton-Cotes quadrature is a method for numerical integration with equispaced vertices. As we would like to integrate
-function $f = f(x)$ within the range $[a, b]$ we introduce the following symbols:
+Newton-Cotes formula for numerical integration is taken into consideration. We compare formula for an arbitrary degree - having in our mind that the choice between formulas of high and low degree must be undertaken with the awareness of numerical errors which may arise. Newton-Cotes quadrature is a method for numerical integration with equispaced vertices. As we would like to integrate function $f = f(x)$ within the range $[a, b]$ we introduce the following symbols:
 
 \begin{subequations} \label{eq:nc_parameters}
   \begin{equation}   \label{eq:ncparms_x}
@@ -1530,31 +1305,20 @@ Let's remind the Hilbert transform from the equation (\ref{eq:mathematical_hilbe
 
 \subsection{Our implementation of the Hilbert Transform HNC}  \label{chap:nc_hilbert_transform}
 
-We would like to apply the Newton-Cotes quadrature to calculate the Hilbert transform. Prepared algorithm will consist of two
-main steps. In the first step we modify the region under the integral to omit singularities and deal with infinities. To omit the
-singularities as the NC quadrature was not designed to be used on singular functions, we will set a small constant value $c_s$ and
-perform the integration without including a short region $[x - c_s, x + c_s]$ near the singularity. To deal with the infinities we observe
-that near infinities our input function vanishes so without much loss, we will integrate from a finite, starting point $a$ to the ending
-point $b$:
+We would like to apply the Newton-Cotes quadrature to calculate the Hilbert transform. Prepared algorithm will consist of two main steps. In the first step we modify the region under the integral to omit singularities and deal with infinities. To omit the singularities as the NC quadrature was not designed to be used on singular functions, we will set a small constant value $c_s$ and perform the integration without including a short region $[x - c_s, x + c_s]$ near the singularity. To deal with the infinities we observe that near infinities our input function vanishes so without much loss, we will integrate from a finite, starting point $a$ to the ending point $b$:
 
 \begin{equation}
 	\mathcal{H}[f(x)] \approx \frac{1}{\pi} \int_{ a }^{ x - c_s } \frac{ f(\omega) }{ (x - \omega) } \, d\omega 
                            +  \frac{1}{\pi} \int_{ x + c_s }^{ b } \frac{ f(\omega) }{ (x - \omega) } \, d\omega .
 \end{equation} 
 
-In the second step, important in our implementation, we are pre\-calculating the $A_{n, \, k}$ matrix described in equation
-(\ref{eq:ncparms_a}) within the function \texttt{prevaluateNCTab(n, a, b)}. We will perform the symbolic calculations by applying
-the \texttt{maple} function that connects MATLAB with Maple and gives us the power of both tools. Once we know the $A_{n, \, k}$ matrix, we
-can perform the step-by-step calculation in the \texttt{doStep(fun, a, b, nosteps, tab)} function, which is called with a different number
-of steps (described with the \texttt{nosteps} parameter) in the parent loop as long as we demand better precision, related to the tolerance
-(\texttt{tol}) parameter.
+In the second step, important in our implementation, we are pre\-calculating the $A_{n, \, k}$ matrix described in equation (\ref{eq:ncparms_a}) within the function \texttt{prevaluateNCTab(n, a, b)}. We will perform the symbolic calculations by applying the \texttt{maple} function that connects MATLAB with Maple and gives us the power of both tools. Once we know the $A_{n, \, k}$ matrix, we can perform the step-by-step calculation in the \texttt{doStep(fun, a, b, nosteps, tab)} function, which is called with a different number of steps (described with the \texttt{nosteps} parameter) in the parent loop as long as we demand better precision, related to the tolerance (\texttt{tol}) parameter.
 
 The full algorithm is presented in the Appendix A.2 with the additional comments. 
 
 \subsection{NC for simple linear model - results} \label{chap:nc_lin}
 
-As the prepared numeric method depends on many input parameter arguments, we have tried to perform the evaluation in many different
-cases, some of those results are stated below. We have used the same model as in Chapter (\ref{chap:htran_lin}).
+As the prepared numeric method depends on many input parameter arguments, we have tried to perform the evaluation in many different cases, some of those results are stated below. We have used the same model as in Chapter (\ref{chap:htran_lin}).
 
 \begin{equation} \label{eq:nc_algoritm}
   \chi (\omega ) \approx \frac { - 20}{(\omega \,i + 1 - 20\,i)\,(\omega \,i + 1 + 20\,i)}
@@ -1564,9 +1328,7 @@ Some results has been presented on Figures (\ref{fig:nc_lin1}), (\ref{fig:nc_lin
 
 \begin{figure}
   \includegraphics[width=150mm]{img/nc_lin1.png}
-   \caption{ The Figure presents the first of four results of the NC Hilbert Transform method applied for the simple linear model. Results
-   are plotted together. Calculations were performed with the parameters ($n = 8, \, c_s = \mbox{.1e-1}, \, tol = \mbox{.2e-1})$. Tol -
-   parameter describes the error tolerance:
+   \caption{ The Figure presents the first of four results of the NC Hilbert Transform method applied for the simple linear model. Results are plotted together. Calculations were performed with the parameters ($n = 8, \, c_s = \mbox{.1e-1}, \, tol = \mbox{.2e-1})$. Tol - parameter describes the error tolerance:
      a.a) The plot of the real part of $\chi (\omega )$ 
      a.b) absolute error plot (a.d-plot minus a.c-plot) 
      a.c) imaginary part of $\chi (\omega )$ calculated analytically 
@@ -1581,8 +1343,7 @@ Some results has been presented on Figures (\ref{fig:nc_lin1}), (\ref{fig:nc_lin
 
 \begin{figure}
   \includegraphics[width=150mm]{img/nc_lin2.png}
-  \caption{ The Figure presents the second of four results of the NC Hilbert Transform method applied for the simple linear model.
-  Results are plotted together. Calculations were performed with the parameters ($n = 3, \, c_s = \mbox{.1e-1}, \, tol = \mbox{.2e-1})$
+  \caption{ The Figure presents the second of four results of the NC Hilbert Transform method applied for the simple linear model. Results are plotted together. Calculations were performed with the parameters ($n = 3, \, c_s = \mbox{.1e-1}, \, tol = \mbox{.2e-1})$
      a.a) The plot of the imaginary part of $\chi (\omega )$
      a.b) absolute error plot (a.d-plot minus a.c-plot) 
      a.c) real part of $\chi (\omega )$ calculated analytically 
@@ -1597,8 +1358,7 @@ Some results has been presented on Figures (\ref{fig:nc_lin1}), (\ref{fig:nc_lin
 
 \begin{figure}
   \includegraphics[width=150mm]{img/nc_lin3.png}
-  \caption{ The Figure presents the third of four results of the NC Hilbert Transform method applied for the simple linear model. Results
-   are plotted together. Calculations were performed with the parameters ($n = 13, \ , tol = \mbox{.5e-2}, \, c_s = \mbox{.5e-1})$
+  \caption{ The Figure presents the third of four results of the NC Hilbert Transform method applied for the simple linear model. Results are plotted together. Calculations were performed with the parameters ($n = 13, \ , tol = \mbox{.5e-2}, \, c_s = \mbox{.5e-1})$
     a.a) The plot of the real part of $\chi (\omega )$
     a.b) absolute error plot (a.d-plot minus a.c-plot) 
     a.c) imaginary part of $\chi (\omega )$ calculated analytically 
@@ -1613,8 +1373,7 @@ Some results has been presented on Figures (\ref{fig:nc_lin1}), (\ref{fig:nc_lin
 
 \begin{figure}
   \includegraphics[width=150mm]{img/nc_lin4.png}
-  \caption{The Figure presents the fourth of four results of the NC Hilbert Transform method applied for the simple linear model. Results
-   are plotted together. Calculations were performed with the parameters ($n = 33, \, tol = \mbox{.2e-2}, \, c_s = \mbox{.5e-1}) $
+  \caption{The Figure presents the fourth of four results of the NC Hilbert Transform method applied for the simple linear model. Results are plotted together. Calculations were performed with the parameters ($n = 33, \, tol = \mbox{.2e-2}, \, c_s = \mbox{.5e-1}) $
     a.a) The plot of the real part of $\chi (\omega )$
     a.b) absolute error plot (a.d-plot minus a.c-plot) 
     a.c) imaginary part of $\chi (\omega )$ calculated analytically 
@@ -1627,22 +1386,17 @@ Some results has been presented on Figures (\ref{fig:nc_lin1}), (\ref{fig:nc_lin
     }
 \end{figure}
 
-We cannot tell with a hundred percent confidence which set of parameters will fit the best any given function and the user will
-need to try many combinations before obtaining the final plot, but what we gave is the opportunity to set each one parameter manually,
-which may lead to better results in the particular cases.
+We cannot tell with a hundred percent confidence which set of parameters will fit the best any given function and the user will need to try many combinations before obtaining the final plot, but what we gave is the opportunity to set each one parameter manually, which may lead to better results in the particular cases.
 
 \subsection{NC for simple nonlinear model - results} \label{chap:nc_nlo}
 
-We have performed calculations for the same both nonlinear pump-probe (\ref{eq:htran_fparameters}) and wave-mixing (\ref{eq:htran_feffexp})
-models as in the Chapter (\ref{chap:htran_lin}) with the same set of parameters (constant values).
+We have performed calculations for the same both nonlinear pump-probe (\ref{eq:htran_fparameters}) and wave-mixing (\ref{eq:htran_feffexp}) models as in the Chapter (\ref{chap:htran_lin}) with the same set of parameters (constant values).
 
-Results for pump-and-probe model has been presented in Figure (\ref{fig:nc_pnp}). Results for the frequency mixing model has been
-presented in Figure (\ref{fig:nc_fmix1}). 
+Results for pump-and-probe model has been presented in Figure (\ref{fig:nc_pnp}). Results for the frequency mixing model has been presented in Figure (\ref{fig:nc_fmix1}). 
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/nc_pnp.png}
-  \caption{ The Figure presents results of the NC Hilbert Transform method applied for the pump-and-probe model. Results
-   are plotted together. Calculations were performed with the parameters ($n = 4, \, c_s = \mbox{.1e-1}, \, tol = \mbox{.1e-1})$
+  \caption{ The Figure presents results of the NC Hilbert Transform method applied for the pump-and-probe model. Results are plotted together. Calculations were performed with the parameters ($n = 4, \, c_s = \mbox{.1e-1}, \, tol = \mbox{.1e-1})$
      a.a) The plot of the real part of ${\chi_{pp}}(\omega )$
      a.b) absolute error plot (a.d-plot minus a.c-plot) 
      a.c) imaginary part of ${\chi_{pp}}(\omega )$ calculated analytically 
@@ -1651,17 +1405,14 @@ presented in Figure (\ref{fig:nc_fmix1}).
      b.b) absolute error plot (b.d-plot minus b.c-plot) 
      b.c) real part of $\chi_{pp} (\omega )$ calculated analytically 
      b.d) real part of ${\chi_{pp}}(\omega )$ obtained with the NC Hilbert transform of b.a-plot.
-     With so few points and relatively long execution time the HNC method seems to be not a best fit for the analysis. We can see only the
-     first sketch of calculated plot and based on that result we can initially falsify the investigated model. In this case the model seems
-     to be correct.
+     With so few points and relatively long execution time the HNC method seems to be not a best fit for the analysis. We can see only the first sketch of calculated plot and based on that result we can initially falsify the investigated model. In this case the model seems to be correct.
      \label{fig:nc_pnp}
      }
 \end{figure} 
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/nc_fmix1.png}
-  \caption{ The Figure presents results of the NC Hilbert Transform method applied for the frequency mixing model.
-  Results are plotted together. Calculations were performed with the parameters ($n = 8, \, c_s = \mbox{.3e-2}, \, tol = \mbox{.1e-1})$
+  \caption{ The Figure presents results of the NC Hilbert Transform method applied for the frequency mixing model. Results are plotted together. Calculations were performed with the parameters ($n = 8, \, c_s = \mbox{.3e-2}, \, tol = \mbox{.1e-1})$
      a.a) The plot of the real part of ${\chi_{mix}}(\omega )$
      a.b) absolute error plot (a.d-plot minus a.c-plot) 
      a.c) imaginary part of ${\chi_{mix}}(\omega )$ calculated analytically 
@@ -1670,8 +1421,7 @@ presented in Figure (\ref{fig:nc_fmix1}).
      b.b) absolute error plot (b.d-plot minus b.c-plot) 
      b.c) real part of $\chi_{mix} (\omega )$ calculated analytically 
      b.d) real part of ${\chi_{mix}}(\omega )$ obtained with the Hilbert transform of b.a-plot
-     We managed to use more points than in Figure (\ref{fig:nc_pnp}). We have received quite low error, but still in some areas 
-     the method seems to generate large error.
+     We managed to use more points than in Figure (\ref{fig:nc_pnp}). We have received quite low error, but still in some areas the method seems to generate large error.
      \label{fig:nc_fmix1}
      }
 \end{figure}
@@ -1712,8 +1462,7 @@ Evaluation time of two plots given in Figure (\ref{fig:nc_qp1}) was 615 seconds.
 
 \begin{figure}
   \includegraphics[width=150mm]{img/nc_qp1.png}
-  \caption{ The Figure presents results of the NC Hilbert Transform method applied for the simple quantum-perturbative
-  model. Results are plotted together. 
+  \caption{ The Figure presents results of the NC Hilbert Transform method applied for the simple quantum-perturbative model. Results are plotted together. 
     a.a) The plot of the imaginary part of ${\chi_{1, \, qp}}(\omega )$
     a.b) absolute error plot (d-plot minus c-plot) 
     a.c) real part of ${\chi_{1, \, qp}}(\omega )$ obtained with the NC Hilbert transform of a-plot 
@@ -1775,15 +1524,11 @@ with the constant values already chosen:
 \end{equation}
 
 
-
-Results are presented in Figure (\ref{fig:nc_quantum2}). We can see a very large relative error reaching up to the 100\%. We may also
-suspect this model is invalid. This will be checked with another methods in next chapters.
+Results are presented in Figure (\ref{fig:nc_quantum2}). We can see a very large relative error reaching up to the 100\%. We may also suspect this model is invalid. This will be checked with another methods in next chapters.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/nc_quantum2.png}
-  \caption{The Figure presents the results of the NC Hilbert Transform method applied for the second-order
-  quantum-perturbative model. Results are plotted together. Calculations were performed with the parameters ($n = 4, \, c_s = \mbox{.1e-1}),
-  \,tol=\mbox{.1e-1}$ a.a) The plot of the real part of ${\chi_{2, \,qp}}(\omega )$
+  \caption{The Figure presents the results of the NC Hilbert Transform method applied for the second-order quantum-perturbative model. Results are plotted together. Calculations were performed with the parameters ($n = 4, \, c_s = \mbox{.1e-1}), \,tol=\mbox{.1e-1}$ a.a) The plot of the real part of ${\chi_{2, \,qp}}(\omega )$
      a.b) absolute error plot (a.d-plot minus a.c-plot) 
      a.c) imaginary part of ${\chi_{2, \,qp}}(\omega )$ calculated analytically 
      a.d) imaginary part of ${\chi_{2, \,qp}}(\omega )$ obtained with the NC Hilbert transform of a.a-plot, 
@@ -1803,8 +1548,7 @@ The algorithm for the Hilbert transform using the modified Clenshaw-Curtis quadr
 
 \subsubsection*{Clenshaw Curtis quadrature: }
 
-The heart of the calculation has been presented by T. Hasegawa and T. Torri in \cite{Hasegawa1991}. First we will need to calculate
-the Cauchy principal value integral on the interval $[-1, 1]$:
+The heart of the calculation has been presented by T. Hasegawa and T. Torri in \cite{Hasegawa1991}. First we will need to calculate the Cauchy principal value integral on the interval $[-1, 1]$:
 
 \begin{equation} \label{eq:hcc_cpvint}
 	\dashint_{-1} ^ {1} \frac{f(x)} {(x-c)} \; d \, x \quad \text{for} \quad c \in (-1, 1) .
@@ -1817,9 +1561,7 @@ The first step suggested by the authors is to remove the singularity from the in
   \dashint_{-1}^{1} \frac{f(x)}{(x-c)} d \, x = \dashint_{-1}^{1} \frac{f(x)-f(c)}{(x-c)} + f(c) \, log(\frac{1-c}{1+c})
 \end{equation}
 
-After some transformation authors finally obtain the iterative formula presented in equations (\ref{eq:hccformula_sum}) and
-(\ref{eq:hccformula_rec}). The formula (\ref{eq:hccformula_sum}) depends on the parameter $N$, which will be used in the adaptive
-algorithm. The recursive equation (\ref{eq:hccformula_rec}) should be solved with the starting values: $d_N = d_{N+1} = 0$
+After some transformation authors finally obtain the iterative formula presented in equations (\ref{eq:hccformula_sum}) and (\ref{eq:hccformula_rec}). The formula (\ref{eq:hccformula_sum}) depends on the parameter $N$, which will be used in the adaptive algorithm. The recursive equation (\ref{eq:hccformula_rec}) should be solved with the starting values: $d_N = d_{N+1} = 0$
 
 \begin{subequations} \label{eq:hcc_formula}
   \begin{equation}   \label{eq:hccformula_sum}
@@ -1832,8 +1574,7 @@ algorithm. The recursive equation (\ref{eq:hccformula_rec}) should be solved wit
   \end{equation}
 \end{subequations}
 
-The remaining issue is to calculate the coefficients $a_k ^ N$, that have been described in equation (\ref{eq:hcc_akn}).  $a_k ^ N$ is
-also known as the discrete cosine transform of the first type (DCT-I):
+The remaining issue is to calculate the coefficients $a_k ^ N$, that have been described in equation (\ref{eq:hcc_akn}).  $a_k ^ N$ is also known as the discrete cosine transform of the first type (DCT-I):
 
 \begin{equation} \label{eq:hcc_akn}
     a_k^N = \frac{2}{N} {\sideset{}{''}\sum_{j=0}^{N}} f\left(cos\left (\frac {\pi j}{N} \right)
@@ -1843,34 +1584,23 @@ also known as the discrete cosine transform of the first type (DCT-I):
 
 \subsubsection*{Hilbert transform using the Clenshaw-Curtis quadrature:}
 
-While the Clenshaw-Curtis quadrature is defined for finite range $[-1,\,1]$, the Hilbert transform is defined by the definite and improper
-integral over the unbounded interval $[-\infty,\, \infty]$. Here we must remind the law of conservation of energy, from which we can easily
-deduce that the susceptibility - as the investigated physical quantity - for low frequencies and thus for low energies has low
-values. From this it follows that function $f = f(x)$ tends to zero when closing to infinities. Thereby the value of expression:
+While the Clenshaw-Curtis quadrature is defined for finite range $[-1,\,1]$, the Hilbert transform is defined by the definite and improper integral over the unbounded interval $[-\infty,\, \infty]$. Here we must remind the law of conservation of energy, from which we can easily deduce that the susceptibility - as the investigated physical quantity - for low frequencies and thus for low energies has low values. From this it follows that function $f = f(x)$ tends to zero when closing to infinities. Thereby the value of expression:
 
 \begin{equation} \label{eq:hcc_adapt}
   \frac{f(x)}{x-c} d \, x
 \end{equation}
 
-decreases rapidly and for relatively large values of x this integrand will be omitted. Therefore, we will not be changing the integration
-range from interval to real line. Instead of that we will enlarge the interval being the area if interest. For example - if the investigated
-values are described in interval $[a, b]$, we can enlarge it to the following interval:
+decreases rapidly and for relatively large values of x this integrand will be omitted. Therefore, we will not be changing the integration range from interval to real line. Instead of that we will enlarge the interval being the area if interest. For example - if the investigated values are described in interval $[a, b]$, we can enlarge it to the following interval:
 
 \begin{equation} \label{eq:hcc_interval}
   [A, B] = [a - 2|b-a|, b + 2|b-a|] 
 \end{equation}
 
-As this was only an example, the specific choice of integration interval should be done during the numerical calculations. As default in our
-algorithm, we have set the integration interval to be based on the (\ref{eq:hcc_interval}), but simply $5$ times longer. For all
-investigated models it gave us satisfactory results.
+As this was only an example, the specific choice of integration interval should be done during the numerical calculations. As default in our algorithm, we have set the integration interval to be based on the (\ref{eq:hcc_interval}), but simply $5$ times longer. For all investigated models it gave us satisfactory results.
 
 \subsubsection*{Our implementation of the Hilbert Clenshaw-Curtis iterations:}
 
-So far we have presented the overview of procedures responsible for evaluation of the Clenshaw-Curtis qua\-dra\-tu\-re and the Hil\-bert
-transform using the Clenshaw-Curtis qua\-dra\-ture at one point. But in the typical situation we have the whole vector of function values
-for a given range of abscissas - so what is left - we perform the single-point Hil\-bert transform based on the Clenshaw-Curtis
-qua\-dra\-ture for each given point. But to omit the problems with singularities, we will add some post- and precalculations - using the cubic interpolation. The
-whole procedure is now:
+So far we have presented the overview of procedures responsible for evaluation of the Clenshaw-Curtis qua\-dra\-tu\-re and the Hil\-bert transform using the Clenshaw-Curtis qua\-dra\-ture at one point. But in the typical situation we have the whole vector of function values for a given range of abscissas - so what is left - we perform the single-point Hil\-bert transform based on the Clenshaw-Curtis qua\-dra\-ture for each given point. But to omit the problems with singularities, we will add some post- and precalculations - using the cubic interpolation. The whole procedure is now:
 
 
 \subsubsection*{INPUT:}
@@ -1885,23 +1615,18 @@ As the input we receive $fun$, $XInterval$ and $tol$ parameters - described as b
   
 \end{tabular}
 
-In the first step we calculate $a$ and $b$ parameters, which are minimum and maximum of the $XInterval$ array respectively. We will
-be operating on a finite interval, but $5$ times bigger than $[a, b]$, described as $[A, B]$ - for the graphical explanation please see
-Figure (\ref{fig:cci_bigger_interval}).
+In the first step we calculate $a$ and $b$ parameters, which are minimum and maximum of the $XInterval$ array respectively. We will be operating on a finite interval, but $5$ times bigger than $[a, b]$, described as $[A, B]$ - for the graphical explanation please see Figure (\ref{fig:cci_bigger_interval}).
 
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/cci_bigger_interval.png}
-  \caption{While the $XInterval$ is the input range of abscissas, we will proceed with calculations on an interval that is 5 times longer.
-     \label{fig:cci_bigger_interval}
+  \caption{While the $XInterval$ is the input range of abscissas, we will proceed with calculations on an interval that is 5 times longer. \label{fig:cci_bigger_interval}
   }
 \end{figure}
 
 \subsubsection*{PRE-CALCULATIONS:}
 
-Initially the input function $fun$ was defined on the interval $[a, b]$. Firstly we would like to transform the function to match the wider
-range $[A, B]$. Secondly, we must transform it into the $[-1, 1]$ range, which comes by the Clenshaw-Curtis definition. Therefore, we define
-a new function $ccFun$, described as below:
+Initially the input function $fun$ was defined on the interval $[a, b]$. Firstly we would like to transform the function to match the wider range $[A, B]$. Secondly, we must transform it into the $[-1, 1]$ range, which comes by the Clenshaw-Curtis definition. Therefore, we define a new function $ccFun$, described as below:
 
 \begin{equation} \label{eq:cci_period}
 	Period = B - A,
@@ -1938,8 +1663,7 @@ In order to omit division by zero, based on the $X$ array, we create $N-1$ eleme
   \end{equation}
 \end{subequations}
 
-We would also like to precalculate the constant values as defined in equations (\ref{eq:hccformula_rec}) and (\ref{eq:hcc_akn}). We will
-calculate these values once, and then use them in following calculations.
+We would also like to precalculate the constant values as defined in equations (\ref{eq:hccformula_rec}) and (\ref{eq:hcc_akn}). We will calculate these values once, and then use them in following calculations.
 
 \subsubsection*{MAIN CALCULATIONS:}
 As the central part, we calculate the $N-1$ values for each on of inner points: 
@@ -1985,14 +1709,11 @@ The algorithm's full source has been presented in the Appendix A.3. Please revie
 
 \subsection{HCCI for simple linear model} \label{chap:hcc_lin}
 
-Figures (\ref{fig:cci_lin1}) and (\ref{fig:cci_lin2}) presents the results obtained with the method for the model defined in
-model (\ref{eq:physical_frequency_linear}). As we can see - the Hilbert Clenshaw-Curtis iterations gives us much better accuracy than HTRAN
-or Newton-Cotes quadrature. In next chapters we will check what happens for another models.
+Figures (\ref{fig:cci_lin1}) and (\ref{fig:cci_lin2}) presents the results obtained with the method for the model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Hilbert Clenshaw-Curtis iterations gives us much better accuracy than HTRAN or Newton-Cotes quadrature. In next chapters we will check what happens for another models.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/hcc_lin1.png}
-  \caption{The Figure presents the results of the Hilbert Clenshaw-Curtis iterations method applied to the real part of the simple linear
-  model. Results are plotted together.
+  \caption{The Figure presents the results of the Hilbert Clenshaw-Curtis iterations method applied to the real part of the simple linear model. Results are plotted together.
    a) The plot of the real part of $\chi (\omega )$ 
    b) absolute error plot (c-plot minus d-plot) 
    c) imaginary part of $\chi (\omega )$ obtained with the Hilbert transform of a-plot 
@@ -2002,8 +1723,7 @@ or Newton-Cotes quadrature. In next chapters we will check what happens for anot
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/hcc_lin2.png}
-  \caption{The Figure presents the results of the Hilbert Clenshaw-Curtis iterations method applied to the imaginary part of the simple
-  linear model. Results are plotted together.
+  \caption{The Figure presents the results of the Hilbert Clenshaw-Curtis iterations method applied to the imaginary part of the simple linear model. Results are plotted together.
    a) The plot of the imaginary part of $\chi (\omega )$ 
    b) absolute error plot (c-plot minus d-plot) 
    c) real part of $\chi (\omega )$ obtained with the Hilbert transform of a-plot 
@@ -2013,9 +1733,7 @@ or Newton-Cotes quadrature. In next chapters we will check what happens for anot
 
 \subsection{HCCI for simple nonlinear model} \label{chap:hcc_nlo}
 
-For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results
-obtained with the Hilbert Clenshaw-Curtis iterations has been presented in Figures (\ref{fig:hcci_pnp}) and (\ref{fig:hcci_fmix})
-respectively.
+For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results obtained with the Hilbert Clenshaw-Curtis iterations has been presented in Figures (\ref{fig:hcci_pnp}) and (\ref{fig:hcci_fmix}) respectively.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/hcc_pnp.png}
@@ -2095,10 +1813,7 @@ Results are presented in Figure (\ref{fig:hcc_qp1}). We can see a perfect match 
 
 \subsubsection*{Second-order model - results:}
 
-We have also used the same model (\ref{eq:nclin_chipp2}) as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility
-model. We have also used the same set of parameters - see listing (\ref{eq:nclin_const2}). Results are presented in Figure
-(\ref{fig:hcc_qp2}). Arisen errors reach up to 100\%, so as for the Newton-Cotes calculations in Chapter (\ref{chap:nc_quantum}), we
-can see the model can be invalid.
+We have also used the same model (\ref{eq:nclin_chipp2}) as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility model. We have also used the same set of parameters - see listing (\ref{eq:nclin_const2}). Results are presented in Figure (\ref{fig:hcc_qp2}). Arisen errors reach up to 100\%, so as for the Newton-Cotes calculations in Chapter (\ref{chap:nc_quantum}), we can see the model can be invalid.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/hcc_qp2.png}
@@ -2120,16 +1835,13 @@ can see the model can be invalid.
 
 \subsection{Overview of the FRTHT} \label{chap:hartley_overview}
 
-The Fast Hartley transform based Hilbert transform applies two efficient $\BigO{n \log n}$ discrete Hartley transforms described by
-Soo-Chang Pei in \cite{chang_computation}. The Hilbert transform is defined by the mathematical convolution - see convolution definition
-(\ref{eh:mth_convolution}) - as stated in the following equation:
+The Fast Hartley transform based Hilbert transform applies two efficient $\BigO{n \log n}$ discrete Hartley transforms described by Soo-Chang Pei in \cite{chang_computation}. The Hilbert transform is defined by the mathematical convolution - see convolution definition (\ref{eh:mth_convolution}) - as stated in the following equation:
 
 \begin{equation} \label{eq:frtht_convolution}
 	\mathcal{H}[f(x)] = \frac{1}{x \, \pi} \convolution f(x) .
 \end{equation}
 
-Due to the observation (\ref{eq:physical_convolution}), the Hilbert transform can be presented with Fourier transform and the inverse
-Fourier transform:
+Due to the observation (\ref{eq:physical_convolution}), the Hilbert transform can be presented with Fourier transform and the inverse Fourier transform:
 
 \begin{equation} \label{eq:frtht_convolutionexp}
 	\mathcal{H}[f(x)] = \mathcal{F}^{-1} \left( \mathcal{F}( \frac{1}{x \, \pi} ) \, \cdot \, \mathcal{F}(f(x)) \right) .
@@ -2139,8 +1851,7 @@ The FRTHT computation is carried using only real numbers, which is faster than t
 
 \subsubsection*{Discrete Hartley transform (DRT)}
 
-For a given vector $X \in \mathbb{R} ^ N$ the discrete Hartley transform (DRT) and the inverse discrete Hartley transform (IDRT) are
-defined as follows:
+For a given vector $X \in \mathbb{R} ^ N$ the discrete Hartley transform (DRT) and the inverse discrete Hartley transform (IDRT) are defined as follows:
 
 \begin{subequations} \label{eq:frtht_definition}
 \begin{equation}   \label{eq:frthtdef_drt}
@@ -2163,8 +1874,7 @@ defined as follows:
 
 \subsubsection*{Hartley transform convolution theorem}
 
-Now we will introduce the Hartley transform convolution theorem. We define the vector $z \in \mathbb{R} ^ N$ as convolution of two vectors
-$x, v \in \mathbb{R} ^ N$ as follows:
+Now we will introduce the Hartley transform convolution theorem. We define the vector $z \in \mathbb{R} ^ N$ as convolution of two vectors $x, v \in \mathbb{R} ^ N$ as follows:
 
 \begin{subequations} \label{eq:hartley_convolution}
 	\begin{equation} \label{eq:hartley_z}
@@ -2181,8 +1891,7 @@ We have used the negative indexes for vector $v$, defined with the time reversal
    v_{(-k)} \stackrel{\mathrm{def}}{=} v_{((N - k) \mod N)} .
 \end{equation}
 
-For the vector $X \in \mathbb{R} ^ N $ we define the $ \mathrm{even}(X) $ and $ \mathrm{odd}(X) $ functions - so we can distract the even
-and the odd parts of $X$:
+For the vector $X \in \mathbb{R} ^ N $ we define the $ \mathrm{even}(X) $ and $ \mathrm{odd}(X) $ functions - so we can distract the even and the odd parts of $X$:
 
 \begin{subequations} \label{eq:hartley_oddeven}
 	\begin{equation} \label{eq:hartley_odd}
@@ -2276,8 +1985,7 @@ Using the Theorem (\ref{eq:hartley_theorem}) for vector $x \in \mathbb{R} ^ N$ w
 \end{subequations}
 
 
-Now we should notice, that the discrete Hilbert transform kernel defined in (\ref{eq:hdfttps_smallh}) is an odd function, so its even
-part equals zero. Therefore (\ref{eq:hartley_fullconvolution}) simplifies now into a product of two separate Hartley transforms:
+Now we should notice, that the discrete Hilbert transform kernel defined in (\ref{eq:hdfttps_smallh}) is an odd function, so its even part equals zero. Therefore (\ref{eq:hartley_fullconvolution}) simplifies now into a product of two separate Hartley transforms:
 
 \begin{equation} \label{eq:hartley_simpleconvolution}
 	RHX_k = RX_{(- k)} \, \mathrm{odd}(RH_k) 
@@ -2295,21 +2003,17 @@ By \cite{chang_computation} the second transform is defined:
 	\end{cases}
 \end{equation}
 
-In order to calculate the Hilbert transform of vector $x \in \mathbb{R} ^ N$ the last thing to do is to apply the inverse discrete Hartley
-transform on the very right side of (\ref{eq:hartley_simpleconvolution}) equation.
+In order to calculate the Hilbert transform of vector $x \in \mathbb{R} ^ N$ the last thing to do is to apply the inverse discrete Hartley transform on the very right side of (\ref{eq:hartley_simpleconvolution}) equation.
 
 \subsubsection*{Fast Hartley Transform algorithm}
 
-Ronald F. Ullmann has showed the fast algorithm for the discrete Hartley transform in~\cite{ullmann_algorithm}. The important
-assumption is that, as for the fast Fourier transform algorithm, the fast Hartley transform algorithm is defined for $x \in \mathbb{R} ^
-K$, where K is the power-of-two:
+Ronald F. Ullmann has showed the fast algorithm for the discrete Hartley transform in~\cite{ullmann_algorithm}. The important assumption is that, as for the fast Fourier transform algorithm, the fast Hartley transform algorithm is defined for $x \in \mathbb{R} ^ K$, where K is the power-of-two:
 
 \begin{equation} \label{eq:ullmand_existp}
   \exists p \, \ \in \ \, N : K = 2 ^ {p} \quad \mbox{ for } \ \, p = 0, \, 1, \, 2, \, \ldots  .
 \end{equation}
 
-The (\ref{eq:ullmand_existp}) condition and the further possibilities to modify the algorithm are discussed further. We will start with the
-very same thing as in the fast Fourier algorithm - we split $x$ vector into two smaller vectors $x_1, x_2$:
+The (\ref{eq:ullmand_existp}) condition and the further possibilities to modify the algorithm are discussed further. We will start with the very same thing as in the fast Fourier algorithm - we split $x$ vector into two smaller vectors $x_1, x_2$:
 
 \begin{subequations} \label{eq:hartley_smallervectors}
 	\begin{equation}   \label{eq:hsvs_oddeven}
@@ -2361,8 +2065,7 @@ If we apply the Hartley shift rule (\ref{eq:hartley_shiftrule}) to  equation (\r
 \end{subequations}
 
 
-The rule (\ref{eq:hartley_srapplied}) can be applied only for the half of the possible k values ($k < \frac{N}{2}$). Now we will use
-the periodic properties of the discrete Hartley transform kernel:
+The rule (\ref{eq:hartley_srapplied}) can be applied only for the half of the possible k values ($k < \frac{N}{2}$). Now we will use the periodic properties of the discrete Hartley transform kernel:
 
 \begin{subequations} \label{eq:hartley_kernel}
   \begin{equation}   \label{eq:hkern_plus}
@@ -2403,44 +2106,29 @@ The rule (\ref{eq:hartley_srapplied}) using the periodicity property from (\ref{
            \, \ldots \, , \, N - 1$ .
 \end{subequations}
  
-The definition of the negative index has been already explained in (\ref{eq:hartley_negindex}). Of course this is a typical
-divide-and-conquer approach, where the complexity is reduced from $\BigO{n^2} $ to $\BigO{n \log n}$, very similar to the approach used in
-the Cooley-Tukey FFT algorithm \cite{Tukey_algorithm}.
+The definition of the negative index has been already explained in (\ref{eq:hartley_negindex}). Of course this is a typical divide-and-conquer approach, where the complexity is reduced from $\BigO{n^2} $ to $\BigO{n \log n}$, very similar to the approach used in the Cooley-Tukey FFT algorithm \cite{Tukey_algorithm}.
 
 \subsubsection*{Non-power-of-two case}
 
-There are several approaches when calculating the fast Fourier transform for a non-power-of-two case length of the input x vector. One
-approach was described in Good-Thomas \cite{Good_interaction} as the prime-factor algorithm (PFA) for non-prime K:
+There are several approaches when calculating the fast Fourier transform for a non-power-of-two case length of the input x vector. One approach was described in Good-Thomas \cite{Good_interaction} as the prime-factor algorithm (PFA) for non-prime K:
 
 \begin{equation}  \label{eq:hartley_goodk}
   K = K_1 \, K_2 ,
 \end{equation}
 
-Where $K_1$ and $K_2$ are relatively prime numbers. Another approach, named the chirp z-transform algorithm, was presented by Leo Bluestein
-in \cite{bluestein_linear}. Other author, George Bruun, has invented the approach based on the recursive polynomial-factorization and
-described it in \cite{bruun_ztransform}. Rader has prepared the special FFT algorithm especially for vectors of prime size in
-\cite{rader_dicrete}. 
+Where $K_1$ and $K_2$ are relatively prime numbers. Another approach, named the chirp z-transform algorithm, was presented by Leo Bluestein in \cite{bluestein_linear}. Other author, George Bruun, has invented the approach based on the recursive polynomial-factorization and described it in \cite{bruun_ztransform}. Rader has prepared the special FFT algorithm especially for vectors of prime size in \cite{rader_dicrete}. 
 
-But we will use the simplest possible approach - called the zero-padding. So in case of input vector with the size of
-non-power-of-two, we add the suffix vector filled with vectors to fit the next possible power-of-two size. In the worst case, the input
-vector size will be doubled, which has no influence on the asymptotic complexity, which remains $\BigO{n \log n}$. While the discrete signal
-analysis is the domain of scientists, we will end with conclusion stated by M. Lamb in \cite{lamb_issues} that he is uncertain, if zero
-padding has an influence on the spectral resolution, but in most cases it has a little influence on the results obtained in the discrete
-transforms.
+But we will use the simplest possible approach - called the zero-padding. So in case of input vector with the size of non-power-of-two, we add the suffix vector filled with vectors to fit the next possible power-of-two size. In the worst case, the input vector size will be doubled, which has no influence on the asymptotic complexity, which remains $\BigO{n \log n}$. While the discrete signal analysis is the domain of scientists, we will end with conclusion stated by M. Lamb in \cite{lamb_issues} that he is uncertain, if zero padding has an influence on the spectral resolution, but in most cases it has a little influence on the results obtained in the discrete transforms.
 
-Our source code of the discrete Hilbert transform using both the fast Hartley transform and inverse fast Hartley transform has been
-presented in Appendix A.4. In our future research we can switch to another solution for the non power-of-two $N$, as listed before.
+Our source code of the discrete Hilbert transform using both the fast Hartley transform and inverse fast Hartley transform has been presented in Appendix A.4. In our future research we can switch to another solution for the non power-of-two $N$, as listed before.
 
 \subsection{FRTHT for simple linear model} \label{chap:hartley_lin}
 
-In Figure (\ref{fig:fht_lin}) we have presented the results obtained with the Fast Hartley Hilbert Transform for the simple linear model
-defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Fast Hartley Hilbert Transform gives us quite well accuracy,
-similar to HCCI and much better than HTRAN or Newton-Cotes quadrature.
+In Figure (\ref{fig:fht_lin}) we have presented the results obtained with the Fast Hartley Hilbert Transform for the simple linear model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Fast Hartley Hilbert Transform gives us quite well accuracy, similar to HCCI and much better than HTRAN or Newton-Cotes quadrature.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/fht_lin.png}
-  \caption{The Figure presents the results of the FRTHT method applied to the simple linear
-  model. Results are plotted together.
+  \caption{The Figure presents the results of the FRTHT method applied to the simple linear model. Results are plotted together.
    a.a) The plot of the real part of $\chi (\omega )$ 
    a.b) absolute error plot (c-plot minus d-plot) 
    a.c) imaginary part of $\chi (\omega )$ obtained with the Hilbert transform of a-plot 
@@ -2454,14 +2142,11 @@ similar to HCCI and much better than HTRAN or Newton-Cotes quadrature.
 
 \subsection{FRTHT for simple nonlinear model} \label{chap:hartley_nlo}
 
-For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results
-obtained with the Fast Hartley Hilbert Transform has been presented in Figures (\ref{fig:fht_pnp}) and (\ref{fig:fht_fmix})
-respectively.
+For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results obtained with the Fast Hartley Hilbert Transform has been presented in Figures (\ref{fig:fht_pnp}) and (\ref{fig:fht_fmix}) respectively.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/fht_pnp.png}
-  \caption{The Figure presents the results of the FRTHT method applied to the pump-and-probe model. Results are
-  plotted together.
+  \caption{The Figure presents the results of the FRTHT method applied to the pump-and-probe model. Results are plotted together.
      a.a) The plot of the real part of ${\chi_{pp}}(\omega )$
      a.b) absolute error plot (a.d-plot minus a.c-plot) 
      a.c) imaginary part of $\chi_{pp}(\omega )$ calculated analytically 
@@ -2476,8 +2161,7 @@ respectively.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/fht_fmix.png}
-  \caption{The Figure presents the results of the FRTHT method applied to the frequency mixing model. Results are
-  plotted together.
+  \caption{The Figure presents the results of the FRTHT method applied to the frequency mixing model. Results are plotted together.
      a.a) The plot of the real part of ${\chi_{mix}}(\delta )$
      a.b) absolute error plot (a.d-plot minus a.c-plot) 
      a.c) imaginary part of $\chi_{mix}(\omega )$ calculated analytically 
@@ -2535,8 +2219,7 @@ Results are presented in Figure (\ref{fig:fht_qp1}). We can see a perfect match 
 
 \subsubsection*{Second-order model - results:}
 
-We have also used the same model (\ref{eq:nclin_chipp2}) as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility
-model and we have used the following values of the constants: 
+We have also used the same model (\ref{eq:nclin_chipp2}) as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility model and we have used the following values of the constants: 
 
 \begin{equation}
 	\mu = \begin{bmatrix} 
@@ -2553,8 +2236,7 @@ model and we have used the following values of the constants:
   	h = - 1 .
 \end{equation}
 
-Results are presented in Figure (\ref{fig:fht_qp2}). As for the previous calculations, we can see the model could be invalid
-because of the raised errors reach up to $ 100 \% $.
+Results are presented in Figure (\ref{fig:fht_qp2}). As for the previous calculations, we can see the model could be invalid because of the raised errors reach up to $ 100 \% $.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/fht_qp2.png}
@@ -2575,8 +2257,7 @@ because of the raised errors reach up to $ 100 \% $.
 
 \subsection{Overview of the HHT}  \label{chap:hermite_overview}
 
-Hermite polynomials based Hilbert transform approach is based on the precalculation of already-known Hermite polynomials and Hermite base of
-orthogonal functions. The algorithm is based on the master thesis of Mathias Johansson \cite{johansson_hilbert}.
+Hermite polynomials based Hilbert transform approach is based on the precalculation of already-known Hermite polynomials and Hermite base of orthogonal functions. The algorithm is based on the master thesis of Mathias Johansson \cite{johansson_hilbert}.
 
 \subsubsection*{Hermite polynomials and Hermite functions:}
 
@@ -2600,8 +2281,7 @@ There is also an recursive equation for Hermite polynomials:
   \end{equation}
 \end{subequations}
 
-Using the Hermite polynomial we would like to derive a set of orthogonal polynomials in $L ^ 2$. Therefore we introduce the
-weight function and the norm function:
+Using the Hermite polynomial we would like to derive a set of orthogonal polynomials in $L ^ 2$. Therefore we introduce the weight function and the norm function:
 
 \begin{subequations} \label{eq:hermite_weight}
   \begin{equation}   \label{eq:hwht_weight}
@@ -2612,8 +2292,7 @@ weight function and the norm function:
   \end{equation}
 \end{subequations}
 
-If we multiply the n-th Hermite polynomial with the weight function $w(x)$ and divide it by the n-th norm function $N_n$ we
-obtain a n-th orthogonal Hermite function:
+If we multiply the n-th Hermite polynomial with the weight function $w(x)$ and divide it by the n-th norm function $N_n$ we obtain a n-th orthogonal Hermite function:
 
 \begin{equation} \label{eq:hermite_orthogonal}
   \phi_n (x) = \frac {\mathrm{w}(x) \, H_n (x)} {N_n} 
@@ -2635,14 +2314,12 @@ Example orthogonal Hermite functions are presented on Figure (\ref{fig:her_plots
 
 \begin{figure}
   \includegraphics[width=150mm]{img/her_plots.png}
-  \caption{ The Figure presents the orthogonal Hermite functions of degree 2 (green), 4 (blue) and 40 (red) drawn together. }
-  \label{fig:her_plots}
+  \caption{ The Figure presents the orthogonal Hermite functions of degree 2 (green), 4 (blue) and 40 (red) drawn together. } \label{fig:her_plots}
 \end{figure}
  
 \subsubsection*{Hilbert transform of Hermite functions:}
 
-Johansson after polish mathematician Stefan L. Hahn \cite{hahn_hilbert} states that for any function $f(x)$ and its Hilbert transform 
-$\mathcal{H}(\mathrm{f}(x))$ that both are integrable - therefore belonging to Lebesgue space $ L_1 $ - we have:
+Johansson after polish mathematician Stefan L. Hahn \cite{hahn_hilbert} states that for any function $f(x)$ and its Hilbert transform  $\mathcal{H}(\mathrm{f}(x))$ that both are integrable - therefore belonging to Lebesgue space $ L_1 $ - we have:
 
 \begin{equation} \label{eg:hermite_hproperty}
   \mathcal{H}(x \, \mathrm{f}(x)) = x \, \mathcal{H}(\mathrm{f}(x)) 
@@ -2719,13 +2396,12 @@ For each function that has a limited series expansion at infinity we can provide
 
 We have prepared the numerical algorithm that calculates the Hilbert transform based on presented properties of Hermite polynomials. 
 
-Firstly we observe Hermite functions and their Hilbert transforms do not depend on the investigated function, so we can calculate them once
-and hard-code into the algorithm. The results of the precalculation stage has been applied directly to the to speed up the algorithm.
+Firstly we observe Hermite functions and their Hilbert transforms do not depend on the investigated function, so we can calculate them once and hard-code into the algorithm. The results of the precalculation stage has been applied directly to the to speed up the algorithm.
 
 \subsubsection*{Precalculation stage:}
 
-We have calculated the orthogonal Hermite functions from equation (\ref{eq:hermite_orthogonal}) and the Hilbert transforms of these
-functions from the recursive equation (\ref{eq:hir_phinext} - \ref{eq:hir_phifirst}). We have used built-in Maple toolbox for MATLAB.
+
+We have calculated the orthogonal Hermite functions from equation (\ref{eq:hermite_orthogonal}) and the Hilbert transforms of these functions from the recursive equation (\ref{eq:hir_phinext} - \ref{eq:hir_phifirst}). We have used built-in Maple toolbox for MATLAB.
 
 The important observation we have made in this precalculations is that:
 
@@ -2740,14 +2416,11 @@ Function:
 	\mathop{\mathrm{erfi}}(x) = - i \, \mathop{\mathrm{erf}} (i \, x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{t^2} \, dt .    
 \end{equation}
 
-The mentioned (\ref{eq:hermite_hexp}) observation is important, because many of numerical libraries has got the $\mathop{\mathrm{erf}}(x)$
-already implemented, we have used built-in MATLAB function.
+The mentioned (\ref{eq:hermite_hexp}) observation is important, because many of numerical libraries has got the $\mathop{\mathrm{erf}}(x)$ already implemented, we have used built-in MATLAB function.
 
 \subsubsection*{Calculation of $a_{n, f(x)}$ coefficients:}
 
-The next step to describe is the calculation of $a_{n, f(x)}$ coefficients. We have applied the Clenshaw Curtis integration routine already
-defined in Chapter (\ref{chap:hcc}). The only issue we shall describe here is the modification of the integration range for the
-equation~(\ref{eq:hfe_an}) from $(-\infty , \infty)$ to $[-1, 1]$. Therefore we state the substitution:
+The next step to describe is the calculation of $a_{n, f(x)}$ coefficients. We have applied the Clenshaw Curtis integration routine already defined in Chapter (\ref{chap:hcc}). The only issue we shall describe here is the modification of the integration range for the equation~(\ref{eq:hfe_an}) from $(-\infty , \infty)$ to $[-1, 1]$. Therefore we state the substitution:
 
 \begin{subequations} \label{eq:her_substitution}
 	\begin{equation} \label{eq:her_subst_x}
@@ -2766,9 +2439,7 @@ So for the integral similar to the one defined in equation (\ref{eq:hfe_an}) we 
 
 \subsubsection*{Calculation of $\mathcal{H} (\mathrm{f}(x))$:}
 
-Once we have already calculated the orthogonal Hermite functions, their Hilbert transforms and the $a_{n, f(x)}$ coefficients we can proceed
-to the main Hilbert transform calculation. We will proceed in a loop with a stop condition. In every loop step we calculating the iterative
-sums as defined in equations (\ref{eq:hest_fapprox}) and (\ref{eq:hest_happrox}) for a given vector $X \in \mathbb{R} ^ M$:
+Once we have already calculated the orthogonal Hermite functions, their Hilbert transforms and the $a_{n, f(x)}$ coefficients we can proceed to the main Hilbert transform calculation. We will proceed in a loop with a stop condition. In every loop step we calculating the iterative sums as defined in equations (\ref{eq:hest_fapprox}) and (\ref{eq:hest_happrox}) for a given vector $X \in \mathbb{R} ^ M$:
 
 \begin{subequations} \label{eq:her_main_algorithm}
 	\begin{equation} \label{eq:her_main_algorithm_N}
@@ -2784,9 +2455,7 @@ sums as defined in equations (\ref{eq:hest_fapprox}) and (\ref{eq:hest_happrox})
 	\end{equation} 
 \end{subequations}
 
-Once we already now the exact formula for function $f(x)$ in every point of vector $X$, we can determine the stop condition based on the
-proximity between $f(X)$ and $f_N(X)$. We will calculate the difference in each point of vector $X$ and compare that error with the
-previously set tolerance. The error $\mathop{\mathrm{err}}$ is defined as follows:
+Once we already now the exact formula for function $f(x)$ in every point of vector $X$, we can determine the stop condition based on the proximity between $f(X)$ and $f_N(X)$. We will calculate the difference in each point of vector $X$ and compare that error with the previously set tolerance. The error $\mathop{\mathrm{err}}$ is defined as follows:
 
 \begin{subequations} \label{eq:her_stopcondition}
 	\begin{equation}
@@ -2797,19 +2466,15 @@ previously set tolerance. The error $\mathop{\mathrm{err}}$ is defined as follow
 	\end{equation}
 \end{subequations}
 
-So now the stop condition is simply comparison $\mathop{\mathrm{err}}  < \mathop{\mathrm{tol}} $. After the algorithm quits the main loop
-after $N$ steps - we obtain the final result for the Hilbert transform: $\mathcal{H} (\mathrm{f_N}(X_k))$.
+So now the stop condition is simply comparison $\mathop{\mathrm{err}}  < \mathop{\mathrm{tol}} $. After the algorithm quits the main loop after $N$ steps - we obtain the final result for the Hilbert transform: $\mathcal{H} (\mathrm{f_N}(X_k))$.
 
 \subsection{HHT for simple linear model} \label{chap:hermite_lin}
 
-In Figure (\ref{fig:hht_lin}) we have presented the results obtained with the Hermite-Hilbert transform for the simple
-linear model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Hermite-Hilbert transform comes with poor accuracy,
-but we would like to put this method into examination with all models defined in Chapter (\ref{chap:physical_models}).
+In Figure (\ref{fig:hht_lin}) we have presented the results obtained with the Hermite-Hilbert transform for the simple linear model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Hermite-Hilbert transform comes with poor accuracy, but we would like to put this method into examination with all models defined in Chapter (\ref{chap:physical_models}).
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/hht_lin.png}
-  \caption{ The Figure presents the results of the Hermite-Hilbert transform method applied to the simple linear model. Results are
-  plotted together: 
+  \caption{ The Figure presents the results of the Hermite-Hilbert transform method applied to the simple linear model. Results are plotted together: 
    a.a) The plot of the real part of $\chi (\omega )$ 
    a.b) absolute error plot (c-plot minus d-plot) 
    a.c) imaginary part of $\chi (\omega )$ obtained with the Hilbert transform of a-plot 
@@ -2823,14 +2488,11 @@ but we would like to put this method into examination with all models defined in
 
 \subsection{HHT for simple nonlinear model} \label{chap:hermite_nlo}
 
-For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results
-obtained with the Hermite-Hilbert transform has been presented in Figures (\ref{fig:hht_pnp}) and (\ref{fig:hht_fmix})
-respectively.
+For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results obtained with the Hermite-Hilbert transform has been presented in Figures (\ref{fig:hht_pnp}) and (\ref{fig:hht_fmix}) respectively.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/hht_pnp.png}
-  \caption{ The Figure presents the results of the Hermite-Hilbert transform method applied to the pump-and-probe model. Results are
-  plotted together: 
+  \caption{ The Figure presents the results of the Hermite-Hilbert transform method applied to the pump-and-probe model. Results are plotted together: 
      a.a) The plot of the real part of ${\chi_{pp}}(\omega )$
      a.b) absolute error plot (a.d-plot minus a.c-plot)
      a.c) imaginary part of ${\chi_{pp}}(\omega )$ obtained with the Hermite-Hilbert transform of a.a-plot, 
@@ -2845,8 +2507,7 @@ respectively.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/hht_fmix.png}
-  \caption{The Figure presents the results of the Hermite-Hilbert transform method applied to the frequency mixing model. Results are
-  plotted together:
+  \caption{The Figure presents the results of the Hermite-Hilbert transform method applied to the frequency mixing model. Results are plotted together:
      a.a) The plot of the real part of ${\chi_{mix}}(\omega )$
      a.b) absolute error plot (a.d-plot minus a.c-plot)
      a.c) imaginary part of ${\chi_{mix}}(\omega )$ obtained with the Hermite-Hilbert transform of a.a-plot, 
@@ -2859,9 +2520,7 @@ respectively.
      }
 \end{figure}
 
-In these results we can draw two conclusions. The method based on the periodical polynomials as Hilbert polynomials will
-give us ``zig-zag'' like results. The other conclusion is that results obtained seems to be close, but much worst that those
-obtained with HCCI or FHT. 
+In these results we can draw two conclusions. The method based on the periodical polynomials as Hilbert polynomials will give us ``zig-zag'' like results. The other conclusion is that results obtained seems to be close, but much worst that those obtained with HCCI or FHT. 
 
 \subsection{HHT for simple quantum-perturbative model} \label{chap:hermite_quantum}
 
@@ -2911,8 +2570,7 @@ Results are presented in Figure (\ref{fig:hht_qp1}).
 
 \subsubsection*{Second-order model - results:}
 
-We have also used the same model (\ref{eq:nclin_chipp2}) as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility
-model and we have used the following values of the constants: 
+We have also used the same model (\ref{eq:nclin_chipp2}) as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility model and we have used the following values of the constants: 
 
 \begin{equation}
 	\mu = \begin{bmatrix} 
@@ -2946,22 +2604,17 @@ Results are presented in Figure (\ref{fig:hht_qp2}). Still we observe that the s
      }
 \end{figure} 
 
-We have checked the HHT method for various parameters, but none of them has gave us better accuracy. We also observed that when using more
-steps in the main loop of the algorithm, the numerical errors grow faster - so this is not a very stable algorithm. We encourage the reader
-to carry out their own calculations with source code given in Appendix A.5.
+We have checked the HHT method for various parameters, but none of them has gave us better accuracy. We also observed that when using more steps in the main loop of the algorithm, the numerical errors grow faster - so this is not a very stable algorithm. We encourage the reader to carry out their own calculations with source code given in Appendix A.5.
 
 \section{Fourier-series} \label{chap:fourier}
 
 \subsection{Overview of the Fourier-series based method}  \label{chap:fourier_overview}
 
-The concept of the Hilbert transform evaluation based on the Fourier series also comes from the master thesis by Mathias Johansson
-\cite{johansson_hilbert}. There is an important drawback in this approach - in general it should be applied to the periodic
-functions, but we will further assume they have a relatively long period. 
+The concept of the Hilbert transform evaluation based on the Fourier series also comes from the master thesis by Mathias Johansson \cite{johansson_hilbert}. There is an important drawback in this approach - in general it should be applied to the periodic functions, but we will further assume they have a relatively long period. 
 
 \subsubsection*{Fourier series:} 
 
-Each periodical function can be decomposed into a infinite Fourier series. For a given periodic function $f(x)$ with a given period $2 \,
-P$, we will introduce the Fourier coefficients:
+Each periodical function can be decomposed into a infinite Fourier series. For a given periodic function $f(x)$ with a given period $2 \, P$, we will introduce the Fourier coefficients:
 
 \begin{subequations} \label{eq:fourier_coeffs}
   \begin{equation}   \label{eq:fcoeffs_an}
@@ -2982,9 +2635,7 @@ We define the sequence of partial sums:
 		\right)
 \end{equation}
 
-Not getting deeply into harmonic analysis - we assume that $S_{f, \,N}(x)$  converges to $f \, \in \,{L_{2}}( - P, \,P)$ almost everywhere.
-The statement ``almost everywhere'' means that set $W$ of points $t$ from the range $( -P, \, P)$ in which limit $\lim_{N\rightarrow \infty
-} S_{f, \,N} (t)$ is not equal to $f(t)$ is countable. More formal:
+Not getting deeply into harmonic analysis - we assume that $S_{f, \,N}(x)$  converges to $f \, \in \,{L_{2}}( - P, \,P)$ almost everywhere. The statement ``almost everywhere'' means that set $W$ of points $t$ from the range $( -P, \, P)$ in which limit $\lim_{N\rightarrow \infty } S_{f, \,N} (t)$ is not equal to $f(t)$ is countable. More formal:
 
 \begin{equation} \label{eq:fourier_canbewritten}
 	\begin{cases}
@@ -2995,9 +2646,7 @@ The statement ``almost everywhere'' means that set $W$ of points $t$ from the ra
 
 \subsubsection*{Hilbert transform based on the Fourier series:}
 
-After Johansson \cite{johansson_hilbert} we state that for any given function $f\,\ \textbf{in}\ \,{L_{2}}( - P, \,P)$ we can
-calculate the Hilbert transform using the form of Fourier series for this function. All we need to do, is to make a swap in the
-(\ref{eq:fourier_partialsums}) equation - the ${a_{n}}$ coefficients should be swapped with ${b_{n}}$ coefficients:
+After Johansson \cite{johansson_hilbert} we state that for any given function $f\,\ \textbf{in}\ \,{L_{2}}( - P, \,P)$ we can calculate the Hilbert transform using the form of Fourier series for this function. All we need to do, is to make a swap in the (\ref{eq:fourier_partialsums}) equation - the ${a_{n}}$ coefficients should be swapped with ${b_{n}}$ coefficients:
 
 \begin{equation} \label{eq:fourier_hilbert}
 	\mathcal{H}[f(x)] = \lim_{N\rightarrow \infty } \, \frac {{a_{f, \, 0}}}{2}  + \sum_{ n=1}^{N} \, 
@@ -3011,25 +2660,17 @@ and this statement is true almost everywhere in $(-P, P)$.
 
 \subsubsection*{Algorithm overview:}
 
-As mentioned before, we will prepare the algorithm as for the periodic function, but we will try to imply that the period is much longer
-than the area of interest. We would like to calculate the Hilbert transform for periodical and non-periodical function f. The first step is
-to calculate the properties of the input X interval, which is the region in which we are interested of both input function f values and the
-values of its Hilbert transform. The second step is to calculate the Fourier coefficients in a main loop. In the same loop we calculate the
-next partial sum values. The last step is to extract the inner interval from the extended interval, to omit the numerical errors near the
-interval edges.
+As mentioned before, we will prepare the algorithm as for the periodic function, but we will try to imply that the period is much longer than the area of interest. We would like to calculate the Hilbert transform for periodical and non-periodical function f. The first step is to calculate the properties of the input X interval, which is the region in which we are interested of both input function f values and the values of its Hilbert transform. The second step is to calculate the Fourier coefficients in a main loop. In the same loop we calculate the next partial sum values. The last step is to extract the inner interval from the extended interval, to omit the numerical errors near the interval edges.
 
 The full source code of this algorithm, has been presented in the appendix A.6.
 
 \subsection{Fourier-series for simple linear model} \label{chap:fourier_lin}
 
-In Figure (\ref{fig:four_lin}) we have presented the results obtained with the Fourier-Hilbert transform for the simple
-linear model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Fourier-Hilbert transform comes with poor accuracy,
-but we would like to put this method into examination with defined models.
+In Figure (\ref{fig:four_lin}) we have presented the results obtained with the Fourier-Hilbert transform for the simple linear model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Fourier-Hilbert transform comes with poor accuracy, but we would like to put this method into examination with defined models.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/four_lin.png}
-  \caption{ The Figure presents the results of the Hilbert transform based on the Fourier series method applied to the simple linear model.
-  Results are plotted together:
+  \caption{ The Figure presents the results of the Hilbert transform based on the Fourier series method applied to the simple linear model. Results are plotted together:
    a.a) The plot of the real part of $\chi (\omega )$ 
    a.b) absolute error plot (c-plot minus d-plot) 
    a.c) imaginary part of $\chi (\omega )$ obtained with the Fourier-Hilbert transform of a-plot 
@@ -3043,14 +2684,11 @@ but we would like to put this method into examination with defined models.
 
 \subsection{Fourier-series for simple nonlinear model} \label{chap:fourier_nlo}
 
-For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results
-obtained with the Fourier-Hilbert transform has been presented in Figures (\ref{fig:four_pnp}) and (\ref{fig:four_fmix})
-respectively.
+For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results obtained with the Fourier-Hilbert transform has been presented in Figures (\ref{fig:four_pnp}) and (\ref{fig:four_fmix}) respectively.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/four_pnp.png}
-  \caption{The Figure presents the results of the Hilbert transform based on the Fourier series method applied to the pump-and-probe model.
-  Results are plotted together:
+  \caption{The Figure presents the results of the Hilbert transform based on the Fourier series method applied to the pump-and-probe model. Results are plotted together:
      a.a) The plot of the real part of ${\chi_{pp}}(\delta )$
      a.b) absolute error plot (a.d-plot minus a.c-plot)
      a.c) imaginary part of ${\chi_{pp}}(\delta )$ obtained with the Fourier-Hilbert transform of a.a-plot, 
@@ -3065,8 +2703,7 @@ respectively.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/four_fmix.png}
-  \caption{ The Figure presents the results of the Hilbert transform based on the Fourier series method applied to the frequency mixing
-  model. Results are plotted together:
+  \caption{ The Figure presents the results of the Hilbert transform based on the Fourier series method applied to the frequency mixing model. Results are plotted together:
      a.a) The plot of the real part of ${\chi_{mix}}(\omega )$
      a.b) absolute error plot (a.d-plot minus a.c-plot)
      a.c) imaginary part of ${\chi_{mix}}(\omega )$ obtained with the Fourier-Hilbert transform of a.a-plot, 
@@ -3079,9 +2716,7 @@ respectively.
      }
 \end{figure}
 
-In these results we can draw two conclusions. The method based on the periodical polynomials as Fourier series will
-give us ``zig-zag'' like results. The other conclusion is that results obtained seems to be close, but much worst that those
-obtained with HCCI or FHT. 
+In these results we can draw two conclusions. The method based on the periodical polynomials as Fourier series will give us ``zig-zag'' like results. The other conclusion is that results obtained seems to be close, but much worst that those obtained with HCCI or FHT. 
 
 \subsection{Fourier-series for simple quantum-perturbative model} \label{chap:fourier_quantum}
 
@@ -3134,8 +2769,7 @@ Results are presented in Figure (\ref{fig:four_qp1}).
 
 \subsubsection*{Second-order model - results:}
 
-We have also used the same model (\ref{eq:nclin_chipp2}) as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility
-model and we have used the following values of the constants: 
+We have also used the same model (\ref{eq:nclin_chipp2}) as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility model and we have used the following values of the constants: 
 
 \begin{equation}
 	\mu = \begin{bmatrix} 
@@ -3155,8 +2789,7 @@ model and we have used the following values of the constants:
   	h = - 1 .
 \end{equation}
 
-Results are presented in Figure (\ref{fig:four_qp2}). We can see, that the first model could be valid, while the second model seems to
-be invalid for consecutively for all Hilbert transform implementations.
+Results are presented in Figure (\ref{fig:four_qp2}). We can see, that the first model could be valid, while the second model seems to be invalid for consecutively for all Hilbert transform implementations.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/four_qp2.png}
@@ -3173,8 +2806,7 @@ be invalid for consecutively for all Hilbert transform implementations.
      }
 \end{figure} 
 
-We have checked the Fourier-Hilbert method for various parameters, but none of them has gave us better accuracy. We
-encourage the reader to carry out their own calculations with source code given in Appendix A.6.
+We have checked the Fourier-Hilbert method for various parameters, but none of them has gave us better accuracy. We encourage the reader to carry out their own calculations with source code given in Appendix A.6.
 
 \section{MATLAB ® out-of-the-box functions} \label{chap:matlab}
 
@@ -3191,13 +2823,7 @@ Why not take into consideration the already built-in numerical methods from MATL
 
 \subsubsection*{Adaptive Gauss-Kronrod quadrature - theory:}
 
-The source code of the adaptive Gauss-Kronrod quadrature has been published in the popular Fortran 77 numerical integration
-QUADPACK library and has been also translated into the MATLAB core language. It is also based on the ''quadva'' routine described by
-Lawrence F. Shampine in \cite{shampine_vectorized}. The crucial idea of this numerical integration algorithm is that the more accurate
-quadrature approximation is calculated from the less accurate one. The algorithm is adaptive and the error estimation is based on the
-(G-K7,15) pair of the quadrature rules - less and more accurate - the 7-point Gauss rule and the 15-point Kronrod rule with a share nodes.
-For more information about the theory beneath this algorithm - please read D. Calvetti et al \cite{calvetti_computation} or the chapter 5.5
-from the book by David Kahaner \cite{kahaner_numerical}.
+The source code of the adaptive Gauss-Kronrod quadrature has been published in the popular Fortran 77 numerical integration QUADPACK library and has been also translated into the MATLAB core language. It is also based on the ''quadva'' routine described by Lawrence F. Shampine in \cite{shampine_vectorized}. The crucial idea of this numerical integration algorithm is that the more accurate quadrature approximation is calculated from the less accurate one. The algorithm is adaptive and the error estimation is based on the (G-K7,15) pair of the quadrature rules - less and more accurate - the 7-point Gauss rule and the 15-point Kronrod rule with a share nodes. For more information about the theory beneath this algorithm - please read D. Calvetti et al \cite{calvetti_computation} or the chapter 5.5 from the book by David Kahaner \cite{kahaner_numerical}.
 
 \subsubsection*{Adaptive Gauss-Kronrod quadrature - short tutorial:}
 
@@ -3211,11 +2837,9 @@ We have used the MATLAB \textregistered R2009b. It comes with built-in quadgk fu
   'MaxIntervalCount' & - maximum number of intervals allowed (default: 650) \\
 \end{tabular}
 
-The defined models used within the Hilbert transform comes with one, but strong singularity. While the quadgk() method comes with
-copes with infinities, we have suggested to split the integral into two parts, but not including the small area nearby singularity.
+The defined models used within the Hilbert transform comes with one, but strong singularity. While the quadgk() method comes with copes with infinities, we have suggested to split the integral into two parts, but not including the small area nearby singularity.
 
-If the models singularity $c$ is taken from the range $[a, b]$, we will divide the range $|b-a|$ by $10000$ and calculate the value
-as defined in equation (\ref{eq:mat_quadadd}). 
+If the models singularity $c$ is taken from the range $[a, b]$, we will divide the range $|b-a|$ by $10000$ and calculate the value as defined in equation (\ref{eq:mat_quadadd}). 
  
 \begin{alignat}{1} \label{eq:mat_quadadd}
   \dashint_{ - \infty }^{\infty } \frac {f(x)}{x-c} \, dx \approx 
@@ -3252,8 +2876,7 @@ The other definition by \cite{calvetti_computation} uses the convolution:
 	\end{equation}
 \end{subequations}
 
-The important issue is that the DHT is closely related to the discrete Fourier transform - DFT. In order to evaluate the DHT(X), for $X \in
-\mathbb{R} ^ N$, we can hire the DFT routine. To start, we must remember that in the continuous case:
+The important issue is that the DHT is closely related to the discrete Fourier transform - DFT. In order to evaluate the DHT(X), for $X \in \mathbb{R} ^ N$, we can hire the DFT routine. To start, we must remember that in the continuous case:
 
 \begin{equation} \label{eq:matlab_issue}
 	\begin{cases}
@@ -3274,10 +2897,7 @@ Therefore, in the discrete case we find the similar equation to (\ref{eq:matlab_
 	\end{cases}
 \end{equation}
 
-From the (\ref{eq:matlab_reldhtdft}) we can see, that it is quite easy to operate within the Fourier/frequency domain - because the
-quite complicate convolution is transformed to a simple algebraic operations. Also - if we have the quick algorithm to perform both
-the DFT and inverse-DFT - for example with the fast Fourier transform - FFT and the inverse fast Fourier transform - IFFT, the DHT
-operation will be calculated as follows:
+From the (\ref{eq:matlab_reldhtdft}) we can see, that it is quite easy to operate within the Fourier/frequency domain - because the quite complicate convolution is transformed to a simple algebraic operations. Also - if we have the quick algorithm to perform both the DFT and inverse-DFT - for example with the fast Fourier transform - FFT and the inverse fast Fourier transform - IFFT, the DHT operation will be calculated as follows:
 
 \begin{equation} \label{eq:matlab_fulldhthdf}
 	\begin{cases}
@@ -3294,15 +2914,11 @@ While the hired DFT and IDFT routines are evaluated in complex domain, for a giv
 	\mathcal{H}(X) \Rightarrow X + i \, \mathrm{DHT}(X)
 \end{equation}
 
-In order to obtain the final result we need to take the imaginary part of the MATLAB hilbert() function output. The other
-important issue is that the \textit{MATLAB®} hilbert() function has one optional parameter called N - to computer the N-point
-Hilbert transform. If the input vector X is too short, it will be padded with zeros, otherwise it will be truncated. 
+In order to obtain the final result we need to take the imaginary part of the MATLAB hilbert() function output. The other important issue is that the \textit{MATLAB®} hilbert() function has one optional parameter called N - to computer the N-point Hilbert transform. If the input vector X is too short, it will be padded with zeros, otherwise it will be truncated. 
 
 \subsection{MIF for simple linear model} \label{chap:matlab_lin}
 
-In two Figures (\ref{fig:quadgk_lin}) and (\ref{fig:hilb_lin}) we have ga\-thered the results ob\-tained with the MATLAB quadgk() and
-hilbert() functions based Hil\-bert trans\-forms for the simple linear model defined in model (\ref{eq:physical_frequency_linear}).
-For each method we can see a accep\-table accu\-racy.
+In two Figures (\ref{fig:quadgk_lin}) and (\ref{fig:hilb_lin}) we have ga\-thered the results ob\-tained with the MATLAB quadgk() and hilbert() functions based Hil\-bert trans\-forms for the simple linear model defined in model (\ref{eq:physical_frequency_linear}). For each method we can see a accep\-table accu\-racy.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/quadgk_lin.png}
@@ -3334,9 +2950,7 @@ For each method we can see a accep\-table accu\-racy.
 
 \subsection{MIF for simple nonlinear model} \label{chap:matlab_nlo}
 
-In the next four Figures: (\ref{fig:quadgk_pnp}), (\ref{fig:quadgk_fmix}), (\ref{fig:hilb_pnp}) and (\ref{fig:hilb_fmix}) we have gathered
-the results obtained with the MATLAB® quadgk() and hilbert() functions based Hilbert transforms for the pump-probe and frequency
-mixing models with the same parameters as in Chapter (\ref{chap:nc_nlo}). 
+In the next four Figures: (\ref{fig:quadgk_pnp}), (\ref{fig:quadgk_fmix}), (\ref{fig:hilb_pnp}) and (\ref{fig:hilb_fmix}) we have gathered the results obtained with the MATLAB® quadgk() and hilbert() functions based Hilbert transforms for the pump-probe and frequency mixing models with the same parameters as in Chapter (\ref{chap:nc_nlo}). 
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/quadgk_pnp.png}
@@ -3398,8 +3012,7 @@ mixing models with the same parameters as in Chapter (\ref{chap:nc_nlo}).
      }
 \end{figure} 
 
-For each method we can once again see the acceptable accuracy for each method, but we can also observe, that each method comes
-with noticeable error.
+For each method we can once again see the acceptable accuracy for each method, but we can also observe, that each method comes with noticeable error.
 
 \subsection{MIF for simple quantum-perturbative model} \label{chap:matlab_quantum}
 
@@ -3407,9 +3020,7 @@ We have also put the determined methods onto test with quantum-perturbative mode
 
 \subsubsection*{Linear model - results:}
 
-In Figures: (\ref{fig:quadgk_qp1}) and (\ref{fig:hilb_qp1}) we have gathered the results ob\-tained with the MATLAB quadgk() and
-hilbert() functions based Hil\-bert tran\-sforms for the linear qua\-ntum\--per\-tur\-ba\-tive model taken with the same para\-meters as in
-Chapter (\ref{chap:nc_nlo}).
+In Figures: (\ref{fig:quadgk_qp1}) and (\ref{fig:hilb_qp1}) we have gathered the results ob\-tained with the MATLAB quadgk() and hilbert() functions based Hil\-bert tran\-sforms for the linear qua\-ntum\--per\-tur\-ba\-tive model taken with the same para\-meters as in Chapter (\ref{chap:nc_nlo}).
 
 \begin{figure}
   \includegraphics[width=150mm]{img/quadgk_qp1.png}
@@ -3445,9 +3056,7 @@ We observe quite acceptable results for the investigated model, for both methods
 
 \subsubsection*{Second-order model - results:}
 
-In Figures: (\ref{fig:quadgk_qp2}) and (\ref{fig:hilb_qp2}) we have ga\-thered the results ob\-tained with the MATLAB quadgk() and
-hilbert() func\-tions based Hil\-bert transforms for the se\-cond\--order quan\-tum\--per\-tur\-bative model taken with the same
-para\-meters as in Chapter (\ref{chap:nc_nlo}).
+In Figures: (\ref{fig:quadgk_qp2}) and (\ref{fig:hilb_qp2}) we have ga\-thered the results ob\-tained with the MATLAB quadgk() and hilbert() func\-tions based Hil\-bert transforms for the se\-cond\--order quan\-tum\--per\-tur\-bative model taken with the same para\-meters as in Chapter (\ref{chap:nc_nlo}).
 
 \begin{figure}
   \includegraphics[width=150mm]{img/quadgk_qp2.png}
@@ -3485,8 +3094,7 @@ We observe a huge error as in all previously chapters for the investigated model
 
 \subsection{Time comparison conclusions:} \label{chap:gencom_time}
 
-Until now we have not mention how much time does it take for each of investigated methods to calculate desired results. In the
-Table (\ref{gencom_time}) we have showed how much time does it take to perform the calculations for all 5 investigated models.
+Until now we have not mention how much time does it take for each of investigated methods to calculate desired results. In the Table (\ref{gencom_time}) we have showed how much time does it take to perform the calculations for all 5 investigated models.
 
 \begin{table}
   \caption{Time comparison} \label{gencom_time} 
@@ -3505,13 +3113,11 @@ Table (\ref{gencom_time}) we have showed how much time does it take to perform t
   \end{tabular}
 \end{table} 
 
-As we can see - the investigated methods come with important timing differences. When preparing experiment data analysis we should
-choose the appropriate method reasonably.
+As we can see - the investigated methods come with important timing differences. When preparing experiment data analysis we should choose the appropriate method reasonably.
 
 \subsection{Accuracy comparison conclusions:} \label{chap:gencom_accuracy}
 
-We have prepare the subjective summary of the accuracy obtained with investigated methods with the zero (bad accuracy) to ten
-(good accuracy). It is presented in the Table~(\ref{gencom_accuracy}).
+We have prepare the subjective summary of the accuracy obtained with investigated methods with the zero (bad accuracy) to ten (good accuracy). It is presented in the Table~(\ref{gencom_accuracy}).
 
 
 \begin{table}
@@ -3535,83 +3141,55 @@ We have prepare the subjective summary of the accuracy obtained with investigate
 \subsection{Application comparison conclusions:} \label{chap:gencom_application}
 
 
-There are two main types of methods - those, which base on the full-vector calculation (like HTRAN, Hartley-Hilbert
-transform, hilbert()) and those, which require calculation for each point (Newton-Cotes, Clenshaw-Curtis, Hermite-Hilbert,
-Fourier-Hilbert, quadgk()). The first group comes with relative acceptable accuracy, but still not negligible one. On the other
-side we can use the Clenshaw-Curtis based implementation of the Hilbert transform - which has showed as the method with the
-best accuracy from all investigated methods.
+There are two main types of methods - those, which base on the full-vector calculation (like HTRAN, Hartley-Hilbert transform, hilbert()) and those, which require calculation for each point (Newton-Cotes, Clenshaw-Curtis, Hermite-Hilbert, Fourier-Hilbert, quadgk()). The first group comes with relative acceptable accuracy, but still not negligible one. On the other side we can use the Clenshaw-Curtis based implementation of the Hilbert transform - which has showed as the method with the best accuracy from all investigated methods.
 
-When we would analyze data that has been collected in one dimension - it would be a good idea to hire the accurate Clenshaw-Curtis Hilbert
-transform implementation. But we should also prepare a good method for two-dimensional calculation and for such case we should use the fast
-methods like Hartley-Hilbert transform or built-in MATLAB \textregistered hilbert() method.
+When we would analyze data that has been collected in one dimension - it would be a good idea to hire the accurate Clenshaw-Curtis Hilbert transform implementation. But we should also prepare a good method for two-dimensional calculation and for such case we should use the fast methods like Hartley-Hilbert transform or built-in MATLAB \textregistered hilbert() method.
 
 But what is a good information - all methods can be used in the model analysis and validation process.
 
 \section{Conclusion} \label{chap:conclusion}
 
-We have presented a valid implementation of several different approaches to calculate the improper and singular integral used in
-the Hilbert transform. During the implementation and the literature research we have confirmed, that despite of talking about the
-complicate Kramers-Kronig relations, we can hire the simpler Hilbert transform.
+We have presented a valid implementation of several different approaches to calculate the improper and singular integral used in the Hilbert transform. During the implementation and the literature research we have confirmed, that despite of talking about the complicate Kramers-Kronig relations, we can hire the simpler Hilbert transform.
 
 \subsection{Model conclusion} \label{chap:conclusion_model}
 
 
-During work on this thesis we have found at least one invalid model - such as second-order quantum-perturbative model. For none of
-implemented method this model has shown any acceptable type of accuracy. There were more such models, not taken into scope - but
-with described tools - an experienced research will be able to validate model with the Hilbert transform relations.
+During work on this thesis we have found at least one invalid model - such as second-order quantum-perturbative model. For none of implemented method this model has shown any acceptable type of accuracy. There were more such models, not taken into scope - but with described tools - an experienced research will be able to validate model with the Hilbert transform relations.
 
-The one hypothetical proposal of explanation the failure of the second-order quantum-perturbative model is that this model as the
-only investigate one - depends on two input frequencies. The theory of multi-dimensional Hilbert transform states, that one point
-depends on the whole multi-dimensional spectra. What we have done here - was the false assumption - that for such a model we can
-simple strike on dimension out. This assumption proved to be false. 
+The one hypothetical proposal of explanation the failure of the second-order quantum-perturbative model is that this model as the only investigate one - depends on two input frequencies. The theory of multi-dimensional Hilbert transform states, that one point depends on the whole multi-dimensional spectra. What we have done here - was the false assumption - that for such a model we can simple strike on dimension out. This assumption proved to be false. 
 
-The multi-dimensional Hilbert transform is beyond the scope of this work and requires the better knowledge of implementation the
-multi-dimensional singular quadratures.
+The multi-dimensional Hilbert transform is beyond the scope of this work and requires the better knowledge of implementation the multi-dimensional singular quadratures.
 
 
 \subsection{Numerical conclusion} \label{chap:conclusion_numerical}
 
 
-1. We have presented several methods and the comparison of their accuracy, convergency and speed. Which method is the best and why?
-This set of tools should be treated as a numerical tool box - the choice is always depends on the user's choice.
-2. The speed-leading methods are based on the full-vector calculations. There are a good candidates for the multi-dimensional
-hilbert transform integration.
+1. We have presented several methods and the comparison of their accuracy, convergency and speed. Which method is the best and why? This set of tools should be treated as a numerical tool box - the choice is always depends on the user's choice.
+2. The speed-leading methods are based on the full-vector calculations. There are a good candidates for the multi-dimensional hilbert transform integration.
 
 \subsection{Z-scan technique conclusion} \label{chap:conclusion_zscan}
 
-In our opinion the data collected from the Z-scan experiment can be put into test with all prepared methods. We should also
-remember, that the phenomena occurring during this experiment - due to strong energy - shows the complicated nonlinearity, so the
-multi-dimensional Hilbert transform methods may be required. 
+In our opinion the data collected from the Z-scan experiment can be put into test with all prepared methods. We should also remember, that the phenomena occurring during this experiment - due to strong energy - shows the complicated nonlinearity, so the multi-dimensional Hilbert transform methods may be required. 
 
 \subsection{General conclusion} \label{chap:conclusion_general}
 
 The aim of this work was to:
 
 \begin{itemize} 
-	\item Development of numerical methods of the Hilbert transform. It succeeded and the methods are available altogether with
-	their source code and the testing routines. Users can choose among a wide range of methods with described parameters.
-	\item Validation of models given in literature. This succeeded only for the most popular models. There is a wide range of models
-	given in literature for which the Hilbert transform rule simple does not work.
-	\item Carrying out the calculations on multi-dimensional models. It failed. It turned out that such calculations require much more
-	complex numerical methods.
+	\item Development of numerical methods of the Hilbert transform. It succeeded and the methods are available altogether with their source code and the testing routines. Users can choose among a wide range of methods with described parameters.
+	\item Validation of models given in literature. This succeeded only for the most popular models. There is a wide range of models given in literature for which the Hilbert transform rule simple does not work.
+	\item Carrying out the calculations on multi-dimensional models. It failed. It turned out that such calculations require much more complex numerical methods.
 \end{itemize}
 
 Other conclusions:
 
-1. This thesis in only an introduction into the important, but still not well described, hardly-investigated interdisciplinary
-problem concerning the investigation of light and matter interaction in area of nonlinear optics. 
+1. This thesis in only an introduction into the important, but still not well described, hardly-investigated interdisciplinary problem concerning the investigation of light and matter interaction in area of nonlinear optics. 
 
-2. This topic should be continued as the cooperation between various disciplines is the key role to solve many questions stated
-by nowadays nonlinear optics scientists - so the strong mathematical, numerical, chemical and quantum-mechanical background skills
-are together required, one person is unable to have it all, so a team should be created (here in Wrocław).
+2. This topic should be continued as the cooperation between various disciplines is the key role to solve many questions stated by nowadays nonlinear optics scientists - so the strong mathematical, numerical, chemical and quantum-mechanical background skills are together required, one person is unable to have it all, so a team should be created (here in Wrocław).
 
-''A major challenge for researchers working in a multidisciplinary area is the need to learn relevant concepts outside their
-expertise. This may require searching through a vast amount of literature, often leading to frustrations of not being able to
-extract pertinent information quickly. ''- P. Prasad \cite{prasad_nanophotonics}
+''A major challenge for researchers working in a multidisciplinary area is the need to learn relevant concepts outside their expertise. This may require searching through a vast amount of literature, often leading to frustrations of not being able to extract pertinent information quickly. ''- P. Prasad \cite{prasad_nanophotonics}
 
-3. We can find many papers in area of Kramers-Kronig for nonlinear optics, but in my opinion - in case of nonlinear optics many of
-them are false and not properly argued, with wrong or improper mathematical assumptions, numerical errors and sometimes even
-tendential optimism and non-scepticism, which - especially in area of modern physics - is incomprehensible.
+3. We can find many papers in area of Kramers-Kronig for nonlinear optics, but in my opinion - in case of nonlinear optics many of them are false and not properly argued, with wrong or improper mathematical assumptions, numerical errors and sometimes even tendential optimism and non-scepticism, which - especially in area of modern physics - is incomprehensible.
 
 4. We are all in a long run for a Nobel prize :) It's a huge motivation :)
 
@@ -3620,8 +3198,7 @@ tendential optimism and non-scepticism, which - especially in area of modern phy
 What should be the continuation of this work?
 
 \begin{itemize} 
-	\item The theory which is linking the Hilbert transform with nonlinear optical models should be more deeply investigated. How can
-	the influence of subsequent photons shooting the investigated sample be described with only one equation?
+	\item The theory which is linking the Hilbert transform with nonlinear optical models should be more deeply investigated. How can the influence of subsequent photons shooting the investigated sample be described with only one equation?
 	\item Many literature models should be validated and a list of both valid and invalid models should be publicated.
 	\item The valid and proper tools for multi-dimensional Hilbert transform should be prepared
 \end{itemize}
@@ -3630,20 +3207,15 @@ What should be the continuation of this work?
 Other open questions:
 1. Should we always use the Fourier transform when translating between the time-domain and the frequency domain?
 
-2. As the linear model in optical research is quite well described, we need to prepare tools for the nonlinear calculations, which
-involve operating on the two-dimensional data sets. There are algorithms like 2D-FFT, 2D-FHT, maybe there also can be an algorithm
-for 2D-hilbert transform.
+2. As the linear model in optical research is quite well described, we need to prepare tools for the nonlinear calculations, which involve operating on the two-dimensional data sets. There are algorithms like 2D-FFT, 2D-FHT, maybe there also can be an algorithm for 2D-hilbert transform.
 
 3. How to efficiently perform calculations for higher dimensional data (f.e. third-order or fifth-order nonlinear phenomena)?
 
-4. We need to make a further research on the topic of the harmonic analysis and Fourier analysis and its application to the
-spectral analysis.
+4. We need to make a further research on the topic of the harmonic analysis and Fourier analysis and its application to the spectral analysis.
 
 \section{Acknowledgements} \label{chap:acknowledgements}
 
-I would mostly thank Professor Marek Samoć for introducing me into the magical world of the nonlinear optics. In my opinion there
-is an important niche between this scientific domain and the numerical analysis, there are also many questions that I am asking now
-myself (beyond the scope of this thesis) and I would like to find answers in the future.
+I would mostly thank Professor Marek Samoć for introducing me into the magical world of the nonlinear optics. In my opinion there is an important niche between this scientific domain and the numerical analysis, there are also many questions that I am asking now myself (beyond the scope of this thesis) and I would like to find answers in the future.
 
 
 I would give my acknowledgements for many people from the Wrocław University of Technology, especially:
@@ -3687,12 +3259,10 @@ I would also like to thank all those, who has motivated me to finish this thesis
 \section{Published Results} \label{chap:published_results}
 
 
-K. Parjaszewski, M. Samoć, ''\textit{Understanding the Kramers-Kronig relations in nonlinear optics}'', PANIC 2010 Conference,
-Wrocław University of Technology
+K. Parjaszewski, M. Samoć, ''\textit{Understanding the Kramers-Kronig relations in nonlinear optics}'', PANIC 2010 Conference, Wrocław University of Technology
 
 
-K. Parjaszewski, M. Samoć,''\textit{Understanding and solving the Kramers-Kronig relations in nonlinear optics}'', PANIC 2011
-Conference, Wrocław University of Technology
+K. Parjaszewski, M. Samoć,''\textit{Understanding and solving the Kramers-Kronig relations in nonlinear optics}'', PANIC 2011 Conference, Wrocław University of Technology
 
 
 More info: http://www.organometallics.pwr.wroc.pl/
@@ -4553,14 +4123,7 @@ More info: http://www.organometallics.pwr.wroc.pl/
 \section*{Appendix B - ZScan Measurements} \label{chap:zscan}
 \subsection*{Appendix B.1 - Overview of the z-scan technique} \label{chap:zscan_overview}
 
-One of the most important questions being the major motivation of this thesis is how the theory of Hilbert transform or the
-Kramers-Kronig relations can be applied to the data measured with the standard ''open aperture'' and ''closed aperture'' z-scan
-technique. In this chapter we will describe the process of data collection and its translation into the nonlinear absorption
-coefficient spectra and nonlinear refraction index spectra. As mentioned before, since summer 2010 we have set up the femto-second
-($1$ fs = $10^{-15}$ s) z-scan system using a Quantronix Integra regenerative amplifier operating at 1 kHz and providing
-approximately 1 mJ, 100 fs, 800 nanometer ($1$ nm = $10^{-9}$ m) pulses. It is used as a pump to the Palitra optical parametric amplifier,
-which, using several different frequency mixing schemes, can provide the coverage of the 450 - 2000 nm wavelength range. The best way to
-describe this set up will be to use Figure (\ref{fig:zscan_sch}) and Figure (\ref{fig:zscan_diag}).
+One of the most important questions being the major motivation of this thesis is how the theory of Hilbert transform or the Kramers-Kronig relations can be applied to the data measured with the standard ''open aperture'' and ''closed aperture'' z-scan technique. In this chapter we will describe the process of data collection and its translation into the nonlinear absorption coefficient spectra and nonlinear refraction index spectra. As mentioned before, since summer 2010 we have set up the femto-second ($1$ fs = $10^{-15}$ s) z-scan system using a Quantronix Integra regenerative amplifier operating at 1 kHz and providing approximately 1 mJ, 100 fs, 800 nanometer ($1$ nm = $10^{-9}$ m) pulses. It is used as a pump to the Palitra optical parametric amplifier, which, using several different frequency mixing schemes, can provide the coverage of the 450 - 2000 nm wavelength range. The best way to describe this set up will be to use Figure (\ref{fig:zscan_sch}) and Figure (\ref{fig:zscan_diag}).
 
 \begin{figure}
  \includegraphics{img/zscan_sch.png}
@@ -4575,6 +4138,7 @@ describe this set up will be to use Figure (\ref{fig:zscan_sch}) and Figure (\re
 \end{figure}
 
 \subsubsection*{Legend for Figures (\ref{fig:zscan_sch}) and (\ref{fig:zscan_diag})} 
+
 Overview of the main measurement part of the z-scan set-up built at the Wrocław University of Technology and being used since summer 2010.
  
 \begin{enumerate}[(a)]
@@ -4589,12 +4153,7 @@ Overview of the main measurement part of the z-scan set-up built at the Wrocław
 \end{enumerate}
 
 
-The inventor of the z-scan technique was the Professor Mansoor Sheik-Bahae in 1989 \cite{bahae_sensitive} and since then many variants of this
-technique have been deployed ``EZ-Scan", ``White Light z-scan", ``Excite-Probe z-scan" \cite{newport_application}. In a short
-description - the z-scan technique uses a single laser beam, a mobile stage and two detectors - for the open and closed aperture.
-Using physical model - we can relate the open-aperture results with the nonlinear absorption and the closed-aperture with the
-nonlinear refraction index. The mobile stage moves the sample through the position focal point of the focusing lens. We therefore obtain
-two diagrams - shown on (\ref{fig:zscan_sch}) and (\ref{fig:zscan_diag}).
+The inventor of the z-scan technique was the Professor Mansoor Sheik-Bahae in 1989 \cite{bahae_sensitive} and since then many variants of this technique have been deployed ``EZ-Scan", ``White Light z-scan", ``Excite-Probe z-scan" \cite{newport_application}. In a short description - the z-scan technique uses a single laser beam, a mobile stage and two detectors - for the open and closed aperture. Using physical model - we can relate the open-aperture results with the nonlinear absorption and the closed-aperture with the nonlinear refraction index. The mobile stage moves the sample through the position focal point of the focusing lens. We therefore obtain two diagrams - shown on (\ref{fig:zscan_sch}) and (\ref{fig:zscan_diag}).
 
 
 \begin{figure}
@@ -4615,10 +4174,7 @@ two diagrams - shown on (\ref{fig:zscan_sch}) and (\ref{fig:zscan_diag}).
     \label{fig:ca_plot}}
 \end{figure}
 
-We must hereby stress that what we obtain with one z-scan measurement is only half a way to calculate one point in the nonlinear
-spectrum plot - because a typical sample is held inside a silica cuvette and is soluted in some solution (for example chloroform or
-toluene). So firstly we must measure the solution and an empty silica cuvette z-scan transmittance plots for each monochromatic
-wavelength and after so - perform the z-scan experiment on the investigated sample. 
+We must hereby stress that what we obtain with one z-scan measurement is only half a way to calculate one point in the nonlinear spectrum plot - because a typical sample is held inside a silica cuvette and is soluted in some solution (for example chloroform or toluene). So firstly we must measure the solution and an empty silica cuvette z-scan transmittance plots for each monochromatic wavelength and after so - perform the z-scan experiment on the investigated sample. 
 
 \subsection*{Appendix B.2 - Overview of the derivation} \label{chap:zscan_derivation}
 
@@ -4645,18 +4201,11 @@ with the following parameters used:
    $Z$ & - position of sample with respect to the focal position \\
 \end{tabular}
 
-We obtain the two-photon absorption coefficient while standard (f.e. least squares) fitting the measured open-aperture $\beta $ 
-plot. This is of course also not the complete truth, because with some advanced models we can obtain other absorptive
-nonlinearities. In a short description - the multi-photon absorption can be assumed when the closed-aperture peak is suppressed,
-but unfortunately the absorption saturation has just got the opposite effect. So the z-scan technique gives only the simple
-information about the nonlinear absorption processes.
+We obtain the two-photon absorption coefficient while standard (f.e. least squares) fitting the measured open-aperture $\beta $  plot. This is of course also not the complete truth, because with some advanced models we can obtain other absorptive nonlinearities. In a short description - the multi-photon absorption can be assumed when the closed-aperture peak is suppressed, but unfortunately the absorption saturation has just got the opposite effect. So the z-scan technique gives only the simple information about the nonlinear absorption processes.
 
 \subsubsection*{Calculation of the nonlinear refraction index:}
 
-On Figure (\ref{fig:ca_plot}) we can see the closed-aperture transmittance plot with respect to the sample position Z. It has a
-characteristic shape of peak trailing the valley or the valley trailing the peak if the ${n_{2}}$ sign is negative. What now
-interests us, is the difference between the peak and valley amplitude - we will call it $\Delta \,{T_{pv}}$. From this difference
-we can calculate the on-axis peak nonlinear phase shift with sample at focus $\Delta \,{\Phi_{0}}$
+On Figure (\ref{fig:ca_plot}) we can see the closed-aperture transmittance plot with respect to the sample position Z. It has a characteristic shape of peak trailing the valley or the valley trailing the peak if the ${n_{2}}$ sign is negative. What now interests us, is the difference between the peak and valley amplitude - we will call it $\Delta \,{T_{pv}}$. From this difference we can calculate the on-axis peak nonlinear phase shift with sample at focus $\Delta \,{\Phi_{0}}$
 
 \begin{equation} \label{eq:nlo_onaxisshift}
   \left| \! \,\Delta \,{\Phi_{0}}\, \!  \right| =\frac {\Delta \,{T_{pv}}}{0.407}\,(1 - S)^{0.27},
@@ -4681,33 +4230,24 @@ where:
   $\lambda $  & - laser wavelength \\
 \end{tabular}
 
-With data points collected for each wavelength we may obtain the full spectral plot for both nonlinear absorption coefficient and
-nonlinear refraction index - due to the z-scan measurements.
+With data points collected for each wavelength we may obtain the full spectral plot for both nonlinear absorption coefficient and nonlinear refraction index - due to the z-scan measurements.
 
 \subsection*{Appendix B.3 - Definition of the main problems} \label{chap:zscan_problems}
 
-A typical z-scan experiment consists of the measurement routines with number of more or less around 15-20 different wavelength. One
-z-scan measurement usually takes between 5 to 10 minutes and together with:
+A typical z-scan experiment consists of the measurement routines with number of more or less around 15-20 different wavelength. One z-scan measurement usually takes between 5 to 10 minutes and together with:
 \begin{enumerate}[(a)]
   \item long laser calibration process after each change of wavelength
   \item silica and empty-solution measurement
   \item measurement of a typical set of 10-20 measured cuvette samples 
 \end{enumerate}
 
-The main problems in the z-scan technique concerns the huge amount of time required for one experiment and a dozen factors of uncertainty
-for each measurement. Tt may take many days or even weeks to complete one measurement - so even a simple one routine is a time-demanding
-process and therefore we would like to get as more information from one experiment as possible.
-Scientists are very interested in optimization of the z-scan method. The physical theory requires better understanding of the process and
-results requires the better numerical precision, because the general error cumulates with the laser non stability, method
-approximation error, fitting and numerical calculations error.
+The main problems in the z-scan technique concerns the huge amount of time required for one experiment and a dozen factors of uncertainty for each measurement. Tt may take many days or even weeks to complete one measurement - so even a simple one routine is a time-demanding process and therefore we would like to get as more information from one experiment as possible. Scientists are very interested in optimization of the z-scan method. The physical theory requires better understanding of the process and results requires the better numerical precision, because the general error cumulates with the laser non stability, method approximation error, fitting and numerical calculations error.
 
-A typical plot containing the z-scan measurement for the close aperture, open aperture and the laser reference is shown in Figure
-(\ref{fig:zscan_both}).
+A typical plot containing the z-scan measurement for the close aperture, open aperture and the laser reference is shown in Figure (\ref{fig:zscan_both}).
 
 \begin{figure} 
   \includegraphics{img/zscan_both.png}
-  \caption{A typical plot for both close and open aperture with respect to the sample position Z and with the fit spline line
-  \label{fig:zscan_both}} 
+  \caption{A typical plot for both close and open aperture with respect to the sample position Z and with the fit spline line \label{fig:zscan_both}} 
 \end{figure}
 
 \end{document} 
