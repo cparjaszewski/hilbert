@@ -465,7 +465,7 @@ In this subsection we will shortly describe the time-resolved processes which al
 
 \subsubsection*{Pump-and-probe process} \label{chap:physical_pnp}
 
-The laser is typically a source of a high-energy input signal. In a typical pump-and-probe process we use two laser beams. One of them is a strong input and we name it the 'pump'. The second input - the 'probe' - is much less intense. We try to synchronise these two laser beams in the following way - firstly a pump input hits the matter sample with its strong intensity - causing modifications in the matter properties. Shortly after that - within a time period $\Delta \, t$ - a low-intensity probe input hits the modified sample and its properties are measured through a detector. In a typical experiment the $\Delta \, t$ time period should be adjustable. There are various types of pump-probe experiments, for example one can detect changes of the amplitude of the matter response signal. The schematic diagram of a pump-and-probe experiment is shown in Figure (\ref{fig:physical_pnp_fig}).
+The laser is typically a source of a high-energy input signal. In a typical pump-and-probe process we use two laser beams. One of them is a strong input and we name it the 'pump'. The second input, the 'probe', is much less intense. We try to synchronise these two laser beams in the following way -- firstly a pump input hits the matter sample with its strong intensity, causing modifications in the matter properties. Shortly after that, within a time period $\Delta \, t$, a low-intensity probe input hits the modified sample and its properties are measured through a detector. In a typical experiment the $\Delta \, t$ time period should be adjustable. There are various types of pump-probe experiments, for example one can detect changes of the amplitude of the matter response signal. The schematic diagram of a pump-and-probe experiment is shown in Figure (\ref{fig:physical_pnp_fig}).
 
 \begin{figure} 
 	\begin{center}
@@ -493,7 +493,7 @@ In the equation (\ref{eq:physical_pnp_equation}) we have introduced a whole bran
 	$ \theta $      & $ = $ & $  \theta ( T_{1} )$, \\
 \end{tabular}
 
-The pump relaxation time depends on the time period between $( \Delta_1 \, t)$ input pulses:
+The pump relaxation time depends on the time period $( \Delta_1 \, t)$ between input pulses:
 
 \begin{equation} \label{eq:physical_periodtime}
    T_{1} =  T_{1} ( \Delta_1 \, t).
@@ -506,7 +506,7 @@ We can now easily deduce that also the pump-and-probe nonlinear susceptibility d
   \chi_{pp} = \chi_{pp} (\delta , \Delta_1 \, t).
 \end{equation} 
 
-In sense of the response theory this observation leads us to the conclusion, that the susceptibility of the nonlinear process depends not only on the input signal frequency (energy) - but also on the time delay between the moments, when two or more photons arrive at the molecule. We are talking about an important problem in nonlinear optics which is constructing a valid model for the pump-and-probe process - to allow us to use the Titchmarsh theorem. 
+In sense of the response theory this observation leads us to the conclusion, that the susceptibility of the nonlinear process depends not only on the input signal frequency (energy) - but also on the time delay between the moments, when two or more photons arrive at the molecule. We are talking about an important problem in nonlinear optics which is to construct a valid model for the pump-and-probe process - to allow us to use the Titchmarsh theorem. 
 
 In \cite{christodoulides_nonlinear} we can find results showing that the probe signal absorbance depends not only on the pump signal properties, but also on the time delay between the pump and probe - see Figure (\ref{physical_fig:pnp_absorption}).
 
@@ -521,7 +521,7 @@ In \cite{christodoulides_nonlinear} we can find results showing that the probe s
 More interesting results come when we assume that susceptibility is a complex function of two parameters, both the pump and probe signal frequency:
 
 \begin{equation} \label{eq:pnp_2args}
-  \chi_{pp} = \chi_{pp}(\delta, \Delta_1 \, t \, (\text{ const }), \,\Delta )
+  \chi_{pp} = \chi_{pp}(\delta, \Delta_1 \, t , \,\Delta ), \ \ \ \Delta_1 \, t \text{ is const}
 \end{equation}
 
 Therefore we obtain the three dimensional plots presented on Figures (\ref{fig:physical_pnp_2d}) and (\ref{fig:physical_pnp_3d}).
@@ -548,32 +548,34 @@ The frequency mixing is a general class of processes where we have two or more i
 	\end{center}
 \end{figure}
 
-For such a process the model for the linear susceptibilities has been defined by Boyd for both $\omega  + \delta $ and $\omega  - \delta $ frequencies, where $T_1$, $T_2$ and $\Delta$ are time-related variables, assumed constant in this thesis:
+For such a process the model for the linear susceptibilities has been defined by Boyd for both $\omega  + \delta $ and $\omega  - \delta $ frequencies:
 
 \begin{subequations} \label{eq:fmix_eff1}
   \begin{equation}   \label{eq:feff1_plus}
-    \chi_{eff, 1}(\omega + \delta, T_1 \text{\tiny{ = const}}, T_2 \text{\tiny{ = const}}, \Delta \text{\tiny{ = const}}) = \frac { (\frac
-    {i}{{T_{1}}} + \delta ) \text{ const } }{\mathrm{D}(\delta )} \left(   \frac {i}{{T_{2}}} + \delta - \Delta - \frac {\Omega ^{2}\,\delta
+    \chi_{eff, 1}(\omega + \delta, T_1, T_2, \Delta ) = \frac { (\frac
+    {i}{{T_{1}}} + \delta ) \times \text{ const } }{\mathrm{D}(\delta )} \left(   \frac {i}{{T_{2}}} + \delta - \Delta - \frac {\Omega ^{2}\,\delta
     }{2 (\Delta - \frac {i}{{T_{2}}})} \right) ,
   \end{equation}
   \begin{equation}   \label{eq:feff1_minus}
-    \chi_{eff, 1}(\omega - \delta, T_1 \text{\tiny{ = const} }, T_2 \text{\tiny{ = const}}, \Delta \text{\tiny{ = const }}) =
-     \frac {( \frac{i}{{T_{1}}} - \delta ) \text{ const }}{ \mathrm{D}(\delta )} \left(  \frac {i}{{T_{2}}}  - \delta  - \Delta + \frac
-     {\Omega ^{2}\,\delta }{2 (\Delta  - \frac {i}{{T_{2}}})}  \right).
+    \chi_{eff, 1}(\omega - \delta, T_1, T_2, \Delta ) =
+     \frac {( \frac{i}{{T_{1}}} - \delta ) \times \text{ const }}{ \mathrm{D}(\delta )} \left(  \frac {i}{{T_{2}}}  - \delta  - \Delta + \frac
+     {\Omega ^{2}\,\delta }{2 (\Delta  - \frac {i}{{T_{2}}})}  \right),
   \end{equation}
 \end{subequations}
+
+where we assume $T_1, T_2, \Delta $ to be constant.
 
 Boyd also derives the third-order nonlinear susceptibilities for both $\omega  + \delta $ and $\omega  - \delta $ frequencies (we assume $T_1$, $T_2$ and $\Delta$ to be constant time variables).
 
 \begin{subequations} \label{eq:fmix_eff3}
   \begin{equation}   \label{eq:feff3_plus}
      \chi_{eff, \,3} (\omega + \delta = \omega + \omega - (\omega  - \delta )) =
-      \frac { ( - \delta  - \Delta  - \frac {i}{{T_{2}}})\,(\delta  + \frac {2\,i}{{T_{2}}})\text{ const }}{(\Delta
+      \frac { ( - \delta  - \Delta  - \frac {i}{{T_{2}}})\,(\delta  + \frac {2\,i}{{T_{2}}}) \times \text{ const }}{(\Delta
       + \frac {i}{{T_{2}}})\, ( \Delta  + \delta  + \frac {i}{{T_{2}}})\,{\mathrm{D}}^{*}(\delta)},
   \end{equation}
   \begin{equation}   \label{eq:feff3_minus}
      \chi_{eff, \,3} (\omega - \delta = \omega + \omega - (\omega  + \delta )) = \frac { (\delta  -
-     \Delta  - \frac {i}{{T_{2}}})\,( - \delta  + \frac {2\,i}{{T_{2}}}) \text{ const } } {(\Delta  + \frac {i}{{T_{2}}})
+     \Delta  - \frac {i}{{T_{2}}})\,( - \delta  + \frac {2\,i}{{T_{2}}})  \times  \text{ const } } {(\Delta  + \frac {i}{{T_{2}}})
      \,(\Delta  - \delta  + \frac {i}{{T_{2}}})\,{\mathrm{D}}^{*}(\delta )}.
   \end{equation}
 \end{subequations}
