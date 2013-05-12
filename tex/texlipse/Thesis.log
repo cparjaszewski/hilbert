@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.5.11)  12 MAY 2013 11:50
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.5.11)  12 MAY 2013 14:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1370,14 +1370,14 @@ Package pdftex.def Info: ./../img/htran_lin.png used on input line 1090.
 File: ./../img/htran_pnp_2d.png Graphic file (type png)
 
 <use ./../img/htran_pnp_2d.png>
-Package pdftex.def Info: ./../img/htran_pnp_2d.png used on input line 1116.
+Package pdftex.def Info: ./../img/htran_pnp_2d.png used on input line 1118.
 (pdftex.def)             Requested size: 426.79134pt x 232.85013pt.
 
 <./../img/htran_pnp_3derr.png, id=147, 338.76563pt x 268.75406pt>
 File: ./../img/htran_pnp_3derr.png Graphic file (type png)
 
 <use ./../img/htran_pnp_3derr.png>
-Package pdftex.def Info: ./../img/htran_pnp_3derr.png used on input line 1132.
+Package pdftex.def Info: ./../img/htran_pnp_3derr.png used on input line 1134.
 (pdftex.def)             Requested size: 338.76479pt x 268.7534pt.
  [28] [29 <./../img/htran_lin.png>] [30 <./../img/htran_pnp_2d.png> <./../img/h
 tran_pnp_3derr.png>]
@@ -1385,14 +1385,14 @@ tran_pnp_3derr.png>]
 File: ./../img/htran_fmix_2d.png Graphic file (type png)
 
 <use ./../img/htran_fmix_2d.png>
-Package pdftex.def Info: ./../img/htran_fmix_2d.png used on input line 1169.
+Package pdftex.def Info: ./../img/htran_fmix_2d.png used on input line 1182.
 (pdftex.def)             Requested size: 426.79134pt x 250.59763pt.
 
 <./../img/htran_fmix_3derr.png, id=167, 371.13657pt x 293.59688pt>
 File: ./../img/htran_fmix_3derr.png Graphic file (type png)
 
 <use ./../img/htran_fmix_3derr.png>
-Package pdftex.def Info: ./../img/htran_fmix_3derr.png used on input line 1182.
+Package pdftex.def Info: ./../img/htran_fmix_3derr.png used on input line 1195.
 
 (pdftex.def)             Requested size: 371.13565pt x 293.59615pt.
  [31 <./../img/htran_fmix_2d.png>] [32 <./../img/htran_fmix_3derr.png>]
@@ -1400,350 +1400,362 @@ Package pdftex.def Info: ./../img/htran_fmix_3derr.png used on input line 1182.
 File: ./../img/htran_qp_2da.png Graphic file (type png)
 
 <use ./../img/htran_qp_2da.png>
-Package pdftex.def Info: ./../img/htran_qp_2da.png used on input line 1212.
+Package pdftex.def Info: ./../img/htran_qp_2da.png used on input line 1225.
 (pdftex.def)             Requested size: 199.16928pt x 192.45222pt.
 
 <./../img/htran_qp_2db.png, id=178, 413.29407pt x 431.36156pt>
 File: ./../img/htran_qp_2db.png Graphic file (type png)
 
 <use ./../img/htran_qp_2db.png>
-Package pdftex.def Info: ./../img/htran_qp_2db.png used on input line 1213.
+Package pdftex.def Info: ./../img/htran_qp_2db.png used on input line 1226.
 (pdftex.def)             Requested size: 199.16928pt x 207.88052pt.
 
 <./../img/htran_qp_3d.png, id=179, 842.39719pt x 490.08093pt>
 File: ./../img/htran_qp_3d.png Graphic file (type png)
 
 <use ./../img/htran_qp_3d.png>
-Package pdftex.def Info: ./../img/htran_qp_3d.png used on input line 1247.
+Package pdftex.def Info: ./../img/htran_qp_3d.png used on input line 1260.
 (pdftex.def)             Requested size: 426.79134pt x 248.2928pt.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1258.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1271.
 
  [33 <./../img/htran_qp_2da.png> <./../img/htran_qp_2db.png>] [34 <./../img/htr
-an_qp_3d.png>] <./../img/nc_lin1.png, id=191, 541.27219pt x 280.04625pt>
+an_qp_3d.png>]
+<./../img/nc_lin1.png, id=191, 541.27219pt x 280.04625pt>
 File: ./../img/nc_lin1.png Graphic file (type png)
 
 <use ./../img/nc_lin1.png>
-Package pdftex.def Info: ./../img/nc_lin1.png used on input line 1319.
+Package pdftex.def Info: ./../img/nc_lin1.png used on input line 1328.
 (pdftex.def)             Requested size: 426.79134pt x 220.82387pt.
 
 <./../img/nc_lin2.png, id=192, 530.73282pt x 274.77657pt>
 File: ./../img/nc_lin2.png Graphic file (type png)
 
 <use ./../img/nc_lin2.png>
-Package pdftex.def Info: ./../img/nc_lin2.png used on input line 1334.
+Package pdftex.def Info: ./../img/nc_lin2.png used on input line 1343.
 (pdftex.def)             Requested size: 426.79134pt x 220.96616pt.
 
 <./../img/nc_lin3.png, id=193, 504.38437pt x 268.75406pt>
 File: ./../img/nc_lin3.png Graphic file (type png)
 
 <use ./../img/nc_lin3.png>
-Package pdftex.def Info: ./../img/nc_lin3.png used on input line 1349.
+Package pdftex.def Info: ./../img/nc_lin3.png used on input line 1358.
 (pdftex.def)             Requested size: 426.79134pt x 227.4127pt.
 
 <./../img/nc_lin4.png, id=194, 529.98pt x 277.035pt>
 File: ./../img/nc_lin4.png Graphic file (type png)
 
 <use ./../img/nc_lin4.png>
-Package pdftex.def Info: ./../img/nc_lin4.png used on input line 1364.
+Package pdftex.def Info: ./../img/nc_lin4.png used on input line 1373.
 (pdftex.def)             Requested size: 426.79134pt x 223.09937pt.
 
-
-LaTeX Warning: Reference `eq:htran_fparameters' on page 35 undefined on input l
-ine 1382.
-
-[35] [36 <./../img/nc_lin1.png> <./../img/nc_lin2.png>] [37 <./../img/nc_lin3.p
-ng> <./../img/nc_lin4.png>]
-<./../img/nc_pnp.png, id=210, 1560.5803pt x 622.57594pt>
+<./../img/nc_pnp.png, id=195, 1560.5803pt x 622.57594pt>
 File: ./../img/nc_pnp.png Graphic file (type png)
 
 <use ./../img/nc_pnp.png>
-Package pdftex.def Info: ./../img/nc_pnp.png used on input line 1387.
+Package pdftex.def Info: ./../img/nc_pnp.png used on input line 1397.
 (pdftex.def)             Requested size: 426.79134pt x 170.26369pt.
 
-<./../img/nc_fmix1.png, id=211, 528.47438pt x 274.77657pt>
+<./../img/nc_fmix1.png, id=196, 528.47438pt x 274.77657pt>
 File: ./../img/nc_fmix1.png Graphic file (type png)
 
 <use ./../img/nc_fmix1.png>
-Package pdftex.def Info: ./../img/nc_fmix1.png used on input line 1403.
+Package pdftex.def Info: ./../img/nc_fmix1.png used on input line 1413.
 (pdftex.def)             Requested size: 426.79134pt x 221.90533pt.
+ [35] [36 <./../img/nc_lin1.png> <./../img/nc_lin2.png>] [37 <./../img/nc_lin3.
+png> <./../img/nc_lin4.png>] [38 <./../img/nc_pnp.png> <./../img/nc_fmix1.png>]
 
-<./../img/nc_qp1.png, id=212, 832.61063pt x 291.33844pt>
+<./../img/nc_qp1.png, id=217, 832.61063pt x 291.33844pt>
 File: ./../img/nc_qp1.png Graphic file (type png)
 
 <use ./../img/nc_qp1.png>
-Package pdftex.def Info: ./../img/nc_qp1.png used on input line 1453.
+Package pdftex.def Info: ./../img/nc_qp1.png used on input line 1437.
 (pdftex.def)             Requested size: 426.79134pt x 149.3408pt.
- [38 <./../img/nc_pnp.png>] [39 <./../img/nc_fmix1.png> <./../img/nc_qp1.png>]
-<./../img/nc_quantum2.png, id=222, 1605.74907pt x 627.84563pt>
+
+<./../img/nc_quantum2.png, id=218, 1605.74907pt x 627.84563pt>
 File: ./../img/nc_quantum2.png Graphic file (type png)
 
 <use ./../img/nc_quantum2.png>
-Package pdftex.def Info: ./../img/nc_quantum2.png used on input line 1519.
+Package pdftex.def Info: ./../img/nc_quantum2.png used on input line 1459.
 (pdftex.def)             Requested size: 426.79134pt x 166.87646pt.
-
-Underfull \vbox (badness 2293) has occurred while \output is active []
-
- [40 <./../img/nc_quantum2.png>] [41]
-<./../img/cci_bigger_interval.png, id=230, 427.5975pt x 118.19156pt>
+ [39 <./../img/nc_qp1.png>] [40 <./../img/nc_quantum2.png>]
+<./../img/cci_bigger_interval.png, id=227, 427.5975pt x 118.19156pt>
 File: ./../img/cci_bigger_interval.png Graphic file (type png)
 
 <use ./../img/cci_bigger_interval.png>
-Package pdftex.def Info: ./../img/cci_bigger_interval.png used on input line 16
-11.
+Package pdftex.def Info: ./../img/cci_bigger_interval.png used on input line 15
+50.
 (pdftex.def)             Requested size: 426.79134pt x 117.96944pt.
- [42 <./../img/cci_bigger_interval.png>]
-[43] <./../img/hcc_lin1.png, id=239, 767.11594pt x 604.50844pt>
+ [41] [42 <./../img/cci_bigger_interval.png>] <./../img/hcc_lin1.png, id=235, 7
+67.11594pt x 604.50844pt>
 File: ./../img/hcc_lin1.png Graphic file (type png)
 
 <use ./../img/hcc_lin1.png>
-Package pdftex.def Info: ./../img/hcc_lin1.png used on input line 1704.
+Package pdftex.def Info: ./../img/hcc_lin1.png used on input line 1643.
 (pdftex.def)             Requested size: 426.79134pt x 336.32709pt.
 
-<./../img/hcc_lin2.png, id=240, 755.82375pt x 599.23875pt>
+<./../img/hcc_lin2.png, id=236, 755.82375pt x 599.23875pt>
 File: ./../img/hcc_lin2.png Graphic file (type png)
 
 <use ./../img/hcc_lin2.png>
-Package pdftex.def Info: ./../img/hcc_lin2.png used on input line 1714.
+Package pdftex.def Info: ./../img/hcc_lin2.png used on input line 1653.
 (pdftex.def)             Requested size: 426.79134pt x 338.36937pt.
 
-<./../img/hcc_pnp.png, id=241, 1582.41188pt x 636.87938pt>
+<./../img/hcc_pnp.png, id=237, 1582.41188pt x 636.87938pt>
 File: ./../img/hcc_pnp.png Graphic file (type png)
 
 <use ./../img/hcc_pnp.png>
-Package pdftex.def Info: ./../img/hcc_pnp.png used on input line 1728.
+Package pdftex.def Info: ./../img/hcc_pnp.png used on input line 1667.
 (pdftex.def)             Requested size: 426.79134pt x 171.76537pt.
 
-<./../img/hcc_fmix.png, id=242, 1601.2322pt x 606.01407pt>
+<./../img/hcc_fmix.png, id=238, 1601.2322pt x 606.01407pt>
 File: ./../img/hcc_fmix.png Graphic file (type png)
 
 <use ./../img/hcc_fmix.png>
-Package pdftex.def Info: ./../img/hcc_fmix.png used on input line 1743.
+Package pdftex.def Info: ./../img/hcc_fmix.png used on input line 1682.
 (pdftex.def)             Requested size: 426.79134pt x 161.5269pt.
 
-<./../img/hcc_qp1.png, id=243, 1551.54657pt x 627.09282pt>
+<./../img/hcc_qp1.png, id=239, 1551.54657pt x 627.09282pt>
 File: ./../img/hcc_qp1.png Graphic file (type png)
 
 <use ./../img/hcc_qp1.png>
-Package pdftex.def Info: ./../img/hcc_qp1.png used on input line 1789.
+Package pdftex.def Info: ./../img/hcc_qp1.png used on input line 1728.
 (pdftex.def)             Requested size: 426.79134pt x 172.49411pt.
- [44] [45 <./../img/hcc_lin1.png>] [46 <./../img/hcc_lin2.png> <./../img/hcc_pn
+ [43] [44 <./../img/hcc_lin1.png>] [45 <./../img/hcc_lin2.png> <./../img/hcc_pn
 p.png>]
-<./../img/hcc_qp2.png, id=256, 1568.10844pt x 642.14906pt>
+
+LaTeX Warning: Reference `eq:nclin_chipp2' on page 46 undefined on input line 1
+744.
+
+
+LaTeX Warning: Reference `eq:nclin_const2' on page 46 undefined on input line 1
+744.
+
+<./../img/hcc_qp2.png, id=253, 1568.10844pt x 642.14906pt>
 File: ./../img/hcc_qp2.png Graphic file (type png)
 
 <use ./../img/hcc_qp2.png>
-Package pdftex.def Info: ./../img/hcc_qp2.png used on input line 1808.
+Package pdftex.def Info: ./../img/hcc_qp2.png used on input line 1747.
 (pdftex.def)             Requested size: 426.79134pt x 174.77393pt.
- [47 <./../img/hcc_fmix.png>] [48 <./../img/hcc_qp1.png> <./../img/hcc_qp2.png>
-] [49] [50] [51]
-<./../img/fht_lin.png, id=278, 800.9925pt x 300.3722pt>
+ [46 <./../img/hcc_fmix.png>] [47 <./../img/hcc_qp1.png> <./../img/hcc_qp2.png>
+] [48] [49] [50]
+<./../img/fht_lin.png, id=275, 800.9925pt x 300.3722pt>
 File: ./../img/fht_lin.png Graphic file (type png)
 
 <use ./../img/fht_lin.png>
-Package pdftex.def Info: ./../img/fht_lin.png used on input line 2119.
+Package pdftex.def Info: ./../img/fht_lin.png used on input line 2058.
 (pdftex.def)             Requested size: 426.79134pt x 160.04898pt.
- [52]
-<./../img/fht_pnp.png, id=282, 772.38562pt x 312.41719pt>
+ [51]
+<./../img/fht_pnp.png, id=279, 772.38562pt x 312.41719pt>
 File: ./../img/fht_pnp.png Graphic file (type png)
 
 <use ./../img/fht_pnp.png>
-Package pdftex.def Info: ./../img/fht_pnp.png used on input line 2137.
+Package pdftex.def Info: ./../img/fht_pnp.png used on input line 2076.
 (pdftex.def)             Requested size: 426.79134pt x 172.63084pt.
 
-<./../img/fht_fmix.png, id=283, 763.35187pt x 298.86656pt>
+<./../img/fht_fmix.png, id=280, 763.35187pt x 298.86656pt>
 File: ./../img/fht_fmix.png Graphic file (type png)
 
 <use ./../img/fht_fmix.png>
-Package pdftex.def Info: ./../img/fht_fmix.png used on input line 2152.
+Package pdftex.def Info: ./../img/fht_fmix.png used on input line 2091.
 (pdftex.def)             Requested size: 426.79134pt x 167.09506pt.
 
-<./../img/fht_qp1.png, id=284, 761.09344pt x 301.125pt>
+<./../img/fht_qp1.png, id=281, 761.09344pt x 301.125pt>
 File: ./../img/fht_qp1.png Graphic file (type png)
 
 <use ./../img/fht_qp1.png>
-Package pdftex.def Info: ./../img/fht_qp1.png used on input line 2195.
+Package pdftex.def Info: ./../img/fht_qp1.png used on input line 2134.
 (pdftex.def)             Requested size: 426.79134pt x 168.86317pt.
- [53 <./../img/fht_lin.png>] [54 <./../img/fht_pnp.png> <./../img/fht_fmix.png>
-]
-<./../img/fht_qp2.png, id=294, 776.9025pt x 303.38344pt>
+
+
+LaTeX Warning: Reference `eq:nclin_chipp2' on page 52 undefined on input line 2
+150.
+
+[52 <./../img/fht_lin.png>] [53 <./../img/fht_pnp.png> <./../img/fht_fmix.png>]
+<./../img/fht_qp2.png, id=291, 776.9025pt x 303.38344pt>
 File: ./../img/fht_qp2.png Graphic file (type png)
 
 <use ./../img/fht_qp2.png>
-Package pdftex.def Info: ./../img/fht_qp2.png used on input line 2231.
+Package pdftex.def Info: ./../img/fht_qp2.png used on input line 2170.
 (pdftex.def)             Requested size: 426.79134pt x 166.66698pt.
 
-Overfull \hbox (16.42596pt too wide) in paragraph at lines 2245--2245
+Overfull \hbox (16.42596pt too wide) in paragraph at lines 2184--2184
 []\OT4/cmr/bx/n/17.28 Hermite poly-no-mi-als based Hilbert trans-form - HHT 
  []
 
-[55 <./../img/fht_qp1.png>]
-<./../img/her_plots.png, id=300, 556.32843pt x 290.58563pt>
+[54 <./../img/fht_qp1.png>]
+<./../img/her_plots.png, id=296, 556.32843pt x 290.58563pt>
 File: ./../img/her_plots.png Graphic file (type png)
 
 <use ./../img/her_plots.png>
-Package pdftex.def Info: ./../img/her_plots.png used on input line 2305.
+Package pdftex.def Info: ./../img/her_plots.png used on input line 2244.
 (pdftex.def)             Requested size: 426.79134pt x 222.9269pt.
- [56 <./../img/fht_qp2.png>] [57 <./../img/her_plots.png>] [58] <./../img/hht_l
-in.png, id=312, 763.35187pt x 312.41719pt>
+ [55 <./../img/fht_qp2.png>] [56 <./../img/her_plots.png>] [57] <./../img/hht_l
+in.png, id=309, 763.35187pt x 312.41719pt>
 File: ./../img/hht_lin.png Graphic file (type png)
 
 <use ./../img/hht_lin.png>
-Package pdftex.def Info: ./../img/hht_lin.png used on input line 2465.
+Package pdftex.def Info: ./../img/hht_lin.png used on input line 2404.
 (pdftex.def)             Requested size: 426.79134pt x 174.67116pt.
 
-<./../img/hht_pnp.png, id=313, 779.16093pt x 309.40594pt>
+<./../img/hht_pnp.png, id=310, 779.16093pt x 309.40594pt>
 File: ./../img/hht_pnp.png Graphic file (type png)
 
 <use ./../img/hht_pnp.png>
-Package pdftex.def Info: ./../img/hht_pnp.png used on input line 2483.
+Package pdftex.def Info: ./../img/hht_pnp.png used on input line 2422.
 (pdftex.def)             Requested size: 426.79134pt x 169.47978pt.
 
-<./../img/hht_fmix.png, id=314, 775.39688pt x 304.88907pt>
+<./../img/hht_fmix.png, id=311, 775.39688pt x 304.88907pt>
 File: ./../img/hht_fmix.png Graphic file (type png)
 
 <use ./../img/hht_fmix.png>
-Package pdftex.def Info: ./../img/hht_fmix.png used on input line 2498.
+Package pdftex.def Info: ./../img/hht_fmix.png used on input line 2437.
 (pdftex.def)             Requested size: 426.79134pt x 167.81976pt.
- [59] [60 <./../img/hht_lin.png> <./../img/hht_pnp.png>] <./../img/hht_qp1.png,
- id=323, 774.64406pt x 306.39468pt>
+ [58] [59 <./../img/hht_lin.png> <./../img/hht_pnp.png>] <./../img/hht_qp1.png,
+ id=320, 774.64406pt x 306.39468pt>
 File: ./../img/hht_qp1.png Graphic file (type png)
 
 <use ./../img/hht_qp1.png>
-Package pdftex.def Info: ./../img/hht_qp1.png used on input line 2546.
+Package pdftex.def Info: ./../img/hht_qp1.png used on input line 2485.
 (pdftex.def)             Requested size: 426.79134pt x 168.81213pt.
- [61 <./../img/hht_fmix.png>]
-<./../img/hht_qp2.png, id=329, 765.6103pt x 310.15875pt>
+
+
+LaTeX Warning: Reference `eq:nclin_chipp2' on page 60 undefined on input line 2
+501.
+
+[60 <./../img/hht_fmix.png>]
+<./../img/hht_qp2.png, id=325, 765.6103pt x 310.15875pt>
 File: ./../img/hht_qp2.png Graphic file (type png)
 
 <use ./../img/hht_qp2.png>
-Package pdftex.def Info: ./../img/hht_qp2.png used on input line 2582.
+Package pdftex.def Info: ./../img/hht_qp2.png used on input line 2521.
 (pdftex.def)             Requested size: 426.79134pt x 172.89735pt.
- [62 <./../img/hht_qp1.png>] [63 <./../img/hht_qp2.png>] <./../img/four_lin.png
-, id=338, 773.13844pt x 307.1475pt>
+ [61 <./../img/hht_qp1.png>] [62 <./../img/hht_qp2.png>] <./../img/four_lin.png
+, id=335, 773.13844pt x 307.1475pt>
 File: ./../img/four_lin.png Graphic file (type png)
 
 <use ./../img/four_lin.png>
-Package pdftex.def Info: ./../img/four_lin.png used on input line 2661.
+Package pdftex.def Info: ./../img/four_lin.png used on input line 2600.
 (pdftex.def)             Requested size: 426.79134pt x 169.55496pt.
 
-<./../img/four_pnp.png, id=339, 761.09344pt x 303.38344pt>
+<./../img/four_pnp.png, id=336, 761.09344pt x 303.38344pt>
 File: ./../img/four_pnp.png Graphic file (type png)
 
 <use ./../img/four_pnp.png>
-Package pdftex.def Info: ./../img/four_pnp.png used on input line 2679.
+Package pdftex.def Info: ./../img/four_pnp.png used on input line 2618.
 (pdftex.def)             Requested size: 426.79134pt x 170.12965pt.
 
-<./../img/four_fmix.png, id=340, 768.62157pt x 304.13625pt>
+<./../img/four_fmix.png, id=337, 768.62157pt x 304.13625pt>
 File: ./../img/four_fmix.png Graphic file (type png)
 
 <use ./../img/four_fmix.png>
-Package pdftex.def Info: ./../img/four_fmix.png used on input line 2694.
+Package pdftex.def Info: ./../img/four_fmix.png used on input line 2633.
 (pdftex.def)             Requested size: 426.79134pt x 168.88113pt.
- [64 <./../img/four_lin.png>] [65 <./../img/four_pnp.png> <./../img/four_fmix.p
+ [63 <./../img/four_lin.png>] [64 <./../img/four_pnp.png> <./../img/four_fmix.p
 ng>]
-<./../img/four_qp1.png, id=350, 767.11594pt x 312.41719pt>
+<./../img/four_qp1.png, id=347, 767.11594pt x 312.41719pt>
 File: ./../img/four_qp1.png Graphic file (type png)
 
 <use ./../img/four_qp1.png>
-Package pdftex.def Info: ./../img/four_qp1.png used on input line 2745.
+Package pdftex.def Info: ./../img/four_qp1.png used on input line 2684.
 (pdftex.def)             Requested size: 426.79134pt x 173.81786pt.
 
-<./../img/four_qp2.png, id=351, 770.12718pt x 306.39468pt>
+
+LaTeX Warning: Reference `eq:nclin_chipp2' on page 65 undefined on input line 2
+700.
+
+<./../img/four_qp2.png, id=348, 770.12718pt x 306.39468pt>
 File: ./../img/four_qp2.png Graphic file (type png)
 
 <use ./../img/four_qp2.png>
-Package pdftex.def Info: ./../img/four_qp2.png used on input line 2784.
+Package pdftex.def Info: ./../img/four_qp2.png used on input line 2723.
 (pdftex.def)             Requested size: 426.79134pt x 169.7986pt.
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <17.28> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 2800.
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 2739.
 
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <17.28> on input line 2800.
+(Font)              <17.28> on input line 2739.
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <14.4> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 2802.
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 2741.
 
- [66 <./../img/four_qp1.png>] [67 <./../img/four_qp2.png>] [68]
+ [65 <./../img/four_qp1.png>] [66 <./../img/four_qp2.png>] [67]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2906.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2845.
 
- <./../img/quadgk_lin.png, id=365, 772.38562pt x 306.39468pt>
+ <./../img/quadgk_lin.png, id=362, 772.38562pt x 306.39468pt>
 File: ./../img/quadgk_lin.png Graphic file (type png)
 
 <use ./../img/quadgk_lin.png>
-Package pdftex.def Info: ./../img/quadgk_lin.png used on input line 2913.
+Package pdftex.def Info: ./../img/quadgk_lin.png used on input line 2852.
 (pdftex.def)             Requested size: 426.79134pt x 169.30302pt.
 
-<./../img/hilb_lin.png, id=366, 776.9025pt x 304.88907pt>
+<./../img/hilb_lin.png, id=363, 776.9025pt x 304.88907pt>
 File: ./../img/hilb_lin.png Graphic file (type png)
 
 <use ./../img/hilb_lin.png>
-Package pdftex.def Info: ./../img/hilb_lin.png used on input line 2927.
+Package pdftex.def Info: ./../img/hilb_lin.png used on input line 2866.
 (pdftex.def)             Requested size: 426.79134pt x 167.49411pt.
- [69 <./../img/quadgk_lin.png>]
-<./../img/quadgk_pnp.png, id=371, 771.63281pt x 304.88907pt>
+ [68 <./../img/quadgk_lin.png>]
+<./../img/quadgk_pnp.png, id=368, 771.63281pt x 304.88907pt>
 File: ./../img/quadgk_pnp.png Graphic file (type png)
 
 <use ./../img/quadgk_pnp.png>
-Package pdftex.def Info: ./../img/quadgk_pnp.png used on input line 2945.
+Package pdftex.def Info: ./../img/quadgk_pnp.png used on input line 2884.
 (pdftex.def)             Requested size: 426.79134pt x 168.6339pt.
 
-<./../img/quadgk_fmix.png, id=372, 792.71156pt x 313.9228pt>
+<./../img/quadgk_fmix.png, id=369, 792.71156pt x 313.9228pt>
 File: ./../img/quadgk_fmix.png Graphic file (type png)
 
 <use ./../img/quadgk_fmix.png>
-Package pdftex.def Info: ./../img/quadgk_fmix.png used on input line 2960.
+Package pdftex.def Info: ./../img/quadgk_fmix.png used on input line 2899.
 (pdftex.def)             Requested size: 426.79134pt x 169.01761pt.
 
-<./../img/hilb_pnp.png, id=373, 797.98125pt x 306.39468pt>
+<./../img/hilb_pnp.png, id=370, 797.98125pt x 306.39468pt>
 File: ./../img/hilb_pnp.png Graphic file (type png)
 
 <use ./../img/hilb_pnp.png>
-Package pdftex.def Info: ./../img/hilb_pnp.png used on input line 2975.
+Package pdftex.def Info: ./../img/hilb_pnp.png used on input line 2914.
 (pdftex.def)             Requested size: 426.79134pt x 163.87044pt.
 
-<./../img/hilb_fmix.png, id=374, 780.66656pt x 302.63063pt>
+<./../img/hilb_fmix.png, id=371, 780.66656pt x 302.63063pt>
 File: ./../img/hilb_fmix.png Graphic file (type png)
 
 <use ./../img/hilb_fmix.png>
-Package pdftex.def Info: ./../img/hilb_fmix.png used on input line 2990.
+Package pdftex.def Info: ./../img/hilb_fmix.png used on input line 2929.
 (pdftex.def)             Requested size: 426.79134pt x 165.44992pt.
 
-<./../img/quadgk_qp1.png, id=375, 774.64406pt x 302.63063pt>
+<./../img/quadgk_qp1.png, id=372, 774.64406pt x 302.63063pt>
 File: ./../img/quadgk_qp1.png Graphic file (type png)
 
 <use ./../img/quadgk_qp1.png>
-Package pdftex.def Info: ./../img/quadgk_qp1.png used on input line 3015.
+Package pdftex.def Info: ./../img/quadgk_qp1.png used on input line 2954.
 (pdftex.def)             Requested size: 426.79134pt x 166.73827pt.
 
-<./../img/hilb_qp1.png, id=376, 794.2172pt x 316.18124pt>
+<./../img/hilb_qp1.png, id=373, 794.2172pt x 316.18124pt>
 File: ./../img/hilb_qp1.png Graphic file (type png)
 
 <use ./../img/hilb_qp1.png>
-Package pdftex.def Info: ./../img/hilb_qp1.png used on input line 3030.
+Package pdftex.def Info: ./../img/hilb_qp1.png used on input line 2969.
 (pdftex.def)             Requested size: 426.79134pt x 169.91032pt.
 
-<./../img/quadgk_qp2.png, id=377, 759.58781pt x 305.64188pt>
+<./../img/quadgk_qp2.png, id=374, 759.58781pt x 305.64188pt>
 File: ./../img/quadgk_qp2.png Graphic file (type png)
 
 <use ./../img/quadgk_qp2.png>
-Package pdftex.def Info: ./../img/quadgk_qp2.png used on input line 3051.
+Package pdftex.def Info: ./../img/quadgk_qp2.png used on input line 2990.
 (pdftex.def)             Requested size: 426.79134pt x 171.73657pt.
 
-<./../img/hilb_qp2.png, id=378, 758.835pt x 312.41719pt>
+<./../img/hilb_qp2.png, id=375, 758.835pt x 312.41719pt>
 File: ./../img/hilb_qp2.png Graphic file (type png)
 
 <use ./../img/hilb_qp2.png>
-Package pdftex.def Info: ./../img/hilb_qp2.png used on input line 3066.
+Package pdftex.def Info: ./../img/hilb_qp2.png used on input line 3005.
 (pdftex.def)             Requested size: 426.79134pt x 175.71515pt.
- [70 <./../img/hilb_lin.png>] [71 <./../img/quadgk_pnp.png> <./../img/quadgk_fm
-ix.png>] [72 <./../img/hilb_pnp.png> <./../img/hilb_fmix.png>] [73 <./../img/qu
-adgk_qp1.png> <./../img/hilb_qp1.png>] [74 <./../img/quadgk_qp2.png> <./../img/
-hilb_qp2.png>] [75] [76] [77] [78] (./Thesis.bbl
-[79] [80]
+ [69 <./../img/hilb_lin.png>] [70 <./../img/quadgk_pnp.png> <./../img/quadgk_fm
+ix.png>] [71 <./../img/hilb_pnp.png> <./../img/hilb_fmix.png>] [72 <./../img/qu
+adgk_qp1.png> <./../img/hilb_qp1.png>] [73 <./../img/quadgk_qp2.png> <./../img/
+hilb_qp2.png>] [74] [75] [76] [77] (./Thesis.bbl
+[78] [79]
 Underfull \hbox (badness 2961) in paragraph at lines 155--161
 []\OT4/cmr/m/n/12 Mark G. Kuzyk, Ben-jamin R. An-der-son, Nathan J. Daw-son, Sh
 eng-Ting
@@ -1767,89 +1779,83 @@ Underfull \hbox (badness 10000) in paragraph at lines 175--179
 on-ics.
  []
 
-[81])
+[80])
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <6> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3280.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3219.
 
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 3291
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 3230
 .
  (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <6> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3291.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3230.
 
- [82]
+ [81]
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <6> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3300.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3239.
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3305.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3244.
 
- [83]
-Overfull \hbox (0.23148pt too wide) in paragraph at lines 3469--3470
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][] 
- []
-
-
+ [82]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [84]
-[85] [86] [87]
+ [83]
+[84] [85] [86]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [87]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [88]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [89]
-[90] [91] <./../img/zscan_sch.png, id=461, 386.94562pt x 199.49532pt>
+[89] [90] <./../img/zscan_sch.png, id=457, 386.94562pt x 199.49532pt>
 File: ./../img/zscan_sch.png Graphic file (type png)
 
 <use ./../img/zscan_sch.png>
-Package pdftex.def Info: ./../img/zscan_sch.png used on input line 4118.
+Package pdftex.def Info: ./../img/zscan_sch.png used on input line 4061.
 (pdftex.def)             Requested size: 386.94467pt x 199.49481pt.
 
-<./../img/zscan_diag.png, id=462, 373.395pt x 202.50656pt>
+<./../img/zscan_diag.png, id=458, 373.395pt x 202.50656pt>
 File: ./../img/zscan_diag.png Graphic file (type png)
 
 <use ./../img/zscan_diag.png>
-Package pdftex.def Info: ./../img/zscan_diag.png used on input line 4124.
+Package pdftex.def Info: ./../img/zscan_diag.png used on input line 4067.
 (pdftex.def)             Requested size: 373.39409pt x 202.50604pt.
- [92 <./../img/zscan_sch.png> <./../img/zscan_diag.png>] <./../img/oa_plot.png,
- id=468, 315.42844pt x 203.25937pt>
+ [91 <./../img/zscan_sch.png> <./../img/zscan_diag.png>] <./../img/oa_plot.png,
+ id=465, 315.42844pt x 203.25937pt>
 File: ./../img/oa_plot.png Graphic file (type png)
 
 <use ./../img/oa_plot.png>
-Package pdftex.def Info: ./../img/oa_plot.png used on input line 4149.
+Package pdftex.def Info: ./../img/oa_plot.png used on input line 4092.
 (pdftex.def)             Requested size: 315.42766pt x 203.25887pt.
 
-<./../img/ca_plot.png, id=469, 415.5525pt x 266.49562pt>
+<./../img/ca_plot.png, id=466, 415.5525pt x 266.49562pt>
 File: ./../img/ca_plot.png Graphic file (type png)
 
 <use ./../img/ca_plot.png>
-Package pdftex.def Info: ./../img/ca_plot.png used on input line 4158.
+Package pdftex.def Info: ./../img/ca_plot.png used on input line 4101.
 (pdftex.def)             Requested size: 415.55148pt x 266.49496pt.
- [93 <./../img/oa_plot.png>] [94 <./../img/ca_plot.png>] <./../img/zscan_both.p
-ng, id=478, 398.23781pt x 257.46187pt>
+ [92 <./../img/oa_plot.png>] [93 <./../img/ca_plot.png>] <./../img/zscan_both.p
+ng, id=475, 398.23781pt x 257.46187pt>
 File: ./../img/zscan_both.png Graphic file (type png)
 
 <use ./../img/zscan_both.png>
-Package pdftex.def Info: ./../img/zscan_both.png used on input line 4238.
+Package pdftex.def Info: ./../img/zscan_both.png used on input line 4181.
 (pdftex.def)             Requested size: 398.23683pt x 257.46123pt.
- [95] [96 <./../img/zscan_both.png>] (./Thesis.aux)
+ [94] [95 <./../img/zscan_both.png>] (./Thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 8769 strings out of 495024
- 124641 string characters out of 3181154
+ 8767 strings out of 495024
+ 124614 string characters out of 3181154
  274011 words of memory out of 3000000
- 11684 multiletter control sequences out of 15000+200000
+ 11682 multiletter control sequences out of 15000+200000
  35844 words of font info for 104 fonts, out of 3000000 for 9000
  34 hyphenation exceptions out of 8191
- 38i,19n,40p,1384b,2144s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,19n,40p,1384b,2142s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plrm.enc}{/usr/share/texliv
 e/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{/usr/share/texlive/texmf-dist/fonts/e
 nc/dvips/pl/plit.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc
@@ -1885,10 +1891,10 @@ type1/public/pl/plti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl
 /plti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plti7.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/pl/plti8.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/pl/pltt12.pfb>
-Output written on Thesis.pdf (96 pages, 6474171 bytes).
+Output written on Thesis.pdf (95 pages, 6471629 bytes).
 PDF statistics:
- 607 PDF objects out of 1000 (max. 8388607)
- 327 compressed objects within 4 object streams
+ 604 PDF objects out of 1000 (max. 8388607)
+ 325 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
  356 words of extra memory for PDF output out of 10000 (max. 10000000)
 

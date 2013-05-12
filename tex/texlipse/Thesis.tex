@@ -27,7 +27,7 @@
 \selectlanguage{english} % We choose the auto-generated texts' language to be English
 \addtolength{\voffset}{-1.0cm}
 \inputencoding{utf8}
-% \linespread{1.7} % bigger interline
+
 
 \pagestyle{plain}
 \title{Numerical evaluation of the Hilbert transform in~nonlinear optics}
@@ -1098,17 +1098,19 @@ We have presented the results in Figure (\ref{eq:htran_lin}). In this and in the
 
 \subsection{HTRAN for simple nonlinear model - results} \label{chap:htran_nlo}
 
-In this chapted we will test the pump-and-probe susceptibility model (\ref{eq:physical_pnp_equation}) with the following values for the constants:
+In this chapter we will test the pump-and-probe susceptibility model (\ref{eq:physical_pnp_equation}) with the following values for the constants:
 
-\begin{tabular}{r r l r r l r r l r r l}
-  $G$           & $=$ & $1$, 
-  $\gamma_{ba}$ & $=$ & $1$, 
-  $n_0$         & $=$ & $1$, 
-  $\Delta$      & $=$ & $1.3$, \\
-  $\eta$        & $=$ & $1$, 
-  $\theta$      & $=$ & $1.4$, 
-  $\Omega_{1}$  & $=$ & $4.3$. \\
-\end{tabular}
+\begin{equation} \label{eq:htran_pnpparameters}
+  \begin{tabular}{r r l r r l r r l r r l}
+    $G$           & $=$ & $1$, 
+    $\gamma_{ba}$ & $=$ & $1$, 
+    $n_0$         & $=$ & $1$, 
+    $\Delta$      & $=$ & $1.3$, \\
+    $\eta$        & $=$ & $1$, 
+    $\theta$      & $=$ & $1.4$, 
+    $\Omega_{1}$  & $=$ & $4.3$. \\
+  \end{tabular}
+\end{equation}
 
 The results for such set of parameters are shown on Figure (\ref{fig:htran_pnp_2d}).
 
@@ -1162,6 +1164,17 @@ We perform the evaluation for the wave-mixing model as stated in the model descr
 	       - {\Omega_{2}}\,\delta  
 	       + \frac { \Omega_{2} \, i} { T_{2} } ) }
 \end{equation}	     
+
+We have used the following set of constant parameters:
+
+\begin{equation} \label{eq:htran_mix_parameters}
+  \begin{tabular}{r r l  r r l  r r l r r l}
+    $T_1$      & = & $1$, 
+    $T_2$      & = & $2$, 
+    $\Omega_2$ & = & $1$, 
+    ($\Delta$  & = & $1.3$ \ \text {for 2D model) .} \\
+  \end{tabular}
+\end{equation}
 
 With such a complex function we obtain the two and three dimensional results presented on Figure (\ref{fig:htran_mix_2d}).
  
@@ -1286,32 +1299,28 @@ With parameters defined in this way, the quadrature in sense of Newton-Cotes is 
    NC_{n} (f) = { A_{n, \, k} } \sum_{ k = 0 }^{n} \, f \, (a + \frac {(b - a)} {n} \, k) . 
 \end{equation}
 
-Let's remind the Hilbert transform from the equation (\ref{eq:mathematical_hilbert}):
-
-\begin{equation} \label{eq:nc_hilbert_remind}
-	\mathcal{H}[f(x)] = \frac{1}{\pi} \dashint_{ - \infty }^{\infty } \frac{f(\omega)}{(x - \omega)} \, d\omega . 
-\end{equation}
-
 \subsection{Our implementation of the Hilbert Transform HNC}  \label{chap:nc_hilbert_transform}
 
 We would like to apply the Newton-Cotes quadrature to calculate the Hilbert transform. Prepared algorithm will consist of two main steps. In the first step we modify the region under the integral to omit singularities and deal with infinities. To omit the singularities as the NC quadrature was not designed to be used on singular functions, we will set a small constant value $c_s$ and perform the integration without including a short region $[x - c_s, x + c_s]$ near the singularity. To deal with the infinities we observe that near infinities our input function vanishes so without much loss, we will integrate from a finite, starting point $a$ to the ending point $b$:
 
 \begin{equation}
 	\mathcal{H}[f(x)] \approx \frac{1}{\pi} \int_{ a }^{ x - c_s } \frac{ f(\omega) }{ (x - \omega) } \, d\omega 
-                           +  \frac{1}{\pi} \int_{ x + c_s }^{ b } \frac{ f(\omega) }{ (x - \omega) } \, d\omega .
+                         +  \frac{1}{\pi} \int_{ x + c_s }^{ b } \frac{ f(\omega) }{ (x - \omega) } \, d\omega .
 \end{equation} 
 
-In the second step, important in our implementation, we are pre\-calculating the $A_{n, \, k}$ matrix described in equation (\ref{eq:ncparms_a}) within the function \texttt{prevaluateNCTab(n, a, b)}. We will perform the symbolic calculations by applying the \texttt{maple} function that connects MATLAB with Maple and gives us the power of both tools. Once we know the $A_{n, \, k}$ matrix, we can perform the step-by-step calculation in the \texttt{doStep(fun, a, b, nosteps, tab)} function, which is called with a different number of steps (described with the \texttt{nosteps} parameter) in the parent loop as long as we demand better precision, related to the tolerance (\texttt{tol}) parameter.
+In the second step, important in our implementation, we are pre\-calculating the $A_{n, \, k}$ matrix described in equation (\ref{eq:ncparms_a}). We will perform the symbolic calculations by applying the \texttt{maple} function that connects MATLAB with Maple and gives us the power of both tools. Once we know the $A_{n, \, k}$ matrix, the function \texttt{doStep(fun, a, b, nosteps, tab)} function is called in a loop. In every iteration the funcion is called twice, each time with different number of steps. We will denote the result of first run by $s_1$ and $s_2$ as the result of second run. The loops end, when the $e_{rr}$ parameter is smalled than $t_{ol}$ parameter:
+
+\begin{equation}
+  r_{es} = \frac{4 \, s_1 - s2}{3}, \, \ \ \ e_{rr} = \frac{| s_1 - r_{es} |}{\max(|s_1|, |r_{es}|, |t_{ol}|)}.
+\end{equation}
+
+As long as we demand better precision, we can demand a smaller tolerance parameter. 
 
 The full algorithm is presented in the Appendix A.2 with the additional comments. 
 
 \subsection{NC for simple linear model - results} \label{chap:nc_lin}
 
-As the prepared numeric method depends on many input parameter arguments, we have tried to perform the evaluation in many different cases, some of those results are stated below. We have used the same model as in Chapter (\ref{chap:htran_lin}).
-
-\begin{equation} \label{eq:nc_algoritm}
-  \chi (\omega ) \approx \frac { - 20}{(\omega \,i + 1 - 20\,i)\,(\omega \,i + 1 + 20\,i)}
-\end{equation} 
+As You can see in the full source code, the algorithm has got many technical parameters. We have tried to run it with many combinations of these parameters. We have used the same model, see Equation (\ref{eq:physical_frequency_linear}), as in Chapter (\ref{chap:htran_lin}).
 
 Some results has been presented on Figures (\ref{fig:nc_lin1}), (\ref{fig:nc_lin2}), (\ref{fig:nc_lin3}) and (\ref{fig:nc_lin4})
 
@@ -1379,9 +1388,10 @@ We cannot tell with a hundred percent confidence which set of parameters will fi
 
 \subsection{NC for simple nonlinear model - results} \label{chap:nc_nlo}
 
-We have performed calculations for the same both nonlinear pump-probe (\ref{eq:htran_fparameters}) and wave-mixing (\ref{eq:htran_feffexp}) models as in the Chapter (\ref{chap:htran_lin}) with the same set of parameters (constant values).
+We have performed calculations for the same both nonlinear pump-probe, see Equation (\ref{eq:physical_pnp_equation}) and wave-mixing, see Equation (\ref{eq:htran_feffexp}), models. We have used the same set of parameters as in Chapter (\ref{chap:htran_lin}), see Equations (\ref{eq:htran_pnpparameters}) and \ref{eq:htran_mix_parameters} respecively.
 
-Results for pump-and-probe model has been presented in Figure (\ref{fig:nc_pnp}). Results for the frequency mixing model has been presented in Figure (\ref{fig:nc_fmix1}). 
+Results for pump-and-probe model has been presented in Figure (\ref{fig:nc_pnp}). 
+Results for the frequency mixing model has been presented in Figure (\ref{fig:nc_fmix1}). 
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/nc_pnp.png}
@@ -1419,33 +1429,7 @@ Results for pump-and-probe model has been presented in Figure (\ref{fig:nc_pnp})
 
 \subsubsection*{Linear model - results:}
 
-For the linear susceptibility we have used the model from Chapter (\ref{chap:problem_quantum}): 
-
-\begin{equation} \label{eq:nclin_chipp}
-  \chi_{1, \, qp}(\omega ) = \frac {N}{\varepsilon_0 \, h} \sum_{n=1}^{2} \, 
-    ( \frac {{\mu_{1, \,n}} \, { \mu_{2, \, n}}}
-            {{\Omega_{n}} - \omega  - i \, {\gamma_{n}}} 
-    + \frac {{\mu_{2, \,n}}\,{\mu_{1, \,n}}}
-            {{\Omega_{n}} + \omega + i \, {\gamma_{n}}} )
-\end{equation}
-
-This time we used the following parameters: 
-
-\begin{equation}
-  \mu = \begin{bmatrix} 
-    3,   & - 0.5 \\ 
-    1.2, &   2.4
-  \end{bmatrix},
-  \Omega = \begin{bmatrix} 
-    - 3, & 13
-  \end{bmatrix}, \,
-  \gamma = \begin{bmatrix} 
-    0.7, & 2.3
-  \end{bmatrix}, \,
-  N = 8, \,
-  \varepsilon_{0} = 1.4, \,
-  h = - 2.7.
-\end{equation} 
+For the linear susceptibility we have used the model (\ref{eq:ssmods_linear}) with the parameters from Equation (\ref{eq:htran_qp1_const}).
 
 Evaluation time of two plots given in Figure (\ref{fig:nc_qp1}) was 615 seconds.
 
@@ -1467,51 +1451,7 @@ Evaluation time of two plots given in Figure (\ref{fig:nc_qp1}) was 615 seconds.
 
 \subsubsection*{Second-order model - results:}
 
-For the second-order susceptibility we used the model from Chapter (\ref{chap:problem_quantum}):
-
-\begin{equation}  \label{eq:nclin_chipp2}
-  \begin{split} 
-     & \chi_{2, \, qp}(\omega_1, \, \omega_2 ) = 
-    \frac{N} {2 \, \varepsilon_0 \, h^2} \sum_{n=1}^{2} \sum_{m=1}^{2} \sum_{l=1}^{2} 
-    \\ ( & \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{ml}} - \omega_1 - i \, {\gamma_{ml}})^{-1} }
-        {({\Omega_{nl}} - \omega_1 - \omega_2 - i \, {\gamma_{nl}}) }
-       + \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{ml}} - \omega_2 - i \, {\gamma_{ml}})^{-1} }
-        {({\Omega_{nl}} - \omega_1 - \omega_1 - i \, {\gamma_{nl}}) } 
-    \\ + & \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{nl}} + \omega_2 + i \, {\gamma_{nl}})^{-1} }
-        {({\Omega_{mn}} - \omega_1 - \omega_2 - i \, {\gamma_{mn}}) } 
-       + \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{nl}} + \omega_2 + i \, {\gamma_{nl}})^{-1} }
-        {({\Omega_{mn}} - \omega_1 - \omega_2 - i \, {\gamma_{mn}}) } 
-    \\ + & \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{ml}} - \omega_1 - i \, {\gamma_{ml}})^{-1} }
-        {({\Omega_{nm}} + \omega_1 + \omega_2 + i \, {\gamma_{nm}}) } 
-       + \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{ml}} - \omega_1 - i \, {\gamma_{ml}})^{-1} }
-        {({\Omega_{nm}} + \omega_1 + \omega_2 + i \, {\gamma_{nm}}) } 
-    \\ + & \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{nl}} + \omega_1 + i \, {\gamma_{nl}})^{-1} }
-        {({\Omega_{ml}} + \omega_1 + \omega_2 + i \, {\gamma_{ml}}) } 
-       + \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{nl}} + \omega_2 + i \, {\gamma_{nl}})^{-1} }
-        {({\Omega_{ml}} + \omega_1 + \omega_2 + i \, {\gamma_{ml}})}).
-  \end{split} 
-\end{equation}
-
-with the constant values already chosen:
-
-\begin{equation} \label{eq:nclin_const2}
-  \mu = \begin{bmatrix} 
-    1,  &  3 \\ 
-    -1, & -2 
-  \end{bmatrix} \, 
-  \Omega = \begin{bmatrix} 
-    3, & 16 \\ 
-    4, & 12 
-  \end{bmatrix} \,
-  \gamma = \begin{bmatrix} 
-    1, & 2 \\ 
-   -1, & 3
-  \end{bmatrix} \, 
-  N = 5, \, 
-  \varepsilon_0 = 1, \,
-  h= - 1.
-\end{equation}
-
+For the second-order susceptibility we used the model  (\ref{eq:ssmods_quadratical}) with constant paremeters from Equation (\ref{eq:htran_qp_constant}).
 
 Results are presented in Figure (\ref{fig:nc_quantum2}). We can see a very large relative error reaching up to the 100\%. We may also suspect this model is invalid. This will be checked with another methods in next chapters.
 
@@ -1543,11 +1483,10 @@ The heart of the calculation has been presented by T. Hasegawa and T. Torri in \
 	\dashint_{-1} ^ {1} \frac{f(x)} {(x-c)} \; d \, x \quad \text{for} \quad c \in (-1, 1) .
 \end{equation}
 
-
 The first step suggested by the authors is to remove the singularity from the integral:
 
 \begin{equation}   \label{eq:hcc_singularity}
-  \dashint_{-1}^{1} \frac{f(x)}{(x-c)} d \, x = \dashint_{-1}^{1} \frac{f(x)-f(c)}{(x-c)} + f(c) \, log(\frac{1-c}{1+c})
+  \dashint_{-1}^{1} \frac{f(x)}{(x-c)} d \, x = \dashint_{-1}^{1} \frac{f(x)-f(c)}{(x-c)} + f(c) \, \log \left( \frac{1-c}{1+c} \right)
 \end{equation}
 
 After some transformation authors finally obtain the iterative formula presented in equations (\ref{eq:hccformula_sum}) and (\ref{eq:hccformula_rec}). The formula (\ref{eq:hccformula_sum}) depends on the parameter $N$, which will be used in the adaptive algorithm. The recursive equation (\ref{eq:hccformula_rec}) should be solved with the starting values: $d_N = d_{N+1} = 0$
@@ -1563,12 +1502,14 @@ After some transformation authors finally obtain the iterative formula presented
   \end{equation}
 \end{subequations}
 
-The remaining issue is to calculate the coefficients $a_k ^ N$, that have been described in equation (\ref{eq:hcc_akn}).  $a_k ^ N$ is also known as the discrete cosine transform of the first type (DCT-I):
+The remaining issue is to calculate the coefficients $a_k ^ N$, that have been described in equation (\ref{eq:hcc_akn}). The term $a_k ^ N$ is also known as the discrete cosine transform of the first type (DCT-I):
 
 \begin{equation} \label{eq:hcc_akn}
     a_k^N = \frac{2}{N} {\sideset{}{''}\sum_{j=0}^{N}} f\left(cos\left (\frac {\pi j}{N} \right)
-    \right)\,cos\left(\frac{\pi k j}{N}\right), 0 \leq k \leq N
+    \right)\,cos\left(\frac{\pi k j}{N}\right), 0 \leq k \leq N .
 \end{equation}
+
+In order to calculate the DCT-I, we will [...]
 
 
 \subsubsection*{Hilbert transform using the Clenshaw-Curtis quadrature:}
@@ -3267,846 +3208,850 @@ More info: http://www.organometallics.pwr.wroc.pl/
 \subsection*{Appendix A.1 - HTRAN}
 \begin{lstlisting}
 	function [HT,F] = htran(F,R)
-	    %% Description:
-	    % Hilbert transform for discrete value vector. This is a fast and quite satisfactory 
-	    % algorithm based on the important assumption that R disappears out of the F region.
-	
-	    %% Based on:
-	    % 1. "Hilbert Transform by Numerical Integration" by I.J. Weinbert, 
-	    % RADC-TR-79-3, January 1979, Rome Aire Development Center
-	    % ERRATA:
-	    % In the original publication there was an typo error - the Hilbert
-	    % transform is not the 
-	    %   1/pi*int(u(tau)/(tau-t),tau=-inf..inf) 
-	    % but should rather be:
-	    %   1/pi*int(u(tau)/(t-tau),tau=-inf..inf) 
-	    
-	    %% INPUT:
-	    % F - an array of points (abscissas)
-	    % R - an array of values (ordinates)
-	    
-	    %% OUTPUT:
-	    % HT   - an array of Hilbert Transform values * (ordinates)
-	    % F    - an array of points *                   (abscissas) 
-	    % *    - corrected, so size(F,1) <= size(F,2)
-	    
-	    % We also do not assume that the input signal R is even or odd - because
-	    % the original Hilbert Transform was prepared for all type of possible
-	    % functions.
-	
-	    %% The algorithm:
-	   
-	    % Correcing the input size:
-	    if(size(R,1)>size(R,2)), R=R';end;
-	    if(size(F,1)>size(F,2)), F=F';end;
-	    N = size(R,2);
-	    
-	    % Calculating the F middlepoint array:
-	    Fp(1,1:N-1) = 0.5 .* (F(1,1:N-1)+F(1,2:N));
-	    step = F(2)-F(1);
-	    
-	    % Build h array (step array for faster calculation) 
-	    % - Simpson's rule combined with the trapezoidal rule
-	    h(1) = step/3;
-	    h(1,2:N-1) = 2.*step./3 + mod(1:N-2,2).*2.*step./3;
-	    h(N) = step/3;
-	    if (mod(N,2)==1), h(N-1) = 5*step/6; h(N) = step/2; end;
-	    
-	    % Cubic interpolation for the interior values and parabolic 
-	    % interpolation for the end values we obtain
-	    % new set of ordinates, to omit the singularity:
-	    Rp = zeros(1,N-1);
-	    Rp(1)       =   0.375*R(1)      +  0.75*R(2)      - 0.125*R(3);
-	    Rp(1,N-1)   =  -0.125*R(1,N-2)  +  0.75*R(1,N-1)  + 0.375*R(1,N);
-	    Rp(1,2:N-2) = -0.0625*R(1,1:N-3)+0.5625*R(1,2:N-2)+0.5625*R(1,3:N-1)-0.0625*R(1,4:N);
-	    
-	    % Build Yp array - the heart and first step in integration:
-	    Yp = zeros(1,N-1);
-	    for i=1:N-1, Yp(i) = sum(h.*(R-Rp(i))./(F-Fp(i))); end;
-	    
-	    % Build Xp array - the second step in integration:
-	    Xp = -Rp./pi .* log((Fp-Fp(1))./(Fp(N-1)-Fp)) + Yp./pi;
-	    
-	    % Build Xres array - translating the Xp array into Xres array (cubic
-	    % interpolation, as previous) - but this time Xp is smaller than Xres:
-	    Xres = zeros(1,N);
-	    Xres(1)       =  1.875 *Xp(1)       - 1.25  *Xp(2)       + 0.375 *Xp(3);
-	    Xres(1,2)     =  0.375 *Xp(1)       + 0.75  *Xp(2)       - 0.125 *Xp(3);
-	    Xres(1,3:N-2) = - 0.0625*Xp(1,1:N-4) + 0.5625*Xp(1,2:N-3) + 0.5625*Xp(1,3:N-2) ...
-	                    - 0.0625*Xp(1,4:N-1);
-	    Xres(1,N-1)   = -0.125 *Xp(1,N-3)   + 0.75  *Xp(1,N-2)   + 0.375 *Xp(1,N-1);
-	    Xres(1,N)     =  0.375 *Xp(1,N-3)   - 1.25  *Xp(1,N-2)   + 1.875 *Xp(1,N-1);
-	    
-	    % We take the real/imag separately:
-	    % Orig = imag(Xres);
-	    HT = Xres;
+    %% Description:
+    % Hilbert transform for discrete value vector. This is a fast and quite satisfactory 
+    % algorithm based on the important assumption that R disappears out of the F region.
+
+    %% Based on:
+    % 1. "Hilbert Transform by Numerical Integration" by I.J. Weinbert, 
+    % RADC-TR-79-3, January 1979, Rome Aire Development Center
+    % ERRATA:
+    % In the original publication there was an typo error - the Hilbert
+    % transform is not the 
+    %   1/pi*int(u(tau)/(tau-t),tau=-inf..inf) 
+    % but should rather be:
+    %   1/pi*int(u(tau)/(t-tau),tau=-inf..inf) 
+
+    %% INPUT:
+    % F - an array of points (abscissas)
+    % R - an array of values (ordinates)
+
+    %% OUTPUT:
+    % HT   - an array of Hilbert Transform values * (ordinates)
+    % F    - an array of points *                   (abscissas) 
+    % *    - corrected, so size(F,1) <= size(F,2)
+
+    % We also do not assume that the input signal R is even or odd - because
+    % the original Hilbert Transform was prepared for all type of possible
+    % functions.
+
+    %% The algorithm:
+
+    % Correcing the input size:
+    if(size(R,1)>size(R,2)), R=R';end;
+    if(size(F,1)>size(F,2)), F=F';end;
+    N = size(R,2);
+
+    % Calculating the F middlepoint array:
+    Fp(1,1:N-1) = 0.5 .* (F(1,1:N-1)+F(1,2:N));
+    step = F(2)-F(1);
+
+    % Build h array (step array for faster calculation) 
+    % - Simpson's rule combined with the trapezoidal rule
+    h(1) = step/3;
+    h(1,2:N-1) = 2.*step./3 + mod(1:N-2,2).*2.*step./3;
+    h(N) = step/3;
+    if (mod(N,2)==1), h(N-1) = 5*step/6; h(N) = step/2; end;
+
+    % Cubic interpolation for the interior values and parabolic 
+    % interpolation for the end values we obtain
+    % new set of ordinates, to omit the singularity:
+    Rp = zeros(1,N-1);
+    Rp(1)       =   0.375*R(1)      +  0.75*R(2)      - 0.125*R(3);
+    Rp(1,N-1)   =  -0.125*R(1,N-2)  +  0.75*R(1,N-1)  + 0.375*R(1,N);
+    Rp(1,2:N-2) = -0.0625*R(1,1:N-3)+0.5625*R(1,2:N-2)+0.5625*R(1,3:N-1)-0.0625*R(1,4:N);
+
+    % Build Yp array - the heart and first step in integration:
+    Yp = zeros(1,N-1);
+    for i=1:N-1, Yp(i) = sum(h.*(R-Rp(i))./(F-Fp(i))); end;
+
+    % Build Xp array - the second step in integration:
+    Xp = -Rp./pi .* log((Fp-Fp(1))./(Fp(N-1)-Fp)) + Yp./pi;
+
+    % Build Xres array - translating the Xp array into Xres array (cubic
+    % interpolation, as previous) - but this time Xp is smaller than Xres:
+    Xres = zeros(1,N);
+    Xres(1)       =  1.875 *Xp(1)       - 1.25  *Xp(2)       + 0.375 *Xp(3);
+    Xres(1,2)     =  0.375 *Xp(1)       + 0.75  *Xp(2)       - 0.125 *Xp(3);
+    Xres(1,3:N-2) = - 0.0625*Xp(1,1:N-4) + 0.5625*Xp(1,2:N-3) + 0.5625*Xp(1,3:N-2) ...
+                    - 0.0625*Xp(1,4:N-1);
+    Xres(1,N-1)   = -0.125 *Xp(1,N-3)   + 0.75  *Xp(1,N-2)   + 0.375 *Xp(1,N-1);
+    Xres(1,N)     =  0.375 *Xp(1,N-3)   - 1.25  *Xp(1,N-2)   + 1.875 *Xp(1,N-1);
+
+    % We take the real/imag separately:
+    % Orig = imag(Xres);
+    HT = Xres;
 	end
 \end{lstlisting}
 \subsection*{Appendix A.2 - HNCX}
 \begin{lstlisting}
 	function [H, F] = hncX(fun, a, b, tol, n, cs, pts, wrn, inh)
-	    %% Description:
-	    % This algorithm is a simple implementation of the Hilbert transform 
-	    % based on the Newton-Cotes quadrature
-	    % of an arbitrary degree with getting close, but just omitting the singularity
-	    % We do not like to use Newton-Cotes of much higher degree, instead we use the
-	    % complex quadrature of lower degree for many small steps  
-	    
-	    %% INPUT:
-	    % fun   - real-valued function to transform    (function-handle)
-	    % a     - integration starting point           (scalar)
-	    % b     - integration ending point             (scalar)
-	    % tol   - required tolerance                   (scalar)  [optional, default: 10^(-5)]
-	    % n     - degree of Newton-Cotes quadrature    (scalar)  [optional, default: 8]
-	    % cs    - how close to singularity             (scalar)  [optional, default: 0.01]
-	    % pts   - #points to perform Hilbert transform (scalar)  [optional, default: 200]
-	    % wrn   - warning on flag                      (boolean) [optional, default: true]
-	    % inh   - the external waitbar handle          (handle)  [optional, default: new waitbar]
-	    
-	    %% OUTPUT:
-	    % H - calculated Hilbert transform values      (ordinates)
-	    % F - an array of points                       (abscissas) 
-	    
-	    %% The algorithm:
-	    
-	    % Preparation of arguments
-	    if nargin < 3, error('QUADNCX:ParamErr', ...
-	       'Wrong number of parameter given: fun, a, b are mandatory'); end;
-	    if nargin < 4, tol = 10^(-3); end;
-	    if nargin < 5, n = 8; end;
-	    if nargin < 6, cs = 0.1; end;
-	    if nargin < 7, pts = 200; end;
-	    if nargin < 8, wrn = true; end;
-	    if nargin < 9, h = waitbar(0, 'Please Wait'); closewb= true; 
-	    else h = inh; closewb = false; end;
-	    
-	    % We would like to integrate within 5 times bigger region
-	    d = b - a;
-	    aMax = a - 2 * d; bMax = b + 2 * d;PTS = 5 * pts;
-	    F = linspace(a, b, PTS); X = linspace(a,b,pts);
-	    Hp = zeros(1, PTS);
-	    
-	    % The main hilbert transform loop
-	    for k=1:PTS
-	        waitbar(k/PTS, h);
-	        innerfun = @(x) fun(x) ./ (x - F(k));
-	        Hp(k) = quadncX(@(x) innerfun(x),      aMax, F(k) - cs, tol, n, wrn) ...
-	              + quadncX(@(x) innerfun(x), F(k) + cs,      bMax, tol, n, wrn);
-	    end
-	    % finally we are closing the waitbar
-	    if(true==closewb), close(h); end;
-	    
-	    Hp = Hp./pi; H = interp1(F, Hp, X, 'pchip');
+    %% Description:
+    % This algorithm is a simple implementation of the Hilbert transform 
+    % based on the Newton-Cotes quadrature
+    % of an arbitrary degree with getting close, but just omitting the singularity
+    % We do not like to use Newton-Cotes of much higher degree, instead we use the
+    % complex quadrature of lower degree for many small steps  
+
+    %% INPUT:
+    % fun   - real-valued function to transform    (function-handle)
+    % a     - integration starting point           (scalar)
+    % b     - integration ending point             (scalar)
+    % tol   - required tolerance                   (scalar)  [optional, default: 10^(-5)]
+    % n     - degree of Newton-Cotes quadrature    (scalar)  [optional, default: 8]
+    % cs    - how close to singularity             (scalar)  [optional, default: 0.01]
+    % pts   - #points to perform Hilbert transform (scalar)  [optional, default: 200]
+    % wrn   - warning on flag                      (boolean) [optional, default: true]
+    % inh   - the external waitbar handle          (handle)  [optional, default: new waitbar]
+
+    %% OUTPUT:
+    % H - calculated Hilbert transform values      (ordinates)
+    % F - an array of points                       (abscissas) 
+
+    %% The algorithm:
+
+    % Preparation of arguments
+    if nargin < 3, error('QUADNCX:ParamErr', ...
+       'Wrong number of parameter given: fun, a, b are mandatory'); end;
+    if nargin < 4, tol = 10^(-3); end;
+    if nargin < 5, n = 8; end;
+    if nargin < 6, cs = 0.1; end;
+    if nargin < 7, pts = 200; end;
+    if nargin < 8, wrn = true; end;
+    if nargin < 9, h = waitbar(0, 'Please Wait'); closewb= true; 
+    else h = inh; closewb = false; end;
+
+    % We would like to integrate within 5 times bigger region
+    d = b - a;
+    aMax = a - 2 * d; bMax = b + 2 * d;PTS = 5 * pts;
+    F = linspace(a, b, PTS); X = linspace(a,b,pts);
+    Hp = zeros(1, PTS);
+
+    % The main hilbert transform loop
+    for k=1:PTS
+      waitbar(k/PTS, h);
+      innerfun = @(x) fun(x) ./ (x - F(k));
+      Hp(k) = quadncX(@(x) innerfun(x),      aMax, F(k) - cs, tol, n, wrn) ...
+            + quadncX(@(x) innerfun(x), F(k) + cs,      bMax, tol, n, wrn);
+    end
+    % finally we are closing the waitbar
+    if(true==closewb), close(h); end;
+
+    Hp = Hp./pi; H = interp1(F, Hp, X, 'pchip');
 	end
 	
-	function res = quadncX(fun, a, b, tol, n, wrn)
-	    %% Description:
-	    % Newton-Cotes quadrature of an arbitrary degree
+  function res = quadncX(fun, a, b, tol, n, wrn)
+    %% Description:
+    % Newton-Cotes quadrature of an arbitrary degree
+
+    %% More info:
+    % While this method does not shows very good accuraccy, a set of
+    % arbitrary set parameters has been prepared, but they may be changed
+    % in case of different quadratures.
+
+    %% INPUT:
+    % fun   - real-valued function to integrate     (function-handle)
+    % a     - integration starting point            (scalar)
+    % b     - integration ending point              (scalar)
+    % tol   - required tolerance                    (scalar)  [optional, default: 10^(-5)]
+    % n     - degree of the Newton-Cotes quadrature (scalar)  [optional, default: 8]
+    % wrn   - warning on flag                       (boolean) [optional, default: true]
+
+    %% OUTPUT:
+    % res - an quadrature result point              (scalar)
+
+    nosteps = 100; maxNoSteps = 256*32;
+    iterates  = 1; maxIterate = 256;
+    M = 1.1;
+    tab = prevaluateNCTab(n, a, b);
+
+    while (iterates < maxIterate);
+      nStep = ceil(nosteps * M);
+      step1 = doStep(fun, a, b, nosteps, tab);
+      step2 = doStep(fun, a, b, nStep, tab);
+      res = (4*step2-step1)/3; 
+      err = abs((step1-res)/max(abs([step1, res, tol])));
+
+      if (err<tol), break;
+      else nosteps = nStep; M = M*1.3; end;
+
+      if (nosteps >=maxNoSteps), break; end;
+
+      iterates = iterates + 1;
+    end
+
+    if (wrn == true)
+      if   (iterates >= maxIterate), warning('QUADNCX:MaxIterReached', ...
+        'maximum number of iterations reached - the integral seems to be singular'); 
+      elseif (nosteps >=maxNoSteps), warning('QUADNCX:MaNoSteps', ...
+        'maximum number of steps reached - the integral seems to be singular');  
+      end; 
+    end
+  end
 	
-	    %% More info:
-	    % While this method does not shows very good accuraccy, a set of
-	    % arbitrary set parameters has been prepared, but they may be changed
-	    % in case of different quadratures.
-	    
-	    %% INPUT:
-	    % fun   - real-valued function to integrate     (function-handle)
-	    % a     - integration starting point            (scalar)
-	    % b     - integration ending point              (scalar)
-	    % tol   - required tolerance                    (scalar)  [optional, default: 10^(-5)]
-	    % n     - degree of the Newton-Cotes quadrature (scalar)  [optional, default: 8]
-	    % wrn   - warning on flag                       (boolean) [optional, default: true]
-	    
-	    %% OUTPUT:
-	    % res - an quadrature result point              (scalar)
-	    
-	    nosteps = 100; maxNoSteps = 256*32;
-	    iterates  = 1; maxIterate = 256;
-	    M = 1.1;
-	    tab = prevaluateNCTab(n, a, b);
-	    
-	    while (iterates < maxIterate);
-	        nStep = ceil(nosteps * M);
-	        step1 = doStep(fun, a, b, nosteps, tab);
-	        step2 = doStep(fun, a, b, nStep, tab);
-	        res = (4*step2-step1)/3; 
-	        err = abs((step1-res)/max(abs([step1, res, tol])));
-	        
-					if (err<tol), break;
-	        else nosteps = nStep; M = M*1.3; end;
-					
-	        if (nosteps >=maxNoSteps), break; end;
-	        
-					iterates = iterates + 1;
-	    end
-	    if (wrn == true)
-	     if   (iterates >= maxIterate), warning('QUADNCX:MaxIterReached', ...
-'maximum number of iterations reached - the integral seems to be singular'); 
-		 elseif (nosteps >=maxNoSteps), warning('QUADNCX:MaNoSteps', ...
-'maximum number of steps reached - the integral seems to be singular');  
-         end; 
-       end
-	end
+  function tab = prevaluateNCTab(n, a, b)
+    %% Description:
+    % A routine to pre-evalute the Newton-Cotes coefficients
+
+    %% More info:
+    % The table of NC coefficient is calculated using Maple syntax:
+    % Digits:=100;n:=(n);evalf(seq(1/n*(-1)^(n-k)*1/(factorial(k)
+    %                    * factorial(n-k))*int(product(t-j, 
+    %                    j = 0..n)/(t-k), t=0..n), k=0..n));
+
+    %% INPUT:
+    % n     - degree of the Newton-Cotes quadrature (scalar) 
+    % a     - integration starting point            (scalar)
+    % b     - integration ending point              (scalar)
+
+    %% OUTPUT:
+    % tab - Newton-Cotes coefficients               (vector)
+
+    %% The algorithm:
+    maplestr = [
+      'Digits:=40:n:=' num2str(n) ':tab:=evalf(seq(((' num2str(b) ')' ...
+        '-('num2str(a)'))' ...
+          '/ n*(-1)^(n-k)*1/(factorial(k)*factorial(n-k))' ...
+          '* int(product(t-jj,jj=0..n)/(t-k),t=0..n),k=0..n));'];
+    maple string;
+    tab = str2num(maple(maplestr))'; %#ok<ST2NM>
+  end
 	
-	function tab = prevaluateNCTab(n, a, b)
-	    %% Description:
-	    % A routine to pre-evalute the Newton-Cotes coefficients
-	
-	    %% More info:
-	    % The table of NC coefficient is calculated using Maple syntax:
-	    % Digits:=100;n:=(n);evalf(seq(1/n*(-1)^(n-k)*1/(factorial(k)
-	    %                    * factorial(n-k))*int(product(t-j, 
-	    %                    j = 0..n)/(t-k), t=0..n), k=0..n));
-	    
-	    %% INPUT:
-	    % n     - degree of the Newton-Cotes quadrature (scalar) 
-	    % a     - integration starting point            (scalar)
-	    % b     - integration ending point              (scalar)
-	    
-	    %% OUTPUT:
-	    % tab - Newton-Cotes coefficients               (vector)
-	    
-	    %% The algorithm:
-	    maplestr = ['Digits:=40:n:=' num2str(n) ':tab:=evalf(seq(((' num2str(b) ')-('num2str(a) ...
-'))/n*(-1)^(n-k)*1/(factorial(k)*factorial(n-k))*int(product(t-jj,jj=0..n)/(t-k),t=0..n),k=0..n));'];
-	    maple string;
-	    tab = str2num(maple(maplestr))'; %#ok<ST2NM>
-	end
-	
-	function res = doStep(fun, a, b, nosteps, tab)
-	    %% Description:
-	    % Simple numerical quadrature for given coefficients' table is performed
-	    
-	    %% INPUT:
-	    % fun     - the real-valued function we will like to integrate (function-handle)
-	    % a       - integration starting point                         (scalar)
-	    % b       - integration ending point                           (scalar)
-	    % nosteps - number of points to divine the integration range   (scalar)
-	    % tab     - vector of Newton-Cotes coeffients                  (vector) 
-	    
-	    %% OUTPUT:
-	    % res     - calculated quadrature value                        (scalar)
-	
-	    %% The algorithm:
-	    nc = size(tab, 1);
-	    intervals = linspace(a, b, nosteps);
-	    
-	    % Quadrature is divided into small steps:
-	    M = zeros(nc, nosteps-1);
-	    M(1,  :) = intervals(1:nosteps-1);
-	    M(nc, :) = intervals(2:nosteps);
-	    h = (M(nc, :) - M(1, :)) ./ nc;
-	    
-	    % Final calculation in two lines using the matrix multiplication:
-	    for k=2:(nc-1),  M(k, :) = M(1, :) + (k-1) .* h; end;
-	    res = sum(fun(M') * tab) / nosteps;
-	end
+  function res = doStep(fun, a, b, nosteps, tab)
+    %% Description:
+    % Simple numerical quadrature for given coefficients' table is performed
+
+    %% INPUT:
+    % fun     - the real-valued function we will like to integrate (function-handle)
+    % a       - integration starting point                         (scalar)
+    % b       - integration ending point                           (scalar)
+    % nosteps - number of points to divine the integration range   (scalar)
+    % tab     - vector of Newton-Cotes coeffients                  (vector) 
+
+    %% OUTPUT:
+    % res     - calculated quadrature value                        (scalar)
+
+    %% The algorithm:
+    nc = size(tab, 1);
+    intervals = linspace(a, b, nosteps);
+
+    % Quadrature is divided into small steps:
+    M = zeros(nc, nosteps-1);
+    M(1,  :) = intervals(1:nosteps-1);
+    M(nc, :) = intervals(2:nosteps);
+    h = (M(nc, :) - M(1, :)) ./ nc;
+
+    % Final calculation in two lines using the matrix multiplication:
+    for k=2:(nc-1),  M(k, :) = M(1, :) + (k-1) .* h; end;
+    res = sum(fun(M') * tab) / nosteps;
+  end
 \end{lstlisting}
 \subsection*{Appendix A.3 - HTRANCC}
 \begin{lstlisting}
-	function H = htrancc(fun, X, tol, inh)
-	    %% Description:
-	    % Hilbert transform based on the Clenshaw-Curtis quadrature modified
-	    % to work on infinite integral which is used in the Hilbert transform formula
-	        
-	    %% INPUT:
-	    % fun - an function_handle                          (function-handle) 
-	    % X   - interval of abscissas to operate with       (abscissas)
-	    % tol - deserved tolerance                          (scalar)
-	    % inh - inner waitbar                               (waitbar-handle)
-	     
-	    %% OUTPUT:
-	    % H  - the Hilbert transform on the desired interval (ordinates)
-	 
-	    %% The algorithm:
-	    
-	    % We set the default tolerance if not given:
-	    if nargin<3, tol=10^(-3); end;
-	    if nargin<4, h = waitbar(0, 'Please wait', 'Name', ...
-	       'Hilbert Transform with Clenshaw-Curtis'); 
-        else h = inh; end;
-	    
-	    a = min(X); b = max(X); NX = length(X); T = abs(b - a);
-	    A = a - 2 * T; B = b + 2 * T;
-	    Hh = zeros(1, NX); Y = linspace(a, b, NX);
-	    
-	    % Cubic interpolation rutine (N->N-1 points):
-	    Yp(1)         =   0.375*Y(1)           +   0.75*Y(2)           -  0.125*Y(3);
-	    Yp(1, NX-1)   = - 0.125*Y(1, NX-2)     +   0.75*Y(1, NX-1)     +  0.375*Y(1, NX);
-	    Yp(1, 2:NX-2) = - 0.0625*Y(1, 1:(NX-3)) + 0.5625*Y(1, 2:(NX-2)) ...
-	                    + 0.5625*Y(1, 3:(NX-1)) - 0.0625*Y(1, 4:NX);
-	    
-	    % Main application loop with the waitbar:
-	    for n = 1:1:NX-1
-	        Hh(n) = hcc(fun, Yp(n), tol, A, B); 
-	        waitbar(n/(NX-1), h, 'Please wait');
-	    end;
-	    if nargin<4, close(h); end;
-	    
-	    % Reverse cubic interpolation rutine (N-1->N points):
-	    H = zeros(1,NX);
-	    H(1)        =  1.875 *Hh(1)        - 1.25  *Hh(2)        + 0.375 *Hh(3);
-	    H(1,2)      =  0.375 *Hh(1)        + 0.75  *Hh(2)        - 0.125 *Hh(3);
-	    H(1,3:NX-2) = - 0.0625*Hh(1,1:NX-4) + 0.5625*Hh(1,2:NX-3) + 0.5625*Hh(1,3:NX-2) ...
-	                  - 0.0625*Hh(1,4:NX-1);
-	    H(1,NX-1)   = -0.125 *Hh(1,NX-3)   + 0.75  *Hh(1,NX-2)   + 0.375 *Hh(1,NX-1);
-	    H(1,NX)     =  0.375 *Hh(1,NX-3)   - 1.25  *Hh(1,NX-2)   + 1.875 *Hh(1,NX-1);
+  function H = htrancc(fun, X, tol, inh)
+    %% Description:
+    % Hilbert transform based on the Clenshaw-Curtis quadrature modified
+    % to work on infinite integral which is used in the Hilbert transform formula
+        
+    %% INPUT:
+    % fun - an function_handle                          (function-handle) 
+    % X   - interval of abscissas to operate with       (abscissas)
+    % tol - deserved tolerance                          (scalar)
+    % inh - inner waitbar                               (waitbar-handle)
+     
+    %% OUTPUT:
+    % H  - the Hilbert transform on the desired interval (ordinates)
+
+    %% The algorithm:
+
+    % We set the default tolerance if not given:
+    if nargin<3, tol=10^(-3); end;
+    if nargin<4, h = waitbar(0, 'Please wait', 'Name', ...
+       'Hilbert Transform with Clenshaw-Curtis'); 
+      else h = inh; end;
+
+    a = min(X); b = max(X); NX = length(X); T = abs(b - a);
+    A = a - 2 * T; B = b + 2 * T;
+    Hh = zeros(1, NX); Y = linspace(a, b, NX);
+
+    % Cubic interpolation rutine (N->N-1 points):
+    Yp(1)         =   0.375*Y(1)           +   0.75*Y(2)           -  0.125*Y(3);
+    Yp(1, NX-1)   = - 0.125*Y(1, NX-2)     +   0.75*Y(1, NX-1)     +  0.375*Y(1, NX);
+    Yp(1, 2:NX-2) = - 0.0625*Y(1, 1:(NX-3)) + 0.5625*Y(1, 2:(NX-2)) ...
+                    + 0.5625*Y(1, 3:(NX-1)) - 0.0625*Y(1, 4:NX);
+
+    % Main application loop with the waitbar:
+    for n = 1:1:NX-1
+        Hh(n) = hcc(fun, Yp(n), tol, A, B); 
+        waitbar(n/(NX-1), h, 'Please wait');
+    end;
+    if nargin<4, close(h); end;
+
+    % Reverse cubic interpolation rutine (N-1->N points):
+    H = zeros(1,NX);
+    H(1)        =  1.875 *Hh(1)        - 1.25  *Hh(2)        + 0.375 *Hh(3);
+    H(1,2)      =  0.375 *Hh(1)        + 0.75  *Hh(2)        - 0.125 *Hh(3);
+    H(1,3:NX-2) = - 0.0625*Hh(1,1:NX-4) + 0.5625*Hh(1,2:NX-3) + 0.5625*Hh(1,3:NX-2) ...
+                  - 0.0625*Hh(1,4:NX-1);
+    H(1,NX-1)   = -0.125 *Hh(1,NX-3)   + 0.75  *Hh(1,NX-2)   + 0.375 *Hh(1,NX-1);
+    H(1,NX)     =  0.375 *Hh(1,NX-3)   - 1.25  *Hh(1,NX-2)   + 1.875 *Hh(1,NX-1);
+
+  end
 	
-	end
+  function h = hcc(fun, y, tol, a, b)
+    %% Hilbert transform using the Clenshaw-Curtis quadrature
+
+    %% INPUT:
+    % fun - an function_handle                         (function-handle) 
+    % y   - abscissa to operate with                   (scalar)
+    % tol - deserved tolerance                         (scalar)
+    % a - investigated range minimum                   (scalar)
+    % b - investigated range minimum                   (scalar)
+
+    %% OUTPUT:
+    % h  - the Hilbert transform in the desired point  (scalar)
+
+    % We will split the indefinite integral into three main parts:
+    % hcc = int(fun(x)/(x-y), x = -inf..a) ...
+    %     + int(fun(x)/(x-y), x = a..b) ...
+    %     + int(fun(x)/(x-y), x = b..inf)
+    % Due to small values ouf of the [a,b] range, we will skip left and
+    % right summand.
+
+    % Central integral
+    h = hccside2side(fun, y, tol, a, b);
+
+    % Left integral
+    leftIntVal  = 0;
+
+    % Right integral
+    rightIntVal = 0;
+
+    % Final summation
+    h = leftIntVal + h + rightIntVal;
+  end
 	
-	function h = hcc(fun, y, tol, a, b)
-	    %% Hilbert transform using the Clenshaw-Curtis quadrature
-	    
-	    %% INPUT:
-	    % fun - an function_handle                         (function-handle) 
-	    % y   - abscissa to operate with                   (scalar)
-	    % tol - deserved tolerance                         (scalar)
-	    % a - investigated range minimum                   (scalar)
-	    % b - investigated range minimum                   (scalar)
-	    
-	    %% OUTPUT:
-	    % h  - the Hilbert transform in the desired point  (scalar)
-	    
-	    % We will split the indefinite integral into three main parts:
-	    % hcc = int(fun(x)/(x-y), x = -inf..a) ...
-	    %     + int(fun(x)/(x-y), x = a..b) ...
-	    %     + int(fun(x)/(x-y), x = b..inf)
-	    % Due to small values ouf of the [a,b] range, we will skip left and
-	    % right summand.
-	    
-	    % Central integral
-	    h = hccside2side(fun, y, tol, a, b);
-	    
-	    % Left integral
-	    leftIntVal  = 0;
-	    
-	    % Right integral
-	    rightIntVal = 0;
-	    
-	    % Final summation
-	    h = leftIntVal + h + rightIntVal;
-	end
-	
-	function h = hccside2side(fun, y, tol, a, b)
-	    %% Hilbert transform using the Clenshaw-Curtis quadrature for a
-	    %% definite interval
-	    Period = b - a;
-	    Center = (b+a)/2;
-	    d = (y - Center ) .* 2 ./ Period;
-	   
-	    ccFun = @(t) (fun(t .* Period./2 + Center));
-	    
-	    h = 1 / pi * newdocc(@(t) ccFun(t), d, tol);
-	end
+  function h = hccside2side(fun, y, tol, a, b)
+    %% Hilbert transform using the Clenshaw-Curtis quadrature for a
+    %% definite interval
+    Period = b - a;
+    Center = (b+a)/2;
+    d = (y - Center ) .* 2 ./ Period;
+
+    ccFun = @(t) (fun(t .* Period./2 + Center));
+
+    h = 1 / pi * newdocc(@(t) ccFun(t), d, tol);
+  end
 \end{lstlisting}
 \subsection*{Appendix A.4 - HFTHILBERT}
 \begin{lstlisting}
-	function HY = frthilbert(Y)
-	    %% Description:
-	    % This is a standard and efficient algorithm ferforming the discrete
-	    % Hilbert transform based on two discrete Hartley transforms in O(n log
-	    % n) with zero padding
-	   
-	    %% INPUT:
-	    % Y - an discrete array of values (ordinates)
-	    
-	    %% OUTPUT:
-	    % HY   - an array of Hilbert Transform values * (ordinates)
-	    
-	    %% Based on:
-	    % 1. Soo-Chang Pei and Sy-Been Jaw - "Computation of Discrete Hilbert
-	    % Transform through Fast Hartley Transform"
-	    % 2. http://en.wikipedia.org/wiki/Discrete_Hartley_transform
-	    
-	    %% The algorithm:
-	        
-	    % We perform the zero padding to the next power-of-two length
-	    N = max(size(Y));
-	    M = 2 ^ ceil(log2(N));
-	    Y = [Y,zeros(1,M-N)];
-	    
-	    % Discrete Hartley transform boosted-up to O(n log n)
-	    HF = frt(Y);
-	    
-	    % Defining the HH vector
-	    O1 = ones(1,floor(M/2)-1);O2 = -ones(1,ceil(M/2)-1);HH = [0, O1, 0, O2];
-	    
-	    % Defining the time reversal of HF
-	    TRHF = HF([1, M:-1:2]);
-	    
-	    % Based on the convolution theorem we get the Hartley-Hilbert transform
-	    % of X, so in the last step we need to perform the inverse Hartley
-	    % transform
-	    IHX = TRHF .* HH;
-	    
-	    % Inverse Hartley transform  boosted-up to O(n log n)
-	    HY = - 1/M .* frt(IHX);
-	    
-	    % The final output vector
-	    HY = HY(1:N);
-	end
+  function HY = frthilbert(Y)
+    %% Description:
+    % This is a standard and efficient algorithm ferforming the discrete
+    % Hilbert transform based on two discrete Hartley transforms in O(n log
+    % n) with zero padding
 
-	function res = frt(X)
-	    %% Description:
-	    % Fast Hartley Transform algorithm. This algorithm is faster than simple 
-	    % FFT because it works only in real domain, which involves half the 
-	    % number of multiplications
-	      
-	    %% INPUT:
-	    % X - an discrete array of values (ordinates)
-	    
-	    %% OUTPUT:
-	    % HY   - an array of Discrete Hartley Transform values * (ordinates)
-	    
-	    %% Based on:
-	    % 1. Ronald F. Ullman - "An algorithm for the Fast Hartley Transform"
-	    % 2. Krzysztof Lorys - polish notes to the lecture of "Algorithms and
-	    % Data Structures" held in the Institute of Computer Science,
-	    % University of Wroclaw
-	  
-	    %% The algorithm:
-	    N = length(X);
-	    
-	    % We precalculate the CAS table for vectors of length less or equal 8:
-	    CAS = cell(8);
-	    CAS{1} = cas(0);
-	    for k=2:8, CAS{k} = cas(2*pi*((0:(k-1))'*(0:(k-1)))/k); end
-	    
-	    % Now we are sure, that X vector is of size M which is a power value of 2.
-	    DHT = dofrt(X,N,CAS);
-	    
-	    % The final vector must be truncated because it was arbitrary enlarged
-	    % to be with length of power of two
-	    res = DHT(1:N);
-	end
+    %% INPUT:
+    % Y - an discrete array of values (ordinates)
+
+    %% OUTPUT:
+    % HY   - an array of Hilbert Transform values * (ordinates)
+
+    %% Based on:
+    % 1. Soo-Chang Pei and Sy-Been Jaw - "Computation of Discrete Hilbert
+    % Transform through Fast Hartley Transform"
+    % 2. http://en.wikipedia.org/wiki/Discrete_Hartley_transform
+
+    %% The algorithm:
+        
+    % We perform the zero padding to the next power-of-two length
+    N = max(size(Y));
+    M = 2 ^ ceil(log2(N));
+    Y = [Y,zeros(1,M-N)];
+
+    % Discrete Hartley transform boosted-up to O(n log n)
+    HF = frt(Y);
+
+    % Defining the HH vector
+    O1 = ones(1,floor(M/2)-1);O2 = -ones(1,ceil(M/2)-1);HH = [0, O1, 0, O2];
+
+    % Defining the time reversal of HF
+    TRHF = HF([1, M:-1:2]);
+
+    % Based on the convolution theorem we get the Hartley-Hilbert transform
+    % of X, so in the last step we need to perform the inverse Hartley
+    % transform
+    IHX = TRHF .* HH;
+
+    % Inverse Hartley transform  boosted-up to O(n log n)
+    HY = - 1/M .* frt(IHX);
+
+    % The final output vector
+    HY = HY(1:N);
+  end
+
+  function res = frt(X)
+    %% Description:
+    % Fast Hartley Transform algorithm. This algorithm is faster than simple 
+    % FFT because it works only in real domain, which involves half the 
+    % number of multiplications
+      
+    %% INPUT:
+    % X - an discrete array of values (ordinates)
+
+    %% OUTPUT:
+    % HY   - an array of Discrete Hartley Transform values * (ordinates)
+
+    %% Based on:
+    % 1. Ronald F. Ullman - "An algorithm for the Fast Hartley Transform"
+    % 2. Krzysztof Lorys - polish notes to the lecture of "Algorithms and
+    % Data Structures" held in the Institute of Computer Science,
+    % University of Wroclaw
+
+    %% The algorithm:
+    N = length(X);
+
+    % We precalculate the CAS table for vectors of length less or equal 8:
+    CAS = cell(8);
+    CAS{1} = cas(0);
+    for k=2:8, CAS{k} = cas(2*pi*((0:(k-1))'*(0:(k-1)))/k); end
+
+    % Now we are sure, that X vector is of size M which is a power value of 2.
+    DHT = dofrt(X,N,CAS);
+
+    % The final vector must be truncated because it was arbitrary enlarged
+    % to be with length of power of two
+    res = DHT(1:N);
+  end
 	
-	function HY = dofrt(X, N, CAS)
-	    %% Recursive, divide & conquer radix-2 Fast Hartley Transform
-	    
-	    %% INPUT:
-	    % X   - an discrete array of values (ordinates)
-	    % D   - the length of X vector
-	    % CAS - the precalculated cell of 1:8-8 matrix for performing the instant FRT
-	    
-	    %% OUTPUT:
-	    % HY   - an array of Discrete Hartley Transform values * (ordinates)
-	    
-	    % Fast Hartley Trasform for N lower than 8
-	    if N<=8, 
-	        HY=X * CAS{N} ; % Instant FRT for 8-element array
-	        return;
-	    end;
-	    % We split the input vector into two equal vectors
-	    X1 = X(1:2:end); X2 = X(2:2:end); 
-	    % In MATLAB first index equals 1, not 0 - 
-	    % but in literature X1 is called even, X2 - odd indices.
-	    
-	    % Divide & conquer approach
-	    HT1 = dofrt(X1,N/2,CAS); %FRT of even
-	    HT2 = dofrt(X2,N/2,CAS); %FRT of odd
-	    
-	    % We precalculate the lower and upper part of the output array 
-	    low    = 1:1:N/2;
-	    revlow = [1, N/2:-1:2];
-	    arg    = (2*pi/N) .* (low-1);
-	    CS     = cos(arg) .* HT2(low) + sin(arg) .* HT2(revlow);
-	    H      = HT1(low);
-	    
-	    % The lower and upper part of DHT is combined with the following
-	    % radix-2 way
-	    HY = [H + CS, H - CS];
-	end
+  function HY = dofrt(X, N, CAS)
+    %% Recursive, divide & conquer radix-2 Fast Hartley Transform
+
+    %% INPUT:
+    % X   - an discrete array of values (ordinates)
+    % D   - the length of X vector
+    % CAS - the precalculated cell of 1:8-8 matrix for performing the instant FRT
+
+    %% OUTPUT:
+    % HY   - an array of Discrete Hartley Transform values * (ordinates)
+
+    % Fast Hartley Trasform for N lower than 8
+    if N<=8, 
+      HY=X * CAS{N} ; % Instant FRT for 8-element array
+      return;
+    end;
+    % We split the input vector into two equal vectors
+    X1 = X(1:2:end); X2 = X(2:2:end); 
+    % In MATLAB first index equals 1, not 0 - 
+    % but in literature X1 is called even, X2 - odd indices.
+
+    % Divide & conquer approach
+    HT1 = dofrt(X1,N/2,CAS); %FRT of even
+    HT2 = dofrt(X2,N/2,CAS); %FRT of odd
+
+    % We precalculate the lower and upper part of the output array 
+    low    = 1:1:N/2;
+    revlow = [1, N/2:-1:2];
+    arg    = (2*pi/N) .* (low-1);
+    CS     = cos(arg) .* HT2(low) + sin(arg) .* HT2(revlow);
+    H      = HT1(low);
+
+    % The lower and upper part of DHT is combined with the following
+    % radix-2 way
+    HY = [H + CS, H - CS];
+  end
 	
-	function res = cas(X), res = cos(X) + sin(X); end
+  function res = cas(X), res = cos(X) + sin(X); end
 \end{lstlisting}
 \subsection*{Appendix A.5 - HERHTRANS}
 \begin{lstlisting}
-	function [YH, YFun] = herhtrans(fun, X, tol, maxN)
-	    %% Description: 
-	    % This is a Hilbert transform function based on the orthonormal Hermite polynomials 
-	    % and Hermite functions. They have been previously precalculated with 
-	    % MATLAB-Maple toolbox
-	    
-	    %% INPUT:
-	    % fun - an discrete array of values (function handle)
-	    % X (abscissas)
-	    % tol (scalar)
-	    % maxN (scalar)
-	    
-	    %% OUTPUT:
-	    % YH   - an array of Hilbert Transform values  (ordinates)
-	    % YFun - calculated fun(X) approximation
-	    
-	    %% Based on:
-	    % 1. M. Johansson - "The Hilbert transform"
-	    % 2. http://en.wikipedia.org/wiki/Hermite_polynomial
-	    % 3. http://en.wikipedia.org/wiki/Hilbert_transform
-	    
-	    %% The algorithm:
-	    
-	    if nargin < 3, tol = 10 ^ (-4); end;
-	    if nargin < 4, maxN = 18; end;
-	    % We set the initial multipliers count on 4, but it shall/may rise  
-	    MaxN = min(maxN, 27); InitN = 4; N = InitN;
-	    
-	    sum = 0; val = 0;
-	    % Main loop
-	    i = 1; AN = zeros(1, N);
-	    Fval = fun(X);
-	    while (i <= N)
-	        n = i - 1; % Select proper Hermite function
-	        AN(i) = getAN(fun, n, tol);
-	        HphiVal = hphin(X, n); 
-	        phiVal = phin(X, n); 
-	        sum = sum + AN(i) .* HphiVal;
-	        val = val + AN(i) .* phiVal;
-	        
-	        % If the current multiplier is not negligable - we need to search further
-	        err = max(abs((val - Fval)/max(abs([val, Fval, tol]))));
-	        if ((i > (N - 2)) && (err >= tol) && (N < MaxN)), N = N+1; end; 
-	        i = i + 1;
-	    end
-	    YH = -real(sum);
-	    YFun = val;
-	end
+  function [YH, YFun] = herhtrans(fun, X, tol, maxN)
+    %% Description: 
+    % This is a Hilbert transform function based on the orthonormal Hermite polynomials 
+    % and Hermite functions. They have been previously precalculated with 
+    % MATLAB-Maple toolbox
+
+    %% INPUT:
+    % fun - an discrete array of values (function handle)
+    % X (abscissas)
+    % tol (scalar)
+    % maxN (scalar)
+
+    %% OUTPUT:
+    % YH   - an array of Hilbert Transform values  (ordinates)
+    % YFun - calculated fun(X) approximation
+
+    %% Based on:
+    % 1. M. Johansson - "The Hilbert transform"
+    % 2. http://en.wikipedia.org/wiki/Hermite_polynomial
+    % 3. http://en.wikipedia.org/wiki/Hilbert_transform
+
+    %% The algorithm:
+
+    if nargin < 3, tol = 10 ^ (-4); end;
+    if nargin < 4, maxN = 18; end;
+    % We set the initial multipliers count on 4, but it shall/may rise  
+    MaxN = min(maxN, 27); InitN = 4; N = InitN;
+
+    sum = 0; val = 0;
+    % Main loop
+    i = 1; AN = zeros(1, N);
+    Fval = fun(X);
+    while (i <= N)
+      n = i - 1; % Select proper Hermite function
+      AN(i) = getAN(fun, n, tol);
+      HphiVal = hphin(X, n); 
+      phiVal = phin(X, n); 
+      sum = sum + AN(i) .* HphiVal;
+      val = val + AN(i) .* phiVal;
+
+      % If the current multiplier is not negligable - we need to search further
+      err = max(abs((val - Fval)/max(abs([val, Fval, tol]))));
+      if ((i > (N - 2)) && (err >= tol) && (N < MaxN)), N = N+1; end; 
+      i = i + 1;
+    end
+    YH = -real(sum);
+    YFun = val;
+  end
 	
-	function an = getAN(fun, n, tol)
-	    pFun = phiFun(n);
-	    funphi = @(t) (fun(t)) .* pFun(t);
-	    
-	    % We change the integration range from -inf .. inf to -1 .. 1
-	    ccFun = @(t) ((abs(t)<1) .* funphi(-t ./ (t .^ 2-1)) ...
-	                 .* (1 + t .^ 2) ./ (-1 + t .^ 2) .^ 2);
-	    
-	    % Main numerical integration
-	    N = 128; 
-	    prev = docc(ccFun, N/2);
-	    while (N < 1024*1024)
-	        an = docc(ccFun, N);
-	        if (abs(an-prev)<tol), ...
-	            break; 
-	        else N = 2 * N; 
-	        end;
-	        prev = an;
-	    end
-	end
+  function an = getAN(fun, n, tol)
+    pFun = phiFun(n);
+    funphi = @(t) (fun(t)) .* pFun(t);
+
+    % We change the integration range from -inf .. inf to -1 .. 1
+    ccFun = @(t) ((abs(t)<1) .* funphi(-t ./ (t .^ 2-1)) ...
+                 .* (1 + t .^ 2) ./ (-1 + t .^ 2) .^ 2);
+
+    % Main numerical integration
+    N = 128; 
+    prev = docc(ccFun, N/2);
+    while (N < 1024*1024)
+      an = docc(ccFun, N);
+      if (abs(an-prev)<tol), ...
+          break; 
+      else N = 2 * N; 
+      end;
+      prev = an;
+    end
+  end
 			
-	%% phin, hphin, phiFun, hPhiFun - cached/precalculated function procedures
-	function PHI = phin(X, n)
-	    % We would not get further than through 30th Hermite function:
-	    if n>30, error('Do you realy mean such large n coefficient? '); end
-	    
-	    % We are precomputing the most reduntant element
-	    EXPX = exp(-1./2.*X.^2); EXPX(isnan(EXPX))=0;EXPX(isinf(EXPX))=0;
-	
-	    % Array of precomputed Hermite functions
-	    phi = cell(1, 2);
-	    phi{1} = @(t)EXPX./pi.^(1./4);
-	    phi{2} = @(t)EXPX.*t./pi.^(1./4).*2.^(1./2);
-	    
-	    % [...] phi{3}-phi{31} ommitted 
-	    
-	    
-	    % We are selecting the current n Hermite function (with indexing shifted by one):
-	    funChoosen = phi{n+1};
-	    
-	    % Main calculation - may be very long:
-	    PHI = funChoosen(X); PHI(isnan(PHI))=0; PHI(isinf(PHI))=0;
-	end
+  %% phin, hphin, phiFun, hPhiFun - cached/precalculated function procedures
+  function PHI = phin(X, n)
+    % We would not get further than through 30th Hermite function:
+    if n>30, error('Do you realy mean such large n coefficient? '); end
+
+    % We are precomputing the most reduntant element
+    EXPX = exp(-1./2.*X.^2); EXPX(isnan(EXPX))=0;EXPX(isinf(EXPX))=0;
+
+    % Array of precomputed Hermite functions
+    phi = cell(1, 2);
+    phi{1} = @(t)EXPX./pi.^(1./4);
+    phi{2} = @(t)EXPX.*t./pi.^(1./4).*2.^(1./2);
+
+    % [...] phi{3}-phi{31} ommitted 
+
+
+    % We are selecting the current n Hermite function (with indexing shifted by one):
+    funChoosen = phi{n+1};
+
+    % Main calculation - may be very long:
+    PHI = funChoosen(X); PHI(isnan(PHI))=0; PHI(isinf(PHI))=0;
+  end
 		
-	function HPHI = hphin(X, n)
-	    if n>26, error('Do you realy mean such large n coefficient? '); end
-	    
-	   	% We are precomputing the most reduntant element
-	    EXPX  = exp(-1./2.*X.^2).*erfz(1./2.*1i.*X.*2.^(1./2)); 
-	    EXPX(isnan(EXPX))=0; EXPX(isinf(EXPX))=0;
+  function HPHI = hphin(X, n)
+    if n>26, error('Do you realy mean such large n coefficient? '); end
+
+    	% We are precomputing the most reduntant element
+    EXPX  = exp(-1./2.*X.^2).*erfz(1./2.*1i.*X.*2.^(1./2)); 
+    EXPX(isnan(EXPX))=0; EXPX(isinf(EXPX))=0;
+
+    % Cell Array of precomputed functions
+    hphin = cell(1, 21);
+    hphin{1}  = @(t) -1i./pi.^(1./4).*EXPX;
+    hphin{2}  = @(t) -1./pi.^(3./4).*(2+t.*pi.^(1./2).*2.^(1./2).*EXPX.*1i);
+
+    % [...] hphin{3}-hphin{27} ommitted 
+
+     
+    % We are concatenating a large values;
+    funChoosen = hphin{n+1};
+
+    % main calculation - may be very long;
+    HPHI = funChoosen(X); HPHI(isnan(HPHI))=0; HPHI(isinf(HPHI))=0;
+    % figure, plot(X, real(HPHI)), title(['HPHI: ' num2str(n)]);
+  end
 	
-		% Cell Array of precomputed functions
-	    hphin = cell(1, 21);
-		hphin{1}  = @(t) -1i./pi.^(1./4).*EXPX;
-		hphin{2}  = @(t) -1./pi.^(3./4).*(2+t.*pi.^(1./2).*2.^(1./2).*EXPX.*1i);
+  function fun = phiFun(n)
+    % We would not get further than through 30th Hermite function:
+    if n>30, error('Do you realy mean such large n coefficient? '); end
+
+    % We exclue the important integrand
+    EXPX = @(t)exp(-1./2.*t.^2);
+
+    % Array of precomputed Hermite functions
+    phi = cell(1, 2);
+    phi{1} = @(t)EXPX(t)./pi.^(1./4);
+    phi{2} = @(t)EXPX(t).*t./pi.^(1./4).*2.^(1./2);
+
+    % [...] phi{3}-phi{31} ommitted
+
+    fun = phi{n+1};
+  end
+	
 		
-		% [...] hphin{3}-hphin{27} ommitted 
-		
-			 
-	    % We are concatenating a large values;
-	    funChoosen = hphin{n+1};
-	    
-	    % main calculation - may be very long;
-	    HPHI = funChoosen(X); HPHI(isnan(HPHI))=0; HPHI(isinf(HPHI))=0;
-	    % figure, plot(X, real(HPHI)), title(['HPHI: ' num2str(n)]);
-	end
+  function fun = hPhiFun(n)
+    if n>26, error('Do you realy mean such large n coefficient? '); end
+
+    	% We are precomputing the most reduntant element
+    EXPX  = @(t)  exp(-1./2.*t.^2).*erfz(1./2.*1i.*t.*2.^(1./2));
+
+    % Cell Array of precomputed functions
+    hphin     = cell(1, 21);
+    hphin{1}  = @(t) -1i./pi.^(1./4).*EXPX(t);
+    hphin{2}  = @(t) -1./pi.^(3./4).*(2+t.*pi.^(1./2).*2.^(1./2).*EXPX(t).*1i);
+
+
+    % [...] hphin{3}-hphin{27} ommitted
+
+    % Finally, we select the proper function
+    fun = hphin{n+1};
+  end
 	
-	function fun = phiFun(n)
-	    % We would not get further than through 30th Hermite function:
-	    if n>30, error('Do you realy mean such large n coefficient? '); end
-	    
-	    % We exclue the important integrand
-	    EXPX = @(t)exp(-1./2.*t.^2);
-	    
-	    % Array of precomputed Hermite functions
-	    phi = cell(1, 2);
-	    phi{1} = @(t)EXPX(t)./pi.^(1./4);
-	    phi{2} = @(t)EXPX(t).*t./pi.^(1./4).*2.^(1./2);
-	    
-	    % [...] phi{3}-phi{31} ommitted
-	    
-		fun = phi{n+1};
-	end
-	
-		
-	function fun = hPhiFun(n)
-		if n>26, error('Do you realy mean such large n coefficient? '); end
-	    
-	   	% We are precomputing the most reduntant element
-	    EXPX  = @(t)  exp(-1./2.*t.^2).*erfz(1./2.*1i.*t.*2.^(1./2));
-	
-		% Cell Array of precomputed functions
-		hphin     = cell(1, 21);
-		hphin{1}  = @(t) -1i./pi.^(1./4).*EXPX(t);
-		hphin{2}  = @(t) -1./pi.^(3./4).*(2+t.*pi.^(1./2).*2.^(1./2).*EXPX(t).*1i);
-		
-		 
-	    % [...] hphin{3}-hphin{27} ommitted
-	    
-	    % Finally, we select the proper function
-    	fun = hphin{n+1};
-	end
-	
-	function f = erfz(zz)
-		%ERFZ  Error function for complex inputs
-		%   f = erfz(z) is the error function for the elements of z.
-		%   Z may be complex and of any size.
-		%   Accuracy is better than 12 significant digits.
-		%
-		%   Usage:  f = erfz(z)
-		%
-		%   Ref: Abramowitz & Stegun section 7.1
-		%   equations 7.1.9, 7.1.23, and 7.1.29
-		%
-		%   Tested under version 5.3.1
-		%
-		%   See also erf, erfc, erfcx, erfinc, erfcore
-	
-		%   Main author Paul Godfrey <pgodfrey@intersil.com>
-		%   Small changes by Peter J. Acklam <jacklam@math.uio.no>
-		%   09-26-01
-	
-	    error(nargchk(1, 1, nargin));
-	
-	    % quick exit for empty input
-	    if isempty(zz)
-	      f = zz;
-	      return;
-	    end
-	
-	    sqrtpi=1.77245385090551602729816748334114518279754945612238;
-	
-	    f = zeros(size(zz));
-	    ff=f;
-	
-	    az=abs(zz);
-	    p1=find(az<=8);
-	    p2=find(az> 8);
-	    
-	    if ~isempty(p1)
-		   z=zz(p1);
-	
-		   nn = 32;
-	
-		   x=real(z);y=imag(z);
-		   k1=2/pi*exp(-x.*x);
-		   k2=exp(-1i*2*x.*y);
-	
-		   s1=erf(x);
-	
-		   s2=zeros(size(x));
-		   k= (x~=0);          % when x is non-zero
-		   s2(k)= k1(k)./(4*x(k)) .* (1 - k2(k));
-		   k= ~k;              % when x is zero
-		   s2(k) = 1i/pi*y(k);
-	
-		   f = s1 + s2;
-	
-		   k= y ~= 0;          % when y is non-zero
-		   xk = x(k);
-		   yk = y(k);
-	
-		   s5 = 0;
-		   for n = 1 : nn
-			  s3 = exp(-n*n/4) ./ (n*n + 4*xk.*xk);
-			  s4 = 2*xk - k2(k).*(2*xk.*cosh(n*yk) - 1i*n*sinh(n*yk));
-			  s5 = s5 + s3.*s4;
-		   end
-		   s6 = k1(k) .* s5;
-		   f(k) = f(k) + s6;
-		   ff(p1)=f;
-	    end
-	
-	    if ~isempty(p2)
-		   z=zz(p2);
-		   pn=find(real(z)<0);
-		   if ~isempty(pn), z(pn)=-z(pn); end
-	
-		   nmax=193;
-		   s=1;
-		   y=2*z.*z;
-		   for n=nmax:-2:1, s=1-n.*(s./y); end
-	
-		   f=1.0-s.*exp(-z.*z)./(sqrtpi*z);
-		   if ~isempty(pn), f(pn)=-f(pn); end
-		   pa=find(real(z)==0);
-		%  fix along i axis problem
-		   if ~isempty(pa), f(pa)=f(pa)-1; end
-		   ff(p2)=f;
-	    end
-		f=ff;
-	end
+  function f = erfz(zz)
+    %ERFZ  Error function for complex inputs
+    %   f = erfz(z) is the error function for the elements of z.
+    %   Z may be complex and of any size.
+    %   Accuracy is better than 12 significant digits.
+    %
+    %   Usage:  f = erfz(z)
+    %
+    %   Ref: Abramowitz & Stegun section 7.1
+    %   equations 7.1.9, 7.1.23, and 7.1.29
+    %
+    %   Tested under version 5.3.1
+    %
+    %   See also erf, erfc, erfcx, erfinc, erfcore
+
+    %   Main author Paul Godfrey <pgodfrey@intersil.com>
+    %   Small changes by Peter J. Acklam <jacklam@math.uio.no>
+    %   09-26-01
+
+    error(nargchk(1, 1, nargin));
+
+    % quick exit for empty input
+    if isempty(zz)
+      f = zz;
+      return;
+    end
+
+    sqrtpi=1.77245385090551602729816748334114518279754945612238;
+
+    f = zeros(size(zz));
+    ff=f;
+
+    az=abs(zz);
+    p1=find(az<=8);
+    p2=find(az> 8);
+
+    if ~isempty(p1)
+      z=zz(p1);
+
+      nn = 32;
+
+      x=real(z);y=imag(z);
+      k1=2/pi*exp(-x.*x);
+      k2=exp(-1i*2*x.*y);
+
+      s1=erf(x);
+
+      s2=zeros(size(x));
+      k= (x~=0);          % when x is non-zero
+      s2(k)= k1(k)./(4*x(k)) .* (1 - k2(k));
+      k= ~k;              % when x is zero
+      s2(k) = 1i/pi*y(k);
+
+      f = s1 + s2;
+
+      k= y ~= 0;          % when y is non-zero
+      xk = x(k);
+      yk = y(k);
+
+      s5 = 0;
+      for n = 1 : nn
+        s3 = exp(-n*n/4) ./ (n*n + 4*xk.*xk);
+        s4 = 2*xk - k2(k).*(2*xk.*cosh(n*yk) - 1i*n*sinh(n*yk));
+        s5 = s5 + s3.*s4;
+      end
+      s6 = k1(k) .* s5;
+      f(k) = f(k) + s6;
+      ff(p1)=f;
+    end
+
+    if ~isempty(p2)
+      z=zz(p2);
+      pn=find(real(z)<0);
+      if ~isempty(pn), z(pn)=-z(pn); end
+
+      nmax=193;
+      s=1;
+      y=2*z.*z;
+      for n=nmax:-2:1, s=1-n.*(s./y); end
+
+      f=1.0-s.*exp(-z.*z)./(sqrtpi*z);
+      if ~isempty(pn), f(pn)=-f(pn); end
+      pa=find(real(z)==0);
+      %  fix along i axis problem
+      if ~isempty(pa), f(pa)=f(pa)-1; end
+      ff(p2)=f;
+    end
+    f=ff;
+  end
 		
 	    
 		  
 \end{lstlisting}
 \subsection*{Appendix A.6 - FOURHTRANS}
 \begin{lstlisting}
-	function [HY, Y] = fourhtrans(fun, X, m, doccN, inh)
-	    %% Description: 
-	    % This is a hilbert transform function based on the Fouries series
-	    % approximation of the given function.
-	    
-	    %% INPUT:
-	    % fun - an discrete array of values        (function handle)
-	    % X - interval to perform Hilbert transform  (abscissas)
-	    % m - order of Fourier series expantions   (scalar) [optional, default:30]
-	    % doccN - number of points for CC integral (scalar) [optional, default:1024]
-	    % inh - the output waitbar                  (handle) [optional, new created]
-	    
-	    %% OUTPUT:
-	    % HY - an array of Hilbert Transform values (ordinates)
-	    % Y  - an array of fun(X) approximation     (ordinates)
-	    
-	    %% Based on:
-	    % 1. M. Johansson - "The Hilbert transform"
-	    % 2. http://en.wikipedia.org/wiki/Fourier_series
-	    % 3. http://en.wikipedia.org/wiki/Hilbert_transform
-	    
-	    %% The algorithm:
-	    if nargin<3,m=1024; end;
-	    if nargin<4,doccN=4096; end;
-	    if nargin<5,h=waitbar(0,'Calculations - Please wait...','Name', ...
-	    	'Hilbert transform based on the Fouries series'); closewb = true;
-	    else h = inh; closewb = false; end;
+  function [HY, Y] = fourhtrans(fun, X, m, doccN, inh)
+    %% Description: 
+    % This is a hilbert transform function based on the Fouries series
+    % approximation of the given function.
+
+    %% INPUT:
+    % fun - an discrete array of values        (function handle)
+    % X - interval to perform Hilbert transform  (abscissas)
+    % m - order of Fourier series expantions   (scalar) [optional, default:30]
+    % doccN - number of points for CC integral (scalar) [optional, default:1024]
+    % inh - the output waitbar                  (handle) [optional, new created]
+
+    %% OUTPUT:
+    % HY - an array of Hilbert Transform values (ordinates)
+    % Y  - an array of fun(X) approximation     (ordinates)
+
+    %% Based on:
+    % 1. M. Johansson - "The Hilbert transform"
+    % 2. http://en.wikipedia.org/wiki/Fourier_series
+    % 3. http://en.wikipedia.org/wiki/Hilbert_transform
+
+    %% The algorithm:
+    if nargin<3,m=1024; end;
+    if nargin<4,doccN=4096; end;
+    if nargin<5,h=waitbar(0,'Calculations - Please wait...','Name', ...
+    	'Hilbert transform based on the Fouries series'); closewb = true;
+    else h = inh; closewb = false; end;
+
+    % First we calculate the X boundaries
+    a = min(X);       
+    b = max(X);
+    n = length(X);
+
+    % Then we enlarge 5 times the investigated interval:
+    down = a-(b-a)*2; 
+    up   = b+(b-a)*2;
+    XX = linspace(down, up, 5*n);
+
+    % We measure the important values
+    T = (up-down);       % period
+    L = T/2;             % halfperiod
+
+    % Calculation of the first component
+    Yp  = 1/2 .* docc(fun, doccN, down, up);
+    HYp = 0;
+
+    % Main loop:
+    for k=1:1:m
+      an  = docc(@(x) fun(x) .* cos(k*pi/L .* x), doccN, down, up);
+      bn  = docc(@(x) fun(x) .* sin(k*pi/L .* x), doccN, down, up);
+
+      cs = cos(k*pi/L .* XX);
+      sn = sin(k*pi/L .* XX);
+
+      % Function approximation (on the NX interval)
+      Yp  =  Yp + an .* cs + bn .* sn;
+      % Hilbert transform approximation (on the NX interval)
+      HYp = HYp + bn .* cs + an .* sn;
+      waitbar(k/m,h);
+    end; 
+    if (true==closewb), close(h); end;
+
+    % Finally, we extract the [a, b] part from the [up, down] interval
+    INN = (2*n+1):1:3*n;
+    Y  =  Yp(INN); 
+    HY = HYp(INN); 
+  end
 	
-	    % First we calculate the X boundaries
-	    a = min(X);       
-	    b = max(X);
-	    n = length(X);
-	
-	    % Then we enlarge 5 times the investigated interval:
-	    down = a-(b-a)*2; 
-	    up   = b+(b-a)*2;
-	    XX = linspace(down, up, 5*n);
-	
-	    % We measure the important values
-	    T = (up-down);       % period
-	    L = T/2;             % halfperiod
-	
-	    % Calculation of the first component
-	    Yp  = 1/2 .* docc(fun, doccN, down, up);
-	    HYp = 0;
-	
-	    % Main loop:
-	    for k=1:1:m
-	        an  = docc(@(x) fun(x) .* cos(k*pi/L .* x), doccN, down, up);
-	        bn  = docc(@(x) fun(x) .* sin(k*pi/L .* x), doccN, down, up);
-	
-	        cs = cos(k*pi/L .* XX);
-	        sn = sin(k*pi/L .* XX);
-	        
-	        % Function approximation (on the NX interval)
-	        Yp  =  Yp + an .* cs + bn .* sn;
-	        % Hilbert transform approximation (on the NX interval)
-	        HYp = HYp + bn .* cs + an .* sn;
-	        waitbar(k/m,h);
-	    end; 
-	    if (true==closewb), close(h); end;
-	
-	    % Finally, we extract the [a, b] part from the [up, down] interval
-	    INN = (2*n+1):1:3*n;
-	    Y  =  Yp(INN); 
-	    HY = HYp(INN); 
-	end
-	
-	function val = docc(fun, N, a, b)
-	    %% Description:
-	    % This is one point algorithm and should be used in algorithms that
-	    % need to determine the full vector values
-	    % Look precisely:
-	    % abcde -> abcdedcb ( there is no second 'a' )
+  function val = docc(fun, N, a, b)
+    %% Description:
+    % This is one point algorithm and should be used in algorithms that
+    % need to determine the full vector values
+    % Look precisely:
+    % abcde -> abcdedcb ( there is no second 'a' )
+
+    %% INPUT:
+    % fun - an function_handle 
+    % N - number of points to operate with tolerance (scalar) [optional, default:256]
+    % a - the lower integration bound (scalar) [optional, default: -1]
+    % b - the upper integration bound (scalar) [optional, default:  1]
+
+    %% OUTPUT:
+    % val  - value of integral
+
+    %% Based on:
+    % 1. http://fourier.eng.hmc.edu/e161/lectures/dct/node2.html
+    % (unfortunatelly this is DCT-II, so another type)
+    % 2. http://en.wikipedia.org/wiki/Clenshaw-Curtis_quadrature
+    % The very important quote: 
+    % "For example, a DCT-I of N=5 real numbers abcde is exactly equivalent
+    % to a DFT of eight real numbers abcdedcb (even symmetry), divided by
+    % two."
+
+    %% The algorithm:
+    if nargin<4, b =   1; end;
+    if nargin<3, a =  -1; end;
+    if nargin<2, N = 256; end;
+
+    % Mapping [a, b] into [-1, 1]
+    C = (b+a)/2;
+    T = (b-a)/2;
+
+    % A new function to be integrated from -1 to 1    
+    newfun = @(x) fun((x .* T ) + C);
+
+    % Getting the value with standard -1,1 Clenshaw Curtis integration routine
+    val = onetoonecc(newfun,N);
+
+  end
 	    
-	    %% INPUT:
-	    % fun - an function_handle 
-	    % N - number of points to operate with tolerance (scalar) [optional, default:256]
-	    % a - the lower integration bound (scalar) [optional, default: -1]
-	    % b - the upper integration bound (scalar) [optional, default:  1]
-	    
-	    %% OUTPUT:
-	    % val  - value of integral
-	    
-	    %% Based on:
-	    % 1. http://fourier.eng.hmc.edu/e161/lectures/dct/node2.html
-	    % (unfortunatelly this is DCT-II, so another type)
-	    % 2. http://en.wikipedia.org/wiki/Clenshaw-Curtis_quadrature
-	    % The very important quote: 
-	    % "For example, a DCT-I of N=5 real numbers abcde is exactly equivalent
-	    % to a DFT of eight real numbers abcdedcb (even symmetry), divided by
-	    % two."
-	    
-	    %% The algorithm:
-	    if nargin<4, b =   1; end;
-	    if nargin<3, a =  -1; end;
-	    if nargin<2, N = 256; end;
-	
-	    % Mapping [a, b] into [-1, 1]
-	    C = (b+a)/2;
-	    T = (b-a)/2;
-	    
-	    % A new function to be integrated from -1 to 1    
-	    newfun = @(x) fun((x .* T ) + C);
-	
-	    % Getting the value with standard -1,1 Clenshaw Curtis integration routine
-	    val = onetoonecc(newfun,N);
-	    
-	end
-	    
-	function val = onetoonecc(fun, N)
-	    %% CC integration from -1 to 1:
-	    
-	    % We make this division once, for faster computation
-	    N2  = N/2;                                           
-	    
-	    % Array of N/2+1 points (where N2 = N/2)
-	    ps  = 0:1:N2;                                        
-	    
-	    % N2+1 abscissaas from the 0..pi range
-	    xn  = cos(ps.*pi./N);                                
-	    
-	    % N2+1 ordinates for fun(cos(n*pi/N))
-	    yn  = fun(xn) + fun(-xn);                            
-	    
-	    % We shall set all NaNs and Infs to zero
-	    yn(isnan(yn) | (isfinite(yn)==0)) = 0;               
-	    
-	    % Look at quote in the base description about the connection of DCT-I and DFT/FFT
-	    g   = real(fft(yn(1+[0:N2 (N2-1):-1:1])))./2;        
-	    
-	    % We take symmetrical values and add them together (ommiting first and last)
-	    cn  = [g(1), g(2:N2)+g(N:-1:N2+2), g(N2+1)];         
-	    
-	    % This is the final vector for multiplying
-	    dn  = [2, 2./(1-(2.*(1:1:(N2-1))).^2), 2./(1-N^2)];  
-	    
-	    % Final cc integral calculation
-	    val = (dn * cn' )/ N;                                
-	end
+  function val = onetoonecc(fun, N)
+    %% CC integration from -1 to 1:
+
+    % We make this division once, for faster computation
+    N2  = N/2;                                           
+
+    % Array of N/2+1 points (where N2 = N/2)
+    ps  = 0:1:N2;                                        
+
+    % N2+1 abscissaas from the 0..pi range
+    xn  = cos(ps.*pi./N);                                
+
+    % N2+1 ordinates for fun(cos(n*pi/N))
+    yn  = fun(xn) + fun(-xn);                            
+
+    % We shall set all NaNs and Infs to zero
+    yn(isnan(yn) | (isfinite(yn)==0)) = 0;               
+
+    % Look at quote in the base description about the connection of DCT-I and DFT/FFT
+    g   = real(fft(yn(1+[0:N2 (N2-1):-1:1])))./2;        
+
+    % We take symmetrical values and add them together (ommiting first and last)
+    cn  = [g(1), g(2:N2)+g(N:-1:N2+2), g(N2+1)];         
+
+    % This is the final vector for multiplying
+    dn  = [2, 2./(1-(2.*(1:1:(N2-1))).^2), 2./(1-N^2)];  
+
+    % Final cc integral calculation
+    val = (dn * cn' )/ N;                                
+  end
 \end{lstlisting}
 
 \section*{Appendix B - ZScan Measurements} \label{chap:zscan}
