@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex Thesis"] 1368389034 "Thesis.aux" "Thesis.bbl" "Thesis" 1368389047
+["bibtex Thesis"] 1368393533 "Thesis.aux" "Thesis.bbl" "Thesis" 1368393720
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "Thesis.aux" 1368389047 67585 d915879896a56dabb04c38b5cee3a577 ""
+  "Thesis.aux" 1368393720 67530 67f2a0bc841baa1c8c896e98941d9d44 ""
   "Thesis.bcf" 0 -1 0 ""
   "biblio.bib" 1367379221 23612 531d156256e7b148dacc43a9ae4b9186 ""
   (generated)
   "Thesis.blg"
   "Thesis.bbl"
-["pdflatex"] 1368389034 "Thesis.tex" "Thesis.pdf" "Thesis" 1368389047
+["pdflatex"] 1368393708 "Thesis.tex" "Thesis.pdf" "Thesis" 1368393720
   "../img/ca_plot.png" 1367379234 9398 f2dd9de5aa613298eff0bfde9f582710 ""
   "../img/cci_bigger_interval.png" 1367379232 5743 204855c59b50fd1ad511aed76380ca60 ""
   "../img/equalizer.png" 1367379243 4093 97a4ac74d6729df8d14d47fcd5110c19 ""
@@ -247,9 +247,9 @@
   "/usr/share/texlive/texmf/web2c/texmf.cnf" 1351468918 31466 25867adcbb7c2423c76afd53e67c9231 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1368302614 551212 d2a2eee7c3e996fcd95cba6e8fce27cb ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1368302617 763733 b67b843d440a226eedab9c5fb981a333 ""
-  "Thesis.aux" 1368389047 67585 d915879896a56dabb04c38b5cee3a577 ""
-  "Thesis.bbl" 1368389034 10366 109cafd686f983ba41b279b6660ccc6b "bibtex Thesis"
-  "Thesis.tex" 1368389017 230274 f37b49bf6242526b6cfd42662fe411fc ""
+  "Thesis.aux" 1368393720 67530 67f2a0bc841baa1c8c896e98941d9d44 ""
+  "Thesis.bbl" 1368393533 10366 109cafd686f983ba41b279b6660ccc6b "bibtex Thesis"
+  "Thesis.tex" 1368393707 231421 3efa7d39618a5f4ec190cf17c62160a2 ""
   (generated)
   "Thesis.pdf"
   "Thesis.aux"
