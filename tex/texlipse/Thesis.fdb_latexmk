@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex Thesis"] 1368344867 "Thesis.aux" "Thesis.bbl" "Thesis" 1368344878
+["bibtex Thesis"] 1368348176 "Thesis.aux" "Thesis.bbl" "Thesis" 1368348188
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "Thesis.aux" 1368344878 67804 cc33fd7193e1aab5998f5feb41ed6857 ""
+  "Thesis.aux" 1368348188 67712 2d577e630bd25bebfd7b68a10835c691 ""
   "Thesis.bcf" 0 -1 0 ""
   "biblio.bib" 1367379221 23612 531d156256e7b148dacc43a9ae4b9186 ""
   (generated)
   "Thesis.blg"
   "Thesis.bbl"
-["pdflatex"] 1368344867 "Thesis.tex" "Thesis.pdf" "Thesis" 1368344878
+["pdflatex"] 1368348176 "Thesis.tex" "Thesis.pdf" "Thesis" 1368348188
   "../img/ca_plot.png" 1367379234 9398 f2dd9de5aa613298eff0bfde9f582710 ""
   "../img/cci_bigger_interval.png" 1367379232 5743 204855c59b50fd1ad511aed76380ca60 ""
   "../img/equalizer.png" 1367379243 4093 97a4ac74d6729df8d14d47fcd5110c19 ""
@@ -175,6 +175,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/pl/plti10.pfb" 1136849748 32502 73b348676aac6ae1f3a22f93f5f2370b ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/pl/plti12.pfb" 1136849748 31333 b77f84fb77cd444a4b883716d8141250 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/pl/plti7.pfb" 1136849748 32438 31b0f91f62ff4f16f57472f98d44217e ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/pl/plti8.pfb" 1136849748 32331 6abf03366ff9a3d42837250aaae5f242 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/pl/pltt12.pfb" 1136849748 26667 6a862eeb4e6233f78e281710239267b4 ""
   "/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def" 1312409092 29228 2fe939254f4b17ac18a8c0fb8aa39dff ""
@@ -246,9 +247,9 @@
   "/usr/share/texlive/texmf/web2c/texmf.cnf" 1351468918 31466 25867adcbb7c2423c76afd53e67c9231 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1368302614 551212 d2a2eee7c3e996fcd95cba6e8fce27cb ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1368302617 763733 b67b843d440a226eedab9c5fb981a333 ""
-  "Thesis.aux" 1368344878 67804 cc33fd7193e1aab5998f5feb41ed6857 ""
-  "Thesis.bbl" 1368344867 10366 109cafd686f983ba41b279b6660ccc6b "bibtex Thesis"
-  "Thesis.tex" 1368344806 229390 17c15729f1ffab0288e60c9024ddd696 ""
+  "Thesis.aux" 1368348188 67712 2d577e630bd25bebfd7b68a10835c691 ""
+  "Thesis.bbl" 1368348176 10366 109cafd686f983ba41b279b6660ccc6b "bibtex Thesis"
+  "Thesis.tex" 1368348160 229128 14ae6a389bae25461e147231c064996f ""
   (generated)
   "Thesis.pdf"
   "Thesis.aux"

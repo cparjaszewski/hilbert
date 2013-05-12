@@ -456,9 +456,9 @@ INPUT ./../img/zscan_both.png
 INPUT ./../img/zscan_both.png
 INPUT ./../img/zscan_both.png
 INPUT Thesis.aux
-INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plit.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plrm.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plmi.enc
+INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plit.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/pltt.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
@@ -495,4 +495,5 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/pl/plti10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/pl/plti12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/pl/plti7.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/pl/plti8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/pl/pltt12.pfb

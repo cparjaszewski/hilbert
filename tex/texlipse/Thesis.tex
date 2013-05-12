@@ -682,7 +682,7 @@ In the nonlinear cases - we will assume that the number of possible atom states 
 
 We name this model the sum-over-states, because we will perform summation over all possible excited states for the theoretical model of an atom. We have already introduced the Planck constant $h$. We will also used the $N$ constant to describe the number density of atoms - which describe the concentration of any countable objects in a given, three-dimensional volume. We shall also introduce the vacuum permittivity constant $\epsilon_0 \approx 8.854187817620 \times 10^{-12} \, \text{ Farad per meter } $. 
 
-There are two more physical values to be discussed. First of the is $\mu_{i, ab}$ and the second is $\omega_{cd}$. $\mu_{i, ab}$ will be a matrix-like value, and the $\omega_{cd}$ will be a vector-like value. There are many situations in physics, when a value is described by the vector, two-dimensional matrix or a matrices of higher order. Such values are called \textbf{tensors}. $\mu_{ab}$ tensor is described as the electric dipole moment with the Coulomb-meter SI unit. The electric dipole moment in physics describes the separation of the negative and the positive charges in a systems consisting of charges. It is also called the system's polarity. It describes the polarity of a system between a state ``a'' and the state ``b''. The order of indices also matters, so $\mu_{i, ab}$ is a different value from $\mu_{i, ba}$. In our calculations this value will be a two-dimensional tensor - so a matrix - because one dimension will be related with the ``ab'' or ``ba'' direction and the second dimension will be related with $i$ - the indicated spatial property of an atom. The atom ``shotted'' with a photon in the direction of the axis OX may behave different that ``shotted'' from the OY axis. This is also a simplification and in general case the more photons are we taking into consideration, the higher order of a tensor need to be introduced.
+There are two more physical values to be discussed. First of them is $\mu_{i, ab}$ and the second is $\omega_{cd}$. The term $\mu_{i, ab}$ is a matrix-like value, and the $\omega_{cd}$ is a vector-like value. There are many situations in physics, when a value is described by the vector, two-dimensional matrix or a matrices of higher order. Such values are called \textbf{tensors}. $\mu_{ab}$ tensor is described as the electric dipole moment with the Coulomb-meter SI unit. The electric dipole moment in physics describes the separation of the negative and the positive charges in a systems consisting of charges. It is also called the system's polarity. It describes the polarity of a system between a state ``a'' and the state ``b''. The order of indices also matters, so $\mu_{i, ab}$ is a different value from $\mu_{i, ba}$. In our calculations this value will be a two-dimensional tensor - so a matrix - because one dimension will be related with the ``ab'' or ``ba'' direction and the second dimension will be related with $i$ - the indicated spatial property of an atom. The atom ``shotted'' with a photon in the direction of the axis OX may behave different that ``shotted'' from the OY axis. This is also a simplification and in general case the more photons are we taking into consideration, the higher order of a tensor need to be introduced.
 
 The last value is an amount of energy related with a frequency $\omega_{cd}$ required for an atom to make a transition between state ``c'' and state ``d''. We will use a one-dimensional tensor to describe this value. $P_{I}$ is the intrinsic permutation operator, in general it is used not to repeat the very same summands again and again just with slight modification of $+$ and $-$ signs - but please see details in \cite{boyd_nlo}.
 
@@ -837,11 +837,24 @@ In further calculations we will use both the presented equations in simplified v
    
 \section{Simpson and trapezoidal quadrature based Hilbert transform - HTRAN} \label{chap:htran}
 
-\subsection{Overview of the HTRAN} \label{chap:htran_overview}
+In Chapter (\ref{chap:physical_models}) we have defined the:
+
+\begin{itemize}
+ \item simple linear model, 
+ \item pump-and-probe model, 
+ \item frequency mixing model, 
+ \item sum-over-states models of 1st, 2nd and 3rd order,
+ \item density matrix models of 1st, 2nd and 3rd order.
+\end{itemize}
+
+In Chapters (\ref{chap:htran}-\ref{chap:matlab}) we will now put some of these models into numerical calculations to test the methods constructed.
+
+
+\subsection{Overview of the HTRAN} \label{chap:htran_overview} 
 
 In this chapter we present the simplest possible but still nice working numerical calculation of the Hilbert transform based on the report by I. J. Weinberg \cite{weinberg_hilbert}. It uses the Simpson and trapezoidal quadrature. We have slightly modified author's algorithm and it no longer requires the input to be an even function.
 
-The algorithm is presented in two parts. In the first part, we present how the Hilbert transform equation can be modified with one strict assumption from the singular integral to the non-singular one. In the second part, we will use the new set of input function values based on the interpolation method.
+The algorithm is presented in two parts. In the first part, we present how the Hilbert transform equation can be modified, with one strict assumption, from the singular integral to the non-singular one. In the second part, we will work on the new set of input function values based on the interpolation method.
 
 \begin{figure}
 	\includegraphics[width=150mm]{img/htran_illustration.png}
@@ -854,13 +867,13 @@ We assume that the input function R is defined for a discrete set of arguments:
 	F = \{ F_1, F_2, \ldots, F_N \} \quad (F_i < F_j \, \text{ for } i < j) . 
 \end{equation}
 
-We will calculate the Hilbert transform of $R$ for the same discrete set of arguments $F$. An example has been presented on Figure (\ref{fig:htran_illustration}), where the blue plot represents the input function $R$ and the green plot represents the output function $HT$.
+We will calculate the Hilbert transform of $R$ for the same discrete set of arguments $F$. An example has been presented on Figure (\ref{fig:htran_illustration}), where the blue plot represents the input function $R$ and the green plot represents the output function $H_T$.
 
 
 We start from reminding the definition of the Hilbert transform:
 
 \begin{equation} \label{eq:htran_basic_representation}
- \mathrm{HT}(\omega )
+ \mathrm{H_T}(\omega )
   = \frac{1}{\pi } {\dashint_{ - \infty }^{\infty }  \frac {\mathrm{R}(\Omega )}{\Omega - \omega }\,d\Omega }
 \end{equation}
 
@@ -882,16 +895,16 @@ Now for each frequency $\omega$ we observe the following property:
 We use the observation (\ref{eq:htran_cpv_property}) and modify the equation (\ref{eq:htran_first_modification}):
 
 \begin{equation} \label{eq:htran_newintegral}
-  \mathrm{HT}(\omega )
+  \mathrm{H_T}(\omega )
   = \frac{1}{\pi } {\dashint_{ - \infty }^{\infty } \frac {\mathrm{R}(\Omega ) - \mathrm{R}(\omega )}{\Omega  - \omega }\,d\Omega }
   + \frac{1}{\pi } {\dashint_{ - \infty }^{\infty } \frac {\mathrm{R}(\Omega )}{\Omega  - \omega }\,d\Omega }
-  = \frac{1}{\pi } {\dashint_{ - \infty }^{\infty } \frac {\mathrm{R}(\Omega ) - \mathrm{R}(\omega )}{\Omega - \omega }\,d\Omega} . 
+  = \frac{1}{\pi }      {int_{ - \infty }^{\infty } \frac {\mathrm{R}(\Omega ) - \mathrm{R}(\omega )}{\Omega - \omega }\,d\Omega} . 
 \end{equation}
 
 We can easily transform the result of the (\ref{eq:htran_newintegral}) as follows:
 
 \begin{equation} \label{eq:htran_ht_three}
-  \mathrm{HT}(\omega ) = \frac{1}{\pi } \left[ 
+  \mathrm{H_T}(\omega ) = \frac{1}{\pi } \left[ 
     \int_{ -\infty }^{F_1} \frac {\mathrm{R}(\Omega ) - \mathrm{R}(\omega )}{\Omega  - \omega }\,d\Omega 
   + \int_{ F_1 }^{ F_N }   \frac {\mathrm{R}(\Omega ) - \mathrm{R}(\omega )}{\Omega  - \omega }\,d\Omega 
   + \int_{ F_N }^{ \infty} \frac {\mathrm{R}(\Omega ) - \mathrm{R}(\omega )}{\Omega  - \omega }\,d\Omega 
@@ -907,7 +920,7 @@ As the input function R is assumed to be square-integrable, we will put even mor
 With the strict-vanishing assumption (\ref{eq:htran_vanishes}) for $R(\omega)$, we can simplify the equation (\ref{eq:htran_ht_three}) as follows:
 
 \begin{equation} \label{eq:htran_ht}
-  \mathrm{HT}(\omega ) = \frac{1}{\pi } \left[ 
+  \mathrm{H_T}(\omega ) = \frac{1}{\pi } \left[ 
     \int_{ -\infty }^{F_1} - \frac {\mathrm{R}(\omega )}{\Omega - \omega }\,d\Omega
   + \int_{ F_1 }^{ F_N }     \frac {\mathrm{R}(\Omega ) - \mathrm{R}(\omega )}{\Omega - \omega }\,d\Omega 
   + \int_{ F_N }^{ \infty} - \frac {\mathrm{R}(\omega )}{\Omega - \omega }\,d\Omega 
@@ -959,7 +972,7 @@ Together with the observation (\ref{eq:htran_forallm}) each of two cases from (\
 And we can see that both the (\ref{eq:htran_htresults}) derivations lead to the same result:
 
 \begin{equation} \label{eq:htran_sameresult}
-  \mathrm{HT}(\omega ) = \frac {1}{\pi } 
+  \mathrm{H_T}(\omega ) = \frac {1}{\pi } 
   \left[
       - \mathrm{R}(\omega )\, \mathrm{ln}( \frac {\omega  - F_1}{F_N - \omega }) 
       + \int_{F_1}^{ F_N}\frac {\mathrm{R}(\Omega ) - \mathrm{R}(\omega )}{\Omega - \omega }\,d\Omega
@@ -979,7 +992,7 @@ We would like the denominator in the (\ref{eq:htran_interestint}) equation never
   \widehat{F_k}=\frac { F_k + F_{k + 1} }{2} \,\mbox{ for } \, k = 1 \, \ldots \, {N - 1}
 \end{equation} 
 
-We will also need to approximate the values of a new $\widehat{R}$ at $\widehat{F_j} \quad (j = 1 \ldots N-1)$  points. We will do this by a simple cubic interpolation. $R(\widehat{F_j}) = \widehat{R_j}$, so:
+We will also need to approximate the values of a new $\widehat{R} = \widehat{R_j}$ $(j = 1 \ldots N-1)$  points. We will do this by a simple cubic interpolation:
 
 \begin{subequations} \label{eq:htran_r3interp}
   \begin{equation}   \label{eq:hr3inp_first}
@@ -994,7 +1007,7 @@ We will also need to approximate the values of a new $\widehat{R}$ at $\widehat{
   \end{equation}
 \end{subequations}
 
-By now, the calculation of the $\mathrm{Y}$ function from the (\ref{eq:htran_interestint}) equation will be performed by a simple quadrature integration. The introduced $\widehat{Y_{i}}$ symbol describes the numerical approximation of the $\mathrm{Y}$ function calculated with the following equation:
+The calculation of the $\mathrm{Y}$ function from the (\ref{eq:htran_interestint}) equation will be performed by a simple quadrature integration. The introduced $\widehat{Y_{i}}$ symbol describes the numerical approximation of the $\mathrm{Y}$ function calculated with the following equation:
 
 \begin{equation} \label{eq:htran_simplequadrature}
   \widehat{Y_{i}} = \sum_{j=1}^{N} \, \frac {h_j \, (R_j - \widehat{R_i})} 
@@ -1038,44 +1051,40 @@ If N is even, the last interval should be obtained using the trapezoidal rule:
 In the next step, we calculate the Hilbert transform at points $\widehat{F_j} \, (j = 1, \ldots, N-1)$ :  
 
 \begin{equation} \label{eq:htran_htpoints}
-  \widehat{HT_i} = \frac {1}{\pi} 
+  \widehat{H_{T_i}} = \frac {1}{\pi} 
   \left[ -  \widehat{R_i}
          \, \mathrm{ln}(\frac {\widehat{F_i} - F_1}{F_N - \widehat{F_i} })
          +  \widehat{Y_i} 
   \right].
 \end{equation}
 
-Finally we need to undo the cubic interpolation. $ HT(F_i) = HT_{i} $, so: 
+Finally we need to undo the cubic interpolation. $ H_T(F_i) = H_{T_{i}} $, so: 
 
 \begin{align}
   \label{eq:htundo_first}  
-    HT_1       & = \frac {15 \, \widehat{HT_1} - 10 \, \widehat{HT_2} + 3 \, \widehat{HT_3}}{8}
+    H_{T_1}       & = \frac {15 \, \widehat{H_{T_1}} - 10 \, \widehat{H_{T_2}} + 3 \, \widehat{H_{T_3}}}{8} 
     \\
   \label{eq:htundo_second}
-    HT_2       & = \frac {3 \, \widehat{HT_1} + 6 \, \widehat{HT_2} - 1 \, \widehat{HT_3}}{8}
+    H_{T_2}       & = \frac {3 \, \widehat{H_{T_1}} + 6 \, \widehat{H_{T_2}} - 1 \, \widehat{H_{T_3}}}{8} 
     \\ 
   \label{eq:htundo_next}
-    HT_i       & = \frac { - \widehat{HT_{i - 1}} + 9 \, \widehat{HT_i} + 9 \, \widehat{HT_{i + 1}} - \widehat{ \mathit{HT}_{i + 1}} }
+    H_{T_i}       & = \frac { - \widehat{H_{T_{i - 1}}} + 9 \, \widehat{H_{T_i}} + 9 \, \widehat{H_{T_{i + 1}}} - \widehat{ \mathit{H_{T_{i + 1}}}} }
                    {16} \, \mbox{ for } \, i = 3, \, 4, \, \ldots \, {N - 2} 
-    \\
+    \\ 
   \label{eq:htundo_prelast}
-    HT_{N - 1} & = \frac { - \widehat{HT_{N - 3}} + 6 \, \widehat{HT_{N - 2}} + 3 \, \widehat{HT_{N - 1}}}{8} 
+    H_{T_{N - 1}} & = \frac { - \widehat{H_{T_{N - 3}}} + 6 \, \widehat{H_{T_{N - 2}}} + 3 \, \widehat{H_{T_{N - 1}}}}{8} 
     \\
   \label{eq:htundo_last}
-    HT_N       & = \frac {3 \, \widehat{HT_{N - 3}} - 10 \, \widehat{HT_{N - 2}} + 15 \, \widehat{HT_{N - 1}}}{8}  
+    H_{T_N}       & = \frac {3 \, \widehat{H_{T_{N - 3}}} - 10 \, \widehat{H_{T_{N - 2}}} + 15 \, \widehat{H_{T_{N - 1}}}}{8}  
 \end{align}
 
 In the following chapters we will show the results obtained with this method.
 
 \subsection{HTRAN for simple linear model - results} \label{chap:htran_lin}
 
-We shall remind the model presented in Chapter (\ref{chap:physical_models}) in the equation (\ref{eq:physical_frequency_linear}):
+In this chapter we will present the results of HTRAN algorithm applied on the simple linear model defined in the equation (\ref{eq:physical_frequency_linear}).
 
-\begin{equation} \label{eq:htran_remind_linmod}
-  \mathcal{F}[h_{\text{lin}}] = \chi_{\text{lin}}(\omega) \approx \frac{ -20}{(\omega \,i + 1 -20\,i)\,(\omega \,i + 1 + 20\,i)} .
-\end{equation}
-
-The real part of $\chi_{\text{lin}}$ will be used as the input function $R$ in the equation (\ref{eq:htran_first_modification}). The output function $HT$ calculated with the HTRAN algorithm is compared to the imaginary part of the $\chi_{\text{lin}}$. We have presented the results in Figure (\ref{eq:htran_lin}). In this and in the following chapters we would like the error function represented with the yellow colour to be as close to zero as possible. We also would like the numerical results to be close to the values calculated analytically.
+The real part of $\chi_{\text{lin}}$ will be used as the input function $R$ in the equation (\ref{eq:htran_first_modification}). The output function $H_T$ calculated with the HTRAN algorithm is compared to the imaginary part of the $\chi_{\text{lin}}$. We have presented the results in Figure (\ref{eq:htran_lin}). In this and in the following chapters we would like the error function represented with the yellow colour to be as close to zero as possible. 
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/htran_lin.png}
@@ -1089,18 +1098,8 @@ The real part of $\chi_{\text{lin}}$ will be used as the input function $R$ in t
 
 \subsection{HTRAN for simple nonlinear model - results} \label{chap:htran_nlo}
 
-We remind the equation for the pump-and-probe susceptibility model (\ref{eq:physical_pnp_equation}): 
+In this chapted we will test the pump-and-probe susceptibility model (\ref{eq:physical_pnp_equation}) with the following values for the constants:
 
-\begin{multline} \label{eq:htran_fparameters}
-  \chi_{pp} (\delta ) = \frac {G\,{n_{0}}\,{\gamma_{ba}}}{\Delta + \delta + I\,\eta } \\
-    \left(  
-    	1 - \frac{{\Omega_{1}}^{2}\,(\Delta - \delta + I \, \eta ) \, (\delta + 2 \, I \, \eta )}
-    	         {(\Delta  - I \, \eta) \, ((\delta + I \, \theta ) \, (\delta + \Delta + I \, \eta ) 
-    	           \, (\delta - \Delta  + I\,\eta ) - 2 \, {\Omega_{1}}^{2} \, (\delta  + I \, \eta ))} 
-    \right) 
-\end{multline}
-
-and we have assign the values for the constants:
 \begin{tabular}{r r l r r l r r l r r l}
   $G$           & $=$ & $1$, 
   $\gamma_{ba}$ & $=$ & $1$, 
@@ -1137,7 +1136,7 @@ Let us remind and simplify the wave-mixing model stated in the Chapter (\ref{cha
 
 \begin{equation} \label{eq:htran_fm}
 	\chi_{mix} (\delta) =
-      \frac { \text{ const } ( - \delta - \Delta - \frac{i}{ { T_{2} } } ) \, ( \delta  + \frac{2 \, i} { { T_{2} } } ) }
+      \frac { \text{ const } \times ( - \delta - \Delta - \frac{i}{ { T_{2} } } ) \, ( \delta  + \frac{2 \, i} { { T_{2} } } ) }
             { ( \Delta + \frac {i}{ { T_{2} } } ) \, ( \Delta  + \delta  + \frac {i}{ { T_{2} } } ) \, { \mathrm{D} } ^ {*} (\delta) },
 \end{equation}
 
