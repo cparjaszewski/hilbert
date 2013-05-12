@@ -1082,9 +1082,9 @@ In the following chapters we will show the results obtained with this method.
 
 \subsection{HTRAN for simple linear model - results} \label{chap:htran_lin}
 
-In this chapter we will present the results of HTRAN algorithm applied on the simple linear model defined in the equation (\ref{eq:physical_frequency_linear}).
+In this chapter we will present the results of HTRAN algorithm applied on the simple linear model defined in the equation (\ref{eq:physical_frequency_linear}). The real part of $\chi_{\text{lin}}$ will be used as the input function $R$ in the equation (\ref{eq:htran_first_modification}). The output function $H_T$ calculated with the HTRAN algorithm is compared to the imaginary part of the $\chi_{\text{lin}}$. 
 
-The real part of $\chi_{\text{lin}}$ will be used as the input function $R$ in the equation (\ref{eq:htran_first_modification}). The output function $H_T$ calculated with the HTRAN algorithm is compared to the imaginary part of the $\chi_{\text{lin}}$. We have presented the results in Figure (\ref{eq:htran_lin}). In this and in the following chapters we would like the error function represented with the yellow colour to be as close to zero as possible. 
+We have presented the results in Figure (\ref{eq:htran_lin}). In this and in the following chapters we would like the error function represented with the yellow colour to be as close to zero as possible. 
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/htran_lin.png}
@@ -1123,7 +1123,9 @@ The results for such set of parameters are shown on Figure (\ref{fig:htran_pnp_2
     \label{fig:htran_pnp_2d}}
 \end{figure}
 
-The resulted b-plot seems to be a not-so-bad introduction into the Hilbert transform evaluation, as we have only employed the simple Simpson's rule. We would also like to perform the three-dimensional analysis of the assumed pump-probe susceptibility, so we employ the (\ref{eq:dconclude_imag}) and (\ref{eq:dconclude_real}) equations for each frequency. The obtained three-dimensional shapes are similar to the original ones, but we have received a huge relative error as presented in Figure (\ref{fig:htran_pnp_3derr}).
+The resulted b-plot seems to differ from zero near the main amplitude. 
+
+We have provided a quick overview of three-dimensional analysis for pump-probe model. As mentioned in Chapter (\ref{chap:physical_simnlo}), Lucarini~\cite{lucarini_kramers} has presented a multidimensional Kramers Kronig relation, see Equations (\ref{eq:dlucarini_imag} - \ref{eq:dlucarini_real}) by using a multidimensional Hilbert transform. As such advanced analytics is far beyond the scope of this thesis, we would like the simplified equations - see Equations (\ref{eq:dconclude_imag} and \ref{eq:dconclude_real}). The result for the assumed simplification is not promising. While obtained three-dimensional shapes are similar to the original ones, the received relative error is huge as presented in Figure (\ref{fig:htran_pnp_3derr}). 
 
 \begin{figure}
   \begin{center}
@@ -1184,15 +1186,7 @@ While the obtained three-dimensional shape looks very similar to those obtained 
 
 \subsection{HTRAN for simple quantum-perturbative model - results} \label{chap:htran_quantum}
 
-We will use the models already prepared for both linear and second-order nonlinear susceptibilities defined in Chapter (\ref{chap:problem_quantum}).
-
-\begin{equation} \label{eq:htran_qpeq}
-  \chi_{1, \,qp}(\omega ) = 
-  \frac{N}{\varepsilon_0\,\hbar} \sum_{n=1}^{2}\,(\frac {{\mu_{1, \,n}}\,{\mu_{2, \,n}}}{{\Omega_{n}} - \omega -
-  i\,{\gamma_{n}}} + \frac {{\mu_{2, \,n}}\,{\mu_{1, \,n}}}{{\Omega_{n}} + \omega + i\,{\gamma_{n}}}) ,
-\end{equation}
-
-We have used the constants' values defined in (\ref{eq:htran_qp1_const}). 
+We will use the models already prepared for both linear, Equation (\ref{eq:ssmods_linear}), and second-order, Equation (\ref{eq:ssmods_quadratical}), nonlinear susceptibilities defined in Chapter (\ref{chap:problem_quantum}). For the linear model we have used the following constant values:
 
 \begin{equation} \label{eq:htran_qp1_const}
   \mu = \begin{bmatrix} 
@@ -1210,6 +1204,10 @@ We have used the constants' values defined in (\ref{eq:htran_qp1_const}).
   h = -1.
 \end{equation}
 
+
+Results are gathered on Figure (\ref{fig:htran_qp_2d}). As we can see - the absolute error is quite huge, but on the other hand the pairs of plots (a.c) with (a.d) and (b.c) with (b.d) have at least similar shapes. As for the simplest applied method these results can be satisfactory in case we only would like to initially reject or accept the investigated model. In case we need much higher accuracy, we will need to search for more precise methods.
+
+
 \begin{figure} 
   \includegraphics[width=70mm]{img/htran_qp_2da.png} 
   \includegraphics[width=70mm]{img/htran_qp_2db.png}  
@@ -1225,35 +1223,7 @@ We have used the constants' values defined in (\ref{eq:htran_qp1_const}).
   \label{fig:htran_qp_2d}}
 \end{figure}
 
-Results are gathered on Figure (\ref{fig:htran_qp_2d}). As we can see - the absolute error is quite huge, but on the other hand the pairs of plots (a.c) with (a.d) and (b.c) with (b.d) have at least similar shapes. As for the simplest applied method these results can be satisfactory in case we only would like to initially reject or accept the investigated model. In case we need much higher accuracy, we will need to search for more precise methods.
-
-In the equation (\ref{eq:htran_qp_reminder}) we remind the second-order quantum-perturbative sum-over-states model from the Chapter
-(\ref{chap:problem_quantum}). 
-
-\begin{equation} \label{eq:htran_qp_reminder}
-  \begin{split} 
-     & \chi_{2, \, qp}(\omega_1, \, \omega_2 ) = 
-    \frac{N} {2 \, \varepsilon_0 \, h^2} \sum_{n=1}^{2} \sum_{m=1}^{2} \sum_{l=1}^{2} 
-    \\ ( & \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{ml}} - \omega_1 - i \, {\gamma_{ml}})^{-1} }
-        {({\Omega_{nl}} - \omega_1 - \omega_2 - i \, {\gamma_{nl}}) }
-       + \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{ml}} - \omega_2 - i \, {\gamma_{ml}})^{-1} }
-        {({\Omega_{nl}} - \omega_1 - \omega_1 - i \, {\gamma_{nl}}) } 
-    \\ + & \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{nl}} + \omega_2 + i \, {\gamma_{nl}})^{-1} }
-        {({\Omega_{mn}} - \omega_1 - \omega_2 - i \, {\gamma_{mn}}) } 
-       + \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{nl}} + \omega_2 + i \, {\gamma_{nl}})^{-1} }
-        {({\Omega_{mn}} - \omega_1 - \omega_2 - i \, {\gamma_{mn}}) } 
-    \\ + & \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{ml}} - \omega_1 - i \, {\gamma_{ml}})^{-1} }
-        {({\Omega_{nm}} + \omega_1 + \omega_2 + i \, {\gamma_{nm}}) } 
-       + \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{ml}} - \omega_1 - i \, {\gamma_{ml}})^{-1} }
-        {({\Omega_{nm}} + \omega_1 + \omega_2 + i \, {\gamma_{nm}}) } 
-    \\ + & \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{nl}} + \omega_1 + i \, {\gamma_{nl}})^{-1} }
-        {({\Omega_{ml}} + \omega_1 + \omega_2 + i \, {\gamma_{ml}}) } 
-       + \frac {{\mu_{ln}} \, {\mu_{nm}} \, {\mu_{ml}} \, ({\Omega_{nl}} + \omega_2 + i \, {\gamma_{nl}})^{-1} }
-        {({\Omega_{ml}} + \omega_1 + \omega_2 + i \, {\gamma_{ml}})}).
-  \end{split} 
-\end{equation}
-
-We have applied the following constants' values: 
+For the second order model, we have applied the following constants' values: 
 
 \begin{equation} \label{eq:htran_qp_constant}
   \mu = \begin{bmatrix}
@@ -1285,7 +1255,7 @@ We have applied the following constants' values:
 
 As the equations (\ref{eq:dlucarini_imag}) and (\ref{eq:dlucarini_real}) are symmetric, in the 3-dimensional model we treated the real and imaginary parts as input and performed the 2-dimensional Hilbert transform in a simplified ``stripe by stripe'' way. Results are presented in Figure (\ref{fig:htran_qp_3d}). We can see that there is a similarity in obtained plots, but both the relative and absolute error do not satisfy us at all. Those obtained with 2-dimensional model were more satisfying - see Figure (\ref{fig:htran_qp_2d}).
 
-We have implemented the HTRAN method in the MATLAB \textsuperscript{\textregistered} environment, and its source code is available in the Appendix A.1.
+In terms of the three-dimensional models, as we can see huge error in each case and as we know that we using only a simplified equation, we will not continue to use the three-dimensional model in next Chapters. We have implemented the HTRAN method in the MATLAB \textsuperscript{\textregistered} environment, and its source code is available in the Appendix A.1.
 
 \section{Newton-Cotes based Hilbert transform (HNC)} \label{chap:nc}
 
