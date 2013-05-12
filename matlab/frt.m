@@ -5,32 +5,32 @@ function res = frt(X)
       
     %% INPUT:
     % X - an discrete array of values (ordinates)
-    
+
     %% OUTPUT:
     % HY   - an array of Discrete Hartley Transform values * (ordinates)
-    
+
     %% Based on:
     % 1. Ronald F. Ullman - "An algorithm for the Fast Hartley Transform"
     % 2. Krzysztof Loryœ - polish notes to the lecture of "Algorithms and
     % Data Structures" held in the Institute of Computer Science,
     % University of Wroclaw
-  
-	  %% Author info:
+
+    %% Author info:
     % [Krzysztof Parjaszewski, University of Wroclaw]
     % As a part of MSc Thesis - "Numerical evaluation of the Hilbert transform in~nonlinear optics"
     % krzysztof.parjaszewski@gmail.com
-    
+
     %% The algorithm:
     N = length(X);
-    
+
     % We precalculate the CAS table for vectors of length less or equal 8:
     CAS = cell(8);
     CAS{1} = cas(0);
     for k=2:8, CAS{k} = cas(2*pi*((0:(k-1))'*(0:(k-1)))/k); end
-    
+
     % Now we are sure, that X vector is of size M which is a power value of 2.
     DHT = dofrt(X,N,CAS);
-    
+
     % The final vector must be truncated because it was arbitrary enlarged
     % to be with length of power of two
     res = DHT(1:N);
@@ -52,6 +52,7 @@ function HY = dofrt(X, N, CAS)
         HY=X * CAS{N} ; % Instant FRT for 8-element array
         return;
     end;
+    
     % We split the input vector into two equal vectors
     X1 = X(1:2:end); X2 = X(2:2:end); % In MATLAB first index equals 1, not 0 - but in literature X1 is called even, X2 - odd indices.
     

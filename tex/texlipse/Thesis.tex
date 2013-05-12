@@ -1754,20 +1754,18 @@ For a given vector $X \in \mathbb{R} ^ N$ the discrete Hartley transform (DRT) a
 
 \begin{subequations} \label{eq:frtht_definition}
 \begin{equation}   \label{eq:frthtdef_drt}
-    R = DRT(x) ,
+    R = DRT(x) , \, \ \ 
+    R_k = \sum_{n = 0}^{N - 1} \, X_n \, \left(
+          \mathrm{cos} \left(\frac {2 \, \pi \, k \, n}{N} \right) 
+        + \mathrm{sin} \left(\frac {2 \, \pi \, k \, n}{N} \right) \right), \, \,
+    k = 0 \ldots N-1,
   \end{equation}
   \begin{equation}   \label{eq:frthtdef_idrt}
-    X = IDRT(R) ,
-  \end{equation}
-  \begin{equation}   \label{eq:frthtdef_hk}
-    R_k = \sum_{n = 0}^{N - 1} \, X_n \, \left(
-      \mathrm{cos} \left(\frac {2 \, \pi \, k \, n}{N} \right) 
-    + \mathrm{sin} \left(\frac {2 \, \pi \, k \, n}{N} \right) \right) ,
-  \end{equation}
-  \begin{equation}   \label{eq:frthtdef_xk}
+    X = IDRT(R) , \, \ \ 
     X_k = \frac {1}{N} \sum_{k = 0}^{N - 1} \, R_n \, \left(
-    	\mathrm{cos} \left( \frac {2 \, \pi \, k \, n}{N} \right) 
-      + \mathrm{sin} \left( \frac {2 \, \pi \, k \, n}{N} \right) \right) .
+    	  \mathrm{cos} \left( \frac {2 \, \pi \, k \, n}{N} \right) 
+      + \mathrm{sin} \left( \frac {2 \, \pi \, k \, n}{N} \right) \right), \, \,
+    k = 0 \ldots N-1 .
   \end{equation}
 \end{subequations}
 
@@ -1801,24 +1799,27 @@ For the vector $X \in \mathbb{R} ^ N $ we define the $ \mathrm{even}(X) $ and $ 
 	\end{equation}
 \end{subequations}
 
-For vector $z$ defined in equation (\ref{eq:hartley_xv}), the Hartley transform convolution theorem is stated:
+For vector $z$ defined in equation (\ref{eq:hartley_xv}), we calculate the $D_Z$, $D_X$ and $D_V$ vectors:
+
+\begin{subequations}
+	\begin{equation}
+		D_Z = \mathrm{DRT}(z),
+    \end{equation}
+    \begin{equation} 
+		D_X = \mathrm{DRT}(x),
+	\end{equation}
+    \begin{equation} 
+		D_V = \mathrm{DRT}(v).
+	\end{equation}
+\end{subequations}    
+
+Finally, the Hartley transform convolution theorem is stated:
 
 \begin{thm} \label{eq:hartley_theorem}
-	\begin{subequations}
-		\begin{equation}
-			DZ = \mathrm{DRT}(z) ,
-	    \end{equation}
-	    \begin{equation} 
-			DX = \mathrm{DRT}(x) ,
-		\end{equation}
-	    \begin{equation} 
-			DV = \mathrm{DRT}(v) ,
-		\end{equation}
-		\begin{equation}
-			DZ_n = DX_n      \, \cdot \, \mathrm{even}(DV_n) 
-        	     + DX_{(-n)} \, \cdot \, \mathrm{odd} (DV_n) .
-		\end{equation}
-	\end{subequations}
+  \begin{equation}
+			D_{Z_n} = D_{X_n}      \, \cdot \, \mathrm{even}(D_{V_n}) 
+        	    + D_{X_{(-n)}} \, \cdot \, \mathrm{odd} (D_{V_n}) .
+	\end{equation}
 \end{thm}
 
 The proof of Theorem (\ref{eq:hartley_theorem}) can be found in \cite{chang_computation}. 
@@ -1854,13 +1855,13 @@ We derive the discrete Fourier transform of the Hilbert transform for vector $x 
 
 \begin{subequations} \label{eq:hartley_dfttheorem}
 	\begin{equation}
-		FHX = \mathrm{DFT} \left(\mathrm{DHT} (x) \right) ,
+		F_{HX} = \mathrm{DFT} \left(\mathrm{DHT} (x) \right) ,
 	\end{equation}
 	\begin{equation}
-		FX = \mathrm{DFT} (x) ,
+		F_{X} = \mathrm{DFT} (x) ,
 	\end{equation}
 	\begin{equation} 
-	    FHX_k = H_k \, \cdot \, FX_k = ( - i) \, \mathrm{\text{sgn}}(k) \, F_k .
+	    F_{HX_k} = H_k \, \cdot \, F_{X_k} = ( - i) \, \mathrm{\text{sgn}}(k) \, F_k .
 	\end{equation}
 \end{subequations}
 \subsubsection*{Application of the discrete Hartley transform to calculate the discrete Hilbert transform:}
@@ -1869,17 +1870,17 @@ Using the Theorem (\ref{eq:hartley_theorem}) for vector $x \in \mathbb{R} ^ N$ w
 
 \begin{subequations} \label{eq:hartley_fullconvolution}
 	\begin{equation}
-		RHX = \mathrm{DRT} \left( \mathrm{DHT}(x) \right) ,
+		R_{HX} = \mathrm{DRT} \left( \mathrm{DHT}(x) \right) ,
 	\end{equation}
 	\begin{equation}
-		RX =  \mathrm{DRT}(x) ,
+		R_{X} =  \mathrm{DRT}(x) ,
 	\end{equation}
 	\begin{equation}
-		RH =  \mathrm{DRT}(h) ,
+		R_{H} =  \mathrm{DRT}(h) ,
 	\end{equation}
 	\begin{equation}
-	    RHX_k = RX_{(k)}   \, \mathrm{even}(RH_k) 
-	          + RX_{(- k)} \, \mathrm{odd} (RH_k) .
+	    R_{HX_k} = R_{X_{(k)}}   \, \mathrm{even}(R_{H_k}) 
+	             + R_{X_{(- k)}} \, \mathrm{odd} (R_{H_k}) .
 	\end{equation} 
 \end{subequations}
 
@@ -1887,14 +1888,14 @@ Using the Theorem (\ref{eq:hartley_theorem}) for vector $x \in \mathbb{R} ^ N$ w
 Now we should notice, that the discrete Hilbert transform kernel defined in (\ref{eq:hdfttps_smallh}) is an odd function, so its even part equals zero. Therefore (\ref{eq:hartley_fullconvolution}) simplifies now into a product of two separate Hartley transforms:
 
 \begin{equation} \label{eq:hartley_simpleconvolution}
-	RHX_k = RX_{(- k)} \, \mathrm{odd}(RH_k) 
-	      = RX_{(- k)} \, RH_k
+	R_{HX_k} = R_{X_{(- k)}} \, \mathrm{odd}(R_{H_k}) 
+	         = R_{X_{(- k)}} \, R_{H_k}
 \end{equation}
 
 By \cite{chang_computation} the second transform is defined:
 
 \begin{equation}   \label{eq:hartley_strans}
-    RH_k = 
+    R_{H_k} = 
     \begin{cases}
     	1  \, \mbox{ for } \, k = 1, \, 2, \, \ldots, \, \frac {N}{2} - 1 , \\
     	0  \, \mbox{ for } \, k = 0, \, \frac {N}{2} , \\
@@ -1902,17 +1903,21 @@ By \cite{chang_computation} the second transform is defined:
 	\end{cases}
 \end{equation}
 
-In order to calculate the Hilbert transform of vector $x \in \mathbb{R} ^ N$ the last thing to do is to apply the inverse discrete Hartley transform on the very right side of (\ref{eq:hartley_simpleconvolution}) equation.
+In order to calculate the Hilbert transform of vector $x \in \mathbb{R} ^ N$ the last thing to do is to apply the inverse discrete Hartley transform on the very right side of (\ref{eq:hartley_simpleconvolution}) equation:
+
+\begin{equation} \label{eq:hartley_algorightm_sketch}
+  \mathcal{H}(x_k) = IDRT(R_{X_{(- k)}} \, R_{H_k}), \, \, \ \text{ for } \, \, k = 0 \ldots N-1
+\end{equation}
 
 \subsubsection*{Fast Hartley Transform algorithm}
 
-Ronald F. Ullmann has showed the fast algorithm for the discrete Hartley transform in~\cite{ullmann_algorithm}. The important assumption is that, as for the fast Fourier transform algorithm, the fast Hartley transform algorithm is defined for $x \in \mathbb{R} ^ K$, where K is the power-of-two:
+Ronald F. Ullmann has showed the fast algorithm for the discrete Hartley transform in~\cite{ullmann_algorithm}. The important assumption is fact, that in general, the fast Hartley transform algorithm is defined for $x \in \mathbb{R} ^ K$, where K is the power-of-two:
 
 \begin{equation} \label{eq:ullmand_existp}
   \exists p \, \ \in \ \, N : K = 2 ^ {p} \quad \mbox{ for } \ \, p = 0, \, 1, \, 2, \, \ldots  .
 \end{equation}
 
-The (\ref{eq:ullmand_existp}) condition and the further possibilities to modify the algorithm are discussed further. We will start with the very same thing as in the fast Fourier algorithm - we split $x$ vector into two smaller vectors $x_1, x_2$:
+The condition (\ref{eq:ullmand_existp}) and the further possibilities to modify the algorithm are discussed further. We will start with the very same thing as in the fast Fourier algorithm - we split vector $x$ into two smaller vectors $x_1, x_2$:
 
 \begin{subequations} \label{eq:hartley_smallervectors}
 	\begin{equation}   \label{eq:hsvs_oddeven}
@@ -1924,41 +1929,38 @@ The (\ref{eq:ullmand_existp}) condition and the further possibilities to modify 
   \end{equation}
 \end{subequations}
 
-Taking into account the initial definition of the discrete Hartley transform (\ref{eq:frthtdef_hk}), we obtain:
+Taking into account the initial definition of the discrete Hartley transform (\ref{eq:frthtdef_drt}), we obtain:
 
 \begin{multline}  \label{eq:hartley_longdht}
-	RX_k = 
-		\left( 
- 			\sum_{n = 0}^{\lfloor \frac{N}{2} - 1 \rfloor } \, (2 \, n ) \, x \,  \left(
- 				\mathrm{cos} \left( \frac {2 \, \pi \, k \, (2 \, n) }{N} \right) 
-  	  	  	  + \mathrm{sin} \left( \frac {2 \, \pi \, k \, (2 \, n) }{N} \right) \right) 
-        \right)  
-\\ + \, \left( 
- 			\sum_{n = 0}^{\lfloor \frac{N}{2} - 1 \rfloor } \, (2 \, n + 1) \, x \,  \left(
+	R_{X_k} =  
+ 			\sum_{n = 0}^{\lfloor \frac{N}{2} - 1 \rfloor } \left[ 2 \, n  \, x \,  \left(
+ 				\mathrm{cos} \left( \frac {2 \, \pi \, k \, (2 \, n) }{N} \right) \right)
+  	  	  	  + \mathrm{sin} \left( \frac {2 \, \pi \, k \, (2 \, n) }{N} \right) \right]
+\\ + \, \sum_{n = 0}^{\lfloor \frac{N}{2} - 1 \rfloor } \left[ (2 \, n + 1) \, x \,  \left(
  				\mathrm{cos} \left( \frac {2 \, \pi \, k \, (2 \, n + 1)}{N} \right) 
- 	  	      + \mathrm{sin} \left( \frac {2 \, \pi \, k \, (2 \, n + 1)}{N} \right) \right) 
- 	  	\right)
+ 	  	      + \mathrm{sin} \left( \frac {2 \, \pi \, k \, (2 \, n + 1)}{N} \right) \right) \right]
 \end{multline}
 
-In \cite{ullmann_algorithm} the following ''shift rule'' for the discrete Hartley transform is stated :
+In \cite{ullmann_algorithm} the following ``shift rule'' for the discrete Hartley transform is stated :
 
 \begin{equation} \label{eq:hartley_shiftrule}
-  RX_{(k + c)} = RX_{k}     \, \mathrm{cos}(c)
-               + RX_{(- k)} \, \mathrm{sin}(c) .
+  R_{X_{(k + c)}} = R_{X_k}     \, \mathrm{cos}(c)
+               + R_{X_{(- k)}} \, \mathrm{sin}(c) .
 \end{equation}
 
 If we apply the Hartley shift rule (\ref{eq:hartley_shiftrule}) to  equation (\ref{eq:hartley_longdht}) we obtain:
+
 \begin{subequations} 
 	\begin{equation}
-		RX_1 = \mathrm{DRT}(x_1) ,
+		R_{X_1} = \mathrm{DRT}(x_1) ,
 	\end{equation}
 	\begin{equation}
-		RX_2 = \mathrm{DRT}(x_2) ,
+		R_{X_2} = \mathrm{DRT}(x_2) ,
 	\end{equation}
 	\begin{multline} \label{eq:hartley_srapplied}
-	  RX_k = RX_{1, \, k} 
-	  	+ \mathrm{cos} \left( \frac {2 \, \pi \, k}{N} \right) \, RX_{2, \,    k } +
-	      \mathrm{sin} \left( \frac {2 \, \pi \, k}{N} \right) \, RX_{2, \, (- k)} \, \\
+	  R_{X_k} = R_{X_{1, \, k}}
+	  	+ \mathrm{cos} \left( \frac {2 \, \pi \, k}{N} \right) \, R_{X_{2, \,    k }} +
+	      \mathrm{sin} \left( \frac {2 \, \pi \, k}{N} \right) \, R_{X_{2, \, (- k)}} \, \\
 	  \mbox{ for } \, k = 0, \, 1, \, 3, \, \ldots, \, \Big\lfloor \frac{N}{2} - 1 \Big\rfloor .
 	\end{multline}
 \end{subequations}
@@ -1986,18 +1988,17 @@ The rule (\ref{eq:hartley_srapplied}) using the periodicity property from (\ref{
 
 \begin{subequations} \label{eq:hartley_periodicity}
   \begin{equation}   \label{eq:hperiod_fhalf}
-    RX_k = RX_{1, \, k} 
-    	+ \mathrm{cos} \left( \frac {2 \, \pi \, k}{N} \right) \, RX_{2, \,    k } 
-        + \mathrm{sin} \left( \frac {2 \, \pi \, k}{N} \right) \, RX_{2, \, (- k)}
+    R_{X_k} = R_{X_{1, \, k} }
+    	+ \mathrm{cos} \left( \frac {2 \, \pi \, k}{N} \right) \, R_{X_{2, \,    k }} 
+      + \mathrm{sin} \left( \frac {2 \, \pi \, k}{N} \right) \, R_{X_{2, \, (- k)}}
   \end{equation}
   
   for $ \, k = 0, \, 1, \, \dotsc, \, \Big\lfloor\frac{N}{2} - 1 \Big\rfloor $ ,
   
   \begin{multline}   \label{eq:hperiod_shalf}
-    RX_k = \\
-        RX_{1, \, (k - \frac {N}{2})} 
-      - \mathrm{cos} \left( \frac {2\,\pi \,(k - \frac{N}{2})}{N} \right) \, RX_{2, \, (  k - \frac {N}{2})} 
-      - \mathrm{sin} \left( \frac {2\,\pi \,(k - \frac{N}{2})}{N} \right) \, RX_{2, \, (- k + \frac {N}{2})}
+    R_{X_k} = R_{X_{1, \, (k - \frac {N}{2})}} 
+            - \mathrm{cos} \left( \frac {2\,\pi \,(k - \frac{N}{2})}{N} \right) \, R_{X_{2, \, (  k - \frac {N}{2})}} 
+            - \mathrm{sin} \left( \frac {2\,\pi \,(k - \frac{N}{2})}{N} \right) \, R_{X_{2, \, (- k + \frac {N}{2})}}
   \end{multline}
   
   for \, $k = \Big\lfloor \frac{N}{2}     \Big\rfloor, 
@@ -2017,7 +2018,7 @@ There are several approaches when calculating the fast Fourier transform for a n
 
 Where $K_1$ and $K_2$ are relatively prime numbers. Another approach, named the chirp z-transform algorithm, was presented by Leo Bluestein in \cite{bluestein_linear}. Other author, George Bruun, has invented the approach based on the recursive polynomial-factorization and described it in \cite{bruun_ztransform}. Rader has prepared the special FFT algorithm especially for vectors of prime size in \cite{rader_dicrete}. 
 
-But we will use the simplest possible approach - called the zero-padding. So in case of input vector with the size of non-power-of-two, we add the suffix vector filled with vectors to fit the next possible power-of-two size. In the worst case, the input vector size will be doubled, which has no influence on the asymptotic complexity, which remains $\BigO{n \log n}$. While the discrete signal analysis is the domain of scientists, we will end with conclusion stated by M. Lamb in \cite{lamb_issues} that he is uncertain, if zero padding has an influence on the spectral resolution, but in most cases it has a little influence on the results obtained in the discrete transforms.
+But we will use the simplest possible approach - called the zero-padding. So in case of input vector with the size of non-power-of-two, we add the suffix vector filled with zeros to fit the next possible power-of-two size. In the worst case, the input vector size will be doubled, which has no influence on the asymptotic complexity, which remains $\BigO{n \log n}$. While the discrete signal analysis is the domain of scientists, we will end with conclusion stated by M. Lamb in \cite{lamb_issues} that he is uncertain, if zero padding has an influence on the spectral resolution, but in most cases it has a little influence on the results obtained in the discrete transforms.
 
 Our source code of the discrete Hilbert transform using both the fast Hartley transform and inverse fast Hartley transform has been presented in Appendix A.4. In our future research we can switch to another solution for the non power-of-two $N$, as listed before.
 
@@ -2041,7 +2042,7 @@ In Figure (\ref{fig:fht_lin}) we have presented the results obtained with the Fa
 
 \subsection{FRTHT for simple nonlinear model -- results} \label{chap:hartley_nlo}
 
-For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results obtained with the Fast Hartley Hilbert Transform has been presented in Figures (\ref{fig:fht_pnp}) and (\ref{fig:fht_fmix}) respectively.
+For the pump-probe and frequency mixing models we have used the models (\ref{eq:physical_pnp_equation}) and (\ref{eq:feff3_plus}) respectively, with the constant parameters from (\ref{eq:htran_pnpparameters}) and (\ref{eq:htran_mix_parameters}). The results obtained with the Fast Hartley Hilbert Transform has been presented in Figures (\ref{fig:fht_pnp}) and (\ref{fig:fht_fmix}) respectively.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/fht_pnp.png}
@@ -2079,27 +2080,7 @@ Once again we can see a very good accuracy, better than for HTRAN or Newton-Cote
 
 \subsubsection*{Linear model - results:}
 
-As in the Chapter (\ref{chap:nc_nlo}), we have used the same model to describe the simple linear quantum-perturbative model: 
-
-\begin{equation} \label{eq:fht_qp}
-  {\chi_{1, \,qp}}(\omega ) = \frac {N}{\varepsilon_0\,h} \sum_{n=1}^{2}\,(\frac {{\mu_{1, \,n}}\,{ \mu_{2, \,n}}}{{\Omega_{n}}
-  - \omega  - i\,{\gamma_{n}}} + \frac {{\mu_{2, \,n}}\,{\mu_{1, \,n}}}{{\Omega_{n}} + \omega + i\,{\gamma_{n}}})
-\end{equation}
-
-This time we used the following parameters: 
-\begin{equation}
-	\mu = \begin{bmatrix} 
-		3,   & - 0.5 \\ 
-		1.2, &   2.4 
-	\end{bmatrix} ,
-	\Omega = \begin{bmatrix} - 3, & 13  \end{bmatrix} , 
-    \gamma = \begin{bmatrix} 0.7, & 2.3 \end{bmatrix} ,   
-    N = 8, 
-    \varepsilon_0 = 1.4, 
-    h = - 2.7
-\end{equation}
-
-Results are presented in Figure (\ref{fig:fht_qp1}). We can see a perfect match here!
+We have used the model (\ref{eq:ssmods_linear}) with constant parameters (\ref{eq:htran_qp1_const}) to describe the simple linear quantum-perturbative model. Results are presented in Figure (\ref{fig:fht_qp1}). We can see a perfect match here!
 
 \begin{figure}
   \includegraphics[width=150mm]{img/fht_qp1.png}
@@ -2118,24 +2099,7 @@ Results are presented in Figure (\ref{fig:fht_qp1}). We can see a perfect match 
 
 \subsubsection*{Second-order model - results:}
 
-We have also used the same model (\ref{eq:nclin_chipp2}) as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility model and we have used the following values of the constants: 
-
-\begin{equation}
-	\mu = \begin{bmatrix} 
-    	1, & 3 \\ -1, & -2 
-  	\end{bmatrix} , \, 
-  	\Omega =  \begin{bmatrix}  
-    	3, & 16 \\ 4, & 12 
-  	\end{bmatrix} , \,
-  	\gamma =  \begin{bmatrix}  
-  		1, & 2 \\ -1, & 3
-  	\end{bmatrix} , \, 
-  	N = 5 , \, 
-  	\varepsilon_0 = 1, \,
-  	h = - 1 .
-\end{equation}
-
-Results are presented in Figure (\ref{fig:fht_qp2}). As for the previous calculations, we can see the model could be invalid because of the raised errors reach up to $ 100 \% $.
+We have also used the second-order susceptibility model  (\ref{eq:ssmods_quadratical}) with parameters (\ref{eq:htran_qp_constant}). Results are presented in Figure (\ref{fig:fht_qp2}). As for the previous calculations, we can see the model could be invalid because of the raised errors reach up to $ 100 \% $.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/fht_qp2.png}
