@@ -1080,7 +1080,7 @@ Finally we need to undo the cubic interpolation. $ H_T(F_i) = H_{T_{i}} $, so:
 
 In the following chapters we will show the results obtained with this method.
 
-\subsection{HTRAN for simple linear model - results} \label{chap:htran_lin}
+\subsection{HTRAN for simple linear model -- results} \label{chap:htran_lin}
 
 In this chapter we will present the results of HTRAN algorithm applied on the simple linear model defined in the equation (\ref{eq:physical_frequency_linear}). The real part of $\chi_{\text{lin}}$ will be used as the input function $R$ in the equation (\ref{eq:htran_first_modification}). The output function $H_T$ calculated with the HTRAN algorithm is compared to the imaginary part of the $\chi_{\text{lin}}$. 
 
@@ -1096,7 +1096,7 @@ We have presented the results in Figure (\ref{eq:htran_lin}). In this and in the
   }
 \end{figure}
 
-\subsection{HTRAN for simple nonlinear model - results} \label{chap:htran_nlo}
+\subsection{HTRAN for simple nonlinear model -- results} \label{chap:htran_nlo}
 
 In this chapter we will test the pump-and-probe susceptibility model (\ref{eq:physical_pnp_equation}) with the following values for the constants:
 
@@ -1197,7 +1197,7 @@ While the obtained three-dimensional shape looks very similar to those obtained 
   \end{center}    
 \end{figure}
 
-\subsection{HTRAN for simple quantum-perturbative model - results} \label{chap:htran_quantum}
+\subsection{HTRAN for simple quantum-perturbative model -- results} \label{chap:htran_quantum}
 
 We will use the models already prepared for both linear, Equation (\ref{eq:ssmods_linear}), and second-order, Equation (\ref{eq:ssmods_quadratical}), nonlinear susceptibilities defined in Chapter (\ref{chap:problem_quantum}). For the linear model we have used the following constant values:
 
@@ -1318,7 +1318,7 @@ As long as we demand better precision, we can demand a smaller tolerance paramet
 
 The full algorithm is presented in the Appendix A.2 with the additional comments. 
 
-\subsection{NC for simple linear model - results} \label{chap:nc_lin}
+\subsection{NC for simple linear model -- results} \label{chap:nc_lin}
 
 As You can see in the full source code, the algorithm has got many technical parameters. We have tried to run it with many combinations of these parameters. We have used the same model, see Equation (\ref{eq:physical_frequency_linear}), as in Chapter (\ref{chap:htran_lin}).
 
@@ -1386,7 +1386,7 @@ Some results has been presented on Figures (\ref{fig:nc_lin1}), (\ref{fig:nc_lin
 
 We cannot tell with a hundred percent confidence which set of parameters will fit the best any given function and the user will need to try many combinations before obtaining the final plot, but what we gave is the opportunity to set each one parameter manually, which may lead to better results in the particular cases.
 
-\subsection{NC for simple nonlinear model - results} \label{chap:nc_nlo}
+\subsection{NC for simple nonlinear model -- results} \label{chap:nc_nlo}
 
 We have performed calculations for the same both nonlinear pump-probe, see Equation (\ref{eq:physical_pnp_equation}) and wave-mixing, see Equation (\ref{eq:htran_feffexp}), models. We have used the same set of parameters as in Chapter (\ref{chap:htran_lin}), see Equations (\ref{eq:htran_pnpparameters}) and \ref{eq:htran_mix_parameters} respecively.
 
@@ -1425,7 +1425,7 @@ Results for the frequency mixing model has been presented in Figure (\ref{fig:nc
      }
 \end{figure}
 
-\subsection{NC for simple quantum-perturbative model - results} \label{chap:nc_quantum}
+\subsection{NC for simple quantum-perturbative model -- results} \label{chap:nc_quantum}
 
 \subsubsection*{Linear model - results:}
 
@@ -1509,8 +1509,8 @@ The remaining issue is to calculate the coefficients $a_k ^ N$, that have been d
     \right)\,cos\left(\frac{\pi k j}{N}\right), 0 \leq k \leq N .
 \end{equation}
 
-In order to calculate the DCT-I, we will [...]
 
+In order to calculate the DCT-I, we will use the FFT, which reduces the computational complexity from $\BigO{N^2}$ to $\BigO{N \, \log{N}}$.
 
 \subsubsection*{Hilbert transform using the Clenshaw-Curtis quadrature:}
 
@@ -1520,55 +1520,39 @@ While the Clenshaw-Curtis quadrature is defined for finite range $[-1,\,1]$, the
   \frac{f(x)}{x-c} d \, x
 \end{equation}
 
-decreases rapidly and for relatively large values of x this integrand will be omitted. Therefore, we will not be changing the integration range from interval to real line. Instead of that we will enlarge the interval being the area if interest. For example - if the investigated values are described in interval $[a, b]$, we can enlarge it to the following interval:
+decreases rapidly and, for relatively large values of x, this integrand will be omitted. Therefore, we will not be changing the integration range from interval to real line. Instead of that we will enlarge the interval being the area if interest. For example - if the investigated values are described in interval $[a, b]$, we can enlarge it to the following interval:
 
 \begin{equation} \label{eq:hcc_interval}
   [A, B] = [a - 2|b-a|, b + 2|b-a|] 
 \end{equation}
 
+
 As this was only an example, the specific choice of integration interval should be done during the numerical calculations. As default in our algorithm, we have set the integration interval to be based on the (\ref{eq:hcc_interval}), but simply $5$ times longer. For all investigated models it gave us satisfactory results.
 
 \subsubsection*{Our implementation of the Hilbert Clenshaw-Curtis iterations:}
 
-So far we have presented the overview of procedures responsible for evaluation of the Clenshaw-Curtis qua\-dra\-tu\-re and the Hil\-bert transform using the Clenshaw-Curtis qua\-dra\-ture at one point. But in the typical situation we have the whole vector of function values for a given range of abscissas - so what is left - we perform the single-point Hil\-bert transform based on the Clenshaw-Curtis qua\-dra\-ture for each given point. But to omit the problems with singularities, we will add some post- and precalculations - using the cubic interpolation. The whole procedure is now:
-
-
-\subsubsection*{INPUT:}
- 
-As the input we receive $fun$, $XInterval$ and $tol$ parameters - described as below: 
-
-\begin{tabular}{ l l }
-
-  $fun$       &- investigated function, \\
-  $XInterval$ &- given $N$-length abscissas and related ordinates, \\
-  $tol$       &- tolerance, related to the stop condition in adaptive algorithm. \\
-  
-\end{tabular}
-
-In the first step we calculate $a$ and $b$ parameters, which are minimum and maximum of the $XInterval$ array respectively. We will be operating on a finite interval, but $5$ times bigger than $[a, b]$, described as $[A, B]$ - for the graphical explanation please see Figure (\ref{fig:cci_bigger_interval}).
-
+So far we have presented the overview of procedures responsible for evaluation of the Clenshaw-Curtis qua\-dra\-tu\-re and the Hil\-bert transform using the Clenshaw-Curtis qua\-dra\-ture at one point. But in the typical situation we have the whole vector of function values for a given range of abscissas - so what is left - we perform the single-point Hil\-bert transform based on the Clenshaw-Curtis qua\-dra\-ture for each given point. But to omit the problems with singularities, we will add some post- and precalculations - using the cubic interpolation. 
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/cci_bigger_interval.png}
-  \caption{While the $XInterval$ is the input range of abscissas, we will proceed with calculations on an interval that is 5 times longer. \label{fig:cci_bigger_interval}
+  \caption{While the input range of abscissas is given shortly, we will proceed with calculations on an interval that is 5 times longer. \label{fig:cci_bigger_interval}
   }
 \end{figure}
 
-\subsubsection*{PRE-CALCULATIONS:}
-
-Initially the input function $fun$ was defined on the interval $[a, b]$. Firstly we would like to transform the function to match the wider range $[A, B]$. Secondly, we must transform it into the $[-1, 1]$ range, which comes by the Clenshaw-Curtis definition. Therefore, we define a new function $ccFun$, described as below:
+Initially the input function was defined on the interval $[a, b]$. Firstly we would like to transform the function to match the wider range $[A, B]$. Secondly, we must transform it into the $[-1, 1]$ range, which comes by the Clenshaw-Curtis definition. Therefore, we define a new function $f_{cc}$, described as below:
 
 \begin{equation} \label{eq:cci_period}
-	Period = B - A,
+	P = B - A,
 \end{equation}
 
 \begin{equation} \label{eq:cci_center}
-	Center = \frac{B + A}{2},
+	C = \frac{B + A}{2},
 \end{equation}
 
 \begin{equation} \label{eq:cci_cecfun}
-	ccFun(x) = fun( \frac{x \cdot Period}{2} + Center).
+	f_{cc}(x) = f \left( \frac{x \cdot P}{2} + C\right).
 \end{equation}
+
 
 
 Based on the input interval we construct the $N$-element equispaced array of points named $X$:
@@ -1593,21 +1577,29 @@ In order to omit division by zero, based on the $X$ array, we create $N-1$ eleme
   \end{equation}
 \end{subequations}
 
-We would also like to precalculate the constant values as defined in equations (\ref{eq:hccformula_rec}) and (\ref{eq:hcc_akn}). We will calculate these values once, and then use them in following calculations.
+We would also like to precalculate the constant values as defined in Equations (\ref{eq:hccformula_rec}) and (\ref{eq:hcc_akn}). We will calculate these values once, and then use them in following calculations. Hereby we use the fact that the values of array $a_N$ do not depend on the point in which there is the singularity, so we can use the same array $a_N$ for the whole input array $X$, which reduced the complexity of the whole Clenshaw-Curtis based Hilbert Transform method from $\BigO{N^2 \, \log{N}}$ to $\BigO{N \, \log{N}}$. 
 
-\subsubsection*{MAIN CALCULATIONS:}
+To calculate the total algorithms complexity, we must remember about the tolerance-related stop condition. For every input array point we perform a loop that tries to minimize the error. Let's denote the value of the $k^{th}$ iteration by $v_k$, and the value of $(k+1)^{th}$ iteration by $v_{k+1}$. Iteration stops, if:
+
+\begin{equation}
+  \frac{|v_{k+1} - v_k|} {\max\left(|t_{ol}|, |v_{k+1}|, |v_k| \right)} < t_{ol} .
+\end{equation}
+
+With a little simplification, we will assume the total algorithm's complexity equals $\BigO{\frac{N^2 \, \log{N}}{t_{ol}} }$. 
+
 As the central part, we calculate the $N-1$ values for each on of inner points: 
 
 \begin{equation} \label{eq:cci_newd}
-	c_k = \frac{2 \, (Xp_k - Center ) }{Period}, \quad \text{ for } \quad k = 1, \ldots, \ N-1
+	c_k = \frac{2 \, (Xp_k - C ) }{P}, \quad \text{ for } \quad k = 1, \ldots, \ N-1
 \end{equation}
 
 \begin{equation} \label{eq:cci_approx}
-  Hh_k \approx \frac{1}{\pi} \dashint_{A}^{B} \frac{ccFun(x)}{x - c_k} d \, x, \quad \text{ for } \quad k = 1,
+  Hh_k \approx \frac{1}{\pi} \dashint_{A}^{B} \frac{f_{cc}(x)}{x - c_k} d \, x, \quad \text{ for } \quad k = 1,
   \ldots , \ N-1
 \end{equation}
 
-\subsubsection*{POST-CALCULATIONS:}
+The Equation (\ref{eq:cci_approx}) is calculated as described in Equation (\ref{eq:hccformula_sum}).
+
 As we received the $N-1$ element array, we should now proceed with the reverse cubic interpolation for $Hh$, so we receive final result $H$.
 
 \begin{subequations} \label{eq:cci_revcubicinterp}
@@ -1628,18 +1620,16 @@ As we received the $N-1$ element array, we should now proceed with the reverse c
   \end{equation}
 \end{subequations}
 
-\subsubsection*{RESULT:} 
-\begin{tabular}{r l}
-  $H$ & - $N$-length Hilbert transform for given function values at $X$ abscissas \\
-\end{tabular}
+Our result is the $H$ array, which is the $N$-length Hilbert transform for given function values at $X$ abscissas.
 
 \emptyline
 
 The algorithm's full source has been presented in the Appendix A.3. Please review it for more details and comments.
 
-\subsection{HCCI for simple linear model} \label{chap:hcc_lin}
+\subsection{HCCI for simple linear model -- results} \label{chap:hcc_lin}
 
 Figures (\ref{fig:cci_lin1}) and (\ref{fig:cci_lin2}) presents the results obtained with the method for the model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Hilbert Clenshaw-Curtis iterations gives us much better accuracy than HTRAN or Newton-Cotes quadrature. In next chapters we will check what happens for another models.
+
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/hcc_lin1.png}
@@ -1661,9 +1651,9 @@ Figures (\ref{fig:cci_lin1}) and (\ref{fig:cci_lin2}) presents the results obtai
   }
 \end{figure}
 
-\subsection{HCCI for simple nonlinear model} \label{chap:hcc_nlo}
+\subsection{HCCI for simple nonlinear model -- results} \label{chap:hcc_nlo}
 
-For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results obtained with the Hilbert Clenshaw-Curtis iterations has been presented in Figures (\ref{fig:hcci_pnp}) and (\ref{fig:hcci_fmix}) respectively.
+For the pump-probe and frequency mixing models we have used the same models and parameters as in Chapter (\ref{chap:nc_nlo}). The results obtained with the Hilbert Clenshaw-Curtis iterations has been presented in Figures (\ref{fig:hcci_pnp}) and (\ref{fig:hcci_fmix}) respectively.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/hcc_pnp.png}
@@ -1677,7 +1667,7 @@ For the pump-probe and frequency mixing models we have used the same parameters 
      b.c) real part of $\chi_{pp} (\omega )$ calculated analytically 
      b.d) real part of ${\chi_{pp}}(\delta )$ obtained with the Hilbert transform of b.a-plot 
      \label{fig:hcci_pnp}
-     }
+    }
 \end{figure} 
 
 \begin{figure} 
@@ -1692,37 +1682,16 @@ For the pump-probe and frequency mixing models we have used the same parameters 
      b.c) real part of $\chi_{mix} (\omega )$ calculated analytically 
      b.d) real part of ${\chi_{mix}}(\delta )$ obtained with the Hilbert transform of b.a-plot 
      \label{fig:hcci_fmix}
-     }
+    }
 \end{figure}
 
 As we can see here - once again the results come with quite well accuracy.
 
-\subsection{HCCI for simple quantum-perturbative model} \label{chap:hcc_quantum}
+\subsection{HCCI for simple quantum-perturbative model -- results} \label{chap:hcc_quantum}
  
 \subsubsection*{Linear model - results:}
 
-As in the Chapter (\ref{chap:nc_nlo}), we have used the same model to describe the simple linear quantum-perturbative model: 
-
-\begin{equation} \label{eq:hcc_qp}
-  {\chi_{1, \,qp}}(\omega ) = \frac {N}{\varepsilon_0\,h} \sum_{n=1}^{2}\,(\frac {{\mu_{1, \,n}}\,{ \mu_{2, \,n}}}{{\Omega_{n}}
-  - \omega  - i\,{\gamma_{n}}} + \frac {{\mu_{2, \,n}}\,{\mu_{1, \,n}}}{{\Omega_{n}} + \omega + i\,{\gamma_{n}}})
-\end{equation}
-
-This time we used the following parameters: 
-\begin{equation} \label{eq:hhc_qpconst2}
-  \mu = \begin{bmatrix} 
-     3, & -0.5 \\ 1.2, & 2.4 
-  \end{bmatrix} , \, 
-  \Omega = \begin{bmatrix} 
-     -3, & 13 
-  \end{bmatrix} , \,
-  \gamma = \begin{bmatrix} 
-     0.7, & 2.3
-  \end{bmatrix} , \, 
-  N = 8, \, 
-  \varepsilon_0 = 1.4, \,
-  h= - 2.7.
-\end{equation}
+As in the Chapter (\ref{chap:nc_nlo}), we have used the same model to describe the simple linear quantum-perturbative model.
 
 Results are presented in Figure (\ref{fig:hcc_qp1}). We can see a perfect match here!
 
@@ -1743,7 +1712,7 @@ Results are presented in Figure (\ref{fig:hcc_qp1}). We can see a perfect match 
 
 \subsubsection*{Second-order model - results:}
 
-We have also used the same model (\ref{eq:nclin_chipp2}) as in Chapter (\ref{chap:nc_nlo}) to describe the second-order susceptibility model. We have also used the same set of parameters - see listing (\ref{eq:nclin_const2}). Results are presented in Figure (\ref{fig:hcc_qp2}). Arisen errors reach up to 100\%, so as for the Newton-Cotes calculations in Chapter (\ref{chap:nc_quantum}), we can see the model can be invalid.
+We have used the second-order susceptibility model (\ref{eq:ssmods_quadratical}) with the constant parameters as in (\ref{eq:htran_qp_constant}). Results are presented in Figure (\ref{fig:hcc_qp2}). Arisen errors reach up to 100\%, so as for the Newton-Cotes calculations in Chapter (\ref{chap:nc_quantum}), we can assume the model can be invalid.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/hcc_qp2.png}
@@ -2052,7 +2021,7 @@ But we will use the simplest possible approach - called the zero-padding. So in 
 
 Our source code of the discrete Hilbert transform using both the fast Hartley transform and inverse fast Hartley transform has been presented in Appendix A.4. In our future research we can switch to another solution for the non power-of-two $N$, as listed before.
 
-\subsection{FRTHT for simple linear model} \label{chap:hartley_lin}
+\subsection{FRTHT for simple linear model -- results} \label{chap:hartley_lin}
 
 In Figure (\ref{fig:fht_lin}) we have presented the results obtained with the Fast Hartley Hilbert Transform for the simple linear model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Fast Hartley Hilbert Transform gives us quite well accuracy, similar to HCCI and much better than HTRAN or Newton-Cotes quadrature.
 
@@ -2070,7 +2039,7 @@ In Figure (\ref{fig:fht_lin}) we have presented the results obtained with the Fa
   }
 \end{figure}
 
-\subsection{FRTHT for simple nonlinear model} \label{chap:hartley_nlo}
+\subsection{FRTHT for simple nonlinear model -- results} \label{chap:hartley_nlo}
 
 For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results obtained with the Fast Hartley Hilbert Transform has been presented in Figures (\ref{fig:fht_pnp}) and (\ref{fig:fht_fmix}) respectively.
 
@@ -2106,7 +2075,7 @@ For the pump-probe and frequency mixing models we have used the same parameters 
 
 Once again we can see a very good accuracy, better than for HTRAN or Newton-Cotes, and similar to HCCI.
 
-\subsection{FRTHT for simple quantum-perturbative model} \label{chap:hartley_quantum}
+\subsection{FRTHT for simple quantum-perturbative model -- results} \label{chap:hartley_quantum}
 
 \subsubsection*{Linear model - results:}
 
@@ -2398,7 +2367,7 @@ Once we already now the exact formula for function $f(x)$ in every point of vect
 
 So now the stop condition is simply comparison $\mathop{\mathrm{err}}  < \mathop{\mathrm{tol}} $. After the algorithm quits the main loop after $N$ steps - we obtain the final result for the Hilbert transform: $\mathcal{H} (\mathrm{f_N}(X_k))$.
 
-\subsection{HHT for simple linear model} \label{chap:hermite_lin}
+\subsection{HHT for simple linear model -- results} \label{chap:hermite_lin}
 
 In Figure (\ref{fig:hht_lin}) we have presented the results obtained with the Hermite-Hilbert transform for the simple linear model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Hermite-Hilbert transform comes with poor accuracy, but we would like to put this method into examination with all models defined in Chapter (\ref{chap:physical_models}).
 
@@ -2416,7 +2385,7 @@ In Figure (\ref{fig:hht_lin}) we have presented the results obtained with the He
   }
 \end{figure}
 
-\subsection{HHT for simple nonlinear model} \label{chap:hermite_nlo}
+\subsection{HHT for simple nonlinear model -- results} \label{chap:hermite_nlo}
 
 For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results obtained with the Hermite-Hilbert transform has been presented in Figures (\ref{fig:hht_pnp}) and (\ref{fig:hht_fmix}) respectively.
 
@@ -2452,7 +2421,7 @@ For the pump-probe and frequency mixing models we have used the same parameters 
 
 In these results we can draw two conclusions. The method based on the periodical polynomials as Hilbert polynomials will give us ``zig-zag'' like results. The other conclusion is that results obtained seems to be close, but much worst that those obtained with HCCI or FHT. 
 
-\subsection{HHT for simple quantum-perturbative model} \label{chap:hermite_quantum}
+\subsection{HHT for simple quantum-perturbative model -- results} \label{chap:hermite_quantum}
 
 \subsubsection*{Linear model - results:}
 
@@ -2542,6 +2511,7 @@ We have checked the HHT method for various parameters, but none of them has gave
 
 The concept of the Hilbert transform evaluation based on the Fourier series also comes from the master thesis by Mathias Johansson \cite{johansson_hilbert}. There is an important drawback in this approach - in general it should be applied to the periodic functions, but we will further assume they have a relatively long period. 
 
+
 \subsubsection*{Fourier series:} 
 
 Each periodical function can be decomposed into a infinite Fourier series. For a given periodic function $f(x)$ with a given period $2 \, P$, we will introduce the Fourier coefficients:
@@ -2594,7 +2564,7 @@ As mentioned before, we will prepare the algorithm as for the periodic function,
 
 The full source code of this algorithm, has been presented in the appendix A.6.
 
-\subsection{Fourier-series for simple linear model} \label{chap:fourier_lin}
+\subsection{Fourier-series for simple linear model -- results} \label{chap:fourier_lin}
 
 In Figure (\ref{fig:four_lin}) we have presented the results obtained with the Fourier-Hilbert transform for the simple linear model defined in model (\ref{eq:physical_frequency_linear}). As we can see - the Fourier-Hilbert transform comes with poor accuracy, but we would like to put this method into examination with defined models.
 
@@ -2612,7 +2582,7 @@ In Figure (\ref{fig:four_lin}) we have presented the results obtained with the F
   }
 \end{figure} 
 
-\subsection{Fourier-series for simple nonlinear model} \label{chap:fourier_nlo}
+\subsection{Fourier-series for simple nonlinear model -- results} \label{chap:fourier_nlo}
 
 For the pump-probe and frequency mixing models we have used the same parameters as in Chapter (\ref{chap:nc_nlo}). The results obtained with the Fourier-Hilbert transform has been presented in Figures (\ref{fig:four_pnp}) and (\ref{fig:four_fmix}) respectively.
 
@@ -2648,7 +2618,7 @@ For the pump-probe and frequency mixing models we have used the same parameters 
 
 In these results we can draw two conclusions. The method based on the periodical polynomials as Fourier series will give us ``zig-zag'' like results. The other conclusion is that results obtained seems to be close, but much worst that those obtained with HCCI or FHT. 
 
-\subsection{Fourier-series for simple quantum-perturbative model} \label{chap:fourier_quantum}
+\subsection{Fourier-series for simple quantum-perturbative model -- results} \label{chap:fourier_quantum}
 
 \subsubsection*{Linear model - results:}
 
@@ -2846,7 +2816,7 @@ While the hired DFT and IDFT routines are evaluated in complex domain, for a giv
 
 In order to obtain the final result we need to take the imaginary part of the MATLAB hilbert() function output. The other important issue is that the \textit{MATLAB®} hilbert() function has one optional parameter called N - to computer the N-point Hilbert transform. If the input vector X is too short, it will be padded with zeros, otherwise it will be truncated. 
 
-\subsection{MIF for simple linear model} \label{chap:matlab_lin}
+\subsection{MIF for simple linear model -- results} \label{chap:matlab_lin}
 
 In two Figures (\ref{fig:quadgk_lin}) and (\ref{fig:hilb_lin}) we have ga\-thered the results ob\-tained with the MATLAB quadgk() and hilbert() functions based Hil\-bert trans\-forms for the simple linear model defined in model (\ref{eq:physical_frequency_linear}). For each method we can see a accep\-table accu\-racy.
 
@@ -2878,7 +2848,7 @@ In two Figures (\ref{fig:quadgk_lin}) and (\ref{fig:hilb_lin}) we have ga\-there
   }
 \end{figure}
 
-\subsection{MIF for simple nonlinear model} \label{chap:matlab_nlo}
+\subsection{MIF for simple nonlinear model -- results} \label{chap:matlab_nlo}
 
 In the next four Figures: (\ref{fig:quadgk_pnp}), (\ref{fig:quadgk_fmix}), (\ref{fig:hilb_pnp}) and (\ref{fig:hilb_fmix}) we have gathered the results obtained with the MATLAB® quadgk() and hilbert() functions based Hilbert transforms for the pump-probe and frequency mixing models with the same parameters as in Chapter (\ref{chap:nc_nlo}). 
 
@@ -2944,11 +2914,11 @@ In the next four Figures: (\ref{fig:quadgk_pnp}), (\ref{fig:quadgk_fmix}), (\ref
 
 For each method we can once again see the acceptable accuracy for each method, but we can also observe, that each method comes with noticeable error.
 
-\subsection{MIF for simple quantum-perturbative model} \label{chap:matlab_quantum}
+\subsection{MIF for simple quantum-perturbative model -- results} \label{chap:matlab_quantum}
 
 We have also put the determined methods onto test with quantum-perturbative models taken from Chapter (\ref{chap:nc_nlo}).
 
-\subsubsection*{Linear model - results:}
+\subsubsection*{Linear model -- results:}
 
 In Figures: (\ref{fig:quadgk_qp1}) and (\ref{fig:hilb_qp1}) we have gathered the results ob\-tained with the MATLAB quadgk() and hilbert() functions based Hil\-bert tran\-sforms for the linear qua\-ntum\--per\-tur\-ba\-tive model taken with the same para\-meters as in Chapter (\ref{chap:nc_nlo}).
 
@@ -2984,7 +2954,7 @@ In Figures: (\ref{fig:quadgk_qp1}) and (\ref{fig:hilb_qp1}) we have gathered the
 
 We observe quite acceptable results for the investigated model, for both methods applied. 
 
-\subsubsection*{Second-order model - results:}
+\subsubsection*{Second-order model -- results:}
 
 In Figures: (\ref{fig:quadgk_qp2}) and (\ref{fig:hilb_qp2}) we have ga\-thered the results ob\-tained with the MATLAB quadgk() and hilbert() func\-tions based Hil\-bert transforms for the se\-cond\--order quan\-tum\--per\-tur\-bative model taken with the same para\-meters as in Chapter (\ref{chap:nc_nlo}).
 
@@ -3284,6 +3254,7 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	end
 \end{lstlisting}
 \subsection*{Appendix A.2 - HNCX}
+
 \begin{lstlisting}
 	function [H, F] = hncX(fun, a, b, tol, n, cs, pts, wrn, inh)
     %% Description:
@@ -3448,41 +3419,54 @@ More info: http://www.organometallics.pwr.wroc.pl/
 \end{lstlisting}
 \subsection*{Appendix A.3 - HTRANCC}
 \begin{lstlisting}
-  function H = htrancc(fun, X, tol, inh)
+  function H = htrancc(fun, Xinterval, tol, inh)
     %% Description:
     % Hilbert transform based on the Clenshaw-Curtis quadrature modified
     % to work on infinite integral which is used in the Hilbert transform formula
-        
+
+    %% Based on:
+    % [1] T. Hasegawa and T. Torii. An automatic quadrature for Cauchy principal value integrals. 
+    % Mathematics of Computation, 56:741-754, April 1991.
+      
     %% INPUT:
-    % fun - an function_handle                          (function-handle) 
-    % X   - interval of abscissas to operate with       (abscissas)
-    % tol - deserved tolerance                          (scalar)
-    % inh - inner waitbar                               (waitbar-handle)
+    % fun       - an function_handle                    (function-handle) 
+    % Xinterval - interval of abscissas to operate with (abscissas)
+    % tol       - deserved tolerance                    (scalar)
+    % inh       - inner waitbar                         (waitbar-handle)
      
     %% OUTPUT:
-    % H  - the Hilbert transform on the desired interval (ordinates)
+    % H - the Hilbert transform on the desired interval (ordinates)
 
     %% The algorithm:
 
+  
     % We set the default tolerance if not given:
     if nargin<3, tol=10^(-3); end;
-    if nargin<4, h = waitbar(0, 'Please wait', 'Name', ...
-       'Hilbert Transform with Clenshaw-Curtis'); 
-      else h = inh; end;
+    if nargin<4, h = waitbar(0, 'Please wait', 'Name', 'Hilbert Transform with Clenshaw-Curtis'); else h = inh; end;
 
-    a = min(X); b = max(X); NX = length(X); T = abs(b - a);
+    a = min(Xinterval); b = max(Xinterval); 
+    NX = length(Xinterval); T = abs(b - a);
     A = a - 2 * T; B = b + 2 * T;
-    Hh = zeros(1, NX); Y = linspace(a, b, NX);
+    Hh = zeros(1, NX); X = linspace(a, b, NX);
 
     % Cubic interpolation rutine (N->N-1 points):
-    Yp(1)         =   0.375*Y(1)           +   0.75*Y(2)           -  0.125*Y(3);
-    Yp(1, NX-1)   = - 0.125*Y(1, NX-2)     +   0.75*Y(1, NX-1)     +  0.375*Y(1, NX);
-    Yp(1, 2:NX-2) = - 0.0625*Y(1, 1:(NX-3)) + 0.5625*Y(1, 2:(NX-2)) ...
-                    + 0.5625*Y(1, 3:(NX-1)) - 0.0625*Y(1, 4:NX);
+    Xp(1)         =   0.375*X(1)           +   0.75*X(2)           -  0.125*X(3);
+    Xp(1, NX-1)   =  -0.125*X(1, NX-2)     +   0.75*X(1, NX-1)     +  0.375*X(1, NX);
+    Xp(1, 2:NX-2) = -0.0625*X(1, 1:(NX-3)) + 0.5625*X(1, 2:(NX-2)) + 0.5625*X(1, 3:(NX-1)) - 0.0625*X(1, 4:NX);
+
+    % Precalculation of ccFun
+    Period = B - A;
+    Center = (B + A) / 2;
+    ccFun = @(t) (fun(t .* Period ./2 + Center));
+
+    % Preparation of constant values
+    AKN = precalculateAKN(ccFun);         %see eq. (1.7) from [1]
+    DCK = precalculateDCK(AKN, Xp, A, B); %see eq. (1.11) from [1]
 
     % Main application loop with the waitbar:
     for n = 1:1:NX-1
-        Hh(n) = hcc(fun, Yp(n), tol, A, B); 
+        dck = squeeze(DCK(n, :, :));
+        Hh(n) = hcc(ccFun, Xp(n), tol, A, B, dck); 
         waitbar(n/(NX-1), h, 'Please wait');
     end;
     if nargin<4, close(h); end;
@@ -3491,58 +3475,216 @@ More info: http://www.organometallics.pwr.wroc.pl/
     H = zeros(1,NX);
     H(1)        =  1.875 *Hh(1)        - 1.25  *Hh(2)        + 0.375 *Hh(3);
     H(1,2)      =  0.375 *Hh(1)        + 0.75  *Hh(2)        - 0.125 *Hh(3);
-    H(1,3:NX-2) = - 0.0625*Hh(1,1:NX-4) + 0.5625*Hh(1,2:NX-3) + 0.5625*Hh(1,3:NX-2) ...
-                  - 0.0625*Hh(1,4:NX-1);
+    H(1,3:NX-2) = -0.0625*Hh(1,1:NX-4) + 0.5625*Hh(1,2:NX-3) + 0.5625*Hh(1,3:NX-2) - 0.0625*Hh(1,4:NX-1);
     H(1,NX-1)   = -0.125 *Hh(1,NX-3)   + 0.75  *Hh(1,NX-2)   + 0.375 *Hh(1,NX-1);
     H(1,NX)     =  0.375 *Hh(1,NX-3)   - 1.25  *Hh(1,NX-2)   + 1.875 *Hh(1,NX-1);
 
-  end
-	
-  function h = hcc(fun, y, tol, a, b)
+    end
+
+
+  function h = hcc(ccFun, c, tol, a, b, dck)
     %% Hilbert transform using the Clenshaw-Curtis quadrature
 
     %% INPUT:
-    % fun - an function_handle                         (function-handle) 
-    % y   - abscissa to operate with                   (scalar)
-    % tol - deserved tolerance                         (scalar)
-    % a - investigated range minimum                   (scalar)
-    % b - investigated range minimum                   (scalar)
+    % ccFun - an function_handle                       (function-handle) 
+    % c     - abscissa to operate with                 (scalar)
+    % tol   - deserved tolerance                       (scalar)
+    % a     - investigated range minimum               (scalar)
+    % b     - investigated range minimum               (scalar)
+    % dck   - precalculated 2d matrix of DCK(n) params (2d matrix)    
 
     %% OUTPUT:
     % h  - the Hilbert transform in the desired point  (scalar)
 
     % We will split the indefinite integral into three main parts:
-    % hcc = int(fun(x)/(x-y), x = -inf..a) ...
-    %     + int(fun(x)/(x-y), x = a..b) ...
-    %     + int(fun(x)/(x-y), x = b..inf)
+    % hcc = int(ccFun(x)/(x-c), x = -inf..a) ...
+    %     + int(ccFun(x)/(x-c), x = a..b) ...
+    %     + int(ccFun(x)/(x-c), x = b..inf)
     % Due to small values ouf of the [a,b] range, we will skip left and
     % right summand.
 
     % Central integral
-    h = hccside2side(fun, y, tol, a, b);
+    h = hccside2side(ccFun, c, tol, a, b, dck);
 
-    % Left integral
+    % Left integral - for now we assume 0
     leftIntVal  = 0;
 
-    % Right integral
+    % Right integral - for now we assume 0
     rightIntVal = 0;
 
     % Final summation
     h = leftIntVal + h + rightIntVal;
   end
-	
-  function h = hccside2side(fun, y, tol, a, b)
-    %% Hilbert transform using the Clenshaw-Curtis quadrature for a
-    %% definite interval
+
+
+
+  function h = hccside2side(ccFun, c, tol, a, b, dck)
+    %% Description:
+    % Hilbert transform using the Clenshaw-Curtis quadrature for a
+    % definite interval
+
+    %% INPUT:
+    % ccFun - an function_handle                       (function-handle) 
+    % c     - abscissa to operate with                 (scalar)
+    % tol   - deserved tolerance                       (scalar)
+    % a     - investigated range minimum               (scalar)
+    % b     - investigated range minimum               (scalar)
+    % dck   - precalculated 2d matrix of DCK(n) params (2d matrix)    
+
+    %% OUTPUT:
+    % h  - the Hilbert transform in the desired point  (scalar)
+
+    % calculation of cx (based on a, b and c)
     Period = b - a;
-    Center = (b+a)/2;
-    d = (y - Center ) .* 2 ./ Period;
+    Center = (b + a) / 2;
+    cx = (c - Center ) .* 2 ./ Period;
 
-    ccFun = @(t) (fun(t .* Period./2 + Center));
+    % main calculation
+    h = 1 / pi * newdocc(@(t) ccFun(t), cx, tol, dck);
+  end
 
-    h = 1 / pi * newdocc(@(t) ccFun(t), d, tol);
+  function val = newdocc(ccFun, cx, tol, dck)
+    %% Description: 
+    % Clenshaw-Curtis quadrature to calculate cauchy-principal value
+    % integral of the form int(ccFun(t)/(t-cx),-1,1);
+    
+    %% INPUT:
+    % ccFun - input function, scaled to [-1, 1] (function-handle)
+    % cx    - point within the denominator      (scalar)
+    % dck   - precalculated mx of cc params     (2d matrix)
+    % tol   - required tolerance                (scalar) [default: 10^(-3)]
+    
+    %% OUTPUT:
+    % val  -  integral value (scalar)
+  
+    %% The algorithm:
+    
+    if nargin < 4, tol = 10^(-3); end;
+    if (abs(cx) >= 1), error('newdocc:argChk', ['Second argument must be from range (-1,1), but given: ', num2str(cx)]); end; 
+     
+    N = 8;
+    lastVal = dosinglecc(ccFun, cx, N/2, dck);
+    maxIter = getHtranccMaxIter;
+    while (N < 2 ^ maxIter)
+        val = dosinglecc(ccFun, cx, N, dck); 
+        N = N .* 2;
+        if( abs((val - lastVal) / max(abs([tol, val, lastVal]))) < tol), break; end;
+        lastVal = val;
+    end
+  end
+    
+  function val = dosinglecc(ccFun, cx, N, dck)
+    l = log2(N);                                      % current iteration count, see eq. (1.12) from [1]
+    d = squeeze(dck(1:N, l))';                        % get d_k coefficients, see eq. (1.11) from [1]
+    
+    ks = 0:1:N/2-1; 
+    kd = 1 ./ (1 - 4 .* ks .^ 2);                     % denominator in summand value
+    ds = d(2 .* ks + 1) .* kd;                        % calculation of d coefficients
+    sum1 = sum([0.5, ones(1,N/2-1)] .* ds);           % sumation
+    val = 2 .* sum1 + ccFun(cx) .* log((1-cx)/(1+cx));  % general computation, see eq. (1.10) from [1]
+  end
+
+  function AKN = precalculateAKN(ccFun) % modification of (2.1) equation from [1] to 2d matrix style
+    %% Description:
+    % Precalculation of AKN params as described in eq. (2.1) from [1]
+
+    %% INPUT:
+    % ccFun - an function_handle   (function-handle) 
+
+    %% OUTPUT:
+    % AKN  - desired matrix        (2d matrix)
+
+    % prealocation of memory
+    maxIter = getHtranccMaxIter;
+    AKN = zeros(2 ^ maxIter + 1, maxIter);
+
+    % main loop
+    for n=1:maxIter
+      N = 2 ^ n;
+      akn = precalculateAN(ccFun, N);
+      AKN(1:N+1, n) = akn';
+    end;
+  end
+
+
+
+  function DCK = precalculateDCK(AKN, Xp, a, b) % modification of (1.11) recursive equation from [1] to 3d matrix style
+    %% Description:
+    % Precalculation of DCK params as described in eq. (1.11) from [1] 
+
+    %% INPUT:
+    % AKN   - 2d matrix of AKN coefficients            (2d matrix) [see 1.7 equation from [1]]
+    % Xp    - investigated vector of abcissas          (1d vector)
+    % a     - investigated range minimum               (scalar)
+    % b     - investigated range minimum               (scalar)
+
+    %% OUTPUT:
+    % DCK  - desired matrix                            (3d matrix)
+
+    % prealocation of memory
+    maxIter = getHtranccMaxIter;
+    DCK = zeros(length(Xp), 2 ^ maxIter + 2, maxIter);
+
+    Period = b - a;
+    Center = (b + a) / 2;
+    Cp = ((Xp - Center ) .* 2 ./ Period)';
+
+    % main loop
+    for n=1:maxIter
+      N = 2 ^ n;
+      a = AKN(1:N+1, n)';
+      dck = precalculateDCKN(a, Cp, N);
+      DCK(1:length(Cp), 1:N+2, n) = dck;
+    end;
+  end
+
+  function a = precalculateAN(ccFun, N) % modification of (2.1) equation from [1] to vector-style
+    %% Description:
+    % Precalculation of AKN params as described in eq. (2.1) from [1]
+
+
+    %% INPUT:
+    % ccFun - an function_handle        (function-handle) 
+    % N     - abscissa to operate with  (scalar)
+
+    %% OUTPUT:
+    % a  - desired vector               (1d vector)
+
+    jN  = 0:1:N;                                                         % N+1 points for the last point
+    jN1 = 0:1:N-1;                                                       % N points (the last point will be calculated separately)
+    args = cos(pi .* jN1 ./ N);                                          % precalculation of arguments
+    vals = [0.5, ones(1, N-1), zeros(1,N)] .* [ccFun(args), zeros(1,N)]; % double prime - first&last element is halved and N additional zeros are added
+    ap = 2 / N .* real(fft(vals));                                       % DCT-I done with fft
+    al = 1 / N .* ccFun(-1) .* cos(pi .* jN);                            % FFT has not calculated the last summand
+    a = ap(1:N) + al(1:N);                                               % first N values are calculated
+    % Last a value:
+    argsN = cos(pi .* jN ./ N);                                          % N + 1 range of arguments
+    valsN = [0.5, ones(1, N-1), 0.5] .* ccFun(argsN) .* cos(pi .* jN);   % N + 1 summands
+    a(N+1) = 2 / N .*  sum(valsN);                                       % N + 1 th value
+  end
+
+  function d = precalculateDCKN(a, Cp, N) % modification of (1.11) recursive equation from [1] to vector-style
+    %% Description:
+    % Precalculation of DCK params as described in eq. (1.11) from [1] 
+
+    %% INPUT:
+    % a  - vector taken from AKN matrix             (1d vector)
+    % Cp - abscissas vector scaled to [-1, 1]       (1d vector)
+    % N  - number of approximation points           (scalar)
+
+    %% OUTPUT:
+    % d  - desired matrix                           (2d matrix)
+
+    l = length(Cp);                                                   % vector length
+    d = zeros(l, N+2);                                                % matrix memory prelocation
+    d(:, N+2) = 0; d(:, N+1) = 0;                                     % last and prelast value zeroes
+    d(:, N) = a(N+1);                                                 % first one is simple
+    for n = N-1:-1:1 
+      d(:, n) = 2 * a(n+1) + 2 * Cp .* d(:, n+1) - d(:, n+2);         % recursive equation solving 
+    end; 
   end
 \end{lstlisting}
+
 \subsection*{Appendix A.4 - HFTHILBERT}
 \begin{lstlisting}
   function HY = frthilbert(Y)
@@ -3663,6 +3805,7 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	
   function res = cas(X), res = cos(X) + sin(X); end
 \end{lstlisting}
+
 \subsection*{Appendix A.5 - HERHTRANS}
 \begin{lstlisting}
   function [YH, YFun] = herhtrans(fun, X, tol, maxN)
@@ -3910,6 +4053,7 @@ More info: http://www.organometallics.pwr.wroc.pl/
 	    
 		  
 \end{lstlisting}
+
 \subsection*{Appendix A.6 - FOURHTRANS}
 \begin{lstlisting}
   function [HY, Y] = fourhtrans(fun, X, m, doccN, inh)
@@ -4134,6 +4278,7 @@ with the following parameters used:
    $\lambda $ & - laser wavelength \\
    $Z$ & - position of sample with respect to the focal position \\
 \end{tabular}
+
 
 We obtain the two-photon absorption coefficient while standard (f.e. least squares) fitting the measured open-aperture $\beta $  plot. This is of course also not the complete truth, because with some advanced models we can obtain other absorptive nonlinearities. In a short description - the multi-photon absorption can be assumed when the closed-aperture peak is suppressed, but unfortunately the absorption saturation has just got the opposite effect. So the z-scan technique gives only the simple information about the nonlinear absorption processes.
 
