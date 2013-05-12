@@ -131,7 +131,7 @@ We also test two out-of-the-box MATLAB-implemented routines \texttt{quadgk} and 
 \emptyline
 
 \section{Practical motivations} \label{chap:practical_motivations}
-Physics and chemistry are two scientific domains strictly connected with mathematics and the numerical analysis. Playing with the experimental results and theoretical models scientists need the tools allowing them to validate or falsify their hypothesis, conclusions and observations~(Figure \ref{fig:practical_nlo}).
+Nonlinear optics is a relatively new and quickly developing branch of science. In order to compete with the best scientific teams from round the world - a typical group of nonlinear scientists should consist of good physicists, chemists, computer scientists and mathematicians. In order to falsify or prove the hyphothesis stated by engineers, there should be a well founded mathematical or numerical tools to be used. The typical scientific workflow in the nonlinear optics has been presented on the Figure (\ref{fig:practical_nlo}). In this Thesis we will try to build a small, but well analysed and discussed numerical tool for further usage.
 
 
 \begin{figure} 
@@ -159,7 +159,7 @@ In this thesis we have prepared and discussed several tools that evaluates the H
 
 The subject of this thesis is not only an academic exercise - in the last twenty years the global interest in photonics, and especially application of light in modern devices for information transfer, storage and processing - including the construction of super-fast all-optical computers - is steadily increasing. Recent years have seen much focus on the science and technology of photonics on nano scale. 
 
-This thesis consists of three important fragments. In the first fragment we have prepared the introduction into the mathematical calculations (Chapter \ref{chap:mathematical_calculations}) and the overview of the theoretical physical models we will be using to check the prepared numerical methods (Chapter \ref{chap:physical_models}). In the second fragment of this thesis we have prepared the short description of each Hilbert transform evaluating methods (Chapters \ref{chap:htran} - \ref{chap:matlab}). In the last fragment we have compared the obtained results (Chapter \ref{chap:comparison}) and drew the final conclusions (Chapter \ref{chap:conclusion}). You can also find the attached source code in the document appendices.
+This thesis consists of three important fragments. In the first fragment we have prepared the introduction into the mathematical calculations (Chapter \ref{chap:mathematical_calculations}) and the overview of the theoretical physical models we will be using to check the prepared numerical methods (Chapter \ref{chap:physical_models}). In the second fragment of this thesis we have prepared the short description of each Hilbert transform evaluating methods (Chapters \ref{chap:htran} - \ref{chap:matlab}). In the last fragment we have compared the obtained results (Chapter \ref{chap:comparison}) and drew the final conclusions (Chapter \ref{chap:conclusion}). You can also find the attached source code in the Appendix A.
 
 The second motivation for this Thesis was to prepare a set of numerical tools for the advanced optical experiment called the Z-Scan experiment, which has been described in the Appendix B.
 
@@ -167,23 +167,23 @@ The second motivation for this Thesis was to prepare a set of numerical tools fo
 
 \subsection{Hilbert transform - introduction}  \label{chap:mathematical_hilbert}
 
-To define the Hilbert transform we will need to firstly define the convolution operator~$\convolution$. In the area of functional analysis in mathematics the convolution is defined as the integral of a product of two functions, but one of them is shifted and reversed~\cite{bracewell_fourier}:
+To define the Hilbert transform, first, we will need to define the convolution operator~$\convolution$~\cite{bracewell_fourier}. If we have two functions $f = f(x)$ and $g = g(x)$, the convolution $f \convolution g $ is defined:
 
 \begin{equation} \label{eh:mth_convolution}
 	(f \convolution g)(x) \stackrel{\mathrm{def}}{=}\  \int_{-\infty }^{\infty } f(\omega) \, g(x - \omega) d\omega .
 \end{equation}
  
-The result of the convolution of two functions $f$ and $g$ is a third function $h$ than can be described as the area overlap. The example has been presented on Figure~(\ref{fig:mathematical_convolution}).
+The result is a third function $h$ than can be described as the area overlap. The example has been presented on Figure~(\ref{fig:mathematical_convolution}).
 
 \begin{figure} 
 	\begin{center}
-		\includegraphics{img/convolution.png}
-		\caption{The example of convolution: the rectangle-like function overlaps another, equal rectangle-like function to create a triangle-like convolution as the result. In fact - the result is the modified trapezoid for the general case. \label{fig:mathematical_convolution}}
+		\includegraphics[width=150mm]{img/nlo1.png}
+		\caption{The example of convolution: the rectangle-like function overlaps another, equal rectangle-like function to create a triangle-like convolution as the result. In fact - the result is the modified trapezoid for the general case. On the picture - the peak of the triangle relates to a situation, where integral of two functions is maximal.  \label{fig:mathematical_convolution}}
 	\end{center}
 \end{figure}  
 
 Now we are ready to define the Hilbert transform. In fact it is a convolution of given function $f(x)$ with the function $h(x) =
-\frac{1}{x \, \pi}$. The Hilbert transform has been presented in the equation~(\ref{eq:mathematical_hilbert})
+\frac{1}{x \, \pi}$:
 
 \begin{equation} \label{eq:mathematical_hilbert}
 	\mathcal{H}[f(x)] \stackrel{\mathrm{def}}{=}
@@ -191,7 +191,7 @@ Now we are ready to define the Hilbert transform. In fact it is a convolution of
 	=\ \frac{1}{\pi} \dashint_{ - \infty }^{\infty } \frac{f(\omega)}{(x - \omega)} \, d\omega . 
 \end{equation}
 
-It is important to stress that the dashed integral: $\dashint$ used in the equation~(\ref{eq:mathematical_hilbert}) means the Cauchy principal value integral. It is the integration method for certain improper integrals like $h(x) =\ \frac{1}{x \, \pi}$. The Cauchy principal value was designed to omit the singularity and it is a less rigorous integration method than the Riemann integral. For the example singular $ h(x) $ it is defined as in the equation (\ref{eq:mathematical_cvp}):
+It is important to stress that the dashed integral: $\dashint$ used in the equation~(\ref{eq:mathematical_hilbert}) means the Cauchy principal value integral. It is the integration method for certain improper integrals like $h(x) =\ \frac{1}{x \, \pi}$. The Cauchy principal value was designed to omit the singularity and it is a less rigorous integration method than the Riemann integral. For the example singular $ h(x) $:
 
 \begin{equation} \label{eq:mathematical_cvp}
 	\dashint_{ - \infty }^{\infty } \frac{f(\omega)}{(x - \omega)} \, d\omega = \lim_{a \to \infty}\,\int_{ - a}^{a }
@@ -237,7 +237,7 @@ We have presented several pairs of functions and their Hilbert transforms in the
  
 In this thesis we will very often use the description of a function in the time or in the frequency domain. The Fourier transform is a mathematical translation tool between those two domains and therefore is has many applications in modern physics and of course in optics.
 
-Let $f : \mathbb{R} \to \mathbb{R} $ be a function of time. We can also call this function a signal. When we will search for the frequency function, also named the frequency spectrum, we can apply the Hilbert transform on the time-domain $ f $ function: $ \mathcal{H}[f(t)] =  \overarc{f}(\omega) $.
+Let $f : \mathbb{R} \to \mathbb{R} $ be a function of time. We can also call this function a signal. When we will search for the frequency function, also named the frequency spectrum, we can apply the Fourier transform on the time-domain $ f $ function: $ \mathcal{F}[f(t)] =  \overarc{f}(\omega) $.
 
 The one-dimensional Fourier transform is defined in the equation~(\ref{eq:mathematical_fourier}):
 
@@ -265,13 +265,20 @@ The sound wave behaves in a similar way to the the light wave. We can investigat
 
 \subsection{Lebesgue and Hardy spaces}
 
-We shall also define the Lebesgue and the Hardy spaces for the next calculations. The Lebesgue space is also called the $L^p$ and is a function space described in the functional analysis. We can now define a function $f : \mathbb{S} \to \mathbb{D}$. The function $f$ belongs to the $L^p$ space if it is measurable and if raised to the $p^{\text{th}}$ power it has a finite integral on $\mathbb{S}$ with the measure $ \mu $. The formal definition has been presented in the equation~(\ref{eg:mathematical_lebesgue}):
+We will now define the Lebesgue space and the Hardy space. The Lebesgue space is denoted as $L^p$ and is a discussed in functional analysis. 
+Let's define a function $f : \mathbb{S} \to \mathbb{D}$:
 
-\begin{equation} \label{eg:mathematical_lebesgue}
-  \|f\|_p \equiv ( \int_{S} |f|^p \, d\mu) ^ {\frac{1}{p}} < \infty .
+\begin{equation} \label{eq:mathematical_first_lebesgue}
+  f \in  L^p(\mathbb{S}, \mu) \Leftarrow \text{$f$ is measurable with measure $ \mu $ and $ f^p $ has a finite integral on $\mathbb{S}$}.
 \end{equation}
 
-Instead of $\mathbb{S}$ we will often use the set of real numbers. The $L^2$ space, also named the set of quadratically integrable functions is commonly used in physics. When we have the frequency domain of a light signal it must belongs to the $L^2$ space. Otherwise its energy would be considered as infinite. The Hardy spaces are a part of research interests in the complex analysis. They can be defined on domains like discs or circles, but they can also be defined for domains like the upper-half plane. We will take a closer look only for the third case.
+The formal definition :
+
+\begin{equation} \label{eg:mathematical_lebesgue}
+  L^p(\mathbb{S}, \mu) = \left\{ f : \mathbb{S} \to \mathbb{D}, \|f\|_p \equiv ( \int_{S} |f|^p \, d\mu) ^ {\frac{1}{p}} < \infty \right\}.
+\end{equation}
+
+Instead of $\mathbb{S}$ we will often use the set of real numbers. The $L^2$ space, also named the set of quadratically integrable functions, is commonly used in physics. When we have the frequency domain of a light signal it must belongs to the $L^2$ space. Otherwise its energy would be considered as infinite. The Hardy spaces are a part of research interests in the complex analysis. They can be defined on domains like discs or circles, but they can also be defined for domains like the upper-half plane. We will take a closer look only for the third case.
 
 The upper-half plane $ \mathbb{H} $ is the set of complex numbers defined as in equation (\ref{eq:mathematical_upperhalfplane}):
 
@@ -295,9 +302,14 @@ The Hardy space $ H^{p} $ defined on the upper-half plane $ \mathbb{H} $ is a cl
 
 The causality is the important hypothesis not only in physics, but also in philosophy and statistics. Causality in physics links the cause with its effect. The first and easy example can be a force acting on a mass. The mass starts to accelerate because of the applied force. Therefore the force is here the cause and the mass acceleration is the effect.
 
-In the field of optical research - we will be interested in both light and matter properties. When a light signal is passing through a matter, from the time-domain perspective - we can extract the input and the output signals, as presented on Figure (\ref{fig:mathematical_inoutput}). From now on we will consistently use the \textbf{input} definition for the time-domain signal in time period \textbf{before} the interaction with the investigated matter and the \textbf{output} definition for the the time-domain signal \textbf{after} the interaction with matter.
+In the field of optical research - we will be interested in both light and matter properties. When a light signal is passing through a matter, from the time-domain perspective - we can extract the input and the output signals, as presented on Figure (\ref{fig:mathematical_inoutput}). From now on we will consistently use the 
 
-We must have in our mind, that not only in the field of optics some scientists creates the models which does not obey causality~\cite{mukamel_causal}. But in this thesis we will assume the causality applies to all models being investigated by us.
+\begin{itemize}
+  \item \textbf{input} - the time-domain signal \textbf{before} the interaction with the investigated matter,
+  \item \textbf{output} - the time-domain signal \textbf{after} the interaction with the investigated matter,
+\end{itemize}
+
+Some scientists creates the models which does not obey causality~\cite{mukamel_causal}, but in this thesis we will assume the causality applies to all models being investigated by us.
 
 \begin{figure} 
   \includegraphics[width=150mm]{img/opt_phenom3.png}
@@ -306,7 +318,7 @@ We must have in our mind, that not only in the field of optics some scientists c
 
 \subsection{The Titchmarsh theorem}
 
-The central theorem in this thesis is the Titchmarsh theorem. It links the Fourier transform with the causality principle. We will focus on the output signal $ a(t) : \mathbb{R} \to \mathbb{R} $ and assume that the interaction with matter happens in the $ t = 0 $ time, but the interaction time is negligibly short. As the causal output signal - for time $ t < 0 $ it's value equals zero. Our second assumption will be that the output signal is quadratically integrable. We will also assume that the Fourier transform of the output signal $ \chi(\omega) = \mathcal{F}[a(t)] \, \in H^2 (\mathbb{H}) $ belongs to the Hardy space of the second order in the upper-half plane $ \mathbb{H} $. With such assumptions the Titchmarsh theorem states for the $ \chi $ function that it's real and imaginary values are Hilbert transform of each other.
+The central part of this thesis is the Titchmarsh theorem. It links the Fourier transform with the causality principle. We will focus on the output signal $ a(t) : \mathbb{R} \to \mathbb{R} $ and assume that the interaction with matter happens in the time $ t = 0 $. As the causal output signal - for time $ t < 0 $ it's value equals zero. Our second assumption will be that the output signal is quadratically integrable. We will also assume that the Fourier transform of the output signal $ \chi(\omega) = \mathcal{F}[a(t)] \, \in H^2 (\mathbb{H}) $ belongs to the Hardy space of the second order in the upper-half plane $ \mathbb{H} $. With such assumptions the Titchmarsh theorem states for the $ \chi $ function that it's real and imaginary values are Hilbert transform of each other.
 
 We have prepared the more formal notation of the Titchmarsh theorem in the following equations:
 
@@ -338,10 +350,18 @@ We have prepared the more formal notation of the Titchmarsh theorem in the follo
   \end{equation}
 \end{subequations}
 
-The Titchmarsh theorem states that the conditions from equations~(\ref{eq:mathematical_l2output} with~\ref{eq:mathematical_faoutput}), (\ref{eq:mathematical_ttisfourier} with~\ref{eq:mathematical_tth2fourier}) and~(\ref{eq:mathematical_titchmarsh_real} with \ref{eq:mathematical_titchmarsh_imag}) are mathematically equivalent.
 
-Proof with an exhausting review of both the Fourier and Hilbert transforms was described by Edward Charles Titchmarsh in \cite{titchmarsh_introduction} - the theory is described through all book chapters, but the theorem and its proof has been stated in Chapter (\ref{chap:nc}) about the conjugated integrals also Hilbert transforms.
+The Titchmarsh theorem states that every pair of the following conditions:
 
+\begin{itemize}
+  \item conditions (\ref{eq:mathematical_l2output}) and (\ref{eq:mathematical_faoutput}),
+  \item conditions (\ref{eq:mathematical_ttisfourier}) and (\ref{eq:mathematical_tth2fourier}),
+  \item conditions (\ref{eq:mathematical_titchmarsh_real}) and (\ref{eq:mathematical_titchmarsh_imag}),
+\end{itemize}
+ 
+is mathematically equivalent to any other pair.
+
+Proof with an exhausting review of both the Fourier and Hilbert transforms was described by Edward Charles Titchmarsh in \cite{titchmarsh_introduction} - the theory is described through all book chapters, but the theorem and its proof has been stated in Chapter (5) of the book.
 
 \section{Physical models to be used} \label{chap:physical_models}
 
@@ -355,21 +375,21 @@ The light, also called the electromagnetic radiation, is a form of energy which 
 	E(\lambda) = \frac {h\,c} {\lambda}.
 \end{equation}
 
-When the light interacts with matter the energy transfer occurs. If the light or more precisely the photon is absorbed - the matter increases its energy by the quantum of energy transported by that photon. When the light is emitted, some portion of the matter's energy is converted into a newly generated photon. In the optical research we are interested in both processes - the absorption and the generation of light. We are also interested in the theory behind these two effects - which will help us understand the nature of light in general. The good introduction into the theory of optics can be found in the McGraw-Hill encyclopedia~\cite{mcgraw_encyclopedia}, starting from the~$ 12^{\text{th}} $ volume.
+When the light interacts with matter the energy transfer occurs. If the light or more precisely the photon is absorbed - the matter increases its energy by the quantum of energy transported by that photon. When the light is emitted, some portion of the matter's energy is converted into a newly generated photon. In the optical research we are interested in both processes, the absorption and the generation of light. We are also interested in the theory behind these two effects - which will help us understand the nature of light in general. The good introduction into the theory of optics can be found in the McGraw-Hill encyclopedia~\cite{mcgraw_encyclopedia}, starting from the~$ 12^{\text{th}} $ volume.
 
-Optics is divided in the main two areas - the linear and the nonlinear optics. To distinguish linear from the nonlinear phenomena, we need to remind the superposition. The superposition principle is applied to the linear system and its states the system fulfill the additivity (\ref{eq:physical_additivity}) and the homogeneity (\ref{eq:physical_homogeneity}) properties. The additivity is a term taken from algebra and it describes the function~$ f : \mathbb{X} \to \mathbb{Y}$ that preserves the addition operation:
+Optics is divided in the two main areas -- the linear and the nonlinear optics. Only the linear phenomena don't infringe the superposition principle. The superposition principle states the system fulfill the additivity (\ref{eq:physical_additivity}) and the homogeneity (\ref{eq:physical_homogeneity}) properties. The additivity describes a property of a function~$ f : \mathbb{X} \to \mathbb{Y}$, which preserves the addition operation:
 
 \begin{equation} \label{eq:physical_additivity}
   \forall x, y \in X : f(x + y) = f(x) + f(y) .
 \end{equation}
 
-The homogeneity is an algebraic property of a function $f$: if the argument $x \in \mathbb{X} $ of a function $f : \mathbb{X} \to \mathbb{Y} $ is multiplied by a scalar $ \alpha $ the result is also multiplied by this scalar. More precisely:
+The homogeneity describes that argument and the result of a function can be multiplied by a scalarL:
 
 \begin{equation} \label{eq:physical_homogeneity}
   \forall \alpha \in \mathbb{R} \, \text{ and } \, \forall x \in \mathbb{X} : f(\alpha \, x) = \alpha \, f(x) .
 \end{equation}
 
-In the linear optics we state that the system satisfies the superposition principle. ``The system'' here is the investigated setup of light and matter. From the microscopic point of view it means - the more often photons transfers energy to and from the mass, the more the same effects take place and the only difference is the amount of energy being transferred in the set period of time. When the systems starts to ``saturate'', photons cannot be processed in the same way and some new optical phenomena take place.
+So when a optical system start to behave nonlinear? It happens when photons transfers energy to and from the mass much more often and the system starts to ``saturate'', so photons cannot be processed in the same way and some new optical phenomena take place.
 
 \subsection{The response of a system} \label{chap:physical_systemresponse}
 
@@ -379,7 +399,7 @@ To better understand the relation between the light~\textbf{input} and~\textbf{o
   y(t) = x(t) \convolution h(t) \stackrel{\mathrm{def}}{=} \int_{ - \infty}^{ \infty} x( t - \tau ) \cdot h(\tau) \, d\tau .
 \end{equation}
 
-This definition gives no new information because we now nothing about the response function $ h(t) $. But from the convolution theorem~\cite{katznelson_introduction} we know that the Fourier transform applied to the convolution of two given functions equals the simple multiplication of two Fourier transforms:
+This definition gives no new information because we know nothing about the response function $ h(t) $. But from the convolution theorem~\cite{katznelson_introduction} we know that the Fourier transform applied to the convolution of two given functions equals the simple multiplication of two Fourier transforms:
 
 \begin{equation} \label{eq:physical_convolution}
   \mathcal{F}(a(x) \convolution \chi(x)) = \mathcal{F}(a(x)) \cdot \mathcal{F}(\chi(x)) .
@@ -402,13 +422,11 @@ The $ n ^ {\text{th}} $ order Volterra operator $ \mathbf{K_n} $ is defined as t
 
 The $ k_n : \mathbb{X}^{n} \rightarrow \mathbb{Y} $ function is called the $ n ^ {\text{th}} $ order Volterra-kernel. 
 
-We notice the output function for the linear case (\ref{eq:physical_response}) is equal to the nonlinear output function assuming that all the Volterra-kernels of orders higher than one are equal to zero. We say the kernel is causal if it equals zero for any negative argument.
-
-From now on we must distinguish the light~\textbf{input}, the light~\textbf{output} and the matter~\textbf{response} functions from each other. The matter~\textbf{response} function for the interaction of the $ n^{\text{th}} $ order is the $ n^{\text{th}} $ order Volterra-kernel.
+We notice the output function for the linear case (\ref{eq:physical_response}) is equal to the nonlinear output function assuming that all the Volterra-kernels of orders higher than one are equal to zero. We say the kernel is causal if it equals zero for any negative argument. The matter~\textbf{response} function for the interaction of the $ n^{\text{th}} $ order is the $ n^{\text{th}} $ order Volterra-kernel.
 
 \subsection{The linear system} \label{chap:physical_linearsystem}
 
-Let imagine an input single pulse-like signal ``shots'' the matter. We expect the matter to response with a short, fading response signal. The $ \Theta (t) : \mathbb{R} \rightarrow \{0, \, 1 \} $ function will state the Heaviside function defined as in the equation (\ref{eq:physical_heaviside}):
+Imagine an input single pulse-like signal ``shots'' the matter. We expect the matter to response with a short, fading response signal. The $ \Theta (t) : \mathbb{R} \rightarrow \{0, \, 1 \} $ function will state the Heaviside function defined as in the equation (\ref{eq:physical_heaviside}):
 
 \begin{equation} \label{eq:physical_heaviside}
    \Theta(t)  =  
@@ -421,23 +439,23 @@ Let imagine an input single pulse-like signal ``shots'' the matter. We expect th
 Not getting into the theory of the linear optical response, we can create our first simple response function $ h_{\text{lin}} $ as the fading sinusoidal exponent:
 
 \begin{equation} \label{eq:physical_linear_response}
-  h_{\text{lin}} (t) = 1 - e^{( - t)}\,\mathrm{sin}(20\,t)\,\Theta (t) .
+  h_{\text{lin}} (t) = e^{( - t)}\,\mathrm{sin}(20\,t)\,\Theta (t) .
 \end{equation}
 
-The plot of the equation (\ref{eq:physical_linear_response}) is given on Figure (\ref{fig:physical_linplot}).
+The plot is given on Figure (\ref{fig:physical_linplot}).
 
 \begin{figure}[H]
-  \includegraphics[width=150mm]{img/lin_plot.png}
+  \includegraphics[width=150mm]{img/lin_plot1.png}
   \caption{A typical linear response signal in time domain \label{fig:physical_linplot}}
 \end{figure}
 
 If we would like to know the response signal in the frequency domain, we will apply the Fourier transform on the~$ h_{\text{lin}} $:
 
 \begin{equation} \label{eq:physical_frequency_linear}
-  \mathcal{F}[h_{\text{lin}}] = \chi_{\text{lin}}(\omega) \approx \frac{ -20}{(\omega \,i + 1 -20\,i)\,(\omega \,i + 1 + 20\,i)},
+  \mathcal{F}[h_{\text{lin}}] = \chi_{\text{lin}}(\omega) \approx \frac{ -10 \, \sqrt{\frac{2}{\pi}}}{\omega^2 + 2 \,i \,\omega - 401},
 \end{equation}
 
-In the equation (\ref{eq:physical_frequency_linear}) we have omitted the Dirac delta function that will appear if we calculate the Fourier transform properly. The Dirac delta function can be omitted from the numerical point of view. The calculated $ \chi_{\text{lin}} $ is called the linear optical susceptibility. We are interested in the notation of $ \chi_{\text{lin}} $ as the function of frequency $ \omega $. More theoretical background about the optical susceptibility can be found in Boyd~\cite{boyd_nlo}. 
+The calculated $ \chi_{\text{lin}} $ is called the linear optical susceptibility. We are interested in the function $ \chi_{\text{lin}} = \chi_{\text{lin}}(\omega)$ in frequency domain. More theoretical background about the optical susceptibility can be found in Boyd~\cite{boyd_nlo}. 
 
 As You can see - the time domain linear response signal $ h_{\text{lin}} $ and the corresponding linear optical susceptibility~$ \chi_{\text{lin}} $ pass the assumptions of the Titchmarsh theorem. In the further numerical calculations we will put the~$ \chi_{\text{lin}} $ into tests. 
 
