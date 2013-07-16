@@ -1,3 +1,4 @@
+% !TEX TS-program = pdflatexmk
 \documentclass[12pt,twoside,a4paper]{article} 
 \usepackage{fullpage}
 \usepackage{graphicx}
@@ -8,8 +9,8 @@
 \usepackage{amsthm}
 \usepackage{nccmath}
 \usepackage{amssymb}
+\usepackage[english]{babel} 
 \usepackage{arcs}
-\usepackage[polish,english]{babel} 
 \usepackage{mathabx}
 \usepackage[plmath,MeX]{polski} 
 \usepackage[utf8]{inputenc}
@@ -17,6 +18,7 @@
 \usepackage{mathtools}
 \usepackage{listings}
 \lstset{basicstyle=\tiny, language=Matlab}
+
 
 
 \def\emptyline{\vspace{12pt}}
@@ -99,11 +101,10 @@ Joliot-Curie 15, Poland \\
 
 \subsection*{Reviewer}  \label{chap:abstract_reviewer}
 
-\textbf{Professor Stanisław Lewanowicz} \\
-Numerical Analysis Research Group, Institute of Computer Science \\
-University of Wrocław, PL-50-383 Wrocław \\
-Joliot-Curie 15, Poland \\
-+48-71-375-7813 | E-mail: Stanislaw.Lewanowicz@ii.uni.wroc.pl
+\textbf{Professor Ryszard Szwarc} \\
+Institute of Mathematics, University of Wroclaw \\
+pl. Grunwaldzki 2/4, PL-50-384 Wroclaw, Poland \\
++48-71-375-7429 | Ryszard.Szwarc@math.uni.wroc.pl
 
 \subsection*{Author}  \label{chap:abstract_author}
 
@@ -194,7 +195,7 @@ Now we are ready to define the Hilbert transform. In fact it is a convolution of
 It is important to stress that the dashed integral: $\dashint$ used in the equation~(\ref{eq:mathematical_hilbert}) means the Cauchy principal value integral. It is the integration method for certain improper integrals like $h(x) =\ \frac{1}{x \, \pi}$. The Cauchy principal value was designed to omit the singularity and it is a less rigorous integration method than the Riemann integral. For the example singular $ h(x) $:
 
 \begin{equation} \label{eq:mathematical_cvp}
-	\dashint_{ - \infty }^{\infty } \frac{f(\omega)}{(x - \omega)} \, d\omega = \lim_{a \to \infty}\,\int_{ - a}^{a }
+	\dashint_{ - \infty }^{\infty } \frac{f(\omega)}{(x - \omega)} \, d\omega = \lim_{a \to \infty} \, \lim_{\epsilon \to 0^{+}}\int_{ \epsilon < | x - \omega | < a }
 	\frac{f(\omega)}{(x - \omega)} \, d\omega . 
 \end{equation}
 
@@ -936,15 +937,16 @@ As $\omega  \in [F_1, \,F_N]$  we will now consider two cases - that takes into 
 We shall also notice the symmetry property of the the function $\frac {1}{\Omega - \omega }$ for any $M > 0$:
 
 \begin{equation} \label{eq:htran_forallm}
-    \int_{ -\infty}^{\omega - M}\frac {1}{\Omega - \omega}\,d\Omega 
-  + \int_{\omega + M}^{ \infty }\frac {1}{\Omega - \omega}\,d\Omega = 0
+    \lim_{a \to \infty} \, \left[	
+    \int_{ \omega - a}^{\omega - M}\frac {1}{\Omega - \omega}\,d\Omega 
+  + \int_{\omega + M}^{ \omega + a }\frac {1}{\Omega - \omega}\,d\Omega \right] = 0 
 \end{equation}
 
 Together with the observation (\ref{eq:htran_forallm}) each of two cases from (\ref{eq:htran_twoposibilities}) leads to results obtained in equations (\ref{eq:htran_htres1}) and (\ref{eq:htran_htres2}) respectively:
 
 \begin{subequations} \label{eq:htran_htresults}
   \begin{multline}   \label{eq:htran_htres1}
-    \mathrm{HT}(\omega )= \frac {1}{\pi} 
+    \mathrm{H_T}(\omega )= \frac {1}{\pi} 
     \left[
         \int_{2\,\omega - F_N}^{F_1} - \frac {\mathrm{R}(\omega )}{\Omega - \omega }\,d\Omega 
       + \int_{F_1}^{F_N} \frac {\mathrm{R}(\Omega ) - \mathrm{R}(\omega )}{\Omega - \omega }\,d\Omega 
@@ -956,7 +958,7 @@ Together with the observation (\ref{eq:htran_forallm}) each of two cases from (\
     \right] ,
   \end{multline}
   \begin{multline}   \label{eq:htran_htres2}
-    \mathrm{HT}(\omega ) = \frac {1}{\pi} 
+    \mathrm{H_T}(\omega ) = \frac {1}{\pi} 
     \left[
         \int_{F_1}^{F_N}\frac {\mathrm{R}(\Omega )- \mathrm{R}(\omega)}{\Omega - \omega }\,d\Omega 
       + \int_{F_N}^{2\,\omega - F_1}\frac { - \mathrm{R}(\omega )}{\Omega  - \omega }\,d\Omega
@@ -1555,15 +1557,15 @@ Initially the input function was defined on the interval $[a, b]$. Firstly we wo
 
 
 
-Based on the input interval we construct the $N$-element equispaced array of points named $X$:
+Based on the input interval we construct the $n$-element equispaced array of points named $X$:
 
 \begin{equation}
 	X = \begin{bmatrix}
-			a, a + \frac{b-a}{N-1}, a + \frac{2 \, (b - a)}{N-1}, \ldots, b
+			a, a + \frac{b-a}{n-1}, a + \frac{2 \, (b - a)}{n-1}, \ldots, b
 		\end{bmatrix}.
 \end{equation}
 
-In order to omit division by zero, based on the $X$ array, we create $N-1$ element array named $Xp$ as follows:
+In order to omit division by zero, based on the $X$ array, we create $n-1$ element array named $Xp$ as follows:
 
 \begin{subequations} \label{eq:cci_cubicinterpolation}
   \begin{equation}   \label{eq:ccicinterp_first}
@@ -1573,11 +1575,11 @@ In order to omit division by zero, based on the $X$ array, we create $N-1$ eleme
     Xp_k = \frac { - X_{k - 1} + 9 \, X_k + 9 \, X_{k + 1} - X_{k + 2}}{16}
   \end{equation}
   \begin{equation}   \label{eq:ccicinterp_last}
-    Xp_N = \frac { - X_{N - 2} + 6 \, X_{N - 1} + 3 \, X_N}{8}
+    Xp_n = \frac { - X_{n - 2} + 6 \, X_{n - 1} + 3 \, X_n}{8}
   \end{equation}
 \end{subequations}
 
-We would also like to precalculate the constant values as defined in Equations (\ref{eq:hccformula_rec}) and (\ref{eq:hcc_akn}). We will calculate these values once, and then use them in following calculations. Hereby we use the fact that the values of array $a_N$ do not depend on the point in which there is the singularity, so we can use the same array $a_N$ for the whole input array $X$, which reduced the complexity of the whole Clenshaw-Curtis based Hilbert Transform method from $\BigO{N^2 \, \log{N}}$ to $\BigO{N \, \log{N}}$. 
+We would also like to precalculate the constant values as defined in Equations (\ref{eq:hccformula_rec}) and (\ref{eq:hcc_akn}). We will calculate these values once, and then use them in following calculations. Hereby we use the fact that the values of array $a^N$ do not depend on the point in which there is the singularity, so we can use the same array $a^N$ for the whole input array $X$, which reduced the complexity of the whole Clenshaw-Curtis based Hilbert Transform method from $\BigO{n \, N^2 }$ to $\BigO{n \, N \, \log{N}}$. 
 
 To calculate the total algorithms complexity, we must remember about the tolerance-related stop condition. For every input array point we perform a loop that tries to minimize the error. Let's denote the value of the $k^{th}$ iteration by $v_k$, and the value of $(k+1)^{th}$ iteration by $v_{k+1}$. Iteration stops, if:
 
@@ -1585,22 +1587,22 @@ To calculate the total algorithms complexity, we must remember about the toleran
   \frac{|v_{k+1} - v_k|} {\max\left(|t_{ol}|, |v_{k+1}|, |v_k| \right)} < t_{ol} .
 \end{equation}
 
-With a little simplification, we will assume the total algorithm's complexity equals $\BigO{\frac{N^2 \, \log{N}}{t_{ol}} }$. 
+With a little simplification, we will assume the total algorithm's complexity equals $\BigO{\frac{n \, N \, \log{N}}{t_{ol}} }$. 
 
 As the central part, we calculate the $N-1$ values for each on of inner points: 
 
 \begin{equation} \label{eq:cci_newd}
-	c_k = \frac{2 \, (Xp_k - C ) }{P}, \quad \text{ for } \quad k = 1, \ldots, \ N-1
+	c_k = \frac{2 \, (Xp_k - C ) }{P}, \quad \text{ for } \quad k = 1, \ldots, \ n-1
 \end{equation}
 
 \begin{equation} \label{eq:cci_approx}
   Hh_k \approx \frac{1}{\pi} \dashint_{A}^{B} \frac{f_{cc}(x)}{x - c_k} d \, x, \quad \text{ for } \quad k = 1,
-  \ldots , \ N-1
+  \ldots , \ n-1
 \end{equation}
 
 The Equation (\ref{eq:cci_approx}) is calculated as described in Equation (\ref{eq:hccformula_sum}).
 
-As we received the $N-1$ element array, we should now proceed with the reverse cubic interpolation for $Hh$, so we receive final result $H$.
+As we received the $n-1$ element array, we should now proceed with the reverse cubic interpolation for $Hh$, so we receive final result $H$.
 
 \begin{subequations} \label{eq:cci_revcubicinterp}
   \begin{equation}   \label{eq:ccircinterp_first}
@@ -1613,14 +1615,14 @@ As we received the $N-1$ element array, we should now proceed with the reverse c
     H_k = \frac { - Hh_{k - 1} + 9 \, Hh_k + 9 \, Hh_{k + 1} - Hh_{k + 2}}{16}
   \end{equation}
   \begin{equation}   \label{eq:ccircinterp_prelast}
-    H_{N - 1} = \frac { - Hh_{N - 3} + 6 \, Hh_2 - Hh_{3}}{8}
+    H_{n - 1} = \frac { - Hh_{n - 3} + 6 \, Hh_2 - Hh_{3}}{8}
   \end{equation}
   \begin{equation}   \label{eq:ccircinterp_last}
-    H_N =\frac {3 \, Hh_{N - 3} - 10 \, Hh_{N - 2} + 15 \, Hh_{N - 1}}{8}
+    H_n =\frac {3 \, Hh_{n - 3} - 10 \, Hh_{n - 2} + 15 \, Hh_{n - 1}}{8}
   \end{equation}
 \end{subequations}
 
-Our result is the $H$ array, which is the $N$-length Hilbert transform for given function values at $X$ abscissas.
+Our result is the $H$ array, which is the $n$-length Hilbert transform for given function values at $X$ abscissas.
 
 \emptyline
 
@@ -1934,8 +1936,8 @@ Taking into account the initial definition of the discrete Hartley transform (\r
 \begin{multline}  \label{eq:hartley_longdht}
 	R_{X_k} =  
  			\sum_{n = 0}^{\lfloor \frac{N}{2} - 1 \rfloor } \left[ 2 \, n  \, x \,  \left(
- 				\mathrm{cos} \left( \frac {2 \, \pi \, k \, (2 \, n) }{N} \right) \right)
-  	  	  	  + \mathrm{sin} \left( \frac {2 \, \pi \, k \, (2 \, n) }{N} \right) \right]
+ 				\mathrm{cos} \left( \frac {2 \, \pi \, k \, (2 \, n) }{N} \right) 
+  	  	  	  + \mathrm{sin} \left( \frac {2 \, \pi \, k \, (2 \, n) }{N} \right) \right) \right]
 \\ + \, \sum_{n = 0}^{\lfloor \frac{N}{2} - 1 \rfloor } \left[ (2 \, n + 1) \, x \,  \left(
  				\mathrm{cos} \left( \frac {2 \, \pi \, k \, (2 \, n + 1)}{N} \right) 
  	  	      + \mathrm{sin} \left( \frac {2 \, \pi \, k \, (2 \, n + 1)}{N} \right) \right) \right]
@@ -3029,8 +3031,8 @@ Great honours should be also given for the research staff of the University of W
 \begin{tabular}{l l}
     Paweł Keller, PhD              & for supervising me through the hard area \\
                                    & of quadratures with singularities \\ 
-    Professor Stanisław Lewanowicz & for the review of this work, useful comments \\
-    							   & and inspiration to think outside the cubicle \\
+    Professor Stanisław Lewanowicz & for useful comments and inspiration \\ & to think outside the cubicle \\
+    Professor Ryszard Szwarc & for review of this work and many comments \\							   
     Grzegorz Karch, Phd            & for introducing me into the world of advanced \\
                                    & differential and integral calculus \\
 \end{tabular}
